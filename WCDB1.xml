@@ -1,4 +1,4 @@
-<?xml version="1.0" ?>
+<?xml version="1.0" encoding="ISO-8859-1" ?>
 
 <!-- World crises XML database -->
 <!-- Team: CrisCS -->
@@ -7,6 +7,154 @@
 
 <WorldCrises>
 
+    <Crisis ID="CRI_NRINFL" Name="2013 Northern India Floods">
+        <People>
+            <Person ID="PER_MNSNGH" />
+        </People>
+        <Organizations>
+            <Org ID="ORG_PMRLFD" />
+        </Organizations>
+        <Kind>Natural Disaster</Kind>
+        <Date>2013-06-14</Date>
+        <Time>09:00:00+05:30</Time>
+        <Locations>
+            <li>Uttarakhand, India</li>
+            <li>Himachal Pradesh, India</li>
+            <li>Nepal</li>
+        </Locations>
+        <HumanImpact>
+            <li>More than 1000 dead.</li>
+            <li>Over 70000 stranded.</li>
+            <li>Over 100000 more evacuated.</li>
+        </HumanImpact>
+        <EconomicImpact>
+            <li>Ongoing large-scale crisis, impact has not been evaluated as of July 5th 2013.</li>
+            <li>Estimates over 500 Billion INR (10 Billion USD)</li>
+        </EconomicImpact>
+        <ResourcesNeeded>
+            <li>Prime Minister of India undertook an aerial survey of the affected areas and announced 1,000 crore (US$170 million) aid package for disaster relief efforts in the state.</li>
+            <li>The Indian Army and the National Disaster Response Force were deployed to evacuate stranded people on June 15th 2013.</li>
+            <li>The Indian Airforce has flown hundreds of sorties every day to airdrop food and fuel for trapped villages.</li>
+        </ResourcesNeeded>
+        <WaysToHelp>
+            <li href="https://pmnrf.gov.in/">Donate to Prime Minister's Relief Fund</li>
+            <li href="http://google.org/personfinder/2013-uttrakhand-floods/">Google Person Finder</li>
+            <li href="http://indialookup.in/uttarakhand-helpline-numbers/">List of Helpline Numbers</li>
+        </WaysToHelp>
+        <Common>
+            <Citations>
+                <li href="http://pib.nic.in/newsite/erelease.aspx?relid=96637">Govt. of India Press Release 1</li>
+                <li href="http://pib.nic.in/newsite/erelease.aspx?relid=96702">Govt. of India Press Release 2</li>
+            </Citations>
+            <ExternalLinks>
+                <li href="http://uttarakhandfloodrelief.org/">Uttarakhand Flood Relief Network</li>
+                <li href="http://en.wikipedia.org/wiki/2013_North_India_floods">Wikipedia</li>
+            </ExternalLinks>
+            
+            <Images>
+                <li embed="http://images.jagran.com/ukhand-ss-02-07-13.jpg" />
+                <li embed="http://timesofindia.indiatimes.com/photo/15357310.cms" />
+                <li embed="http://static.indianexpress.com/m-images/Sat%20Jun%2022%202013,%2019:34%20hrs/M_Id_395757_uttarakhand_floods.jpg" />
+                <li embed="http://news.oneindia.in/img/2013/06/26-army-soldiers-carry-an-injured-rescued-pilgrim.jpg" />
+                <li embed="http://d2yhexj5rb8c94.cloudfront.net/sites/default/files/styles/article_node_view/public/Uttarakhand%20Floods%20rescue_0_0_0_0_0_0_0_0_0_0.jpg" />
+                <li embed="http://static.ibnlive.in.com/ibnlive/pix/sitepix/06_2013/uttarakhand_floods_rains.jpg" />
+                <li embed="http://static.dnaindia.com/images/cache/1851113.jpg" />
+                <li embed="http://www.orissapost.com/wp-content/uploads/2013/07/Uttarakhand-floods.jpg" />
+            </Images>
+            <Videos>
+                <li embed="//www.youtube.com/embed/qV3s7Sa6B6w" />
+                <li embed="//www.youtube.com/embed/qYlNC55PXTE" />
+                <li embed="//www.youtube.com/embed/1WQYdj16XU0" />
+                <li embed="//www.youtube.com/embed/92aSXwKvAv0" />
+                <li embed="//www.youtube.com/embed/ZJjMSXhQA5w" />
+            </Videos>
+            <Maps>
+                <li embed="https://www.google.com/maps?sll=30.08236989592049,79.31189246107706&amp;sspn=3.2522150867582833,7.2072687770004205&amp;t=m&amp;q=uttarakhand&amp;dg=opt&amp;ie=UTF8&amp;hq=&amp;hnear=Uttarakhand,+India&amp;ll=30.066753,79.0193&amp;spn=2.77128,5.07019&amp;z=8&amp;output=embed" />
+            </Maps>
+            <Feeds>
+                <li embed="https://twitter.com/search?q=%23uttarakhand%20floods" />
+            </Feeds>
+            <Summary>In June 2013, the North Indian states of Uttarakhand and Himachal Pradesh, some regions of Western Nepal and their adjoining areas experienced heavy rainfall that triggered devastating floods and landslides. As of 29 June 2013, more than 1,000 people have died with many more missing. Damage to bridges and roads left over 70,000 pilgrims and tourists trapped in various places. The Indian Air Force, the Army and paramilitary troops have evacuated more than 100,000 people from the flood hit areas.</Summary>
+        </Common>
+    </Crisis>
+    
+    <Person ID="PER_MNSNGH" Name="Manmohan Singh">
+        <Crises>
+            <Crisis ID="CRI_NRINFL" />
+        </Crises>
+        <Organizations>
+            <Org ID="ORG_PMRLFD" />
+        </Organizations>
+        <Kind>Politician</Kind>
+        <Location>India</Location>
+        <Common>
+            <Citations>
+                <li href="http://www.rediff.com/money/2005/sep/26pm.htm">Manmohan Singh's Economic Reform :Rediff</li>
+                <li href="http://www.reuters.com/article/2009/05/22/india-election-pm-idUSDEL00004820090522">India PM Singh takes oath for second term :Reuters</li>
+            </Citations>
+            <ExternalLinks>
+                <li href="http://news.bbc.co.uk/2/hi/south_asia/3725357.stm">BBC Profile: Prime Minister of India</li>
+                <li href="http://en.wikipedia.org/wiki/2013_North_India_floods">Prime Minister's Office, India</li>
+            </ExternalLinks>
+            
+            <Images>
+                <li embed="http://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Prime_Minister_Manmohan_Singh_in_WEF_,2009.jpg/220px-Prime_Minister_Manmohan_Singh_in_WEF_,2009.jpg" />
+                <li embed="http://www.dnd.com.pk/wp-content/uploads/2013/05/Prime-Minister-Manmohan-Singh.jpg" />
+                <li embed="http://www.darpanmagazine.com/wp-content/uploads/2011/11/barack-obama_16.jpg" />
+                <li embed="http://www.livemint.com/rf/Image-621x414/LiveMint/Period1/2013/03/29/Photos/jinping_singh--621x414.jpg" />
+                <li embed="http://kaw.stb.s-msn.com/i/CE/A2B72AD930BB988F2DE214D739FD6.jpg" />
+                <li embed="http://static.ibnlive.in.com/ibnlive/pix/sitepix/09_2012/manmohan_singh_fdi_pti.jpg" />
+            </Images>
+            <Videos>
+                <li embed="//www.youtube.com/embed/-xEWkHehqdg" />
+                <li embed="//www.youtube.com/embed/DiFftNWRu6g" />
+                <li embed="//www.youtube.com/embed/TBrbnaSfDDo" />
+            </Videos>
+            <Feeds>
+                <li embed="https://twitter.com/search?q=%23manmohan%20singh" />
+            </Feeds>
+            <Summary>Manmohan Singh (born 26 September 1932) is the 13th and current Prime Minister of India. Singh holds a doctorate in economics from Oxford university, and has served as an advisor to the Ministry of Foreign Trade, India (1966-69), Governer of the Reserve Bank of India (1982-85) and Deputy Chairman of the Planning Commission (1985-87), before being appointed the Minister of Finance in the Indian cabinet in 1991. As the Minister of finance, Singh carried out several structural reforms that liberalised India's economy. In 2004, Singh was elected as the Prime Minister of India. His government has since executed several key legislations and projects including the Rural Health Mission, Unique Identification Authority, Rural Employment Guarantee scheme and the Right to Information Act.</Summary>
+        </Common>        
+    </Person>
+    
+    <Organization ID="ORG_PMRLFD" Name="Prime Minister's Relief Fund">
+        <Crises>
+            <Crisis ID="CRI_NRINFL" />
+        </Crises>
+        <People>
+            <Person ID="PER_MNSNGH" />
+        </People>
+        <Kind>Governement Fund</Kind>
+        <Location>India</Location>
+        <History>
+            <li>Founded in 1948 by the then Prime Minister of India, Pt. Jawaharlal Nehru.</li>
+        </History>
+        <ContactInfo>
+            <li>Telephone: 91-11-23012312</li>
+            <li href="http://pmindia.gov.in/feedback.php">Feedback</li>
+        </ContactInfo>
+        <Common>
+            <Citations>
+                <li href="http://www.newstrackindia.com/newsdetails/2013/06/21/44--Affected-people-in-Uttarakhand-need-our-help-says-PM.html">'Affected people in Uttarakhand need our help', says PM</li>
+                <li href="http://www.dnaindia.com/india/1851011/report-uttarakhand-floods-donate-to-help-victims-appeals-prime-minister-manmohan-singh">Uttarakhand floods: Donate to help victims, appeals Prime Minister Manmohan Singh</li>
+            </Citations>
+            <ExternalLinks>
+                <li href="http://pmindia.gov.in/pmfunds.php">PMNRF: Home</li>
+                <li href="http://pmindia.gov.in/relief.php?nodeid=70">PMNRF: Projects under implementation</li>
+            </ExternalLinks>
+            
+            <Images>
+                <li embed="https://fbcdn-sphotos-g-a.akamaihd.net/hphotos-ak-ash3/p480x480/935902_10151563003564215_2143045726_n.png" />
+                <li embed="http://photogallery.indiatimes.com/news/india/rescue-relief-uttarakhand/photo/20713370/Army-men-unload-relief-material-from-an-IAF-MI-26-helicopter-at-Gauchar-district-Chamoli-in-Uttarakhand-.jpg" />
+            </Images>
+            <Videos>
+                <li embed="//www.youtube.com/embed/RwSghlRceeY" />
+            </Videos>
+            <Feeds>
+                <li embed="https://twitter.com/search?q=pmnrf.gov.in" />
+            </Feeds>
+            <Summary>In pursuance of an appeal by the then Prime Minister, Pt. Jawaharlal Nehru in January, 1948, the Prime Minister’s National Relief Fund (PMNRF) was established with public contributions to assist displaced persons from Pakistan. The resources of the PMNRF are now utilized primarily to render immediate relief to families of those killed in natural calamities like floods, cyclones and earthquakes, etc. and to the victims of the major accidents and riots. Assistance from PMNRF is also rendered for medical treatment like heart surgeries, kidney transplantation, cancer treatment, etc. The fund consists entirely of public contributions and does not get any budgetary support. The corpus of the fund is invested with banks in fixed deposits. Disbursements are made with the approval of the Prime Minister.</Summary>
+        </Common>
+    </Organization>
 
 </WorldCrises>
-
