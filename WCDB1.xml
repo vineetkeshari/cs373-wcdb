@@ -77,6 +77,70 @@
             <Summary>In June 2013, the North Indian states of Uttarakhand and Himachal Pradesh, some regions of Western Nepal and their adjoining areas experienced heavy rainfall that triggered devastating floods and landslides. As of 29 June 2013, more than 1,000 people have died with many more missing. Damage to bridges and roads left over 70,000 pilgrims and tourists trapped in various places. The Indian Air Force, the Army and paramilitary troops have evacuated more than 100,000 people from the flood hit areas.</Summary>
         </Common>
     </Crisis>
+
+     <Crisis ID="CRI_AIDS" Name="AIDS">
+        <People>
+            <Person ID="PER_MNSNGH" />
+        </People>
+        <Organizations>
+            <Org ID="ORG_UN" />
+        </Organizations>
+        <Kind>Epidemic</Kind>
+        <Date></Date>
+        <Time></Time>
+        <Locations>
+            <li>Worldwide</li>
+        </Locations>
+        <HumanImpact>
+            <li>22 million dead</li>
+            <li>42 million infected</li>
+        </HumanImpact>
+        <EconomicImpact>
+            <li>UN projects annual costs of 10 billion</li>
+            <li>Drug regimens cost $1,500 in developing countries, up to $15,000 in first-world countries.</li>
+            <li>Those infected are typically in the peak productivity of their lives and the loss on productiviy as the disease progresses causes billions in indirect costs.</li>
+            <li>Heavily infected nations typically enter spirals of declining GDP, causing a drop in health care support. Human capital development typically halts and even regresses as parents are unable to pass on capital to their children.</li>
+        </EconomicImpact>
+        <ResourcesNeeded>
+            <li>Monetary donations to subsidize drug therapy for developing countries and those who cannot afford prescriptions.</li>
+            <li>Those infected in third world countries typically do not know how the disease is transmitted, the HIV/AIDS link, etc. Education on the nature of the disease can reduce transmission rates</li>
+            <li>Programs that educate at-risk populations (sex workers, IV drug users, etc.) on methods to limit transmission, e.g. limiting sexual partners, increasing condom use, and delaying sexual debut.</li>
+            <li>Programs to help families effected by AIDS including care for orphans and income supplementation in an effort to curb human capital loss.</li>
+            <li>Testing kits to make those infected aware of their condition in an effort to limit transmission.</li>
+        </ResourcesNeeded>
+        <WaysToHelp>
+            <li href="http://www.aidforafrica.org/donate/">Donate to an African-focused AIDs organization.</li>
+            <li href="https://donations.unaids.org/form.asp?id=7">Donate to United Nations AIDS relief program.</li>
+        </WaysToHelp>
+        <Common>
+            <Citations>
+                <li href="http://www.un.org/esa/population/publications/AIDSimpact/92_CHAP_IX.pdf">United Nations report on the societal and economic impact of AIDS</li>
+                <li href="http://siteresources.worldbank.org/INTPRH/Resources/Longrun_economic_costs_of_AIDS.pdf">World Bank report on the long-term economic impact of AIDS</li>
+                <li href="http://siteresources.worldbank.org/INTPRH/Resources/Longrun_economic_costs_of_AIDS.pdf">Overview of how AIDS effects Sub-Saharan African nations and preventive measures that are being taken to help.</li>
+                <li href="http://web.worldbank.org/WBSITE/EXTERNAL/COUNTRIES/AFRICAEXT/EXTAFRHEANUTPOP/EXTAFRREGTOPHIVAIDS/0,,contentMDK:21140970~pagePK:34004173~piPK:34003707~theSitePK:717148,00.html">World Bank bullet point list on AIDS worldwide impact.</li>
+                <li href="http://www.npr.org/blogs/health/2012/07/27/157499134/cost-of-treatment-still-a-challenge-for-hiv-patients-in-u-s">Cost of AIDS in America</li>
+                <li href="http://www.who.int/hiv/mediacentre/news62/en/">WHO report on growing AIDS epidemic and ways to limit its expansion</li>        
+            </Citations>
+            <ExternalLinks>
+                <li href="http://www.un.org/millenniumgoals/">UN's Millenium Goals</li>
+                <li href="http://www.avert.org/testing.htm">How AIDS testing works</li>
+            </ExternalLinks>
+            
+            <Images>
+                <li embed="http://images.jagran.com/ukhand-ss-02-07-13.jpg" </li>
+            </Images>
+            <Videos>
+                <li embed="//www.youtube.com/embed/qV3s7Sa6B6w" />
+            </Videos>
+            <Maps>
+                <li embed="https://www.google.com/maps?sll=30.08236989592049,79.31189246107706&amp;sspn=3.2522150867582833,7.2072687770004205&amp;t=m&amp;q=uttarakhand&amp;dg=opt&amp;ie=UTF8&amp;hq=&amp;hnear=Uttarakhand,+India&amp;ll=30.066753,79.0193&amp;spn=2.77128,5.07019&amp;z=8&amp;output=embed" />
+            </Maps>
+            <Feeds>
+                <li embed="https://twitter.com/search?q=%23uttarakhand%20floods" />
+            </Feeds>
+            <Summary></Summary>
+        </Common>
+    </Crisis>
     
     <Person ID="PER_MNSNGH" Name="Manmohan Singh">
         <Crises>
@@ -141,6 +205,72 @@
             <ExternalLinks>
                 <li href="http://pmindia.gov.in/pmfunds.php">PMNRF: Home</li>
                 <li href="http://pmindia.gov.in/relief.php?nodeid=70">PMNRF: Projects under implementation</li>
+            </ExternalLinks>
+            
+            <Images>
+                <li embed="https://fbcdn-sphotos-g-a.akamaihd.net/hphotos-ak-ash3/p480x480/935902_10151563003564215_2143045726_n.png" />
+                <li embed="http://photogallery.indiatimes.com/news/india/rescue-relief-uttarakhand/photo/20713370/Army-men-unload-relief-material-from-an-IAF-MI-26-helicopter-at-Gauchar-district-Chamoli-in-Uttarakhand-.jpg" />
+            </Images>
+            <Videos>
+                <li embed="//www.youtube.com/embed/RwSghlRceeY" />
+            </Videos>
+            <Feeds>
+                <li embed="https://twitter.com/search?q=pmnrf.gov.in" />
+            </Feeds>
+            <Summary>In pursuance of an appeal by the then Prime Minister, Pt. Jawaharlal Nehru in January, 1948, the Prime Minister’s National Relief Fund (PMNRF) was established with public contributions to assist displaced persons from Pakistan. The resources of the PMNRF are now utilized primarily to render immediate relief to families of those killed in natural calamities like floods, cyclones and earthquakes, etc. and to the victims of the major accidents and riots. Assistance from PMNRF is also rendered for medical treatment like heart surgeries, kidney transplantation, cancer treatment, etc. The fund consists entirely of public contributions and does not get any budgetary support. The corpus of the fund is invested with banks in fixed deposits. Disbursements are made with the approval of the Prime Minister.</Summary>
+        </Common>
+    </Organization>
+    <Organization ID="ORG_UN" Name="United Nations">
+        <Crises>
+            <Crisis ID="CRI_AIDS" />
+        </Crises>
+        <People>
+        </People>
+        <Kind>Interational Cooperative</Kind>
+        <Location>Worldwide</Location>
+        <History>
+            <li>Founded in 1945 after World War II.</li>
+        </History>
+        <ContactInfo>
+            <li href="http://www.un.org/en/">Website</li>
+        </ContactInfo>
+        <Common>
+            <Citations>
+            </Citations>
+            <ExternalLinks>
+            </ExternalLinks>
+            
+            <Images>
+                <li embed="https://fbcdn-sphotos-g-a.akamaihd.net/hphotos-ak-ash3/p480x480/935902_10151563003564215_2143045726_n.png" />
+                <li embed="http://photogallery.indiatimes.com/news/india/rescue-relief-uttarakhand/photo/20713370/Army-men-unload-relief-material-from-an-IAF-MI-26-helicopter-at-Gauchar-district-Chamoli-in-Uttarakhand-.jpg" />
+            </Images>
+            <Videos>
+                <li embed="//www.youtube.com/embed/RwSghlRceeY" />
+            </Videos>
+            <Feeds>
+                <li embed="https://twitter.com/search?q=pmnrf.gov.in" />
+            </Feeds>
+            <Summary>In pursuance of an appeal by the then Prime Minister, Pt. Jawaharlal Nehru in January, 1948, the Prime Minister’s National Relief Fund (PMNRF) was established with public contributions to assist displaced persons from Pakistan. The resources of the PMNRF are now utilized primarily to render immediate relief to families of those killed in natural calamities like floods, cyclones and earthquakes, etc. and to the victims of the major accidents and riots. Assistance from PMNRF is also rendered for medical treatment like heart surgeries, kidney transplantation, cancer treatment, etc. The fund consists entirely of public contributions and does not get any budgetary support. The corpus of the fund is invested with banks in fixed deposits. Disbursements are made with the approval of the Prime Minister.</Summary>
+        </Common>
+    </Organization>
+    <Organization ID="ORG_AIDS" Name="United Nations">
+        <Crises>
+            <Crisis ID="CRI_AIDS" />
+        </Crises>
+        <People>
+        </People>
+        <Kind>Interational Cooperative</Kind>
+        <Location>Worldwide</Location>
+        <History>
+            <li>Founded in 1945 after World War II.</li>
+        </History>
+        <ContactInfo>
+            <li href="http://www.un.org/en/">Website</li>
+        </ContactInfo>
+        <Common>
+            <Citations>
+            </Citations>
+            <ExternalLinks>
             </ExternalLinks>
             
             <Images>
