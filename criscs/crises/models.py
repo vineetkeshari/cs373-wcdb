@@ -63,6 +63,7 @@ class ListType (models.Model) :
     ID = models.CharField (max_length=200, primary_key=True)
     element = models.ForeignKey (WCDBElement)
     content_type = models.CharField (max_length=50)
+    num_elements = models.IntegerField ()
 
 class LI (models.Model) :
     """
@@ -72,7 +73,7 @@ class LI (models.Model) :
     content, href, embed, text : These contain the content in the list entry as defined in the XSD.
     """
     ListID = models.ForeignKey (ListType)
-    order = models.IntegerField (null=True)
+    order = models.IntegerField ()
     content = models.TextField (max_length=1000, null=True)
     href = models.TextField (max_length=1000, null=True)
     embed = models.TextField (max_length=1000, null=True)
