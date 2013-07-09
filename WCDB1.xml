@@ -78,6 +78,70 @@
         </Common>
     </Crisis>
 
+    <Crisis ID="CRI_CYNA" Name="Cyclone Nargis">
+        <People>
+            
+        </People>
+        <Organizations>
+          
+        </Organizations>
+        <Kind>Natural Disaster</Kind>
+        <Date>2008-04-27</Date>
+        <Time>09:00:00+05:30</Time>
+        <Locations>
+            <li>Bangladesh</li>
+            <li>Burma</li>
+            <li>India</li>
+            <li>Sri Lanka</li>
+        </Locations>
+        <HumanImpact>
+            <li>More than 138000 dead.</li>
+        </HumanImpact>
+        <EconomicImpact>
+            <li>Damage was estimated at over US$10 billion, which made it the most damaging cyclone ever recorded in this basin.</li>
+        </EconomicImpact>
+        <ResourcesNeeded>
+            <li>The united Kingdom donated 33.5 million USD for the relief effort.</li>
+            <li>Burma made it very difficult to provide aid to the country, claiming foreign personel providing aid would violate their sovereignty.</li>
+            <li>The rice production was affected because of the cyclone and it was necesseary to aid to prevent famine. </li>
+            <li>The UN Human Settlements Programme (UN-HABITAT) reported the extent of the international response to date as less than 7 percent of the actual needs for shelter after 15 months, although emergency shelter relief efforts were well funded.</li>
+        </ResourcesNeeded>
+        <WaysToHelp>
+            <!-- Put text with optional hyperlinks here -->
+            <li href="http://salsa.democracyinaction.org/o/1189/t/5102/campaign.jsp?campaign_KEY=24494">Sign your name to request aid</li>
+        </WaysToHelp>
+        <Common>
+            <Citations>
+                <!-- Put text with optional hyperlinks here -->
+            </Citations>
+            <ExternalLinks>
+                <!-- Put text with compulsory hyperlinks here -->
+                <li href="http://en.wikipedia.org/wiki/Cyclone_Nargis">Wikipedia</li>
+            </ExternalLinks>
+            
+            <!-- hrefs optional in the following depending on how you want them to behave on your site -->
+            <Images>
+                <!-- Put full URLs to images here, display them on your site in your own cool way -->
+                <li embed="http://www.unocha.org/sites/default/files/OCHA_Category/Top_Stories/nargis.jpg" />
+                <li embed="http://www.sampsoniaway.org/wp-content/uploads/2010/06/How-to-Help-Imprisoned-Burmese-Journalist-Zaw-Thet-Htwe.jpg" />
+            </Images>
+            <Videos>
+                <!-- Put youtube link here (pull this URL out of the src="[GET THIS LINK]" attribute in the embed object given by youtube) -->
+                <!-- Embed example for your site: <iframe width="420" height="315" src="[THIS LINK]" frameborder="0" allowfullscreen></iframe> -->
+                <li embed="http://www.youtube.com/embed/E4b8b8YbK9w?feature=player_detailpage" />
+            </Videos>
+            <Maps>
+                <!-- Put google maps link here (pull this URL out of the src="[GET THIS LINK]" attribute in the embed object given by google maps) -->
+                <!-- Embed example for your site: <iframe width="425" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="[THIS LINK]"></iframe> -->
+                <li embed="https://maps.google.com/maps?client=safari&amp;oe=UTF-8&amp;q=burma&amp;ie=UTF8&amp;hq=&amp;hnear=Burma&amp;gl=us&amp;ll=21.913965,95.956223&amp;spn=15.292545,41.44043&amp;t=h&amp;z=5&amp;source=embed" />
+            </Maps>
+            <Feeds>
+                <!-- Put feed URL here and embed on your site in your own cool way-->
+                <li embed="http://newsrss.bbc.co.uk/rss/newsonline_world_edition/in_depth/asia_pacific/2008/burma_cyclone/rss.xml" />
+            </Feeds>
+        </Common>
+    </Crisis>
+
      <Crisis ID="CRI_AIDS" Name="AIDS">
         <People>
             <Person ID="PER_MNSNGH" />
