@@ -57,14 +57,14 @@
     <!-- Required: Name, ID (attributes), People, Orgs (each with ID attributes)-->
     <xsd:complexType name="CrisisType">
         <xsd:sequence>
-            <xsd:element name="People" minOccurs="1" maxOccurs="1">
+            <xsd:element name="People" minOccurs="0" maxOccurs="1">
                 <xsd:complexType>
                     <xsd:sequence>
                         <xsd:element name="Person" type="PersonWithID" minOccurs="1" maxOccurs="unbounded" />
                     </xsd:sequence>
                 </xsd:complexType>
             </xsd:element>
-            <xsd:element name="Organizations" minOccurs="1" maxOccurs="1">
+            <xsd:element name="Organizations" minOccurs="0" maxOccurs="1">
                 <xsd:complexType>
                     <xsd:sequence>
                         <xsd:element name="Org" type="OrgWithID" minOccurs="1" maxOccurs="unbounded" />
@@ -91,14 +91,14 @@
     <!-- Required: Name, ID (attributes), Crises, Orgs (each with ID attributes) -->
     <xsd:complexType name="PersonType">
         <xsd:sequence>
-            <xsd:element name="Crises" minOccurs="1" maxOccurs="1">
+            <xsd:element name="Crises" minOccurs="0" maxOccurs="1">
                 <xsd:complexType>
                     <xsd:sequence>
                         <xsd:element name="Crisis" type="CrisisWithID" minOccurs="1" maxOccurs="unbounded" />
                     </xsd:sequence>
                 </xsd:complexType>
             </xsd:element>
-            <xsd:element name="Organizations" minOccurs="1" maxOccurs="1">
+            <xsd:element name="Organizations" minOccurs="0" maxOccurs="1">
                 <xsd:complexType>
                     <xsd:sequence>
                         <xsd:element name="Org" type="OrgWithID" minOccurs="1" maxOccurs="unbounded" />
@@ -119,14 +119,14 @@
     <!-- Required: Name, ID (attributes), Crises, People (each with ID attributes) -->
     <xsd:complexType name="OrgType">
         <xsd:sequence>
-            <xsd:element name="Crises" minOccurs="1" maxOccurs="1">
+            <xsd:element name="Crises" minOccurs="0" maxOccurs="1">
                 <xsd:complexType>
                     <xsd:sequence>
                         <xsd:element name="Crisis" type="CrisisWithID" minOccurs="1" maxOccurs="unbounded" />
                     </xsd:sequence>
                 </xsd:complexType>
             </xsd:element>
-            <xsd:element name="People" minOccurs="1" maxOccurs="1">
+            <xsd:element name="People" minOccurs="0" maxOccurs="1">
                 <xsd:complexType>
                     <xsd:sequence>
                         <xsd:element name="Person" type="PersonWithID" minOccurs="1" maxOccurs="unbounded" />
