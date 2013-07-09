@@ -2,6 +2,13 @@ from django.db import models
 
 # Create your models here.
 
+class XMLFile (models.Model) :
+    """
+    Store the latest XML file uploaded.
+    """
+    timestamp = models.DateTimeField (auto_now_add=True)
+    xml_file = models.FileField (upload_to='xml/%Y%m%d')
+
 class WCDBElement (models.Model) :
     """
     Base class for crisis, person and organization
