@@ -1,7 +1,34 @@
-from django.http import HttpResponse, HttpResponseNotFound, Http404
+from django.http import HttpResponse, HttpResponseNotFound
+from django.template import Context, loader
 from crises.models import Crisis, Person, Organization, WCDBElement, ListType, LI, R_Crisis_Person, R_Crisis_Org, R_Org_Person
 
 # Create your views here.
+def render (name, data) :
+    template = loader.get_template ('crises/templates/' + name)
+    context = Context (data)
+    return template.render (context)
+
+def wrap_html (html_title, html_content) :
+    return '<html><head>' + html_title + '</head><body>' + html_content + '</body></html>'
+
+def index (request) :
+    members = ['Ambarish Nittala', 'Brandon Fairchild', 'Chris Coney', 'Roberto Weller', 'Rogelio Sanchez', 'Vineet Keshari']
+
+    all_wcdb = WCDBElement.objects.all ()
+    pages = {}
+    pages ['crises'] = []
+    pages ['people'] = []
+    pages ['orgs'] = []
+    for elem in all_wcdb :
+        if elem.ID[:3] == 'CRI' :
+            pages ['crises'].append ({elem.name : elem.ID})
+        if elem.ID[:3] == 'ORG' :
+            pages ['orgs'].append ({elem.name : elem.ID})
+        if elem.ID[:3] == 'PER' :
+            pages ['people'].append ({elem.name : elem.ID})
+
+    return HttpResponse ( render ('index.html', {'members' : members, 'pages' : pages, }))
+
 def base_view (request, view_id) :
     view_type = view_id[:3]
     try :
@@ -13,32 +40,20 @@ def base_view (request, view_id) :
             return person_view (view_id)
         else :
             return HttpResponseNotFound('<h1>Page not found</h1>')
-    except Http404, e :
-        return HttpResponseNotFound('<h1>Page not found</h1>')
-
-def get_title (title, page_type) :
-    return '<title>World Crises Database: ' + page_type + ': ' + title + '</title>'
-
-def get_header (name) :
-    return '<h1>' + name + '</h1>'
-
-def get_top_content (b) :
-    summary = ''
-    if not summary == None :
-        summary = '<p>' + b.summary + '</p>'
-    table = '<table>'
-    if not b.kind == None :
-        table += '<tr><td>Kind</td><td>' + b.kind + '</td></tr>'
-    return (summary, table)
+    except Exception, e :
+        return HttpResponseNotFound('<h1>Page not found</h1>' + '<p>' + e.args[0] + '</p>')
 
 def wcdb_common_view (view_id, page_type) :
     b = WCDBElement.objects.get (pk=view_id)
-    html_title = get_title (b.name, page_type)
-    html_header = get_header (b.name)
+    summary = kind = ''
+    if not summary == None :
+        summary = b.summary
+    if not b.kind == None :
+        kind = b.kind
+    html_title = render ('title.html', {'title' : 'World Crises Database: ' + page_type + ': ' + b.name, } )
+    html_common = render ('common.html', {'name' : b.name, 'summary' : summary, 'kind' : kind})
 
-    (summary, top_table) = get_top_content (b)
-
-    return (html_title, html_header, summary, top_table)
+    return (html_title, html_common)
 
 # This method should return the formatted Citations, External Links, Images, Videos, Maps and Feeds for any WCDBElement
 def get_media (view_id) :
@@ -53,66 +68,23 @@ def get_org_details (view_id) :
     return ''
 
 def crisis_view (view_id) :
-    html_sections = []
-    (html_title, html_header, summary, top_table) = wcdb_common_view (view_id, 'Crisis')
+    (html_title, html_common) = wcdb_common_view (view_id, 'Crisis')
     
     c = Crisis.objects.get (pk=view_id)
+    c_date = c_time = ''
     if not c.date == None :
-        top_table += '<tr><td>Date</td><td>' + str(c.date) + '</td></tr>'
+        c_date = str(c.date)
     if not c.time == None :
-        top_table += '<tr><td>Time</td><td>' + str(c.time) + '</td></tr>'
-    top_table += '</table>'
+        c_time = str(c.time)
+    c_lists = get_crisis_details (view_id)
+    html_crisis_content = render ('crisis.html', {'date' : c_date, 'time' : c_time, 'lists' : c_lists, })
 
-    html_sections.append (html_header + summary + top_table)
-    
-    html_sections.append ( get_crisis_details (view_id) )
+    html_media = get_media (view_id)
 
-    html_sections.append ( get_media (view_id) )
+    html_content = html_common + html_crisis_content + html_media
 
-    final_html = '<html>'
-    for section in html_sections :
-        final_html += section
-    final_html += '</html>'
-    return HttpResponse (final_html)
+    final_html = wrap_html (html_title, html_content)
 
-
-def org_view (view_id) :
-    html_sections = []
-    (html_title, html_header, summary, top_table) = wcdb_common_view (view_id, 'Organization')
-    
-    c = Organization.objects.get (pk=view_id)
-    if not c.location == None :
-        top_table += '<tr><td>Date</td><td>' + c.location + '</td></tr>'
-    top_table += '</table>'
-
-    html_sections.append (html_header + summary + top_table)
-    
-    html_sections.append ( get_org_details (view_id) )
-
-    html_sections.append ( get_media (view_id) )
-
-    final_html = '<html>'
-    for section in html_sections :
-        final_html += section
-    final_html += '</html>'
-    return HttpResponse (final_html)
-
-def person_view (view_id) :
-    html_sections = []
-    (html_title, html_header, summary, top_table) = wcdb_common_view (view_id, 'Person')
-    
-    c = Organization.objects.get (pk=view_id)
-    if not c.location == None :
-        top_table += '<tr><td>Date</td><td>' + c.location + '</td></tr>'
-    top_table += '</table>'
-
-    html_sections.append (html_header + summary + top_table)
-    
-    html_sections.append ( get_media (view_id) )
-
-    final_html = '<html>'
-    for section in html_sections :
-        final_html += section
-    final_html += '</html>'
+    print final_html
     return HttpResponse (final_html)
 
