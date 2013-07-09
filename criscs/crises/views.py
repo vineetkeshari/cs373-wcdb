@@ -46,7 +46,7 @@ def wrap_html (html_title, html_content) :
     return '<html><head>' + html_title + '</head><body>' + html_content + '</body></html>'
 
 def index (request) :
-    members = ['Ambarish Nittala', 'Brandon Fairchild', 'Chris Coney', 'Roberto Weller', 'Rogelio Sanchez', 'Vineet Keshari']
+    members = ['Ambareesha Nittala', 'Brandon Fairchild', 'Chris Coney', 'Roberto Weller', 'Rogelio Sanchez', 'Vineet Keshari']
 
     all_wcdb = WCDBElement.objects.all ()
     pages = {}
