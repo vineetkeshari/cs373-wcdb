@@ -142,6 +142,83 @@
         </Common>
     </Crisis>
     
+     <Crisis ID="CRI_IOTSUN" Name="Indian Ocean Tsunami and Earthquake (2004)">
+        <People>
+            <Person ID="PER_JANEGE" />
+        </People>
+        <Organizations>
+            <Org ID="ORG_UNOCHA" />
+        </Organizations>
+        <Kind>Natural Disaster</Kind>
+        <Date>2004-12-26</Date>
+        <Time>00:58:53+05:30</Time>
+        <Locations>
+            <li>Sumatra, Indonesia</li>
+            <li>Tamil Nadu, India</li>
+            <li> Andhra Pradesh, India</li>
+            <li> Andaman and Nicobar Islands, India</li>
+            <li> Sri Lanka</li>
+            <li> Maldives</li>
+        </Locations>
+        <HumanImpact>
+            <li>A total of 227,898 people died </li>
+            <li>125,000 injured.</li>
+            <li>Around 45,000 missing.</li>
+            <li> Nearly 1.69 million displaced</li>
+        </HumanImpact>
+        <EconomicImpact>
+            <li>Damages worth 5.59 Billion USD</li>
+            <li>Loss of property worth 4.33 Billion USD</li>
+            <li>Total economic impact worth 9.93 billion USD</li>
+        </EconomicImpact>
+        <ResourcesNeeded>
+            <li> A great deal of humanitarian aid was needed because of widespread damage of the infrastructure, shortages of food and water, and economic damage.</li>
+            <li>The main concern of humanitarian and government agencies was to provide sanitation facilities and fresh drinking water to contain the spread of diseases such as cholera, diphtheria, dysentery, typhoid and hepatitis A and B.</li>
+            <li> The World Food Programme provided food aid to more than 1.3 million people affected by the tsunami.</li>
+        </ResourcesNeeded>
+        <WaysToHelp>
+            <li href="https://pmnrf.gov.in/">Donate to the Indian Prime Minister's Relief Fund</li>
+            <li href="http://www.care.org/careswork/emergencies/tsunami/">Donate to CARE</li>
+            <li href="http://www.americares.org/emergency-response/2004-tsunami-floods-southeast-asia-india-sri-lanka.html">Americares, a non-profit emergency health organisation.</li>
+        </WaysToHelp>
+        <Common>
+            <Citations>
+                <li href="http://earthquake.usgs.gov/earthquakes/eqinthenews/2004/us2004slav/">US Geological Survey Release</li>
+                <li href="http://news.bbc.co.uk/onthisday/hi/dates/stories/december/26/newsid_4631000/4631713.stm">BBC Article</li>
+            </Citations>
+            <ExternalLinks>
+                <li href="http://news.nationalgeographic.com/news/2004/12/1227_041226_tsunami.html">National Geographic Article : The Deadliest Tsunami in History ?</li>
+                <li href="http://en.wikipedia.org/wiki/2004_Indian_Ocean_earthquake_and_tsunami">Wikipedia - 2004 Indian Ocean earthquake and tsunami</li>
+            </ExternalLinks>
+            
+            <Images>
+                <li embed="http://upload.wikimedia.org/wikipedia/commons/4/47/2004_Indonesia_Tsunami_Complete.gif" />
+                <li embed="http://upload.wikimedia.org/wikipedia/commons/d/d2/TsunamiAftermathNorthofPhuket_NASA.jpg" />
+                <li embed="http://i.telegraph.co.uk/multimedia/archive/01116/tsunami_1116437i.jpg" />
+                <li embed="http://img.thesun.co.uk/multimedia/archive/01427/SNN23313GA---23_12_1427643a.jpg" />
+            </Images>
+            
+            <Videos>
+                <li embed="//www.youtube.com/watch?v=R-jlyfzGP-o" />
+                <li embed="//www.youtube.com/watch?v=RDOuwMj7Xzo" />
+                <li embed="//www.youtube.com/watch?v=agqy1LncD-I" />
+                <li embed="//www.youtube.com/watch?v=OGkeMvxotzI" />
+                <li embed="//www.youtube.com/watch?v=J3sSkbnCtB0" />
+            </Videos>
+            
+            <Maps>
+                <li embed="https://maps.google.com/maps?q=google+maps+indian+ocean+tsunami&amp;safe=off&amp;hnear=2004+Indian+Ocean+earthquake+and+tsunami&amp;gl=us&amp;t=m&amp;ie=UTF8&amp;hq=&amp;z=8&amp;iwloc=A&amp;output=embed" />
+            </Maps>
+            <Feeds>
+                <li embed="https://twitter.com/search?q=%23boxingday%20%23tsunami&src=typd" />
+            </Feeds>
+            <Summary>The 2004 Indian Ocean earthquake was an undersea megathrust earthquake that occurred at 00:58:53 UTC on Sunday, 26 December 2004, with an epicentre off the west coast of Sumatra, Indonesia. The quake itself is known by the scientific community as the Sumatra earthquake.The resulting tsunami was given various names, including the 2004 Indian Ocean tsunami, South Asian tsunami, Indonesian tsunami, and the Boxing Day tsunami.
+The earthquake was caused when the Indian Plate was subducted by the Burma Plate and triggered a series of devastating tsunamis along the coasts of most landmasses bordering the Indian Ocean, killing over 230,000 people in fourteen countries, and inundating coastal communities with waves up to 30 meters (98 ft) high. It was one of the deadliest natural disasters in recorded history. Indonesia was the hardest-hit country, followed by Sri Lanka,India, and Thailand.
+With a magnitude of Mw 9.1, it is the third largest earthquake ever recorded on a seismograph. The earthquake had the longest duration of faulting ever observed, between 8.3 and 10 minutes. It caused the entire planet to vibrate as much as 1 centimetre (0.4 inches)and triggered other earthquakes as far away as Alaska. Its epicentre was between Simeulue and mainland Indonesia.</Summary>
+        </Common>
+    </Crisis>
+    
+    
     <Person ID="PER_MNSNGH" Name="Manmohan Singh">
         <Crises>
             <Crisis ID="CRI_NRINFL" />
@@ -180,6 +257,45 @@
             <Summary>Manmohan Singh (born 26 September 1932) is the 13th and current Prime Minister of India. Singh holds a doctorate in economics from Oxford university, and has served as an advisor to the Ministry of Foreign Trade, India (1966-69), Governer of the Reserve Bank of India (1982-85) and Deputy Chairman of the Planning Commission (1985-87), before being appointed the Minister of Finance in the Indian cabinet in 1991. As the Minister of finance, Singh carried out several structural reforms that liberalised India's economy. In 2004, Singh was elected as the Prime Minister of India. His government has since executed several key legislations and projects including the Rural Health Mission, Unique Identification Authority, Rural Employment Guarantee scheme and the Right to Information Act.</Summary>
         </Common>        
     </Person>
+    
+       <Person ID="PER_JANEGE" Name="Jan Egeland">
+        <Crises>
+            <Crisis ID="CRI_IOTSUN" />
+        </Crises>
+        <Organizations>
+            <Org ID="ORG_UNOCHA" />
+        </Organizations>
+        <Kind>Politician</Kind>
+        <Location>Norway</Location>
+        <Common>
+            <Citations>
+                <li href="http://www.un.org/news/Press/docs/2003/sga840Rev1.doc.htm">UN Press Release</li>
+                <li href="http://washingtontimes.com/national/20041228-122330-7268r.htm">U.N. official slams U.S. as stingy over aid</li>
+            </Citations>
+            <ExternalLinks>
+                <li href="http://www.aftenposten.no/meninger/kronikker/article1672368.ece#.UdtEsz6DR7M">Newspaper Article on Jan Egeland</li>
+                <li href="http://www.hrw.org/bios/jan-egeland">Human Rights Watch Biography</li>
+            </ExternalLinks>
+            
+            <Images>
+                <li embed="http://www.hrw.org/sites/default/files/imagecache/scale-200x/media/images/photographs/Jan_Egeland_web.jpg" />
+                <li embed="http://upload.wikimedia.org/wikipedia/commons/3/3b/JePak_%28128%29.jpg" />
+                <li embed="http://english.nupi.no/var/ezwebin_site/storage/images/nupi.no/virksomheten/ledelse/jan-egeland/egelan-jan-04-x-crop/44014-1-nor-NO/Egelan-Jan-04-X-crop.jpg" />
+            </Images>
+            <Videos>
+                <li embed="//www.youtube.com/watch?v=_E_-xa2u2qE" />
+                <li embed="//www.youtube.com/watch?v=6S3gu9pnEFw" />
+            </Videos>
+            <Feeds>
+                <li embed="https://twitter.com/search?q=%23Egeland&src=typd" />
+            </Feeds>
+            <Summary>Jan Egeland (born 12 September 1957 in Stavanger, Norway) is a Norwegian politician from the Labour party. He is the Deputy Director of Human Rights Watch and the Director of Human Rights Watch Europe. Egeland took up the position as director of the Norwegian Institute of International Affairs on 1 September 2007. Egeland also holds a post as Professor II at theUniversity of Stavanger.
+Egeland was the United Nations Undersecretary-General for Humanitarian Affairs and Emergency Relief Coordinator from June 2003 to December 2006. Egeland was appointed bySecretary-General Kofi Annan and succeeded Kenzo Oshima. He traveled extensively, drawing attention to humanitarian emergencies.
+Egeland was also Secretary General of the Norwegian Red Cross. He served as State Secretary in the Norwegian Ministry of Foreign Affairs (1990 to 1997) and was Chair of Amnesty International Norway..</Summary>
+        </Common>        
+    </Person>
+    
+    
     
     <Organization ID="ORG_PMRLFD" Name="Prime Minister's Relief Fund">
         <Crises>
@@ -220,6 +336,46 @@
             <Summary>In pursuance of an appeal by the then Prime Minister, Pt. Jawaharlal Nehru in January, 1948, the Prime Minister’s National Relief Fund (PMNRF) was established with public contributions to assist displaced persons from Pakistan. The resources of the PMNRF are now utilized primarily to render immediate relief to families of those killed in natural calamities like floods, cyclones and earthquakes, etc. and to the victims of the major accidents and riots. Assistance from PMNRF is also rendered for medical treatment like heart surgeries, kidney transplantation, cancer treatment, etc. The fund consists entirely of public contributions and does not get any budgetary support. The corpus of the fund is invested with banks in fixed deposits. Disbursements are made with the approval of the Prime Minister.</Summary>
         </Common>
     </Organization>
+  
+   <Organization ID="ORG_UNOCHA" Name="United Nations Office for the Coordination of Humanitarian Affairs">
+        <Crises>
+            <Crisis ID="CRI_IOTSUN" />
+        </Crises>
+        <People>
+            <Person ID="PER_MNSNGH" />
+        </People>
+        <Kind>Inter Agency Body</Kind>
+        <Location>United States of America</Location>
+        <History>
+            <li>The United Nations Office for the Coordination of Humanitarian Affairs (OCHA) is a United Nations (UN) body formed in December 1991 by General Assembly Resolution 46/182. The resolution was designed to strengthen the UN's response to complex emergencies and natural disasters by creating the Department of Humanitarian Affairs (DHA), and replacing the Office of the United Nations Disaster Relief Coordinator, which had been formed in 1972. In 1998, due to reorganisation, DHA merged into the OCHA and was designed to be the UN focal point on major disasters. Its mandate was expanded to also include the coordination of humanitarian response, policy development and humanitarian advocacy. </li>
+        </History>
+        <ContactInfo>
+            <li href="http://www.unocha.org/contact">Contact Form for OCHA</li>
+        </ContactInfo>
+        <Common>
+            <Citations>
+                <li href="http://www.unocha.org/top-stories/all-stories/whd-life-and-death-tsunami-hit-indonesia">WHD: Life and death in Tsunami-hit Indonesia</li>
+            </Citations>
+            <ExternalLinks>
+                <li href="http://www.unocha.org">OCHA: Home</li>
+                <li href="http://www.unocha.org/what-we-do/coordination/overview">OCHA : Coordination</li>
+            </ExternalLinks>
+            
+            <Images>
+                <li embed="https://sphotos-b.xx.fbcdn.net/hphotos-ash3/p480x480/563390_420244154734043_963602538_n.jpg" />
+                <li embed="http://www.un.org/News/dh/photos/large/2009/62206-tsunami.jpg" />
+            </Images>
+            <Videos>
+                <li embed="//www.youtube.com/watch?v=kn8Yh6lP4ks" />
+            </Videos>
+            <Feeds>
+                <li embed="https://twitter.com/UNOCHA" />
+            </Feeds>
+            <Summary>OCHA is headed by the Undersecretary-General for Humanitarian Affairs and Emergency Relief Coordinator, currently Valerie Amos. As of 2007 OCHA has some 1,064 staff, distributed across the world. Major OCHA country offices are located in Afghanistan, Burundi, Central African Republic, Chad, Colombia, Democratic Republic of Congo, Ethiopia, Eritrea, Ivory Coast, Palestinian territories, Sri Lanka, Sudan (including a sub-office in Southern Sudan's capital Juba), Uganda, and Zimbabwe, while regional offices are located in Panama City, Dakar, Cairo, Johannesburg, and Bangkok. OCHA also has some liaison and support staff in New York and Geneva.</Summary> 
+       </Common>
+    </Organization>
+
+  
     <Organization ID="ORG_UN" Name="United Nations">
         <Crises>
             <Crisis ID="CRI_AIDS" />
@@ -286,5 +442,8 @@
             <Summary>In pursuance of an appeal by the then Prime Minister, Pt. Jawaharlal Nehru in January, 1948, the Prime Minister’s National Relief Fund (PMNRF) was established with public contributions to assist displaced persons from Pakistan. The resources of the PMNRF are now utilized primarily to render immediate relief to families of those killed in natural calamities like floods, cyclones and earthquakes, etc. and to the victims of the major accidents and riots. Assistance from PMNRF is also rendered for medical treatment like heart surgeries, kidney transplantation, cancer treatment, etc. The fund consists entirely of public contributions and does not get any budgetary support. The corpus of the fund is invested with banks in fixed deposits. Disbursements are made with the approval of the Prime Minister.</Summary>
         </Common>
     </Organization>
+
+
+
 
 </WorldCrises>
