@@ -1,5 +1,5 @@
 from xml.etree import ElementTree as ET
-from ModelFactory import create_crisis_model, create_org_model, create_person_model
+from ModelFactory import create_crisis_element, create_org_element, create_person_element
 
 def read_xml (filename) :
     tree = ET.parse (filename)
@@ -24,9 +24,11 @@ def read_and_validate_xml (filename) :
     except pyxsval.XsvalError, errstr :
         print errstr
         print 'Could not validate XML files ' + xsd_filename + ' and/or ' + xsd_filename
+        throw errstr
     except GenXmlIfError, errstr :
         print errstr
         print 'Could not parse XML files ' + filename + ' and/or ' + xsd_filename
+        throw errstr
 '''
 
 def initialize_pages () :
@@ -45,13 +47,13 @@ def parse_models (root, all_models) :
     for child in node :
         assert child.tag in ['Crisis', 'Person', 'Organization']
         if child.tag == 'Crisis' :
-            (crisis_id, new_model, list_types, list_elements) = create_crisis_model (child)
+            (crisis_id, new_model, list_types, list_elements) = create_crisis_element (child)
             all_models['crises'][crisis_id] = new_model
         elif child_tag == 'Person' :
-            (person_id, new_model, list_types, list_elements) = create_person_model (child)
+            (person_id, new_model, list_types, list_elements) = create_person_element (child)
             all_models['people'][person_id] = new_model
         elif child_tag == 'Organization' :
-            (org_id, new_model, list_types, list_elements) = create_org_model (child)
+            (org_id, new_model, list_types, list_elements) = create_org_element (child)
             all_models['orgs'][org_id] = new_model
         else :
             # should never reach here

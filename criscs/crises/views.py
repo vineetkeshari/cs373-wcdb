@@ -1,6 +1,40 @@
-from django.http import HttpResponse, HttpResponseNotFound
-from django.template import Context, loader
-from crises.models import Crisis, Person, Organization, WCDBElement, ListType, LI, R_Crisis_Person, R_Crisis_Org, R_Org_Person
+from django.http import HttpResponse, HttpResponseNotFound, HttpResponseRedirect
+from django.template import Context, loader, RequestContext
+from crises.models import Crisis, Person, Organization, WCDBElement, ListType, LI, R_Crisis_Person, R_Crisis_Org, R_Org_Person, XMLFile
+from crises.forms import DocumentForm
+
+from XMLUtility import process_xml
+
+from django.shortcuts import render_to_response
+from django.core.urlresolvers import reverse
+
+def import_file (request) :
+    # Handle file upload
+    if request.method == 'POST' :
+        form = DocumentForm(request.POST, request.FILES)
+        if form.is_valid () :
+            newdoc = XMLFile (xml_file = request.FILES['docfile'])
+
+            try :
+                # validate xml and save stuff here
+                # call process_xml
+                # <TODO>
+
+                resp = 'File validated and Uploaded'
+                newdoc.save ()
+            except Exception, e :
+                resp = 'File validation failed! Data not recorded.'
+            # Redirect to the document list after POST
+            return HttpResponse ('<p>' + resp + '</p>')
+    else :
+        form = DocumentForm() # An empty, unbound form
+
+    # Render list page with the documents and the form
+    return render_to_response(
+        'crises/templates/import.html',
+        {'form': form},
+        context_instance=RequestContext(request),
+    )
 
 # Create your views here.
 def render (name, data) :
