@@ -868,40 +868,6 @@ Egeland was also Secretary General of the Norwegian Red Cross. He served as Stat
         </Common>
     </Organization>
 
-    <Organization ID="ORG_UN" Name="United Nations">
-        <Crises>
-            <Crisis ID="CRI_AIDS" />
-        </Crises>
-        <People>
-        </People>
-        <Kind>Interational Cooperative</Kind>
-        <Location>Worldwide</Location>
-        <History>
-            <li>Founded in 1945 after World War II.</li>
-        </History>
-        <ContactInfo>
-            <li href="http://www.un.org/en/">Website</li>
-        </ContactInfo>
-        <Common>
-            <Citations>
-            </Citations>
-            <ExternalLinks>
-            </ExternalLinks>
-            
-            <Images>
-                <li embed="https://fbcdn-sphotos-g-a.akamaihd.net/hphotos-ak-ash3/p480x480/935902_10151563003564215_2143045726_n.png" />
-                <li embed="http://photogallery.indiatimes.com/news/india/rescue-relief-uttarakhand/photo/20713370/Army-men-unload-relief-material-from-an-IAF-MI-26-helicopter-at-Gauchar-district-Chamoli-in-Uttarakhand-.jpg" />
-            </Images>
-            <Videos>
-                <li embed="//www.youtube.com/embed/RwSghlRceeY" />
-            </Videos>
-            <Feeds>
-                <li embed="https://twitter.com/search?q=pmnrf.gov.in" />
-            </Feeds>
-            <Summary>In pursuance of an appeal by the then Prime Minister, Pt. Jawaharlal Nehru in January, 1948, the Prime Minister�s National Relief Fund (PMNRF) was established with public contributions to assist displaced persons from Pakistan. The resources of the PMNRF are now utilized primarily to render immediate relief to families of those killed in natural calamities like floods, cyclones and earthquakes, etc. and to the victims of the major accidents and riots. Assistance from PMNRF is also rendered for medical treatment like heart surgeries, kidney transplantation, cancer treatment, etc. The fund consists entirely of public contributions and does not get any budgetary support. The corpus of the fund is invested with banks in fixed deposits. Disbursements are made with the approval of the Prime Minister.</Summary>
-        </Common>
-    </Organization>
-
     <Organization ID="ORG_CEINAG" Name="Central Intelligence Agency">
         <Crises>
             <Crisis ID="CRI_USDAIP" />
