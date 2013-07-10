@@ -2,6 +2,13 @@ from django.db import models
 
 # Create your models here.
 
+class XMLFile (models.Model) :
+    """
+    Store the latest XML file uploaded.
+    """
+    timestamp = models.DateTimeField (auto_now_add=True)
+    xml_file = models.FileField (upload_to='xml/%Y%m%d')
+
 class WCDBElement (models.Model) :
     """
     Base class for crisis, person and organization
@@ -35,22 +42,22 @@ class R_Crisis_Person (models.Model) :
     """
     Stores relations between Crises and People
     """
-    crisis = models.ForeignKey (Crisis)
-    person = models.ForeignKey (Person)
+    crisis = models.CharField (max_length=10)
+    person = models.CharField (max_length=10)
 
 class R_Crisis_Org (models.Model) :
     """
     Stores relations between Crises and Organizations
     """
-    crisis = models.ForeignKey (Crisis)
-    org = models.ForeignKey (Organization)
+    crisis = models.CharField (max_length=10)
+    org = models.CharField (max_length=10)
 
 class R_Org_Person (models.Model) :
     """
     Stores relations between Organizations and People
     """
-    org = models.ForeignKey (Organization)
-    person = models.ForeignKey (Person)
+    org = models.CharField (max_length=10)
+    person = models.CharField (max_length=10)
 
 class ListType (models.Model) :
     """
@@ -61,7 +68,7 @@ class ListType (models.Model) :
     ID : Concatenation of element and content_type to give a unique identifier.
     """
     ID = models.CharField (max_length=200, primary_key=True)
-    element = models.ForeignKey (WCDBElement)
+    element = models.CharField (max_length=10)
     content_type = models.CharField (max_length=50)
     num_elements = models.IntegerField ()
 
@@ -72,7 +79,7 @@ class LI (models.Model) :
     order : If order is important, this field stores the position in the list.
     content, href, embed, text : These contain the content in the list entry as defined in the XSD.
     """
-    ListID = models.ForeignKey (ListType)
+    ListID = models.CharField (max_length=30)
     order = models.IntegerField ()
     content = models.TextField (max_length=1000, null=True)
     href = models.TextField (max_length=1000, null=True)
