@@ -83,17 +83,21 @@ def index (request) :
     pages ['orgs'] = []
     for elem in all_wcdb :
         if elem.ID[:3] == 'CRI' :
-            pages ['crises'].append ({elem.name : elem.ID})
+            pages ['crises'].append ({'name' : elem.name, 'id' : elem.ID})
         if elem.ID[:3] == 'ORG' :
-            pages ['orgs'].append ({elem.name : elem.ID})
+            pages ['orgs'].append ({'name' : elem.name, 'id' : elem.ID})
         if elem.ID[:3] == 'PER' :
-            pages ['people'].append ({elem.name : elem.ID})
+            pages ['people'].append ({'name' : elem.name, 'id' : elem.ID})
+    print pages['crises']
+    print pages['orgs']
+    print pages['people']
+
 
     return HttpResponse ( render ('index.html', {'members' : members, 'pages' : pages, }))
 
 def base_view (request, view_id) :
-    view_type = view_id[:3]
-    try :
+        view_type = view_id[:3]
+#    try :
         if view_type == 'CRI' :
             return crisis_view (view_id)
         elif view_type == 'ORG' :
@@ -102,7 +106,7 @@ def base_view (request, view_id) :
             return person_view (view_id)
         else :
             return HttpResponseNotFound('<h1>Page not found</h1>')
-    except Exception, e :
+#    except Exception, e :
         return HttpResponseNotFound('<h1>Page not found</h1>' + '<p>' + e.args[0] + '</p>')
 
 def wcdb_common_view (view_id, page_type) :
@@ -174,7 +178,8 @@ def crisis_view (view_id) :
     c_lists = get_crisis_details (view_id)
     html_crisis_content = render ('crisis.html', {'date' : c_date, 'time' : c_time, 'lists' : c_lists, })
 
-    html_media = get_media (view_id)
+#    html_media = get_media (view_id)
+    html_media = ''
 
     html_content = html_common + html_crisis_content + html_media
 
