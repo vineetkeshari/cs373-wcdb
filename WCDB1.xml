@@ -144,10 +144,11 @@
 
      <Crisis ID="CRI_AIDS" Name="AIDS">
         <People>
-            <Person ID="PER_MNSNGH" />
+            <Person ID="PER_BILLGATES" />
         </People>
         <Organizations>
             <Org ID="ORG_UN" />
+            <Org ID="ORG_BAMGF" />
         </Organizations>
         <Kind>Epidemic</Kind>
         <Date></Date>
@@ -205,6 +206,66 @@
             <Summary></Summary>
         </Common>
     </Crisis>
+
+     <Crisis ID="CRI_MALARIA" Name="Malaria">
+        <People>
+            <Person ID="PER_BILLGATES" />
+        </People>
+        <Organizations>
+            <Org ID="ORG_UN" />
+            <Org ID="ORG_BAMGF" />
+            <Org ID="ORG_NBN" />
+        </Organizations>
+        <Kind>Epidemic</Kind>
+        <Date></Date>
+        <Time></Time>
+        <Locations>
+            <li>Worldwide, tropical climates.</li>
+        </Locations>
+        <HumanImpact>
+            <li>219 million infections annually</li>
+            <li>660,000 deaths annually</li>
+            <li>3.3 billion reside in infectious zones</li>
+        </HumanImpact>
+        <EconomicImpact>
+            <li>12 billion in direct healthcare costs</li>
+            <li>Heavily infected countries show a 33% drop in GDP growth over last 30 years compared to neighbours that have low infection rates.</li>
+        </EconomicImpact>
+        <ResourcesNeeded>
+            <li>Insecticides and Pesticides have historically had amazing results, virtually eliminating infections in UAE while neighboring Oman has one of the highest infection rates in the world.</li>
+            <li>Rapid diagnostic tests ensure people get treatment when they need it.</li>
+            <li>Artemisinin-based combination therapies cost arround a dollar and can cure a child within three days</li>
+            <li>Mosquito nets provide a cheap barrier at night and can reduce infection rates by up to 90 percent.</li> 
+        </ResourcesNeeded>
+        <WaysToHelp>
+            <li href="https://secure.globalproblems-globalsolutions.org/site/Donation2?1340.donation=form1&df_id=1340&JServSessionIdr004=qsg4lbjtd2.app217b">Donate a mosquito net to Nothing But Nets</li>
+            <li href="http://www.malarianomore.org/">Donate money to subsidize drug therapy</li>
+            <li href="http://www.psi.org/our-work/healthy-lives/malaria">Donate both nets and drug therapy</li>
+        </WaysToHelp>
+        <Common>
+            <Citations>
+                <li href="http://www.cdc.gov/malaria/about/index.html">CDC information dashboard Malaria</li>
+                <li href="http://www.ncbi.nlm.nih.gov/books/NBK2624/">Report on the economic burden of Malaria</li>
+            </Citations>
+            <ExternalLinks>
+                <li href="http://www.malarianomore.org/pages/the-solution">List of solutions for the Malaria crisis</li>
+            </ExternalLinks>
+            
+            <Images>
+                <li embed="http://images.jagran.com/ukhand-ss-02-07-13.jpg" </li>
+            </Images>
+            <Videos>
+                <li embed="//www.youtube.com/embed/qV3s7Sa6B6w" />
+            </Videos>
+            <Maps>
+                <li embed="https://www.google.com/maps?sll=30.08236989592049,79.31189246107706&amp;sspn=3.2522150867582833,7.2072687770004205&amp;t=m&amp;q=uttarakhand&amp;dg=opt&amp;ie=UTF8&amp;hq=&amp;hnear=Uttarakhand,+India&amp;ll=30.066753,79.0193&amp;spn=2.77128,5.07019&amp;z=8&amp;output=embed" />
+            </Maps>
+            <Feeds>
+                <li embed="https://twitter.com/search?q=%23uttarakhand%20floods" />
+            </Feeds>
+            <Summary></Summary>
+        </Common>
+    </Crisis>    
     
      <Crisis ID="CRI_IOTSUN" Name="Indian Ocean Tsunami and Earthquake (2004)">
         <People>
@@ -476,6 +537,34 @@ With a magnitude of Mw 9.1, it is the third largest earthquake ever recorded on 
             <Summary>Manmohan Singh (born 26 September 1932) is the 13th and current Prime Minister of India. Singh holds a doctorate in economics from Oxford university, and has served as an advisor to the Ministry of Foreign Trade, India (1966-69), Governer of the Reserve Bank of India (1982-85) and Deputy Chairman of the Planning Commission (1985-87), before being appointed the Minister of Finance in the Indian cabinet in 1991. As the Minister of finance, Singh carried out several structural reforms that liberalised India's economy. In 2004, Singh was elected as the Prime Minister of India. His government has since executed several key legislations and projects including the Rural Health Mission, Unique Identification Authority, Rural Employment Guarantee scheme and the Right to Information Act.</Summary>
         </Common>        
     </Person>
+     <Person ID="PER_BILLGATES" Name="Bill Gates">
+        <Crises>
+            <Crisis ID="CRI_AIDS" />
+        </Crises>
+        <Organizations>
+            <Org ID="ORG_BAMGF" />
+        </Organizations>
+        <Kind>Philanthropist</Kind>
+        <Location>United States</Location>
+        <Common>
+            <Citations>
+            </Citations>
+            <ExternalLinks>
+                <li href="http://www.gatesfoundation.org/">Website</li>
+            </ExternalLinks>
+            
+            <Images>
+                <li embed="http://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Prime_Minister_Manmohan_Singh_in_WEF_,2009.jpg/220px-Prime_Minister_Manmohan_Singh_in_WEF_,2009.jpg" />
+            </Images>
+            <Videos>
+                <li embed="//www.youtube.com/embed/-xEWkHehqdg" />
+            </Videos>
+            <Feeds>
+                <li embed="https://twitter.com/search?q=%23manmohan%20singh" />
+            </Feeds>
+            <Summary></Summary>
+        </Common>        
+    </Person>
     
        <Person ID="PER_JANEGE" Name="Jan Egeland">
         <Crises>
@@ -714,26 +803,28 @@ Egeland was also Secretary General of the Norwegian Red Cross. He served as Stat
             <Summary>In pursuance of an appeal by the then Prime Minister, Pt. Jawaharlal Nehru in January, 1948, the Prime Minister�s National Relief Fund (PMNRF) was established with public contributions to assist displaced persons from Pakistan. The resources of the PMNRF are now utilized primarily to render immediate relief to families of those killed in natural calamities like floods, cyclones and earthquakes, etc. and to the victims of the major accidents and riots. Assistance from PMNRF is also rendered for medical treatment like heart surgeries, kidney transplantation, cancer treatment, etc. The fund consists entirely of public contributions and does not get any budgetary support. The corpus of the fund is invested with banks in fixed deposits. Disbursements are made with the approval of the Prime Minister.</Summary>
         </Common>
     </Organization>
-    <Organization ID="ORG_AIDS" Name="United Nations">
+
+    <Organization ID="ORG_BAMGF" Name="Bill and Melinda Gates Foundaiton">
         <Crises>
             <Crisis ID="CRI_AIDS" />
         </Crises>
         <People>
+
         </People>
         <Kind>Interational Cooperative</Kind>
         <Location>Worldwide</Location>
         <History>
-            <li>Founded in 1945 after World War II.</li>
+            <li>Founded by Bill and Melinda Gates in 1994 with an initial endowment of 94 million. Now largely ran by Bill Gates himself after he resigned as CEO of Microsoft</li>
         </History>
         <ContactInfo>
-            <li href="http://www.un.org/en/">Website</li>
+            <li href="http://en.wikipedia.org/wiki/Bill_%26_Melinda_Gates_Foundation">Wikipedia Page</li>
         </ContactInfo>
         <Common>
             <Citations>
             </Citations>
             <ExternalLinks>
+                <li href="http://www.gatesfoundation.org/">Official Website</li>
             </ExternalLinks>
-            
             <Images>
                 <li embed="https://fbcdn-sphotos-g-a.akamaihd.net/hphotos-ak-ash3/p480x480/935902_10151563003564215_2143045726_n.png" />
                 <li embed="http://photogallery.indiatimes.com/news/india/rescue-relief-uttarakhand/photo/20713370/Army-men-unload-relief-material-from-an-IAF-MI-26-helicopter-at-Gauchar-district-Chamoli-in-Uttarakhand-.jpg" />
@@ -744,7 +835,36 @@ Egeland was also Secretary General of the Norwegian Red Cross. He served as Stat
             <Feeds>
                 <li embed="https://twitter.com/search?q=pmnrf.gov.in" />
             </Feeds>
-            <Summary>In pursuance of an appeal by the then Prime Minister, Pt. Jawaharlal Nehru in January, 1948, the Prime Minister�s National Relief Fund (PMNRF) was established with public contributions to assist displaced persons from Pakistan. The resources of the PMNRF are now utilized primarily to render immediate relief to families of those killed in natural calamities like floods, cyclones and earthquakes, etc. and to the victims of the major accidents and riots. Assistance from PMNRF is also rendered for medical treatment like heart surgeries, kidney transplantation, cancer treatment, etc. The fund consists entirely of public contributions and does not get any budgetary support. The corpus of the fund is invested with banks in fixed deposits. Disbursements are made with the approval of the Prime Minister.</Summary>
+            <Summary>A leading philanthrocapitalist organization founded by the founder of Microsoft Bill Gates and his wife Melinda. </Summary>
+        </Common>
+    </Organization>
+
+     <Organization ID="ORG_NBN" Name="Nothing But Nets">
+        <Crises>
+            <Crisis ID="CRI_MALARIA" />
+        </Crises>
+        <People>
+        </People>
+        <Kind>Charity</Kind>
+        <Location>Worldwide</Location>
+        <History>
+            <li>Founded in 2006 from a column in Sports Illustrated written by Rick Reilly advocating nets for malaria prevention.</li>
+        </History>
+        <ContactInfo>
+            <li href="http://www.nothingbutnets.net">Official Website</li>
+        </ContactInfo>
+        <Common>
+            <Citations>
+            </Citations>
+            <ExternalLinks>
+            </ExternalLinks>
+            <Images>
+            </Images>
+            <Videos>
+            </Videos>
+            <Feeds>
+            </Feeds>
+            <Summary>A nonprofit organization dedicated to providing insecticide-treated mosquito nets for those most in need.</Summary>
         </Common>
     </Organization>
 
