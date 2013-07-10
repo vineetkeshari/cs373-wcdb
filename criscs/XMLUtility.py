@@ -11,7 +11,6 @@ def read_xml (xml_content) :
     #print_rec_xml (xml, 0)
     return xml
 
-'''
 from genxmlif import GenXmlIfError
 from minixsv import pyxsval
 
@@ -28,14 +27,9 @@ def read_and_validate_xml (filename) :
         elemTree = elementTreeWrapper.getTree()
         return elemTree.getroot()
     except pyxsval.XsvalError, errstr :
-        print errstr
-        print 'Could not validate XML files ' + xsd_filename + ' and/or ' + xsd_filename
-        throw errstr
+        raise Exception ('Could not validate XML files ' + xsd_filename + ' and/or ' + xsd_filename, errstr)
     except GenXmlIfError, errstr :
-        print errstr
-        print 'Could not parse XML files ' + filename + ' and/or ' + xsd_filename
-        throw errstr
-'''
+        raise Exception ('Could not parse XML files ' + filename + ' and/or ' + xsd_filename, errstr)
 
 def initialize_pages () :
     all_models = {}
@@ -74,7 +68,7 @@ def parse_xml (root) :
     return all_models
 
 # Call this method
-def process_xml (xml_content) :
-    root = read_xml (xml_content)
+def process_xml (xml_file) :
+    root = read_and_validate_xml (xml_file)
     return parse_xml (root)
 
