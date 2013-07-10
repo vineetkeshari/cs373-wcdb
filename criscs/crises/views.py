@@ -62,7 +62,9 @@ def import_file (request) :
 
 def export_file (request) :
     xml_file = XMLFile.objects.all() [0]
-    return HttpResponseRedirect ('/' + xml_file.xml_file.url)
+    xml = open (str(xml_file.xml_file), 'r')
+    content = xml.read ()
+    return render_to_response ('crises/templates/export.html', {'text' : content})
 
 # Create your views here.
 def render (name, data) :
