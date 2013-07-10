@@ -8,6 +8,8 @@ from XMLUtility import process_xml
 from django.shortcuts import render_to_response
 from django.core.urlresolvers import reverse
 
+from re import sub
+
 def save_data (all_data) :
     for crisis in all_data['crises'] :
         all_data['crises'][crisis].save()
@@ -61,9 +63,10 @@ def import_file (request) :
 
 
 def export_file (request) :
-    xml_file = XMLFile.objects.all() [0]
-    xml = open (str(xml_file.xml_file), 'r')
-    content = xml.read ()
+    xml_file = XMLFile.objects.all()
+    print xml_file
+    xml = open (str(xml_file[len(xml_file)-1].xml_file), 'r')
+    content = sub ('(\s+)', ' ', sub ('<!--(.*)-->', '', xml.read ()) )
     return render_to_response ('crises/templates/export.html', {'text' : content})
 
 # Create your views here.
