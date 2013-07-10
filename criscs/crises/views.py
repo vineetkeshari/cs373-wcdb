@@ -34,19 +34,19 @@ def import_file (request) :
                 if not password == 'baddatamining' :
                     raise Exception('Incorrect Password!')
 
+                # Store the file in the database
+                newdoc = XMLFile (xml_file = request.FILES['docfile'])
+                newdoc.save ()
+
                 # Validate xml and create models
-                uploaded_file = request.FILES['docfile'].read()
+                uploaded_file = str(newdoc.xml_file)
                 all_data = process_xml (uploaded_file)
                
                 # Save the data to DB 
                 save_data (all_data)
 
-                # Store the file in the database
-                newdoc = XMLFile (xml_file = request.FILES['docfile'])
-                newdoc.save ()
                 error = False
                 error_string = ''
-
             except Exception, e :
                 error = True
                 error_string = str(e)
@@ -68,8 +68,8 @@ def import_file (request) :
 
 
 def export_file (request) :
-    xml_file = XMLFile.objects.all()
-    xml = open (str(xml_file[len(xml_file)-1].xml_file), 'r')
+    xml_files = XMLFile.objects.all()
+    xml = open (str(xml_files[len(xml_file)-1].xml_file), 'r')
     content = sub ('(\s+)', ' ', sub ('<!--(.*)-->', '', xml.read ()) )
     return render_to_response ('crises/templates/export.html', {'text' : content})
 
