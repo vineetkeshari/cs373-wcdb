@@ -12,6 +12,7 @@ urlpatterns = patterns('',
 
     url(r'^import/$', 'crises.views.import_file', name='import_file'),
     url(r'^export/$', 'crises.views.export_file', name='export_file'),
+    url(r'^unittests/$', 'crises.views.run_tests', name='run_tests'),
 
     # Uncomment the admin/doc line below to enable admin documentation:
     # url(r'^admin/doc/', include('django.contrib.admindocs.urls')),

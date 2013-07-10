@@ -9,6 +9,7 @@ from django.shortcuts import render_to_response
 from django.core.urlresolvers import reverse
 
 from re import sub
+from subprocess import check_output, CalledProcessError, STDOUT
 
 def save_data (all_data) :
     for crisis in all_data['crises'] :
@@ -71,6 +72,20 @@ def export_file (request) :
     xml = open (str(xml_file[len(xml_file)-1].xml_file), 'r')
     content = sub ('(\s+)', ' ', sub ('<!--(.*)-->', '', xml.read ()) )
     return render_to_response ('crises/templates/export.html', {'text' : content})
+
+def run_tests (request) :
+    try :
+        unittest_result = check_output(["python", "TestWCDB1.py"],
+                                                    stderr=STDOUT,
+        )
+        error = False
+    except CalledProcessError, cpe :
+        error = True
+        unittest_result = cpe.output
+    return render_to_response ('crises/templates/unittest.html',
+                                {'error' : error, 'result' : unittest_result, },
+                                context_instance=RequestContext(request),
+    )
 
 # Create your views here.
 def render (name, data) :
