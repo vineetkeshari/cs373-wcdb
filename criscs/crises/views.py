@@ -75,7 +75,7 @@ def export_file (request) :
 
 def run_tests (request) :
     try :
-        unittest_result = check_output(["python", "TestWCDB1.py"],
+        unittest_result = check_output(["python","manage.py", "test", "crises"],
                                                     stderr=STDOUT,
         )
         error = False

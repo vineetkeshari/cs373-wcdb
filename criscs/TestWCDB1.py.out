@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "TestWCDB1.py", line 16, in <module>
+    from XMLUtility import print_rec_xml, read_xml, initialize_pages, parse_models, parse_xml, process_xml
+  File "/v/filer4b/v38q001/brandonf/cs373/wcbd/cs373-wcdb/criscs/XMLUtility.py", line 2, in <module>
+    from ModelFactory import create_crisis_element, create_org_element, create_person_element
+  File "/v/filer4b/v38q001/brandonf/cs373/wcbd/cs373-wcdb/criscs/ModelFactory.py", line 1, in <module>
+    from crises.models import WCDBElement, Crisis, Organization, Person, ListType, LI, R_Crisis_Person, R_Crisis_Org, R_Org_Person
+ImportError: No module named crises.models
