@@ -74,7 +74,7 @@ def wrap_html (html_title, html_content) :
     return '<html><head>' + html_title + '</head><body>' + html_content + '</body></html>'
 
 def index (request) :
-    members = ['Ambarish Nittala', 'Brandon Fairchild', 'Chris Coney', 'Roberto Weller', 'Rogelio Sanchez', 'Vineet Keshari']
+    members = ['Ambareesha Nittala', 'Brandon Fairchild', 'Chris Coney', 'Roberto Weller', 'Rogelio Sanchez', 'Vineet Keshari']
 
     all_wcdb = WCDBElement.objects.all ()
     pages = {}
@@ -119,7 +119,40 @@ def wcdb_common_view (view_id, page_type) :
 
 # This method should return the formatted Citations, External Links, Images, Videos, Maps and Feeds for any WCDBElement
 def get_media (view_id) :
-    return ''
+
+    obj = LI.objects.all() # Get all objects from the LI table
+    indices = get_indices_media(view_id, obj) # Get indices for each of the Citations, External Links, Images, Videos, Maps and Feeds
+    
+    media_str = ''
+    #Extract URL and content for each citation
+    for index in indices:
+        media_str = media_str + r'<a href ="' + obj[index].href + r'">' + obj[index].content + '</a>'
+    media_str = '<p>' + media_str + '</p>'
+    #TO BE DONE
+
+   
+
+    return media_str
+
+def get_indices_media(view_id, LI_table):
+    media_dict = {"CITATIONS":[] , "EXTERNALLINKS":[], "IMAGES":[], "VIDEOS":[], "MAPS":[], "FEEDS":[]}
+    media_type = ["CITATIONS", "EXTERNALLINKS", "IMAGES", "VIDEOS", "MAPS", "FEEDS"]
+    # Store all the indices for the media type
+    for i in range(0, len(LI_table)):
+        if LI_table[i].ListID.ID == view_id + "_" + media_type[0]:
+            media_dict['CITATIONS'].append(i)
+        if LI_table[i].ListID.ID == view_id + "_" + media_type[1]:
+            media_dict['EXTERNALLINKS'].append(i)
+        if LI_table[i].ListID.ID == view_id + "_" + media_type[2]:
+            media_dict['IMAGES'].append(i)
+        if LI_table[i].ListID.ID == view_id + "_" + media_type[3]:
+            media_dict['VIDEOS'].append(i)
+        if LI_table[i].ListID.ID == view_id + "_" + media_type[4]:
+            media_dict['MAPS'].append(i)
+        if LI_table[i].ListID.ID == view_id + "_" + media_type[5]:
+            media_dict['FEEDS'].append(i)
+    return media_dict
+
 
 # This method should return the formatted Locations, HumanImpact, EconomicImpact, ResourcesNeeded, WaysToHelp items of Crisis
 def get_crisis_details (view_id) :
