@@ -192,18 +192,23 @@
             </ExternalLinks>
             
             <Images>
-                <li embed="http://images.jagran.com/ukhand-ss-02-07-13.jpg" </li>
+                <li embed="http://upload.wikimedia.org/wikipedia/commons/6/68/People_living_with_HIV_AIDS_world_map.PNG" />
+                <li embed="http://healthyliving.blog.ocregister.com/files/2011/03/aids_red_ribbon-other1.jpg" />
+                <li embed="http://us.123rf.com/400wm/400/400/designua/designua1210/designua121000010/15819881-structure-of-the-aids-virus.jpg" />
             </Images>
             <Videos>
-                <li embed="//www.youtube.com/embed/qV3s7Sa6B6w" />
+                <li embed="http://www.youtube.com/watch?v=rv0yIICeg-E" />
             </Videos>
             <Maps>
-                <li embed="https://www.google.com/maps?sll=30.08236989592049,79.31189246107706&amp;sspn=3.2522150867582833,7.2072687770004205&amp;t=m&amp;q=uttarakhand&amp;dg=opt&amp;ie=UTF8&amp;hq=&amp;hnear=Uttarakhand,+India&amp;ll=30.066753,79.0193&amp;spn=2.77128,5.07019&amp;z=8&amp;output=embed" />
+                
             </Maps>
             <Feeds>
-                <li embed="https://twitter.com/search?q=%23uttarakhand%20floods" />
+                
             </Feeds>
-            <Summary></Summary>
+            <Summary>
+                Disease of human immune system that is transferred during unprotected sex, blood, breastfeeding, and child delivery with an infected person. Believed to have originiated in Africa in the early 20th century, it is reponsible
+                for millions of deaths. AIDs also serves as a source of discrimination and economic drain, and has profoundly impacted the countries where it is most prevelant.
+            </Summary>
         </Common>
     </Crisis>
 
@@ -252,24 +257,27 @@
             </ExternalLinks>
             
             <Images>
-                <li embed="http://images.jagran.com/ukhand-ss-02-07-13.jpg" </li>
+                <li embed="http://malare-aware.weebly.com/uploads/1/8/6/3/18636798/1246003_orig.jpg" </li>
+                <li embed="http://www.newswise.com/images/uploads/2013/04/26/vecnet_malaria_hires.png" </li>
+                <li embed="http://upload.wikimedia.org/wikipedia/commons/d/db/Symptoms_of_Malaria.png" </li>
             </Images>
             <Videos>
-                <li embed="//www.youtube.com/embed/qV3s7Sa6B6w" />
+                <li embed="http://www.youtube.com/watch?v=hztGkzwWR1I" />
             </Videos>
             <Maps>
-                <li embed="https://www.google.com/maps?sll=30.08236989592049,79.31189246107706&amp;sspn=3.2522150867582833,7.2072687770004205&amp;t=m&amp;q=uttarakhand&amp;dg=opt&amp;ie=UTF8&amp;hq=&amp;hnear=Uttarakhand,+India&amp;ll=30.066753,79.0193&amp;spn=2.77128,5.07019&amp;z=8&amp;output=embed" />
             </Maps>
             <Feeds>
-                <li embed="https://twitter.com/search?q=%23uttarakhand%20floods" />
             </Feeds>
-            <Summary></Summary>
+            <Summary>
+                Malaria is a life threatening illness and a major cause of death worldwide. It exists in tropical and subtropical climates and still infects hundred of millions of people annually. It is a major drain on productivity of heavily infected nations and has a major economic impact. Nations have successfully eliminated malaria with wide use of insecticides in the past, such as DDT. Global eradication of the four types of malaria is a major 
+                goal of several globaliazed communal orginizations.
+            </Summary>
         </Common>
     </Crisis>    
     
    <Crisis ID="CRI_ZMBDMD" Name="Zimbabwe Conflict Diamonds">
         <People>
-            
+            <Person ID="PER_ROBMUG" />
         </People>
         <Organizations>
             <Org ID="ORG_UN" />
@@ -584,7 +592,7 @@ With a magnitude of Mw 9.1, it is the third largest earthquake ever recorded on 
             </Feeds>
             <Summary>
                 Controversial president of Zimbabwe since 1987. Zimbabwe's GDP/C has shrunk by more than half over his reign, and has included claims of racism, genocide, and other civil rights violations. Critics claim that he
-                was directly reponsible for the Zimbabwean military massacre of 150 illegal miners.
+                was reponsible for the massacre of 150 illegal miners and ongoing civil rights violations around the Mutare diamond fields.
             </Summary>
         </Common>        
     </Person>
@@ -643,15 +651,14 @@ With a magnitude of Mw 9.1, it is the third largest earthquake ever recorded on 
             </ExternalLinks>
             
             <Images>
-                <li embed="http://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Prime_Minister_Manmohan_Singh_in_WEF_,2009.jpg/220px-Prime_Minister_Manmohan_Singh_in_WEF_,2009.jpg" />
+                <li embed="http://www.microsoft.com/global/en-us/news/PublishingImages/bod/billg/gates_print.jpg" />
             </Images>
             <Videos>
-                <li embed="//www.youtube.com/embed/-xEWkHehqdg" />
+                <li embed="http://www.youtube.com/watch?v=CIZGDT7ZqdM" />
             </Videos>
             <Feeds>
-                <li embed="https://twitter.com/search?q=%23manmohan%20singh" />
             </Feeds>
-            <Summary></Summary>
+            <Summary>Famous founder of Microsoft and previously the richest man in the world, Bill Gates now spends most of his time heading his philanthropy organization, The Bill and Melinda Gates Foundation</Summary>
         </Common>        
     </Person>
     
@@ -880,16 +887,16 @@ Egeland was also Secretary General of the Norwegian Red Cross. He served as Stat
             </ExternalLinks>
             
             <Images>
-                <li embed="https://fbcdn-sphotos-g-a.akamaihd.net/hphotos-ak-ash3/p480x480/935902_10151563003564215_2143045726_n.png" />
-                <li embed="http://photogallery.indiatimes.com/news/india/rescue-relief-uttarakhand/photo/20713370/Army-men-unload-relief-material-from-an-IAF-MI-26-helicopter-at-Gauchar-district-Chamoli-in-Uttarakhand-.jpg" />
+                <li embed="http://2.bp.blogspot.com/-uUSCw_OQS7U/UFsbtC43cLI/AAAAAAAAAco/CC_iwH4OOoM/s320/United-nations-UN-flag-picrure.png" />
             </Images>
             <Videos>
-                <li embed="//www.youtube.com/embed/RwSghlRceeY" />
             </Videos>
             <Feeds>
-                <li embed="https://twitter.com/search?q=pmnrf.gov.in" />
+                <li embed="http://www.youtube.com/watch?v=GbQTYHAN2c8" />
             </Feeds>
-            <Summary>In pursuance of an appeal by the then Prime Minister, Pt. Jawaharlal Nehru in January, 1948, the Prime Minister�s National Relief Fund (PMNRF) was established with public contributions to assist displaced persons from Pakistan. The resources of the PMNRF are now utilized primarily to render immediate relief to families of those killed in natural calamities like floods, cyclones and earthquakes, etc. and to the victims of the major accidents and riots. Assistance from PMNRF is also rendered for medical treatment like heart surgeries, kidney transplantation, cancer treatment, etc. The fund consists entirely of public contributions and does not get any budgetary support. The corpus of the fund is invested with banks in fixed deposits. Disbursements are made with the approval of the Prime Minister.</Summary>
+            <Summary>
+                International organization containing 193 member countries as an advocate of peace and cooperation between member states.
+            </Summary>
         </Common>
     </Organization>
 
@@ -915,14 +922,12 @@ Egeland was also Secretary General of the Norwegian Red Cross. He served as Stat
                 <li href="http://www.gatesfoundation.org/">Official Website</li>
             </ExternalLinks>
             <Images>
-                <li embed="https://fbcdn-sphotos-g-a.akamaihd.net/hphotos-ak-ash3/p480x480/935902_10151563003564215_2143045726_n.png" />
-                <li embed="http://photogallery.indiatimes.com/news/india/rescue-relief-uttarakhand/photo/20713370/Army-men-unload-relief-material-from-an-IAF-MI-26-helicopter-at-Gauchar-district-Chamoli-in-Uttarakhand-.jpg" />
+                <li embed="http://blogs-images.forbes.com/mfonobongnsehe/files/2012/07/Bill-and-Melinda-Gates-Foundation1.png" />
             </Images>
             <Videos>
-                <li embed="//www.youtube.com/embed/RwSghlRceeY" />
+                <li embed="http://www.youtube.com/watch?v=2VdMqmVtnOM" />
             </Videos>
             <Feeds>
-                <li embed="https://twitter.com/search?q=pmnrf.gov.in" />
             </Feeds>
             <Summary>A leading philanthrocapitalist organization founded by the founder of Microsoft Bill Gates and his wife Melinda. </Summary>
         </Common>
@@ -948,8 +953,10 @@ Egeland was also Secretary General of the Norwegian Red Cross. He served as Stat
             <ExternalLinks>
             </ExternalLinks>
             <Images>
+                <li embed="http://www.jcivancouver.com/wp-content/uploads/2012/05/Stop-This-Killer-A4.jpg" />
             </Images>
             <Videos>
+                <li embed="http://www.youtube.com/watch?v=dyBWjN1e31A" />
             </Videos>
             <Feeds>
             </Feeds>
