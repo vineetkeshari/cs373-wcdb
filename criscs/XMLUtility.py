@@ -8,7 +8,7 @@ def print_rec_xml (node, depth) :
 
 def read_xml (xml_content) :
     xml = ET.fromstring (xml_content)
-    print_rec_xml (xml, 0)
+    #print_rec_xml (xml, 0)
     return xml
 
 '''
@@ -66,8 +66,6 @@ def parse_models (root, all_models) :
             pass
         all_models['list_types'] += list_types
         all_models['list_elements'] += list_elements
-        print len(all_models['list_types'])
-        print len(all_models['list_elements'])
 
 def parse_xml (root) :
     assert root.tag == 'WorldCrises'

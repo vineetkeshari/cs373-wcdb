@@ -1,8 +1,6 @@
 from crises.models import WCDBElement, Crisis, Organization, Person, ListType, LI, R_Crisis_Person, R_Crisis_Org, R_Org_Person
 
 def read_wcdb_model (node) :
-    for i in node:
-        print i
     assert 'ID' in node.attrib
     assert 'Name' in node.attrib
     element_id = node.attrib['ID']

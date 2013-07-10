@@ -27,7 +27,12 @@ def import_file (request) :
     if request.method == 'POST' :
         form = DocumentForm(request.POST, request.FILES)
         if form.is_valid () :
-#            try :
+            try :
+                # Check password
+                password = request.POST['password']
+                if not password == 'baddatamining' :
+                    raise Exception('Incorrect Password!')
+
                 # Validate xml and create models
                 uploaded_file = request.FILES['docfile'].read()
                 all_data = process_xml (uploaded_file)
@@ -41,12 +46,11 @@ def import_file (request) :
                 error = False
                 error_string = ''
 
-#            except Exception, e :
-#                error = True
-#                error_string = str(e)
-#                raise e
+            except Exception, e :
+                error = True
+                error_string = str(e)
             # Redirect to the document list after POST
-                return render_to_response(
+            return render_to_response(
                 'crises/templates/upload_success_fail.html',
                 {'error': error, 'error_string': error_string},
                 context_instance=RequestContext(request),
@@ -64,7 +68,6 @@ def import_file (request) :
 
 def export_file (request) :
     xml_file = XMLFile.objects.all()
-    print xml_file
     xml = open (str(xml_file[len(xml_file)-1].xml_file), 'r')
     content = sub ('(\s+)', ' ', sub ('<!--(.*)-->', '', xml.read ()) )
     return render_to_response ('crises/templates/export.html', {'text' : content})
@@ -93,10 +96,6 @@ def index (request) :
             pages ['orgs'].append ({'name' : elem.name, 'id' : elem.ID})
         if elem.ID[:3] == 'PER' :
             pages ['people'].append ({'name' : elem.name, 'id' : elem.ID})
-    print pages['crises']
-    print pages['orgs']
-    print pages['people']
-
 
     return HttpResponse ( render ('index.html', {'members' : members, 'pages' : pages, }))
 
@@ -165,7 +164,6 @@ def get_media (view_id) :
                 feeds_str = feeds_str + "<li>" + r'<a href ="' + obj[index].href + r'">' + obj[index].href + '</a>' + "</li>"
                 #media_str = media_str + feeds_str     
     media_str = '<ul>' + cite_str + '</ul>' + '<table>' + '<tr>' + img_str + '</tr>' + '</table>' + '<table>' + '<tr>' + vid_str + '</tr>' + '</table>' +'<ul>' + maps_str + '</ul>' + '<ul>' + feeds_str + '</ul>' + '<ul>' + extlinks_str + '</ul>'
-    #print "External links", extlinks_str, "feeds", feeds_str
     return media_str
 
 def get_indices(view_id, LI_table, media_dict):
@@ -227,6 +225,5 @@ def crisis_view (view_id) :
 
     final_html = wrap_html (html_title, html_content)
 
-    print final_html
     return HttpResponse (final_html)
 

@@ -15,6 +15,11 @@
             {{ form.docfile.errors }}
             {{ form.docfile }}
         </p>
+        <p>{{ form.password.label_tag }} {{ form.password.help_text }}</p>
+        <p>
+            {{ form.password.errors }}
+            {{ form.password }}
+        </p>
         <p><input type="submit" value="Upload" /></p>
     </form>
     </body>
