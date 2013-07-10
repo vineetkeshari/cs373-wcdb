@@ -161,7 +161,7 @@ def get_media (view_id) :
             if mtype is "FEEDS" and (indices[mtype] != []):
                 feeds_str = feeds_str + "<li>" + r'<a href ="' + obj[index].href + r'">' + obj[index].href + '</a>' + "</li>"
                 #media_str = media_str + feeds_str     
-    media_str = '<table>' + '<ul>' + cite_str + '</ul>' + '<table>' + '<tr>' + img_str + '</tr>' + '</table>' + '<table>' + '<tr>' + vid_str + '</tr>' + '</table>' +'<ul>' + maps_str + '</ul>' + '<ul>' + feeds_str + '</ul>' + '<ul>' + extlinks_str + '</ul>'
+    media_str = '<ul>' + cite_str + '</ul>' + '<table>' + '<tr>' + img_str + '</tr>' + '</table>' + '<table>' + '<tr>' + vid_str + '</tr>' + '</table>' +'<ul>' + maps_str + '</ul>' + '<ul>' + feeds_str + '</ul>' + '<ul>' + extlinks_str + '</ul>'
     #print "External links", extlinks_str, "feeds", feeds_str
     return media_str
 
