@@ -69,7 +69,7 @@ def import_file (request) :
 
 def export_file (request) :
     xml_files = XMLFile.objects.all()
-    xml = open (str(xml_files[len(xml_file)-1].xml_file), 'r')
+    xml = open (str(xml_files[len(xml_files)-1].xml_file), 'r')
     content = sub ('(\s+)', ' ', sub ('<!--(.*)-->', '', xml.read ()) )
     return render_to_response ('crises/templates/export.html', {'text' : content})
 

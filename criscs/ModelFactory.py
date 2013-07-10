@@ -1,6 +1,9 @@
 from crises.models import WCDBElement, Crisis, Organization, Person, ListType, LI, R_Crisis_Person, R_Crisis_Org, R_Org_Person
 
 def read_wcdb_model (node) :
+    """
+    Creates a base model with common elements
+    """
     assert 'ID' in node.attrib
     assert 'Name' in node.attrib
     element_id = node.attrib['ID']
@@ -20,6 +23,11 @@ def read_wcdb_model (node) :
     return (element_id, element_name, element_kind, element_summary)
 
 def read_list_content (element_id, list_content_type, node, list_types, list_elements) :
+    """
+    Creates a ListType model along with all LI models contained in the list
+    """
+    assert not element_id == ''
+    assert not list_content_type == ''
     list_type_id = element_id + '_' + list_content_type
     list_types.append ( ListType(ID=list_type_id, element=element_id, content_type=list_content_type, num_elements=len(node)) )
     count = 0
@@ -37,13 +45,23 @@ def read_list_content (element_id, list_content_type, node, list_types, list_ele
         list_elements.append ( LI(ListID=list_type_id, order=count, content=li_content, href=li_href, embed=li_embed, text=li_text) )
 
 def read_common_content (element_id, node, list_types, list_elements) :
+    """
+    Wrapper for reading all ListTypes under tag 'Common'
+    Calls read_list_content for each list
+    """
+    assert not element_id == ''
+    assert node.tag == 'Common'
+    
     common_content_tags = ['Citations', 'ExternalLinks', 'Images', 'Videos', 'Maps', 'Feeds']
     for tag in common_content_tags :
         if not node.find(tag) == None:
             read_list_content (element_id, tag.upper(), node.find(tag), list_types, list_elements)
         
 def create_crisis_element (node) :
-
+    """
+    Creates a crisis model along with models for all lists contained in it
+    """
+    assert node.tag == 'Crisis'
     (crisis_id, crisis_name, crisis_kind, crisis_summary) = read_wcdb_model (node)
 
     crisis_date = None
@@ -71,6 +89,10 @@ def create_crisis_element (node) :
     return (crisis_id, new_model, list_types, list_elements)
 
 def create_org_element (node) :
+    """
+    Creates an organization model along with models for all lists contained in it
+    """
+    assert node.tag == 'Organization'
 
     (org_id, org_name, org_kind, org_summary) = read_wcdb_model (node)
 
@@ -95,6 +117,10 @@ def create_org_element (node) :
     return (org_id, new_model, list_types, list_elements)
 
 def create_person_element (node) :
+    """
+    Creates a person model along with models for all lists contained in it
+    """
+    assert node.tag == 'Person'
 
     (person_id, person_name, person_kind, person_summary) = read_wcdb_model (node)
 
