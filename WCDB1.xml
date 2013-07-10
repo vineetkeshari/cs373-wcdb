@@ -281,6 +281,161 @@ The earthquake was caused when the�Indian Plate was subducted by the�Burma P
 With a magnitude of Mw 9.1, it is the third largest earthquake ever recorded on a seismograph. The earthquake had the longest duration of faulting ever observed, between 8.3 and 10�minutes. It caused the entire planet to vibrate as much as 1�centimetre (0.4 inches)and triggered other earthquakes as far away as Alaska. Its epicentre was between Simeulue and mainland Indonesia.</Summary>
         </Common>
     </Crisis>
+
+    <Crisis ID="CRI_USDAIP" Name="US Drone Attacks in Pakistan">
+                <People>
+                  <Person ID="PER_GEDAPE" />
+              </People>
+            <Organizations>
+                <Org ID="ORG_CEINAG" />
+            </Organizations>
+            <Kind>Civilian Casualties of War</Kind>
+            <Date>2004-06-18</Date>
+            <Time>00:00:00</Time>
+            <Locations>
+                <li>Various locations in northwest Pakistan</li>
+            </Locations>
+            <HumanImpact>
+                <li>Estimated between 1,969 and 3,461 dead (as of 8 February 2013).</li>
+            </HumanImpact>
+            <EconomicImpact>
+                <li>It is hard to estimate the economic impact of the drone attacks.  Obviously there is a socio-economic impact for the people having to live under the constant threat of drone attacks, but again it is hard to quantitatively define that impact.</li>
+            </EconomicImpact>
+            <ResourcesNeeded>
+                <li>Given that this is a CIA operation, I am not sure there is much any one individual can do to stop the drone attacks besides contacting their appropriate govermental officials.</li>
+                <li>There are two clinics put on by Stanford and NYU Law Schools (http://www.livingunderdrones.org/about-the-clinics/), but again these are more for students and faculty of the given institutions.</li>
+            </ResourcesNeeded>
+            <WaysToHelp>
+                <li href="http://www.usa.gov/Contact/Elected.shtml">Contact your local Senators and Representative</li>
+            </WaysToHelp>
+            <Common>
+              <Citations>
+                  <li href="http://natsec.newamerica.net/drones/pakistan/analysis">New America Foundation.</li>
+              </Citations>
+          <ExternalLinks>
+              <li href="http://en.wikipedia.org/wiki/Drone_attacks_in_Pakistan">Wikipedia article</li>
+              <li href="http://www.thebureauinvestigates.com/2013/01/03/obama-2013-pakistan-drone-strikes/">The Bureau of Investigative Journalism</li>
+              <li href="http://www.livingunderdrones.org/living-under-drones/">Stanford International Human Rights and Conflict Resolution Clinic</li>
+              <li href="http://www.washingtonpost.com/national/national-security/under-obama-an-emerging-global-apparatus-for-drone-killing/2011/12/13/gIQANPdILP_story.html">Washington Post</li>
+          </ExternalLinks>
+          <Images>
+              <li embed="http://si.wsj.net/public/resources/images/OB-DJ296_dronea_G_20090325222127.jpg" />
+              <li embed="http://previous.presstv.ir/photo/20111031/reportint20111031184732543.jpg" />
+              <li embed="http://www.thenewstribe.com/wp-content/uploads/2013/06/drone-attack.jpg" />
+              <li embed="http://www.opinion-maker.org/wp-content/uploads/2012/09/US-Drone-attacks-on-Pakistan.jpg" />
+          </Images>
+          <Videos>
+              <li embed="//www.youtube.com/embed/3mlWqdO1VRw" />
+              <li embed="//www.youtube.com/embed/IsbjrEHQmNE" />
+              <li embed="//www.youtube.com/embed/-4-oOnjiGx8" />
+          </Videos>
+          <Maps>
+                <li embed="https://www.google.com/maps?sll=30.08236989592049,79.31189246107706&amp;sspn=3.2522150867582833,7.2072687770004205&amp;t=m&amp;q=uttarakhand&amp;dg=opt&amp;ie=UTF8&amp;hq=&amp;hnear=Uttarakhand,+India&amp;ll=30.066753,79.0193&amp;spn=2.77128,5.07019&amp;z=8&amp;output=embed" />
+            </Maps>
+            <Feeds>
+              <li embed="https://www.facebook.com/ProtestAgainstUsDroneAttacks?fref=ts" />
+              <li embed="https://twitter.com/SLShumanrights" />
+          </Feeds>
+          </Common>
+        </Crisis>
+
+        <Crisis ID="CRI_UEGYPT" Name="Political Unrest in Egypt">
+                <People>
+                  <Person ID="PER_HOSMUB" />
+              </People>
+            <Organizations>
+                <Org ID="ORG_SCOTAF" />
+            </Organizations>
+            <Kind>Political Revolution</Kind>
+            <Date>20011-01-25</Date>
+            <Time>00:00:00</Time>
+            <Locations>
+                <li>Egypt</li>
+            </Locations>
+            <HumanImpact>
+                <li>As many as 846 deaths and over 6000 injuries.</li>
+            </HumanImpact>
+            <EconomicImpact>
+                <li>$13.8 billion in lost foreign currency and gold reserves.</li>
+            </EconomicImpact>
+            <ResourcesNeeded>
+                <li>Economist, social reformers, stable govermental types.</li>
+                <li>General post revolution help.</li>
+            </ResourcesNeeded>
+            <WaysToHelp>
+                <li href="http://www.helpinegypt.com/">Help in Egypt</li>
+            </WaysToHelp>
+            <Common>
+              <Citations>
+                  <li href="http://www.haaretz.com/news/international/government-fact-finding-mission-shows-846-killed-in-egypt-uprising-1.356885">Haaretz.</li>
+                  <li href="http://rt.com/business/egypt-revolution-economy-impact-657/">rt.com</li>
+              </Citations>
+          <ExternalLinks>
+              <li href="https://en.wikipedia.org/wiki/2011_Egyptian_revolution#cite_note-autogenerated3-16">Wikipedia article</li>
+          </ExternalLinks>
+          <Images>
+              <li embed="http://www.david-campbell.org/wp-content/uploads/2011/02/Egypt.jpg" />
+          </Images>
+          <Videos>
+              <li embed="//www.youtube.com/embed/jxvBDTYiM2g" />
+          </Videos>
+          <Maps>
+                <li embed="https://maps.google.com/maps?q=egypt" />
+            </Maps>
+            <Feeds>
+                <li embed="https://www.facebook.com/EgyptRevolutionOrAnarchy?fref=ts" />
+          </Feeds>
+          </Common>
+        </Crisis>
+
+        <Crisis ID="CRI_NORWAY" Name="2011 Norway attacks">
+                <People>
+                  <Person ID="PER_JENSTO" />
+              </People>
+            <Organizations>
+                <Org ID="ORG_LABPAR" />
+            </Organizations>
+            <Kind>Terrorist Attack</Kind>
+            <Date>20011-07-22</Date>
+            <Time>15:25:22</Time>
+            <Locations>
+                <li>Oslo, Norway</li>
+                <li>Utoya, Norway</li>
+            </Locations>
+            <HumanImpact>
+                <li>77 deaths and 319 injured.</li>
+            </HumanImpact>
+            <EconomicImpact>
+                <li>na</li>
+            </EconomicImpact>
+            <ResourcesNeeded>
+                <li>na</li>
+            </ResourcesNeeded>
+            <WaysToHelp>
+                <li href="http://www.twinutesilence.com/">A moment of sociall media silence in memory of the victims.</li>
+            </WaysToHelp>
+            <Common>
+              <Citations>
+                  <li href="http://www.jordskjelv.no/cgi-bin/showpage.cgi?type=siste&amp;id=1311425084">Norsar Jordskjelv.no.</li>
+              </Citations>
+          <ExternalLinks>
+              <li href="http://en.wikipedia.org/wiki/2011_Norway_attacks">Wikipedia article</li>
+          </ExternalLinks>
+          <Images>
+              <li embed="http://media.oregonlive.com/oregonian/photo/2011/07/-4621d0637b17b96f.JPG" />
+          </Images>
+          <Videos>
+              <li embed="//www.youtube.com/embed/n8B8dnbdvr8" />
+          </Videos>
+          <Maps>
+                <li embed="https://maps.google.com/maps?um=1&amp;safe=off&amp;amphl=en&amp;ampq=2011%20Norway%20Attacks&amp;bav=on.2,or.r_cp.r_qf.&amp;bvm=bv.48705608,d.eWU&amp;biw=1600&amp;bih=775&amp;ie=UTF-8&amp;sa=N&amp;tab=il" />
+            </Maps>
+            <Feeds>
+                <li embed="https://www.facebook.com/pages/Norway-massacre/267299463284403" />
+          </Feeds>
+          </Common>
+        </Crisis>
+
     
     
     <Person ID="PER_MNSNGH" Name="Manmohan Singh">
@@ -359,7 +514,93 @@ Egeland was also Secretary General of the Norwegian Red Cross. He served as Stat
         </Common>        
     </Person>
     
-    
+    <Person ID="PER_GEDAPE" Name="General David Petraeus">
+        <Crises>
+            <Crisis ID="CRI_USDAIP" />
+        </Crises>
+        <Organizations>
+            <Org ID="ORG_CEINAG" />
+        </Organizations>
+        <Kind>Former Director CIA</Kind>
+        <Location>Los Angeles, CA (currently a USC faculty member)</Location>
+        <Common>
+            <Citations>
+                <li href="http://ktla.com/2013/05/02/ex-cia-director-david-petraeus-joins-usc-faculty/#axzz2YDlZyZGS">KTLA 5 Los Angeles, CA</li>
+            </Citations>
+                <ExternalLinks>
+                <li href="http://en.wikipedia.org/wiki/David_Petraeus">Wikipedia article</li>
+            </ExternalLinks>
+            <Images>
+                <li embed="http://msnbcmedia.msn.com/j/MSNBC/Components/Photo/_new/121109-david-petraeus-wife-1258p.380;380;7;70;0.jpg" />
+                <li embed="http://1.bp.blogspot.com/-QlXuheRKXeo/UJ_Y-AjMvRI/AAAAAAAAEI4/WRZIiqVl4CY/s1600/David-Petraeus.jpg" />
+                <li embed="http://upload.wikimedia.org/wikipedia/commons/thumb/0/06/DCIA_David_Petraeus.jpg/220px-DCIA_David_Petraeus.jpg" />
+            </Images>
+            <Videos>
+                <li embed="//www.youtube.com/embed/mgake-R32YE" />
+                <li embed="//www.youtube.com/embed/iNVmqCwxQQo" />
+            </Videos>
+            <Feeds>
+                <li embed="https://twitter.com/PetraeusNews" />
+            </Feeds>
+        </Common>        
+    </Person>
+
+    <Person ID="PER_HOSMUB" Name="Hosni Mubarak">
+        <Crises>
+            <Crisis ID="CRI_UEGYPT" />
+        </Crises>
+        <Organizations>
+            <Org ID="ORG_SCOTAF" />
+        </Organizations>
+        <Kind>Former President Egypt</Kind>
+        <Location>Egypt</Location>
+        <Common>
+            <Citations>
+                <li href="http://topics.nytimes.com/top/reference/timestopics/people/m/hosni_mubarak/index.html">New York Times</li>
+            </Citations>
+                <ExternalLinks>
+                <li href="https://en.wikipedia.org/wiki/Hosni_Mubarak">Wikipedia article</li>
+            </ExternalLinks>
+            <Images>
+                <li embed="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Hosni_Mubarak_ritratto.jpg/220px-Hosni_Mubarak_ritratto.jpg" />
+            </Images>
+            <Videos>
+                <li embed="//www.youtube.com/embed/NtpamD9Jx3g" />
+            </Videos>
+            <Feeds>
+                <li embed="https://www.facebook.com/pages/Hosni-Mubarak/112362755441646?fref=ts" />
+            </Feeds>
+        </Common>        
+    </Person>
+
+    <Person ID="PER_JENSTO" Name="Jens Stoltenberg">
+        <Crises>
+            <Crisis ID="CRI_NORWAY" />
+        </Crises>
+        <Organizations>
+            <Org ID="ORG_LABPAR" />
+        </Organizations>
+        <Kind>current Prime Minister of NOrway</Kind>
+        <Location>Norway</Location>
+        <Common>
+            <Citations>
+                <li href="http://www.bt.no/nyheter/--Man-ma-tro-at-det-nytter-2633333.html#.Udubr_nvsrU">Bergens Tidende</li>
+            </Citations>
+                <ExternalLinks>
+                <li href="http://en.wikipedia.org/wiki/Jens_Stoltenberg">Wikipedia article</li>
+            </ExternalLinks>
+            <Images>
+                <li embed="https://upload.wikimedia.org/wikipedia/commons/8/81/Jens_Stoltenberg.jpg" />
+            </Images>
+            <Videos>
+                <li embed="//www.youtube.com/embed/8oPbd9UvZuY" />
+            </Videos>
+            <Feeds>
+                <li embed="https://www.facebook.com/jensstoltenberg?fref=ts" />
+            </Feeds>
+        </Common>        
+    </Person>
+
     
     <Organization ID="ORG_PMRLFD" Name="Prime Minister's Relief Fund">
         <Crises>
@@ -507,7 +748,109 @@ Egeland was also Secretary General of the Norwegian Red Cross. He served as Stat
         </Common>
     </Organization>
 
+    <Organization ID="ORG_CEINAG" Name="Central Intelligence Agency">
+        <Crises>
+            <Crisis ID="CRI_USDAIP" />
+        </Crises>
+        <People>
+            <Person ID="PER_GEDAPE" />
+        </People>
+        <Kind>Governmental Intelligence</Kind>
+        <Location>Langley, VA</Location>
+        <History>
+            <li>Formed on September 18, 1947.</li>
+        </History>
+        <ContactInfo>
+            <li href="https://www.cia.gov/contact-cia">contact the CIA</li>
+        </ContactInfo>
+        <Common>
+            <Citations>
+                <li href="https://www.cia.gov/about-cia/history-of-the-cia/index.html">History of the CIA</li>
+            </Citations>
+                <ExternalLinks>
+                <li href="http://en.wikipedia.org/wiki/Central_Intelligence_Agency">Wikipedia article</li>
+                <li href="https://www.cia.gov/index.html">Central Intelligence Agency site</li>
+            </ExternalLinks>
+            <Images>
+                <li embed="http://silverunderground.com/wp-content/uploads/2013/03/CIA.jpg" />
+                <li embed="http://cryptome.org/eyeball/cia-dc/cia-dc-cia-hq-south.jpg" />
+            </Images>
+            <Videos>
+                <li embed="//www.youtube.com/embed/6k_pZ5lBg14" />
+                <li embed="//www.youtube.com/embed/XTCoOKZoDIE" />
+            </Videos>
+                <Feeds>
+                <li embed="https://twitter.com/search?q=pmnrf.gov.in" />
+            </Feeds>
+            </Common>
+    </Organization>
 
+    <Organization ID="ORG_SCOTAF" Name="Supreme Council of the Armed Forces">
+        <Crises>
+            <Crisis ID="CRI_UEGYPT" />
+        </Crises>
+        <People>
+            <Person ID="PER_HOSMUB" />
+        </People>
+        <Kind>Governing body of Egyptian military</Kind>
+        <Location>Cairo, Egypt</Location>
+        <History>
+            <li>Took control of the Egyptian government on Feb. 11, 2011.</li>
+        </History>
+        <ContactInfo>
+            <li href="http://www.sis.gov.eg/Ar/Default.aspx">Egypt State Information Service</li>
+        </ContactInfo>
+        <Common>
+            <Citations>
+                <li href="http://www.theglobeandmail.com/news/world/crisis-in-egypt/the-new-face-of-power-in-cairo/article1904700/">The Globe and Mail</li>
+            </Citations>
+                <ExternalLinks>
+                <li href="https://en.wikipedia.org/wiki/Supreme_Council_of_the_Armed_Forces">Wikipedia article</li>
+            </ExternalLinks>
+            <Images>
+                <li embed="http://www.onislam.net/english/oimedia/onislamen/images/mainimages/main_picture.jpg" />
+            </Images>
+            <Videos>
+                <li embed="//www.youtube.com/embed/Bjh7QdyeUyU" />
+            </Videos>
+                <Feeds>
+                <li embed="https://www.facebook.com/pages/Supreme-Council-of-the-Armed-Forces/211393838875525?fref=ts" />
+            </Feeds>
+            </Common>
+    </Organization>
 
+    <Organization ID="ORG_LABPAR" Name="Labour Party (Norway)">
+        <Crises>
+            <Crisis ID="CRI_NORWAY" />
+        </Crises>
+        <People>
+            <Person ID="PER_JENSTO" />
+        </People>
+        <Kind>Political Party</Kind>
+        <Location>Norway</Location>
+        <History>
+            <li>Founded in 1887.</li>
+        </History>
+        <ContactInfo>
+            <li href="http://arbeiderpartiet.no/Kontakt">It's all in Norwegian!</li>
+        </ContactInfo>
+        <Common>
+            <Citations>
+                <li href="http://arbeiderpartiet.no/Om-AP/Historien/Aps-historie/Ap-gjennom-125-aar">Arbeiderpartiet</li>
+            </Citations>
+                <ExternalLinks>
+                <li href="https://en.wikipedia.org/wiki/Labour_Party_(Norway)">Wikipedia article</li>
+            </ExternalLinks>
+            <Images>
+                <li embed="http://www.norwayemb.org.in/FileCache/NR/rdonlyres/4A222810935343F5BBF9A8F2E2AF6E4D/100815/lparty.JPG/width_300.height_235.mode_FillAreaWithCrop.pos_Default.color_White.JPG" />
+            </Images>
+            <Videos>
+                <li embed="//www.youtube.com/embed/FtyRe6IQLSM" />
+            </Videos>
+                <Feeds>
+                <li embed="https://www.facebook.com/pages/Norwegian-Labour-Party/105784066119047?nr" />
+            </Feeds>
+            </Common>
+    </Organization>
 
 </WorldCrises>
