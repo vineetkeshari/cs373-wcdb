@@ -123,19 +123,36 @@ def wcdb_common_view (view_id, page_type) :
 
 # This method should return the formatted Citations, External Links, Images, Videos, Maps and Feeds for any WCDBElement
 def get_media (view_id) :
-
+    media_type = ["CITATIONS", "EXTERNALLINKS", "IMAGES", "VIDEOS", "MAPS", "FEEDS"]
     obj = LI.objects.all() # Get all objects from the LI table
     indices = get_indices_media(view_id, obj) # Get indices for each of the Citations, External Links, Images, Videos, Maps and Feeds
     
     media_str = ''
     #Extract URL and content for each citation
-    for index in indices:
-        media_str = media_str + r'<a href ="' + obj[index].href + r'">' + obj[index].content + '</a>'
-    media_str = '<p>' + media_str + '</p>'
-    #TO BE DONE
+    for mtype in media_type:
+        for index in indices[mtype]:
+            if mtype in ["CITATIONS", "EXTERNALLINKS"] and (indices[mtype] != []) :
+                cite_str = "<li>" + r'<a href ="' + obj[index].href + r'">' + obj[index].content + '</a>' + "</li>"
+                media_str = media_str + cite_str 
 
-   
+            if mtype is "IMAGES" and (indices[mtype] != []):
+                img_str = "<li>" + r'<img src ="' + obj[index].embed + r'" alt ="' + obj[index].content + '">' + "</li>"
+                media_str = media_str + img_str 
 
+            if mtype is "VIDEOS" and (indices[mtype] != []):
+                vid_str = "<li>" + r'<iframe width="420" height="315" src="' + obj[index].embed + r'" frameborder="0" allowfullscreen></iframe>' + "</li>"
+                media_str = media_str + vid_str 
+
+            if mtype is "MAPS" and (indices[mtype] != []):
+                maps_str = "<li>" + r'<iframe width="425" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="' + obj[index].embed + r'"></iframe>' + "</li>"
+                media_str = media_str + maps_str 
+
+            if mtype is "FEEDS" and (indices[mtype] != []):
+                feeds_str = "<li>" + r'<a href ="' + obj[index].href + r'">' + obj[index].href + '</a>' + "</li>"
+                media_str = media_str + feeds_str 
+    
+        
+    media_str = '<ul>' + media_str + '</ul>'
     return media_str
 
 def get_indices_media(view_id, LI_table):
