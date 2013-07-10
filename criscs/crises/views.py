@@ -125,66 +125,86 @@ def wcdb_common_view (view_id, page_type) :
 
 # This method should return the formatted Citations, External Links, Images, Videos, Maps and Feeds for any WCDBElement
 def get_media (view_id) :
-    media_type = ["CITATIONS", "EXTERNALLINKS", "IMAGES", "VIDEOS", "MAPS", "FEEDS"]
+    media_dict = {"CITATIONS":[] , "EXTERNALLINKS":[], "IMAGES":[], "VIDEOS":[], "MAPS":[], "FEEDS":[]}
+    media_type = media_dict.keys()
     obj = LI.objects.all() # Get all objects from the LI table
-    indices = get_indices_media(view_id, obj) # Get indices for each of the Citations, External Links, Images, Videos, Maps and Feeds
+    indices = get_indices(view_id, obj, media_dict) # Get indices for each of the Citations, External Links, Images, Videos, Maps and Feeds
     
     media_str = ''
+    cite_str = ''
+    extlinks_str = ''
+    img_str = ''
+    vid_str = ''
+    maps_str = ''
+    feeds_str = ''
     #Extract URL and content for each citation
     for mtype in media_type:
         for index in indices[mtype]:
-            if mtype in ["CITATIONS", "EXTERNALLINKS"] and (indices[mtype] != []) :
-                cite_str = "<li>" + r'<a href ="' + obj[index].href + r'">' + obj[index].content + '</a>' + "</li>"
-                media_str = media_str + cite_str 
+            if mtype is "CITATIONS" and (indices[mtype] != []) :
+                cite_str = cite_str + "<li>" + r'<a href ="' + obj[index].href + r'">' + obj[index].content + '</a>' + "</li>" 
+
+            if mtype is "EXTERNALLINKS" and (indices[mtype] != []) :
+                extlinks_str = extlinks_str + "<li>" + r'<a href ="' + obj[index].href + r'">' + obj[index].content + '</a>' + "</li>" 
 
             if mtype is "IMAGES" and (indices[mtype] != []):
-                img_str = "<li>" + r'<img src ="' + obj[index].embed + r'" alt ="' + obj[index].content + '">' + "</li>"
-                media_str = media_str + img_str 
+                img_str = img_str + "<td>" + r'<img src ="' + obj[index].embed + r'" alt ="' + obj[index].content + '">' + "</td>"
+                #media_str = media_str + img_str 
 
             if mtype is "VIDEOS" and (indices[mtype] != []):
-                vid_str = "<li>" + r'<iframe width="420" height="315" src="' + obj[index].embed + r'" frameborder="0" allowfullscreen></iframe>' + "</li>"
-                media_str = media_str + vid_str 
+                vid_str = vid_str + "<td>" + r'<iframe width="420" height="315" src="' + obj[index].embed + r'" frameborder="0" allowfullscreen></iframe>' + "</td>"
+                #media_str = media_str + vid_str 
 
             if mtype is "MAPS" and (indices[mtype] != []):
-                maps_str = "<li>" + r'<iframe width="425" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="' + obj[index].embed + r'"></iframe>' + "</li>"
-                media_str = media_str + maps_str 
+                maps_str = maps_str + "<li>" + r'<iframe width="425" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="' + obj[index].embed + r'"></iframe>' + "</li>"
+                #media_str = media_str + maps_str 
 
             if mtype is "FEEDS" and (indices[mtype] != []):
-                feeds_str = "<li>" + r'<a href ="' + obj[index].href + r'">' + obj[index].href + '</a>' + "</li>"
-                media_str = media_str + feeds_str 
-    
-        
-    media_str = '<ul>' + media_str + '</ul>'
+                feeds_str = feeds_str + "<li>" + r'<a href ="' + obj[index].href + r'">' + obj[index].href + '</a>' + "</li>"
+                #media_str = media_str + feeds_str     
+    media_str = '<table>' + '<ul>' + cite_str + '</ul>' + '<table>' + '<tr>' + img_str + '</tr>' + '</table>' + '<table>' + '<tr>' + vid_str + '</tr>' + '</table>' +'<ul>' + maps_str + '</ul>' + '<ul>' + feeds_str + '</ul>' + '<ul>' + extlinks_str + '</ul>'
+    #print "External links", extlinks_str, "feeds", feeds_str
     return media_str
 
-def get_indices_media(view_id, LI_table):
-    media_dict = {"CITATIONS":[] , "EXTERNALLINKS":[], "IMAGES":[], "VIDEOS":[], "MAPS":[], "FEEDS":[]}
-    media_type = ["CITATIONS", "EXTERNALLINKS", "IMAGES", "VIDEOS", "MAPS", "FEEDS"]
+def get_indices(view_id, LI_table, media_dict):
+    tmp_dict = media_dict 
+    tmp_type = media_dict.keys()
+    assert type(tmp_dict) is dict
+    assert type(tmp_type) is list
     # Store all the indices for the media type
     for i in range(0, len(LI_table)):
-        if LI_table[i].ListID.ID == view_id + "_" + media_type[0]:
-            media_dict['CITATIONS'].append(i)
-        if LI_table[i].ListID.ID == view_id + "_" + media_type[1]:
-            media_dict['EXTERNALLINKS'].append(i)
-        if LI_table[i].ListID.ID == view_id + "_" + media_type[2]:
-            media_dict['IMAGES'].append(i)
-        if LI_table[i].ListID.ID == view_id + "_" + media_type[3]:
-            media_dict['VIDEOS'].append(i)
-        if LI_table[i].ListID.ID == view_id + "_" + media_type[4]:
-            media_dict['MAPS'].append(i)
-        if LI_table[i].ListID.ID == view_id + "_" + media_type[5]:
-            media_dict['FEEDS'].append(i)
-    return media_dict
+        for elem in tmp_type:
+            if LI_table[i].ListID.ID == view_id + "_" + elem:
+                tmp_dict[elem].append(i)
+    return tmp_dict
 
 
 # This method should return the formatted Locations, HumanImpact, EconomicImpact, ResourcesNeeded, WaysToHelp items of Crisis
 def get_crisis_details (view_id) :
-    return ''
+    details_dict = {'LOCATIONS':[], 'HUMANIMPACT':[], 'ECONOMICIMPACT':[], 'RESOURCESNEEDED':[], 'WAYSTOHELP':[]}
+    details_list = details_dict.keys()
+    obj = LI.objects.all()
+    indices = get_indices(view_id, obj, details_dict)
+    
+    details_str = ''
+    #Extract URL and content for each citation
+    for mtype in details_list:
+        tmp_string = ''
+        for index in indices[mtype]:
+            if (indices[mtype] != []):
+                tmp_str = tmp_str +  "<li>" + r'<a href ="' + obj[index].href + r'">' + obj[index].content + '</a>' + "</li>"
+        details_str = details_str + '<ul>' + tmp_str + '</ul>'
+    return details_str
+
+
 
 # This method should return the formatted History and Contact Info items of Organization
 def get_org_details (view_id) :
     return ''
-
+    
+# Returns all data associated with the person 
+def get_person_details(view_id):
+    return ''
+    
 def crisis_view (view_id) :
     (html_title, html_common) = wcdb_common_view (view_id, 'Crisis')
     
