@@ -144,10 +144,11 @@
 
      <Crisis ID="CRI_AIDS" Name="AIDS">
         <People>
-            <Person ID="PER_MNSNGH" />
+            <Person ID="PER_BILLGATES" />
         </People>
         <Organizations>
             <Org ID="ORG_UN" />
+            <Org ID="ORG_BAMGF" />
         </Organizations>
         <Kind>Epidemic</Kind>
         <Date></Date>
@@ -191,21 +192,149 @@
             </ExternalLinks>
             
             <Images>
-                <li embed="http://images.jagran.com/ukhand-ss-02-07-13.jpg" </li>
+                <li embed="http://upload.wikimedia.org/wikipedia/commons/6/68/People_living_with_HIV_AIDS_world_map.PNG" />
+                <li embed="http://healthyliving.blog.ocregister.com/files/2011/03/aids_red_ribbon-other1.jpg" />
+                <li embed="http://us.123rf.com/400wm/400/400/designua/designua1210/designua121000010/15819881-structure-of-the-aids-virus.jpg" />
             </Images>
             <Videos>
-                <li embed="//www.youtube.com/embed/qV3s7Sa6B6w" />
+                <li embed="http://www.youtube.com/watch?v=rv0yIICeg-E" />
             </Videos>
             <Maps>
-                <li embed="https://www.google.com/maps?sll=30.08236989592049,79.31189246107706&amp;sspn=3.2522150867582833,7.2072687770004205&amp;t=m&amp;q=uttarakhand&amp;dg=opt&amp;ie=UTF8&amp;hq=&amp;hnear=Uttarakhand,+India&amp;ll=30.066753,79.0193&amp;spn=2.77128,5.07019&amp;z=8&amp;output=embed" />
+                
             </Maps>
             <Feeds>
-                <li embed="https://twitter.com/search?q=%23uttarakhand%20floods" />
+                
             </Feeds>
-            <Summary></Summary>
+            <Summary>
+                Disease of human immune system that is transferred during unprotected sex, blood, breastfeeding, and child delivery with an infected person. Believed to have originiated in Africa in the early 20th century, it is reponsible
+                for millions of deaths. AIDs also serves as a source of discrimination and economic drain, and has profoundly impacted the countries where it is most prevelant.
+            </Summary>
         </Common>
     </Crisis>
+
+     <Crisis ID="CRI_MALARIA" Name="Malaria">
+        <People>
+            <Person ID="PER_BILLGATES" />
+        </People>
+        <Organizations>
+            <Org ID="ORG_UN" />
+            <Org ID="ORG_BAMGF" />
+            <Org ID="ORG_NBN" />
+        </Organizations>
+        <Kind>Epidemic</Kind>
+        <Date></Date>
+        <Time></Time>
+        <Locations>
+            <li>Worldwide, tropical climates.</li>
+        </Locations>
+        <HumanImpact>
+            <li>219 million infections annually</li>
+            <li>660,000 deaths annually</li>
+            <li>3.3 billion reside in infectious zones</li>
+        </HumanImpact>
+        <EconomicImpact>
+            <li>12 billion in direct healthcare costs</li>
+            <li>Heavily infected countries show a 33% drop in GDP growth over last 30 years compared to neighbours that have low infection rates.</li>
+        </EconomicImpact>
+        <ResourcesNeeded>
+            <li>Insecticides and Pesticides have historically had amazing results, virtually eliminating infections in UAE while neighboring Oman has one of the highest infection rates in the world.</li>
+            <li>Rapid diagnostic tests ensure people get treatment when they need it.</li>
+            <li>Artemisinin-based combination therapies cost arround a dollar and can cure a child within three days</li>
+            <li>Mosquito nets provide a cheap barrier at night and can reduce infection rates by up to 90 percent.</li> 
+        </ResourcesNeeded>
+        <WaysToHelp>
+            <li href="https://secure.globalproblems-globalsolutions.org/site/Donation2?1340.donation=form1&df_id=1340&JServSessionIdr004=qsg4lbjtd2.app217b">Donate a mosquito net to Nothing But Nets</li>
+            <li href="http://www.malarianomore.org/">Donate money to subsidize drug therapy</li>
+            <li href="http://www.psi.org/our-work/healthy-lives/malaria">Donate both nets and drug therapy</li>
+        </WaysToHelp>
+        <Common>
+            <Citations>
+                <li href="http://www.cdc.gov/malaria/about/index.html">CDC information dashboard Malaria</li>
+                <li href="http://www.ncbi.nlm.nih.gov/books/NBK2624/">Report on the economic burden of Malaria</li>
+            </Citations>
+            <ExternalLinks>
+                <li href="http://www.malarianomore.org/pages/the-solution">List of solutions for the Malaria crisis</li>
+            </ExternalLinks>
+            
+            <Images>
+                <li embed="http://malare-aware.weebly.com/uploads/1/8/6/3/18636798/1246003_orig.jpg" </li>
+                <li embed="http://www.newswise.com/images/uploads/2013/04/26/vecnet_malaria_hires.png" </li>
+                <li embed="http://upload.wikimedia.org/wikipedia/commons/d/db/Symptoms_of_Malaria.png" </li>
+            </Images>
+            <Videos>
+                <li embed="http://www.youtube.com/watch?v=hztGkzwWR1I" />
+            </Videos>
+            <Maps>
+            </Maps>
+            <Feeds>
+            </Feeds>
+            <Summary>
+                Malaria is a life threatening illness and a major cause of death worldwide. It exists in tropical and subtropical climates and still infects hundred of millions of people annually. It is a major drain on productivity of heavily infected nations and has a major economic impact. Nations have successfully eliminated malaria with wide use of insecticides in the past, such as DDT. Global eradication of the four types of malaria is a major 
+                goal of several globaliazed communal orginizations.
+            </Summary>
+        </Common>
+    </Crisis>    
     
+   <Crisis ID="CRI_ZMBDMD" Name="Zimbabwe Conflict Diamonds">
+        <People>
+            <Person ID="PER_ROBMUG" />
+        </People>
+        <Organizations>
+            <Org ID="ORG_UN" />
+        </Organizations>
+        <Kind>Systemic Exploitation</Kind>
+        <Date>Discovered in 2006</Date>
+        <Time></Time>
+        <Locations>
+            <li>Diamond fields Southwest of Mutare, Zimbabwe</li>
+        </Locations>
+        <HumanImpact>
+            <li>Forced labor</li>
+            <li>Torture</li>
+            <li>Widespread rape</li>
+        </HumanImpact>
+        <EconomicImpact>
+            <li>Thousands of native residents forcibly relocated</li>
+            <li>Environmental impact, poisoning of Save river</li> 
+            <li>One of the world's richest diamond deposits</li>
+        </EconomicImpact>
+        <ResourcesNeeded>
+        </ResourcesNeeded>
+        <WaysToHelp>
+            <li>Advocate for tighter restrictions on the Kimerly Process member countries</li>
+            <li>Demand proof that a diamond is conflict-free</li>
+            <li>Ultimately, refrain from purchasing diamonds</li>
+        </WaysToHelp>
+        <Common>
+            <Citations>
+                <li href="http://www.bbc.co.uk/news/world-africa-14377215">BBC Article on Humans Rights violations at Zimbabwean diamond mines in 2011</li> 
+                <li href="http://www.irinnews.org/report/89682/rights-the-blood-diamond-is-making-a-comeback">Article on the UN's decision to sanction Zimbabwean diamond exports in 2006 due to human rights abuses</li> 
+            </Citations>
+            <ExternalLinks>
+                <li href="http://www.globalwitness.org/conflict-diamonds">Primer on how diamonds fuel human rights violations</li>
+                <li href="http://www.kimberleyprocess.com/web/kimberley-process/kp-basics">United Nation's attempt at preventing sale of conflict diamonds</li>
+                <li href="http://www.humantraffickingmovie.com/stopping-blood-diamonds.html">Advocacy Group's suggestions on how to help African conflict diamond crisis</li>
+            </ExternalLinks>
+            <Images>
+                <li embed="http://www.globalwitness.org/sites/default/files/IND_08_GW_09.JPG" />
+                <li embed="http://farm3.static.flickr.com/2766/4222563296_18662087b5_o.jpg" />
+                <li embed="http://24.media.tumblr.com/tumblr_m6m85lFmqH1r7k54qo1_500.jpg" />
+            </Images>
+            <Videos>
+                <li embed="http://www.youtube.com/watch?v=XPDC0WV9xjs" />
+            </Videos>
+            <Maps>
+                <li embed="https://maps.google.com/maps?q=Mutare,+Zimbabwe&hl=en&sll=-18.986168,32.648621&sspn=0.555142,1.056747&hnear=Mutare,+Manicaland,+Zimbabwe&t=m&z=13" />
+            </Maps>
+            <Feeds>
+            </Feeds>
+            <Summary>
+                Extensive diamond deposits were located in late 2006 around Marange, Zimbabwe. The government quickly moved in and displaced local residents and miners. By 2008 the Zimbabwean military was practicing many humans right violations such as forced labor, torture, and mass killings to maintain its grasp. The United Nation's Kimberly Process dispatched a reviewer in 2009 to inspect claims of widespread violations and ultimately came to a
+                compromise with the Zimbabwean government.
+            </Summary>
+        </Common>
+    </Crisis>    
+
      <Crisis ID="CRI_IOTSUN" Name="Indian Ocean Tsunami and Earthquake (2004)">
         <People>
             <Person ID="PER_JANEGE" />
@@ -437,7 +566,36 @@ With a magnitude of Mw 9.1, it is the third largest earthquake ever recorded on 
         </Crisis>
 
     
-    
+      <Person ID="PER_ROBMUG" Name="Robert Mugabe">
+        <Crises>
+            <Crisis ID="CRI_ZMBDMD" />
+        </Crises>
+        <Organizations>
+        </Organizations>
+        <Kind>Politician</Kind>
+        <Location>Zimbabwe</Location>
+        <Common>
+            <Citations>
+                <li href="http://www.biography.com/people/robert-mugabe-9417391">Biography</li>
+            </Citations>
+            <ExternalLinks>
+                 <li href="http://en.wikipedia.org/wiki/Robert_Mugabe">Wikipedia Entry</li>
+            </ExternalLinks>
+            
+            <Images>
+                <li embed="http://en.wikipedia.org/wiki/File:Robert_Mugabe_-_2009.jpg" />
+                <li embed="http://dingo.care2.com/pictures/c2c/share/12/129/949/1294930_370.jpg" />
+            </Images>
+            <Videos>
+            </Videos>
+            <Feeds>
+            </Feeds>
+            <Summary>
+                Controversial president of Zimbabwe since 1987. Zimbabwe's GDP/C has shrunk by more than half over his reign, and has included claims of racism, genocide, and other civil rights violations. Critics claim that he
+                was reponsible for the massacre of 150 illegal miners and ongoing civil rights violations around the Mutare diamond fields.
+            </Summary>
+        </Common>        
+    </Person>
     <Person ID="PER_MNSNGH" Name="Manmohan Singh">
         <Crises>
             <Crisis ID="CRI_NRINFL" />
@@ -474,6 +632,33 @@ With a magnitude of Mw 9.1, it is the third largest earthquake ever recorded on 
                 <li embed="https://twitter.com/search?q=%23manmohan%20singh" />
             </Feeds>
             <Summary>Manmohan Singh (born 26 September 1932) is the 13th and current Prime Minister of India. Singh holds a doctorate in economics from Oxford university, and has served as an advisor to the Ministry of Foreign Trade, India (1966-69), Governer of the Reserve Bank of India (1982-85) and Deputy Chairman of the Planning Commission (1985-87), before being appointed the Minister of Finance in the Indian cabinet in 1991. As the Minister of finance, Singh carried out several structural reforms that liberalised India's economy. In 2004, Singh was elected as the Prime Minister of India. His government has since executed several key legislations and projects including the Rural Health Mission, Unique Identification Authority, Rural Employment Guarantee scheme and the Right to Information Act.</Summary>
+        </Common>        
+    </Person>
+     <Person ID="PER_BILLGATES" Name="Bill Gates">
+        <Crises>
+            <Crisis ID="CRI_AIDS" />
+        </Crises>
+        <Organizations>
+            <Org ID="ORG_BAMGF" />
+        </Organizations>
+        <Kind>Philanthropist</Kind>
+        <Location>United States</Location>
+        <Common>
+            <Citations>
+            </Citations>
+            <ExternalLinks>
+                <li href="http://www.gatesfoundation.org/">Website</li>
+            </ExternalLinks>
+            
+            <Images>
+                <li embed="http://www.microsoft.com/global/en-us/news/PublishingImages/bod/billg/gates_print.jpg" />
+            </Images>
+            <Videos>
+                <li embed="http://www.youtube.com/watch?v=CIZGDT7ZqdM" />
+            </Videos>
+            <Feeds>
+            </Feeds>
+            <Summary>Famous founder of Microsoft and previously the richest man in the world, Bill Gates now spends most of his time heading his philanthropy organization, The Bill and Melinda Gates Foundation</Summary>
         </Common>        
     </Person>
     
@@ -702,49 +887,80 @@ Egeland was also Secretary General of the Norwegian Red Cross. He served as Stat
             </ExternalLinks>
             
             <Images>
-                <li embed="https://fbcdn-sphotos-g-a.akamaihd.net/hphotos-ak-ash3/p480x480/935902_10151563003564215_2143045726_n.png" />
-                <li embed="http://photogallery.indiatimes.com/news/india/rescue-relief-uttarakhand/photo/20713370/Army-men-unload-relief-material-from-an-IAF-MI-26-helicopter-at-Gauchar-district-Chamoli-in-Uttarakhand-.jpg" />
+                <li embed="http://2.bp.blogspot.com/-uUSCw_OQS7U/UFsbtC43cLI/AAAAAAAAAco/CC_iwH4OOoM/s320/United-nations-UN-flag-picrure.png" />
             </Images>
             <Videos>
-                <li embed="//www.youtube.com/embed/RwSghlRceeY" />
             </Videos>
             <Feeds>
-                <li embed="https://twitter.com/search?q=pmnrf.gov.in" />
+                <li embed="http://www.youtube.com/watch?v=GbQTYHAN2c8" />
             </Feeds>
-            <Summary>In pursuance of an appeal by the then Prime Minister, Pt. Jawaharlal Nehru in January, 1948, the Prime Minister�s National Relief Fund (PMNRF) was established with public contributions to assist displaced persons from Pakistan. The resources of the PMNRF are now utilized primarily to render immediate relief to families of those killed in natural calamities like floods, cyclones and earthquakes, etc. and to the victims of the major accidents and riots. Assistance from PMNRF is also rendered for medical treatment like heart surgeries, kidney transplantation, cancer treatment, etc. The fund consists entirely of public contributions and does not get any budgetary support. The corpus of the fund is invested with banks in fixed deposits. Disbursements are made with the approval of the Prime Minister.</Summary>
+            <Summary>
+                International organization containing 193 member countries as an advocate of peace and cooperation between member states.
+            </Summary>
         </Common>
     </Organization>
-    <Organization ID="ORG_AIDS" Name="United Nations">
+
+    <Organization ID="ORG_BAMGF" Name="Bill and Melinda Gates Foundaiton">
         <Crises>
             <Crisis ID="CRI_AIDS" />
         </Crises>
         <People>
+
         </People>
         <Kind>Interational Cooperative</Kind>
         <Location>Worldwide</Location>
         <History>
-            <li>Founded in 1945 after World War II.</li>
+            <li>Founded by Bill and Melinda Gates in 1994 with an initial endowment of 94 million. Now largely ran by Bill Gates himself after he resigned as CEO of Microsoft</li>
         </History>
         <ContactInfo>
-            <li href="http://www.un.org/en/">Website</li>
+            <li href="http://en.wikipedia.org/wiki/Bill_%26_Melinda_Gates_Foundation">Wikipedia Page</li>
+        </ContactInfo>
+        <Common>
+            <Citations>
+            </Citations>
+            <ExternalLinks>
+                <li href="http://www.gatesfoundation.org/">Official Website</li>
+            </ExternalLinks>
+            <Images>
+                <li embed="http://blogs-images.forbes.com/mfonobongnsehe/files/2012/07/Bill-and-Melinda-Gates-Foundation1.png" />
+            </Images>
+            <Videos>
+                <li embed="http://www.youtube.com/watch?v=2VdMqmVtnOM" />
+            </Videos>
+            <Feeds>
+            </Feeds>
+            <Summary>A leading philanthrocapitalist organization founded by the founder of Microsoft Bill Gates and his wife Melinda. </Summary>
+        </Common>
+    </Organization>
+
+     <Organization ID="ORG_NBN" Name="Nothing But Nets">
+        <Crises>
+            <Crisis ID="CRI_MALARIA" />
+        </Crises>
+        <People>
+        </People>
+        <Kind>Charity</Kind>
+        <Location>Worldwide</Location>
+        <History>
+            <li>Founded in 2006 from a column in Sports Illustrated written by Rick Reilly advocating nets for malaria prevention.</li>
+        </History>
+        <ContactInfo>
+            <li href="http://www.nothingbutnets.net">Official Website</li>
         </ContactInfo>
         <Common>
             <Citations>
             </Citations>
             <ExternalLinks>
             </ExternalLinks>
-            
             <Images>
-                <li embed="https://fbcdn-sphotos-g-a.akamaihd.net/hphotos-ak-ash3/p480x480/935902_10151563003564215_2143045726_n.png" />
-                <li embed="http://photogallery.indiatimes.com/news/india/rescue-relief-uttarakhand/photo/20713370/Army-men-unload-relief-material-from-an-IAF-MI-26-helicopter-at-Gauchar-district-Chamoli-in-Uttarakhand-.jpg" />
+                <li embed="http://www.jcivancouver.com/wp-content/uploads/2012/05/Stop-This-Killer-A4.jpg" />
             </Images>
             <Videos>
-                <li embed="//www.youtube.com/embed/RwSghlRceeY" />
+                <li embed="http://www.youtube.com/watch?v=dyBWjN1e31A" />
             </Videos>
             <Feeds>
-                <li embed="https://twitter.com/search?q=pmnrf.gov.in" />
             </Feeds>
-            <Summary>In pursuance of an appeal by the then Prime Minister, Pt. Jawaharlal Nehru in January, 1948, the Prime Minister�s National Relief Fund (PMNRF) was established with public contributions to assist displaced persons from Pakistan. The resources of the PMNRF are now utilized primarily to render immediate relief to families of those killed in natural calamities like floods, cyclones and earthquakes, etc. and to the victims of the major accidents and riots. Assistance from PMNRF is also rendered for medical treatment like heart surgeries, kidney transplantation, cancer treatment, etc. The fund consists entirely of public contributions and does not get any budgetary support. The corpus of the fund is invested with banks in fixed deposits. Disbursements are made with the approval of the Prime Minister.</Summary>
+            <Summary>A nonprofit organization dedicated to providing insecticide-treated mosquito nets for those most in need.</Summary>
         </Common>
     </Organization>
 
