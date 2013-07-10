@@ -1,9 +1,15 @@
 from xml.etree import ElementTree as ET
 from ModelFactory import create_crisis_element, create_org_element, create_person_element
 
-def read_xml (filename) :
-    tree = ET.parse (filename)
-    return tree.getroot()
+def print_rec_xml (node, depth) :
+    print '  '*depth + node.tag
+    for child in node :
+        print_rec_xml (child, depth+1)
+
+def read_xml (xml_content) :
+    xml = ET.fromstring (xml_content)
+    print_rec_xml (xml, 0)
+    return xml
 
 '''
 from genxmlif import GenXmlIfError
@@ -44,15 +50,15 @@ def initialize_pages () :
     return all_models
 
 def parse_models (root, all_models) :
-    for child in node :
+    for child in root :
         assert child.tag in ['Crisis', 'Person', 'Organization']
         if child.tag == 'Crisis' :
             (crisis_id, new_model, list_types, list_elements) = create_crisis_element (child)
             all_models['crises'][crisis_id] = new_model
-        elif child_tag == 'Person' :
+        elif child.tag == 'Person' :
             (person_id, new_model, list_types, list_elements) = create_person_element (child)
             all_models['people'][person_id] = new_model
-        elif child_tag == 'Organization' :
+        elif child.tag == 'Organization' :
             (org_id, new_model, list_types, list_elements) = create_org_element (child)
             all_models['orgs'][org_id] = new_model
         else :
@@ -60,6 +66,8 @@ def parse_models (root, all_models) :
             pass
         all_models['list_types'] += list_types
         all_models['list_elements'] += list_elements
+        print len(all_models['list_types'])
+        print len(all_models['list_elements'])
 
 def parse_xml (root) :
     assert root.tag == 'WorldCrises'
@@ -68,7 +76,7 @@ def parse_xml (root) :
     return all_models
 
 # Call this method
-def process_xml (filename) :
-    root = read_xml (filename)
+def process_xml (xml_content) :
+    root = read_xml (xml_content)
     return parse_xml (root)
 

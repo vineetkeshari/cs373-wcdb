@@ -8,24 +8,47 @@ from XMLUtility import process_xml
 from django.shortcuts import render_to_response
 from django.core.urlresolvers import reverse
 
+def save_data (all_data) :
+    for crisis in all_data['crises'] :
+        all_data['crises'][crisis].save()
+    for org in all_data['orgs'] :
+        all_data['orgs'][org].save()
+    for person in all_data['people'] :
+        all_data['people'][person].save()
+    for list_type in all_data['list_types'] :
+        list_type.save()
+    for li in all_data['list_elements'] :
+        li.save()
+
 def import_file (request) :
     # Handle file upload
     if request.method == 'POST' :
         form = DocumentForm(request.POST, request.FILES)
         if form.is_valid () :
-            newdoc = XMLFile (xml_file = request.FILES['docfile'])
+#            try :
+                # Validate xml and create models
+                uploaded_file = request.FILES['docfile'].read()
+                all_data = process_xml (uploaded_file)
+               
+                # Save the data to DB 
+                save_data (all_data)
 
-            try :
-                # validate xml and save stuff here
-                # call process_xml
-                # <TODO>
-
-                resp = 'File validated and Uploaded'
+                # Store the file in the database
+                newdoc = XMLFile (xml_file = request.FILES['docfile'])
                 newdoc.save ()
-            except Exception, e :
-                resp = 'File validation failed! Data not recorded.'
+                error = False
+                error_string = ''
+
+#            except Exception, e :
+#                error = True
+#                error_string = str(e)
+#                raise e
             # Redirect to the document list after POST
-            return HttpResponse ('<p>' + resp + '</p>')
+                return render_to_response(
+                'crises/templates/upload_success_fail.html',
+                {'error': error, 'error_string': error_string},
+                context_instance=RequestContext(request),
+            )
     else :
         form = DocumentForm() # An empty, unbound form
 
@@ -35,6 +58,11 @@ def import_file (request) :
         {'form': form},
         context_instance=RequestContext(request),
     )
+
+
+def export_file (request) :
+    xml_file = XMLFile.objects.all() [0]
+    return HttpResponseRedirect ('/' + xml_file.xml_file.url)
 
 # Create your views here.
 def render (name, data) :
