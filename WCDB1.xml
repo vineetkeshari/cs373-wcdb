@@ -267,6 +267,66 @@
         </Common>
     </Crisis>    
     
+   <Crisis ID="CRI_ZMBDMD" Name="Zimbabwe Conflict Diamonds">
+        <People>
+            
+        </People>
+        <Organizations>
+            <Org ID="ORG_UN" />
+        </Organizations>
+        <Kind>Systemic Exploitation</Kind>
+        <Date>Discovered in 2006</Date>
+        <Time></Time>
+        <Locations>
+            <li>Diamond fields Southwest of Mutare, Zimbabwe</li>
+        </Locations>
+        <HumanImpact>
+            <li>Forced labor</li>
+            <li>Torture</li>
+            <li>Widespread rape</li>
+        </HumanImpact>
+        <EconomicImpact>
+            <li>Thousands of native residents forcibly relocated</li>
+            <li>Environmental impact, poisoning of Save river</li> 
+            <li>One of the world's richest diamond deposits</li>
+        </EconomicImpact>
+        <ResourcesNeeded>
+        </ResourcesNeeded>
+        <WaysToHelp>
+            <li>Advocate for tighter restrictions on the Kimerly Process member countries</li>
+            <li>Demand proof that a diamond is conflict-free</li>
+            <li>Ultimately, refrain from purchasing diamonds</li>
+        </WaysToHelp>
+        <Common>
+            <Citations>
+                <li href="http://www.bbc.co.uk/news/world-africa-14377215">BBC Article on Humans Rights violations at Zimbabwean diamond mines in 2011</li> 
+                <li href="http://www.irinnews.org/report/89682/rights-the-blood-diamond-is-making-a-comeback">Article on the UN's decision to sanction Zimbabwean diamond exports in 2006 due to human rights abuses</li> 
+            </Citations>
+            <ExternalLinks>
+                <li href="http://www.globalwitness.org/conflict-diamonds">Primer on how diamonds fuel human rights violations</li>
+                <li href="http://www.kimberleyprocess.com/web/kimberley-process/kp-basics">United Nation's attempt at preventing sale of conflict diamonds</li>
+                <li href="http://www.humantraffickingmovie.com/stopping-blood-diamonds.html">Advocacy Group's suggestions on how to help African conflict diamond crisis</li>
+            </ExternalLinks>
+            <Images>
+                <li embed="http://www.globalwitness.org/sites/default/files/IND_08_GW_09.JPG" />
+                <li embed="http://farm3.static.flickr.com/2766/4222563296_18662087b5_o.jpg" />
+                <li embed="http://24.media.tumblr.com/tumblr_m6m85lFmqH1r7k54qo1_500.jpg" />
+            </Images>
+            <Videos>
+                <li embed="http://www.youtube.com/watch?v=XPDC0WV9xjs" />
+            </Videos>
+            <Maps>
+                <li embed="https://maps.google.com/maps?q=Mutare,+Zimbabwe&hl=en&sll=-18.986168,32.648621&sspn=0.555142,1.056747&hnear=Mutare,+Manicaland,+Zimbabwe&t=m&z=13" />
+            </Maps>
+            <Feeds>
+            </Feeds>
+            <Summary>
+                Extensive diamond deposits were located in late 2006 around Marange, Zimbabwe. The government quickly moved in and displaced local residents and miners. By 2008 the Zimbabwean military was practicing many humans right violations such as forced labor, torture, and mass killings to maintain its grasp. The United Nation's Kimberly Process dispatched a reviewer in 2009 to inspect claims of widespread violations and ultimately came to a
+                compromise with the Zimbabwean government.
+            </Summary>
+        </Common>
+    </Crisis>    
+
      <Crisis ID="CRI_IOTSUN" Name="Indian Ocean Tsunami and Earthquake (2004)">
         <People>
             <Person ID="PER_JANEGE" />
@@ -498,7 +558,36 @@ With a magnitude of Mw 9.1, it is the third largest earthquake ever recorded on 
         </Crisis>
 
     
-    
+      <Person ID="PER_ROBMUG" Name="Robert Mugabe">
+        <Crises>
+            <Crisis ID="CRI_ZMBDMD" />
+        </Crises>
+        <Organizations>
+        </Organizations>
+        <Kind>Politician</Kind>
+        <Location>Zimbabwe</Location>
+        <Common>
+            <Citations>
+                <li href="http://www.biography.com/people/robert-mugabe-9417391">Biography</li>
+            </Citations>
+            <ExternalLinks>
+                 <li href="http://en.wikipedia.org/wiki/Robert_Mugabe">Wikipedia Entry</li>
+            </ExternalLinks>
+            
+            <Images>
+                <li embed="http://en.wikipedia.org/wiki/File:Robert_Mugabe_-_2009.jpg" />
+                <li embed="http://dingo.care2.com/pictures/c2c/share/12/129/949/1294930_370.jpg" />
+            </Images>
+            <Videos>
+            </Videos>
+            <Feeds>
+            </Feeds>
+            <Summary>
+                Controversial president of Zimbabwe since 1987. Zimbabwe's GDP/C has shrunk by more than half over his reign, and has included claims of racism, genocide, and other civil rights violations. Critics claim that he
+                was directly reponsible for the Zimbabwean military massacre of 150 illegal miners.
+            </Summary>
+        </Common>        
+    </Person>
     <Person ID="PER_MNSNGH" Name="Manmohan Singh">
         <Crises>
             <Crisis ID="CRI_NRINFL" />
