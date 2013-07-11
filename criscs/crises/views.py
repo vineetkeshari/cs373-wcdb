@@ -69,7 +69,7 @@ def import_file (request) :
 
 def export_file (request) :
     xml_files = XMLFile.objects.all()
-    xml = open (str(xml_files[len(xml_files)-1].xml_file), 'r')
+    xml = open (str(xml_files[len(xml_file)-1].xml_file), 'r')
     content = sub ('(\s+)', ' ', sub ('<!--(.*)-->', '', xml.read ()) )
     return render_to_response ('crises/templates/export.html', {'text' : content})
 
@@ -115,8 +115,8 @@ def index (request) :
     return HttpResponse ( render ('index.html', {'members' : members, 'pages' : pages, }))
 
 def base_view (request, view_id) :
-    view_type = view_id[:3]
-    try :
+        view_type = view_id[:3]
+#    try :
         if view_type == 'CRI' :
             return crisis_view (view_id)
         elif view_type == 'ORG' :
@@ -124,9 +124,9 @@ def base_view (request, view_id) :
         elif view_type == 'PER' :
             return person_view (view_id)
         else :
-            return HttpResponseNotFound('<h3>Page not found</h3>')
-    except Exception, e :
-        return HttpResponseNotFound('<h3>Page not found</h3>' + '<p>' + e.args[0] + '</p>')
+            return HttpResponseNotFound('<h1>Page not found</h1>')
+#    except Exception, e :
+        return HttpResponseNotFound('<h1>Page not found</h1>' + '<p>' + e.args[0] + '</p>')
 
 def wcdb_common_view (view_id, page_type) :
     b = WCDBElement.objects.get (pk=view_id)
@@ -143,43 +143,40 @@ def wcdb_common_view (view_id, page_type) :
 # This method should return the formatted Citations, External Links, Images, Videos, Maps and Feeds for any WCDBElement
 def get_media (view_id) :
     media_dict = {"CITATIONS":[] , "EXTERNALLINKS":[], "IMAGES":[], "VIDEOS":[], "MAPS":[], "FEEDS":[]}
+    store_dict = {"CITATIONS":[] , "EXTERNALLINKS":[], "IMAGES":[], "VIDEOS":[], "MAPS":[], "FEEDS":[]}
     media_type = media_dict.keys()
     obj = LI.objects.all() # Get all objects from the LI table
     indices = get_indices(view_id, obj, media_dict) # Get indices for each of the Citations, External Links, Images, Videos, Maps and Feeds
     
-    media_str = ''
-    cite_str = ''
-    extlinks_str = ''
-    img_str = ''
-    vid_str = ''
-    maps_str = ''
-    feeds_str = ''
+    
     #Extract URL and content for each citation
     for mtype in media_type:
         for index in indices[mtype]:
             if mtype is "CITATIONS" and (indices[mtype] != []) :
-                cite_str = cite_str + "<li>" + r'<a href ="' + str(obj[index].href) + r'">' + str(obj[index].content) + '</a>' + "</li>" 
+                tmp_list = [str(obj[index].href), str(obj[index].content)]
+                store_dict[mtype].append(tmp_list)
 
             if mtype is "EXTERNALLINKS" and (indices[mtype] != []) :
-                extlinks_str = extlinks_str + "<li>" + r'<a href ="' + str(obj[index].href) + r'">' + str(obj[index].content) + '</a>' + "</li>" 
+                tmp_list = [str(obj[index].href), str(obj[index].content)]
+                store_dict[mtype].append(tmp_list)
 
             if mtype is "IMAGES" and (indices[mtype] != []):
-                img_str = img_str + "<td>" + r'<img src ="' + str(obj[index].embed) + r'" alt ="' + str(obj[index].content) + '">' + "</td>"
-                #media_str = media_str + img_str 
+                tmp_list = [str(obj[index].embed), str(obj[index].content)]
+                store_dict[mtype].append(tmp_list)
 
             if mtype is "VIDEOS" and (indices[mtype] != []):
-                vid_str = vid_str + "<td>" + r'<iframe width="420" height="315" src="' + str(obj[index].embed) + r'" frameborder="0" allowfullscreen></iframe>' + "</td>"
-                #media_str = media_str + vid_str 
+                tmp_list = [str(obj[index].embed)]
+                store_dict[mtype].append(tmp_list) 
 
             if mtype is "MAPS" and (indices[mtype] != []):
-                maps_str = maps_str + "<li>" + r'<iframe width="425" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="' + str(obj[index].embed) + r'"></iframe>' + "</li>"
-                #media_str = media_str + maps_str 
+                tmp_list = [str(obj[index].embed)]
+                store_dict[mtype].append(tmp_list) 
 
             if mtype is "FEEDS" and (indices[mtype] != []):
-                feeds_str = feeds_str + "<li>" + r'<a href ="' + str(obj[index].href) + r'">' + str(obj[index].href) + '</a>' + "</li>"
-                #media_str = media_str + feeds_str     
-    media_str = '<ul>' + cite_str + '</ul>' + '<table>' + '<tr>' + img_str + '</tr>' + '</table>' + '<table>' + '<tr>' + vid_str + '</tr>' + '</table>' +'<ul>' + maps_str + '</ul>' + '<ul>' + feeds_str + '</ul>' + '<ul>' + extlinks_str + '</ul>'
-    return media_str
+                ftmp_list = [str(obj[index].href), str(obj[index].href)]
+                store_dict[mtype].append(tmp_list)     
+    
+    return store_dict
 
 def get_indices(view_id, LI_table, media_dict):
     tmp_dict = media_dict 
@@ -194,26 +191,39 @@ def get_indices(view_id, LI_table, media_dict):
     return tmp_dict
 
 
+def get_content_href (obj_index) :
+    my_content = None
+    if not obj_index.content == None :
+        my_content = str(obj_index.content)
+    my_href = None
+    if not obj_index.href == None :
+        my_href = str(obj_index.href)
+    return (my_content, my_href)
+
+
 # This method should return the formatted Locations, HumanImpact, EconomicImpact, ResourcesNeeded, WaysToHelp items of Crisis
 def get_crisis_details (view_id) :
     details_dict = {'LOCATIONS':[], 'HUMANIMPACT':[], 'ECONOMICIMPACT':[], 'RESOURCESNEEDED':[], 'WAYSTOHELP':[]}
+    store_dict = {'LOCATIONS':[], 'HUMANIMPACT':[], 'ECONOMICIMPACT':[], 'RESOURCESNEEDED':[], 'WAYSTOHELP':[]}
     details_list = details_dict.keys()
     obj = LI.objects.all()
     indices = get_indices(view_id, obj, details_dict)
     
-    details_str = ''
     #Extract URL and content for each citation
     for mtype in details_list:
-        tmp_str = ''
         for index in indices[mtype]:
             if (indices[mtype] != []):
-                tmp_str = tmp_str +  "<li>" + r'<a href ="' + str(obj[index].href) + r'">' + str(obj[index].content) + '</a>' + "</li>"
-        details_str = details_str + '<ul>' + tmp_str + '</ul>'
-    return details_str
+                (my_content, my_href)  = get_content_href(obj[index])
+                tmp_list = [my_href, my_content]
+                store_dict[mtype].append(tmp_list)
+    return store_dict
 
 
 # This method should return the formatted History and Contact Info items of Organization
 def get_org_details (view_id) :
+    #1. Get the org(s) from the view_id, store in dict
+    #2. Query LI for the history
+    
     return ''
     
 # Returns all data associated with the person 
@@ -229,13 +239,14 @@ def crisis_view (view_id) :
         c_date = str(c.date)
     if not c.time == None :
         c_time = str(c.time)
-    c_lists = get_crisis_details (view_id)
-    html_crisis_content = render ('crisis.html', {'date' : c_date, 'time' : c_time, 'lists' : c_lists, })
+    c_lists = get_media (view_id) 
+    c_details = get_crisis_details (view_id)
+
+    html_crisis_content = render ('crisis.html', {'date' : c_date, 'time' : c_time, 'lists':c_lists, 'details':c_details,})
 
     html_media = get_media (view_id)
-#    html_media = ''
 
-    html_content = html_common + html_crisis_content + html_media
+    html_content = html_crisis_content #+ html_media
 
     final_html = wrap_html (html_title, html_content)
 
