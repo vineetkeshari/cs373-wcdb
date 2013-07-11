@@ -77,8 +77,97 @@
             <Summary>In June 2013, the North Indian states of Uttarakhand and Himachal Pradesh, some regions of Western Nepal and their adjoining areas experienced heavy rainfall that triggered devastating floods and landslides. As of 29 June 2013, more than 1,000 people have died with many more missing. Damage to bridges and roads left over 70,000 pilgrims and tourists trapped in various places. The Indian Air Force, the Army and paramilitary troops have evacuated more than 100,000 people from the flood hit areas.</Summary>
         </Common>
     </Crisis>
+    
+    <Crisis ID="CRI_EHAITI" Name="2010 Haiti Earthquake">
+        <People>
+            <Person ID="PER_MICHEL" />
+        </People>
+        <Organizations>
+            <Org ID="ORG_DIEMCO" />
+        </Organizations>
+        <Kind>Natural Disaster</Kind>
+        <Date>2010-01-12</Date>
+        <Time>16:53:00</Time>
+        <Locations>
+            <li>Port-au-Prince, Haiti</li>
+            <li>Leogane, Haiti</li>
+            <li>Tabarre, Haiti</li>
+            <li>Petionville, Haiti</li>
+            <li>Jacmel, Haiti</li>
+            <li>Petit Goave, Haiti</li>
+            <li>Grand Goave, Haiti</li>
+            <li>Gressier, Haiti</li>
+        </Locations>
+        <HumanImpact>
+            <li>3,500,000 people were affected and over 300,000 people were injured.</li>
+            <li>Haitian government estimated 316,000 deaths one year after the earthquake while the highest reliable death count was estimated at 220,000.</li>
+            <li>25% of civil servants in Port au Prince died.</li>
+            <li>Tens of thousands of refugees relocated to areas not affected.</li>
+            <li>Over 600,000 people left thier home area in Port-au-Prince and mostly stayed with host families.</li>
+            <li>At its peak, one and a half million people were living in camps including over 100,000 at critical risk from storms and flooding.</li>
+        </HumanImpact>
+        <EconomicImpact>
+            <li>Over 188,383 houses were badly damaged and 105,000 were destroyed.</li>
+            <li>1,500,000 people became homeless.</li>
+            <li>4,000 schools were damaged or destroyed.</li>
+            <li>60% of Government and administrative buildings, 80% of schools in Port-au-Prince and 60% of schools in the South and West Departments were destroyed or damaged</li>
+            <li>After the quake there were 19 million cubic metres of rubble and debris in Port au Prince – enough to fill a line of shipping containers stretching end to end from London to Beirut.</li>
+        </EconomicImpact>
+        <ResourcesNeeded>
+            <li>The DEC Appeal has now raised £107m – two-thirds directly and one-third through its member agencies – which will be spent over three years.</li>
+            <li>DEC agencies and their partners have nearly £380m to spend in total from all sources</li>
+            <li>1.8million people reached by DEC funded aid.</li>
+            <li>DEC is also working on improving the water supply of 340,000 people.</li>
+            <li>DEC is also supplying drugs to five cholera treatment facilities serving 18,000 people.</li>
+            <li>DEC is also providing free medical care to 39,000 people and has improved shelters for 34,000 people.</li>
+        </ResourcesNeeded>
+        <WaysToHelp>
+            <li href="http://www.haitianhealthfoundation.org/">Donate to the Haitian Health Foundation</li>
+            <li href="http://www.savethechildren.org/">Sponser a child through Save the Children</li>
+            <li href="http://www.pih.org/">Partners in Health</li>
+            <li href="http://www.concernusa.org/">Help rebuild Haiti's schools through Concern Worldwide US</li>
+            <li href="http://mfkhaiti.org/index.php/contribute/">Help MFK raise money for a Medicine and Food Factory</li>
+            <li href="http://jphro.org/">Donate to the J/P Haitian Relief Foundation</li>
+        </WaysToHelp>
+        <Common>
+            <Citations>
+                <li href="http://earthquake.usgs.gov/earthquakes/eqinthenews/2010/us2010rja6/#details">US Geological Survey Releases</li>
+                <li href="http://www.dec.org.uk/haiti-earthquake-facts-and-figures">Disasters Emergency Committee</li>
+            </Citations>
+            <ExternalLinks>
+                <li href="http://en.wikipedia.org/wiki/2010_Haiti_earthquake">Wikipedia - 2010 Haiti Earthquake</li>
+                <li href="http://news.nationalgeographic.com/news/2010/01/100113-haiti-earthquake-red-cross/">National Geographic Article: Haiti Earthquake "Strange," Strongest in 200 Years</li>
+                <li href="http://www.trust.org/spotlight/Haiti-earthquake-2010">Haiti Earthquake - Thomson Reuters Foundation</li>
+            </ExternalLinks>
+            <Images>
+                <li embed="http://earthquake.usgs.gov/earthquakes/dyfi/events/us/2010rja6/us/us2010rja6_ciim_zoom.jpg" />
+                <li embed="http://earthquake.usgs.gov/earthquakes/shakemap/global/shake/2010rja6/download/intensity.jpg" />
+                <li embed="http://racismandnationalconsciousness.files.wordpress.com/2012/07/dd.jpg" />
+                <li embed="http://i.dailymail.co.uk/i/pix/2010/01/15/article-1243540-07DCFE9B000005DC-496_964x659.jpg" />
+                <li embed="http://i.dailymail.co.uk/i/pix/2010/01/15/article-1243540-07DD03CB000005DC-719_964x607.jpg" />
+                <li embed="http://i.dailymail.co.uk/i/pix/2010/01/15/article-1243540-07DCFE8F000005DC-762_964x636.jpg" />
+                <li embed="http://upload.wikimedia.org/wikipedia/commons/c/ce/Haitian_national_palace_earthquake.jpg" />
+                <li embed="http://upload.wikimedia.org/wikipedia/commons/1/16/2010_Haiti_earthquake_relief_efforts_by_the_US_Army.jpg" />
+                <li embed="http://upload.wikimedia.org/wikipedia/commons/3/34/AirdropcloseJan18haiti_edited.jpg" />
+            </Images>
+            <Videos>
+                <li embed="http://www.youtube.com/embed/RdxnGEfLbvc" />
+                <li embed="http://www.youtube.com/embed/gn9ZmForiyo" />
+                <li embed="http://www.youtube.com/embed/B5dG6vyFWFo" />
+            </Videos>
+            <Maps>
+                <li embed="https://maps.google.com/maps?q=18.443+-72.571%28M7.0+-+HAITI+REGION+-+2010+January+12++21:53:10+UTC%29&ll=18.443,-72.571&spn=2,2&f=d&t=h" />
+            </Maps>
+            <Feeds>
+                <li embed="https://twitter.com/nprnews/haiti-earthquake" />
+            </Feeds>
+        </Common>
+    </Crisis>
 
     <Crisis ID="CRI_CYCNAR" Name="Cyclone Nargis">
+        <Organizations>
+            <Org ID="ORG_PMRLFD" />
+        </Organizations>
         <Kind>Natural Disaster</Kind>
         <Date>2008-04-27</Date>
         <Time>09:00:00</Time>
@@ -751,6 +840,7 @@ Egeland was also Secretary General of the Norwegian Red Cross. He served as Stat
     <Organization ID="ORG_PMRLFD" Name="Prime Minister's Relief Fund">
         <Crises>
             <Crisis ID="CRI_NRINFL" />
+            <Crisis ID="CRI_CYCNAR" />
         </Crises>
         <People>
             <Person ID="PER_MNSNGH" />
@@ -1003,6 +1093,40 @@ Egeland was also Secretary General of the Norwegian Red Cross. He served as Stat
             </Videos>
                 <Feeds>
                 <li embed="https://www.facebook.com/pages/Norwegian-Labour-Party/105784066119047?nr" />
+            </Feeds>
+            </Common>
+    </Organization>
+    
+    <Organization ID="ORG_DIEMCO" Name="Disasters Emergency Committee">
+        <Crises>
+            <Crisis ID="CRI_EHAITI" />
+        </Crises>
+        <People>
+            <Person ID="PER_MICHEL" />
+        </People>
+        <Kind> Umbrella Organization for 14 Humanitarian Aid Agencies</Kind>
+        <Location>London, England</Location>
+        <History>
+            <li>The DEC began its life in 1963 in the offices of the British Red Cross in Grosvenor Crescent in London as a simple “co-ordinating committee”.</li>
+        </History>
+        <ContactInfo>
+            <li href="http://www.dec.org.uk/about-dec/contact-us">Disasters Emergency Committe Contact Page</li>
+        </ContactInfo>
+        <Common>
+            <Citations>
+                <li href="http://www.dec.org.uk/">DEC Disasters Emergency Committee</li>
+            </Citations>
+                <ExternalLinks>
+                <li href="http://en.wikipedia.org/wiki/Disasters_Emergency_Committee">Wikipedia Disasters Emergency Committee</li>
+            </ExternalLinks>
+            <Images>
+                <li embed="http://johnsonbanks.co.uk/wp-content/uploads/DEC_logo_main.jpg" />
+            </Images>
+            <Videos>
+                <li embed="http://www.youtube.com/embed/_tMWAm1y904" />
+            </Videos>
+                <Feeds>
+                <li embed="https://twitter.com/decappeal" />
             </Feeds>
             </Common>
     </Organization>
