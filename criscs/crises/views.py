@@ -121,8 +121,8 @@ def index (request) :
     return HttpResponse ( render ('index.html', {'members' : members, 'pages' : pages, }))
 
 def base_view (request, view_id) :
-        view_type = view_id[:3]
-#    try :
+    view_type = view_id[:3]
+    try :
         if view_type == 'CRI' :
             return crisis_view (view_id)
         elif view_type == 'ORG' :
@@ -131,7 +131,7 @@ def base_view (request, view_id) :
             return person_view (view_id)
         else :
             return HttpResponseNotFound('<h1>Page not found</h1>')
-#    except Exception, e :
+    except Exception, e :
         return HttpResponseNotFound('<h1>Page not found</h1>' + '<p>' + e.args[0] + '</p>')
 
 def wcdb_common_view (view_id, page_type) :
