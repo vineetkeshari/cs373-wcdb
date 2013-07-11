@@ -156,7 +156,7 @@
                 <li embed="http://www.youtube.com/embed/B5dG6vyFWFo" />
             </Videos>
             <Maps>
-                <li embed="https://maps.google.com/maps?q=18.443+-72.571%28M7.0+-+HAITI+REGION+-+2010+January+12++21:53:10+UTC%29&ll=18.443,-72.571&spn=2,2&f=d&t=h" />
+                <li embed="https://maps.google.com/maps?q=18.443+-72.571(M7.0+-+HAITI+REGION+-+2010+January+12++21:53:10+UTC)&amp;f=d&amp;t=m&amp;ie=UTF8&amp;z=8&amp;ll=18.443,-72.571&amp;output=embed" />
             </Maps>
             <Feeds>
                 <li embed="https://twitter.com/nprnews/haiti-earthquake" />
