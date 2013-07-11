@@ -1,6 +1,6 @@
 from django.http import HttpResponse, HttpResponseNotFound, HttpResponseRedirect
 from django.template import Context, loader, RequestContext
-from crises.models import Crisis, Person, Organization, WCDBElement, ListType, LI, R_Crisis_Person, R_Crisis_Org, R_Org_Person, XMLFile
+from crises.models import Crisis, Person, Organization, WCDBElement, ListType, LI, Text_Store, R_Crisis_Person, R_Crisis_Org, R_Org_Person, XMLFile
 from crises.forms import DocumentForm
 
 from XMLUtility import process_xml
@@ -21,7 +21,10 @@ def save_data (all_data) :
     for list_type in all_data['list_types'] :
         list_type.save()
     for li in all_data['list_elements'] :
+        print li.content
         li.save()
+    for text in all_data['texts'] :
+        text.save()
     for r_co in all_data['rel_crisis_org'] :
         r_co.save()
     for r_cp in all_data['rel_crisis_person'] :
@@ -74,9 +77,10 @@ def import_file (request) :
 
 
 def export_file (request) :
-    xml_files = XMLFile.objects.all()
-    xml = open (str(xml_files[len(xml_files)-1].xml_file), 'r')
-    content = sub ('(\s+)', ' ', sub ('<!--(.*)-->', '', xml.read ()) )
+#    xml_files = XMLFile.objects.all()
+#    xml = open (str(xml_files[len(xml_files)-1].xml_file), 'r')
+#    content = sub ('(\s+)', ' ', sub ('<!--(.*)-->', '', xml.read ()) )
+    content = sub ('&', '&amp;', generate_xml ())
     return render_to_response ('crises/templates/export.html', {'text' : content})
 
 def run_tests (request) :
@@ -145,6 +149,20 @@ def wcdb_common_view (view_id, page_type) :
     html_common = render ('common.html', {'name' : b.name, 'summary' : summary, 'kind' : kind})
 
     return (html_title, html_common)
+
+def generate_xml () :
+    texts = Text_Store.objects.all ()
+
+    generated_xml = 'Your XML has %d elements:\n\n' % len(texts)
+    generated_xml += r'<?xml version="1.0" encoding="ISO-8859-1" ?>' + '\n'
+    generated_xml += '<WorldCrises>\n'
+
+    for text in texts :
+        generated_xml += text.content
+
+    generated_xml += '</WorldCrises>\n'
+
+    return generated_xml
 
 # This method should return the formatted Citations, External Links, Images, Videos, Maps and Feeds for any WCDBElement
 def get_media (view_id) :

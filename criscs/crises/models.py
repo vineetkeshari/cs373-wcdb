@@ -38,6 +38,13 @@ class Organization (WCDBElement) :
     """
     location = models.CharField (max_length=200, null=True)
 
+class Text_Store (models.Model) :
+    """
+    Stored text
+    """
+    ID = models.CharField (max_length=10, primary_key=True)
+    content = models.TextField (max_length=1000000)
+
 class R_Crisis_Person (models.Model) :
     """
     Stores relations between Crises and People

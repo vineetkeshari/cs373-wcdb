@@ -1,4 +1,5 @@
-from crises.models import WCDBElement, Crisis, Organization, Person, ListType, LI, R_Crisis_Person, R_Crisis_Org, R_Org_Person
+import re
+from crises.models import WCDBElement, Crisis, Organization, Person, ListType, Text_Store, LI, R_Crisis_Person, R_Crisis_Org, R_Org_Person
 
 def read_wcdb_model (node) :
     """
@@ -57,6 +58,25 @@ def read_common_content (element_id, node, list_types, list_elements) :
         if not node.find(tag) == None:
             read_list_content (element_id, tag.upper(), node.find(tag), list_types, list_elements)
 
+def get_xml_text (node, depth) :
+    """
+    Converts XML to indented text
+    """
+    my_string = ''
+    attrib_print = ''
+    if len(node.attrib) > 0 :
+        for att in node.attrib :
+            attrib_print += att + '="' + node.attrib[att] + '" '
+        attrib_print = ' ' + attrib_print.strip()
+    content_print = ''
+    if not node.text == None :
+        content_print = node.text
+    my_string += '  '*depth + '<' + node.tag + attrib_print + '>' + content_print.strip() + '\n'
+    for child in node :
+        my_string += get_xml_text (child, depth+1)
+    my_string += '  '*depth + '</' + node.tag + '>' + '\n'
+    return my_string
+
 def create_crisis_element (node) :
     """
     Creates a crisis model along with models for all lists contained in it
@@ -86,6 +106,9 @@ def create_crisis_element (node) :
     if not node.find('Common') == None:
         read_common_content (crisis_id, node.find('Common'), list_types, list_elements)
 
+    xml_text = get_xml_text (node, 1)
+    text_store = Text_Store (ID=crisis_id, content=xml_text)
+
     # Store relations
     r_co = r_cp = []
     if not node.find('Organizations') == None:
@@ -98,7 +121,7 @@ def create_crisis_element (node) :
             assert not org.attrib['ID'] == ''
             r_cp.append(R_Crisis_Person(crisis=crisis_id, person=person.attrib['ID']))
 
-    return (crisis_id, new_model, list_types, list_elements, r_co, r_cp)
+    return (crisis_id, new_model, list_types, list_elements, r_co, r_cp, text_store)
 
 def create_org_element (node) :
     """
@@ -126,6 +149,9 @@ def create_org_element (node) :
     if not node.find('Common') == None:
         read_common_content (org_id, node.find('Common'), list_types, list_elements)
 
+    xml_text = get_xml_text (node, 1)
+    text_store = Text_Store (ID=org_id, content=xml_text)
+
     # Store relations
     r_co = r_op = []
     if not node.find('Crises') == None:
@@ -138,7 +164,7 @@ def create_org_element (node) :
             assert not person.attrib['ID'] == ''
             r_op.append(R_Org_Person(org=org_id, person=person.attrib['ID']))
 
-    return (org_id, new_model, list_types, list_elements, r_co, r_op)
+    return (org_id, new_model, list_types, list_elements, r_co, r_op, text_store)
 
 def create_person_element (node) :
     """
@@ -160,6 +186,9 @@ def create_person_element (node) :
     if not node.find('Common') == None:
         read_common_content (person_id, node.find('Common'), list_types, list_elements)
 
+    xml_text = get_xml_text (node, 1)
+    text_store = Text_Store (ID=person_id, content=xml_text)
+
     # Store relations
     r_cp = r_op = []
     if not node.find('Crises') == None:
@@ -172,5 +201,5 @@ def create_person_element (node) :
             assert not org.attrib['ID'] == ''
             r_op.append(R_Org_Person(org=org.attrib['ID'], person=person_id))
 
-    return (person_id, new_model, list_types, list_elements, r_cp, r_op)
+    return (person_id, new_model, list_types, list_elements, r_cp, r_op, text_store)
 
