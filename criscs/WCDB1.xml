@@ -79,6 +79,9 @@
     </Crisis>
     
     <Crisis ID="CRI_EHAITI" Name="2010 Haiti Earthquake">
+        <People>
+            <Person ID="PER_MICHEL" />
+        </People>
         <Organizations>
             <Org ID="ORG_DIEMCO" />
         </Organizations>
@@ -833,6 +836,80 @@ Egeland was also Secretary General of the Norwegian Red Cross. He served as Stat
         </Common>        
     </Person>
 
+    <Person ID="PER_MRBONO" Name="Bono">
+        <Crises>
+            <Crisis ID="CRI_AIDSHI" />
+            <Crisis ID="CRI_MALARI" />
+        </Crises>
+        <Organizations>
+            <Org ID="ORG_GFFATM" />
+        </Organizations>
+        <Kind>Singer in group U2</Kind>
+        <Location>Ireland</Location>
+        <Common>
+                <ExternalLinks>
+                <li href="http://http://en.wikipedia.org/wiki/Bono">Wikipedia article</li>
+            </ExternalLinks>
+            <Images>
+                <li embed="http://greenbuzzz.net/wp-content/uploads/2011/10/bono-www-genomeboy-com.jpg" />
+            </Images>
+            <Videos>
+                <li embed="//http://www.youtube.com/embed/1VOlXwhp00Y" />
+            </Videos>
+        </Common>        
+    </Person>
+
+
+    <Person ID="PER_MICHEL" Name="Michel Joseph Martelly">
+        <Crises>
+            <Crisis ID="CRI_EHAITI" />
+        </Crises>
+        <Kind>President of Haiti</Kind>
+        <Location>Port-au-Prince, Haiti</Location>
+        <Common>
+                <ExternalLinks>
+                <li href="http://en.wikipedia.org/wiki/Michel_Martelly">Wikipedia article</li>
+            </ExternalLinks>
+            <Images>
+                <li embed="http://upload.wikimedia.org/wikipedia/commons/5/50/Michel_Martelly_on_April_20%2C_2011.jpg" />
+            </Images>
+            <Videos>
+                <li embed="//http://www.youtube.com/embed/uUhQzYyGCdU" />
+            </Videos>
+        </Common>        
+    </Person>
+
+    <Organization ID="ORG_GFFATM" Name="The Global Fund">
+        <Crises>
+            <Crisis ID="CRI_AIDSHI" />
+            <Crisis ID="CRI_MALARI" />
+        </Crises>
+        <People>
+            <Person ID="PER_MRBONO" />
+        </People>
+        <Kind>International Financing Organization</Kind>
+        <Location>India</Location>
+        <History>
+            <li>Since the Fund was created in 2002, public sector pledges have totaled USD 28.3 billion (95 percent of all pledges). The remaining USD 1.6 billion (5 percent) has been pledged from the private sector or other financing initiatives. </li>
+        </History>
+        <ContactInfo>
+            <li>Telephone: +41 58 791 1700</li>
+            <li href="http://www.theglobalfund.org/en/contact/">Contact Online</li>
+        </ContactInfo>
+        <Common>
+            <ExternalLinks>
+                <li href="http://www.theglobalfund.org/en/">The Global Fund: Home</li>
+            </ExternalLinks>
+            
+            <Images>
+                <li embed="http://www.fightaidsghana.org/wp-content/uploads/2012/09/Global-fund.jpg" />
+            </Images>
+            <Videos>
+                <li embed="//www.youtube.com/embed/Q3UCryoc6sc?feature=player_detailpage" />
+            </Videos>
+            <Summary>The Global Fund is an innovative financing institution that provides funding to countries to support programs that prevent, treat and care for people with HIV and AIDS, tuberculosis and malaria.</Summary>
+        </Common>
+    </Organization>
     
     <Organization ID="ORG_PMRLFD" Name="Prime Minister's Relief Fund">
         <Crises>
