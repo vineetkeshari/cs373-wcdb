@@ -83,8 +83,7 @@
             <Person ID="PER_MICHEL" />
         </People>
         <Organizations>
-            <!-- please update :  Gong to add the disaters emergency committee group.-->
-            <Org ID="ORG_" />
+            <Org ID="ORG_DIEMCO" />
         </Organizations>
         <Kind>Natural Disaster</Kind>
         <Date>2010-01-12</Date>
@@ -1094,6 +1093,40 @@ Egeland was also Secretary General of the Norwegian Red Cross. He served as Stat
             </Videos>
                 <Feeds>
                 <li embed="https://www.facebook.com/pages/Norwegian-Labour-Party/105784066119047?nr" />
+            </Feeds>
+            </Common>
+    </Organization>
+    
+    <Organization ID="ORG_DIEMCO" Name="Disasters Emergency Committee">
+        <Crises>
+            <Crisis ID="CRI_EHAITI" />
+        </Crises>
+        <People>
+            <Person ID="PER_MICHEL" />
+        </People>
+        <Kind> Umbrella Organization for 14 Humanitarian Aid Agencies</Kind>
+        <Location>London, England</Location>
+        <History>
+            <li>The DEC began its life in 1963 in the offices of the British Red Cross in Grosvenor Crescent in London as a simple “co-ordinating committee”.</li>
+        </History>
+        <ContactInfo>
+            <li href="http://www.dec.org.uk/about-dec/contact-us">Disasters Emergency Committe Contact Page</li>
+        </ContactInfo>
+        <Common>
+            <Citations>
+                <li href="http://www.dec.org.uk/">DEC Disasters Emergency Committee</li>
+            </Citations>
+                <ExternalLinks>
+                <li href="http://en.wikipedia.org/wiki/Disasters_Emergency_Committee">Wikipedia Disasters Emergency Committee</li>
+            </ExternalLinks>
+            <Images>
+                <li embed="http://johnsonbanks.co.uk/wp-content/uploads/DEC_logo_main.jpg" />
+            </Images>
+            <Videos>
+                <li embed="http://www.youtube.com/embed/_tMWAm1y904" />
+            </Videos>
+                <Feeds>
+                <li embed="https://twitter.com/decappeal" />
             </Feeds>
             </Common>
     </Organization>
