@@ -162,7 +162,6 @@ def get_media (view_id) :
 
             if mtype is "EXTERNALLINKS" and (indices[mtype] != []) :
                 extlinks_str = extlinks_str + "<li>" + r'<a href ="' + str(obj[index].href) + r'">' + str(obj[index].content) + '</a>' + "</li>" 
-		print 2
 
             if mtype is "IMAGES" and (indices[mtype] != []):
                 img_str = img_str + "<td>" + r'<img src ="' + str(obj[index].embed) + r'" alt ="' + str(obj[index].content) + '">' + "</td>"
