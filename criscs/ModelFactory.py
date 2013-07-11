@@ -120,8 +120,8 @@ def create_org_element (node) :
     if not node.find('History') == None:
         read_list_content (org_id, 'HISTORY', node.find('History'), list_types, list_elements)
 
-    if not node.find('Contact') == None:
-        read_list_content (org_id, 'CONTACT', node.find('Contact'), list_types, list_elements)
+    if not node.find('ContactInfo') == None:
+        read_list_content (org_id, 'CONTACTINFO', node.find('ContactInfo'), list_types, list_elements)
         
     if not node.find('Common') == None:
         read_common_content (org_id, node.find('Common'), list_types, list_elements)
