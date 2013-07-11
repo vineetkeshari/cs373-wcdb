@@ -22,6 +22,12 @@ def save_data (all_data) :
         list_type.save()
     for li in all_data['list_elements'] :
         li.save()
+    for r_co in all_data['rel_crisis_org'] :
+        r_co.save()
+    for r_cp in all_data['rel_crisis_person'] :
+        r_cp.save()
+    for r_op in all_data['rel_org_person'] :
+        r_op.save()
 
 def import_file (request) :
     # Handle file upload

@@ -56,6 +56,10 @@ def initialize_pages () :
     all_models['list_types'] = []
     all_models['list_elements'] = []
 
+    all_models['rel_crisis_org'] = []
+    all_models['rel_crisis_person'] = []
+    all_models['rel_org_person'] = []
+
     return all_models
 
 def parse_models (root, all_models) :
@@ -65,20 +69,25 @@ def parse_models (root, all_models) :
     assert root.tag == 'WorldCrises'
     for child in root :
         assert child.tag in ['Crisis', 'Person', 'Organization']
+        r_co = r_cp = r_op = []
         if child.tag == 'Crisis' :
-            (crisis_id, new_model, list_types, list_elements) = create_crisis_element (child)
+            (crisis_id, new_model, list_types, list_elements, r_co, r_cp) = create_crisis_element (child)
             all_models['crises'][crisis_id] = new_model
         elif child.tag == 'Person' :
-            (person_id, new_model, list_types, list_elements) = create_person_element (child)
+            (person_id, new_model, list_types, list_elements, r_cp, r_op) = create_person_element (child)
             all_models['people'][person_id] = new_model
         elif child.tag == 'Organization' :
-            (org_id, new_model, list_types, list_elements) = create_org_element (child)
+            (org_id, new_model, list_types, list_elements, r_co, r_op) = create_org_element (child)
             all_models['orgs'][org_id] = new_model
         else :
             # should never reach here
             pass
         all_models['list_types'] += list_types
         all_models['list_elements'] += list_elements
+
+        all_models['rel_crisis_org'] += r_co
+        all_models['rel_crisis_person'] += r_cp
+        all_models['rel_org_person'] += r_op
 
 def parse_xml (root) :
     """

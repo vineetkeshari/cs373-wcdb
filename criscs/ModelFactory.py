@@ -56,7 +56,7 @@ def read_common_content (element_id, node, list_types, list_elements) :
     for tag in common_content_tags :
         if not node.find(tag) == None:
             read_list_content (element_id, tag.upper(), node.find(tag), list_types, list_elements)
-        
+
 def create_crisis_element (node) :
     """
     Creates a crisis model along with models for all lists contained in it
@@ -86,7 +86,19 @@ def create_crisis_element (node) :
     if not node.find('Common') == None:
         read_common_content (crisis_id, node.find('Common'), list_types, list_elements)
 
-    return (crisis_id, new_model, list_types, list_elements)
+    # Store relations
+    r_co = r_cp = []
+    if not node.find('Organizations') == None:
+        for org in node.find('Organizations'):
+            assert not org.attrib['ID'] == ''
+            r_co.append(R_Crisis_Org(crisis=crisis_id, org=org.attrib['ID']))
+
+    if not node.find('People') == None:
+        for person in node.find('People'):
+            assert not org.attrib['ID'] == ''
+            r_cp.append(R_Crisis_Person(crisis=crisis_id, person=person.attrib['ID']))
+
+    return (crisis_id, new_model, list_types, list_elements, r_co, r_cp)
 
 def create_org_element (node) :
     """
@@ -114,7 +126,19 @@ def create_org_element (node) :
     if not node.find('Common') == None:
         read_common_content (org_id, node.find('Common'), list_types, list_elements)
 
-    return (org_id, new_model, list_types, list_elements)
+    # Store relations
+    r_co = r_op = []
+    if not node.find('Crises') == None:
+        for crisis in node.find('Crises'):
+            assert not crisis.attrib['ID'] == ''
+            r_co.append(R_Crisis_Org(crisis=crisis.attrib['ID'], org=org_id))
+
+    if not node.find('People') == None:
+        for person in node.find('People'):
+            assert not person.attrib['ID'] == ''
+            r_op.append(R_Org_Person(org=org_id, person=person.attrib['ID']))
+
+    return (org_id, new_model, list_types, list_elements, r_co, r_op)
 
 def create_person_element (node) :
     """
@@ -136,5 +160,17 @@ def create_person_element (node) :
     if not node.find('Common') == None:
         read_common_content (person_id, node.find('Common'), list_types, list_elements)
 
-    return (person_id, new_model, list_types, list_elements)
+    # Store relations
+    r_cp = r_op = []
+    if not node.find('Crises') == None:
+        for crisis in node.find('Crises'):
+            assert not crisis.attrib['ID'] == ''
+            r_cp.append(R_Crisis_Person(crisis=crisis.attrib['ID'], person=person_id))
+
+    if not node.find('Organizations') == None:
+        for org in node.find('Organizations'):
+            assert not org.attrib['ID'] == ''
+            r_op.append(R_Org_Person(org=org.attrib['ID'], person=person_id))
+
+    return (person_id, new_model, list_types, list_elements, r_cp, r_op)
 
