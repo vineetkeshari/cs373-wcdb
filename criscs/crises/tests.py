@@ -5,11 +5,53 @@ when you run "manage.py test".
 Replace this with more appropriate tests for your application.
 """
 
+import unittest
+import xml.etree.ElementTree as ET
+from ModelFactory import create_crisis_element, create_org_element, create_person_element, read_wcdb_model, read_list_content
+from XMLUtility import print_rec_xml, read_xml, initialize_pages, parse_models, parse_xml, process_xml
+from crises.models import WCDBElement, Crisis, Organization, Person, ListType, LI, R_Crisis_Person, R_Crisis_Org, R_Org_Person
+from genxmlif import GenXmlIfError
+from minixsv import pyxsval
 from django.test.simple import DjangoTestSuiteRunner
+
 class NoTestDbDatabaseTestRunner(DjangoTestSuiteRunner):
+    #Override setup and teardown of databases to force test runner to work.
     def setup_databases(self, **kwargs):
         pass
     def teardown_databases(self, old_config, **kwargs):
         pass
-    
 
+####
+####Begin tests
+####
+
+class TestXMLUtility (unittest.TestCase) :
+	def test_process_xml_1(self) :
+		testXMLFile = "crises/test_data/WorldCrises_good.xml"
+		model = process_xml(testXMLFile)
+		assert(len(model) == 5)
+		assert(len(model["crises"])==1)
+		assert(type(model["crises"]["CRI_NRINFL"]) is Crisis)
+		assert(len(model["people"])==1)
+		assert(type(model["people"]["PER_MNSNGH"]) is Person)
+		assert(len(model["orgs"])==1)
+		assert(type(model["orgs"]["ORG_PMRLFD"]) is Organization)
+
+	def test_process_xml_2(self) :
+		try :
+			testXMLFile = "crises/test_data/WorldCrises_bad_root.xml"
+			model = process_xml(testXMLFile)	
+			assert(False)
+		except :
+			assert(True)
+
+		
+
+#class TestModelFactory (unittest.TestCase) :
+#	def test_create_crisis_element_1(self) :
+#		testXMLFile = "crises/WorldCrises.example.xml"
+#		testXML = open(testXMLFile, 'r').read()
+
+
+
+		
