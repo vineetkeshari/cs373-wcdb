@@ -754,6 +754,7 @@ Egeland was also Secretary General of the Norwegian Red Cross. He served as Stat
     <Organization ID="ORG_PMRLFD" Name="Prime Minister's Relief Fund">
         <Crises>
             <Crisis ID="CRI_NRINFL" />
+            <Crisis ID="CRI_CYCNAR" />
         </Crises>
         <People>
             <Person ID="PER_MNSNGH" />
