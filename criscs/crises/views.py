@@ -69,7 +69,7 @@ def import_file (request) :
 
 def export_file (request) :
     xml_files = XMLFile.objects.all()
-    xml = open (str(xml_files[len(xml_file)-1].xml_file), 'r')
+    xml = open (str(xml_files[len(xml_files)-1].xml_file), 'r')
     content = sub ('(\s+)', ' ', sub ('<!--(.*)-->', '', xml.read ()) )
     return render_to_response ('crises/templates/export.html', {'text' : content})
 
@@ -158,25 +158,25 @@ def get_media (view_id) :
     for mtype in media_type:
         for index in indices[mtype]:
             if mtype is "CITATIONS" and (indices[mtype] != []) :
-                cite_str = cite_str + "<li>" + r'<a href ="' + obj[index].href + r'">' + obj[index].content + '</a>' + "</li>" 
+                cite_str = cite_str + "<li>" + r'<a href ="' + str(obj[index].href) + r'">' + str(obj[index].content) + '</a>' + "</li>" 
 
             if mtype is "EXTERNALLINKS" and (indices[mtype] != []) :
-                extlinks_str = extlinks_str + "<li>" + r'<a href ="' + obj[index].href + r'">' + obj[index].content + '</a>' + "</li>" 
+                extlinks_str = extlinks_str + "<li>" + r'<a href ="' + str(obj[index].href) + r'">' + str(obj[index].content) + '</a>' + "</li>" 
 
             if mtype is "IMAGES" and (indices[mtype] != []):
-                img_str = img_str + "<td>" + r'<img src ="' + obj[index].embed + r'" alt ="' + obj[index].content + '">' + "</td>"
+                img_str = img_str + "<td>" + r'<img src ="' + str(obj[index].embed) + r'" alt ="' + str(obj[index].content) + '">' + "</td>"
                 #media_str = media_str + img_str 
 
             if mtype is "VIDEOS" and (indices[mtype] != []):
-                vid_str = vid_str + "<td>" + r'<iframe width="420" height="315" src="' + obj[index].embed + r'" frameborder="0" allowfullscreen></iframe>' + "</td>"
+                vid_str = vid_str + "<td>" + r'<iframe width="420" height="315" src="' + str(obj[index].embed) + r'" frameborder="0" allowfullscreen></iframe>' + "</td>"
                 #media_str = media_str + vid_str 
 
             if mtype is "MAPS" and (indices[mtype] != []):
-                maps_str = maps_str + "<li>" + r'<iframe width="425" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="' + obj[index].embed + r'"></iframe>' + "</li>"
+                maps_str = maps_str + "<li>" + r'<iframe width="425" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="' + str(obj[index].embed) + r'"></iframe>' + "</li>"
                 #media_str = media_str + maps_str 
 
             if mtype is "FEEDS" and (indices[mtype] != []):
-                feeds_str = feeds_str + "<li>" + r'<a href ="' + obj[index].href + r'">' + obj[index].href + '</a>' + "</li>"
+                feeds_str = feeds_str + "<li>" + r'<a href ="' + str(obj[index].href) + r'">' + str(obj[index].href) + '</a>' + "</li>"
                 #media_str = media_str + feeds_str     
     media_str = '<ul>' + cite_str + '</ul>' + '<table>' + '<tr>' + img_str + '</tr>' + '</table>' + '<table>' + '<tr>' + vid_str + '</tr>' + '</table>' +'<ul>' + maps_str + '</ul>' + '<ul>' + feeds_str + '</ul>' + '<ul>' + extlinks_str + '</ul>'
     return media_str
@@ -189,7 +189,7 @@ def get_indices(view_id, LI_table, media_dict):
     # Store all the indices for the media type
     for i in range(0, len(LI_table)):
         for elem in tmp_type:
-            if LI_table[i].ListID.ID == view_id + "_" + elem:
+            if LI_table[i].ListID == view_id + "_" + elem:
                 tmp_dict[elem].append(i)
     return tmp_dict
 
@@ -204,13 +204,12 @@ def get_crisis_details (view_id) :
     details_str = ''
     #Extract URL and content for each citation
     for mtype in details_list:
-        tmp_string = ''
+        tmp_str = ''
         for index in indices[mtype]:
             if (indices[mtype] != []):
-                tmp_str = tmp_str +  "<li>" + r'<a href ="' + obj[index].href + r'">' + obj[index].content + '</a>' + "</li>"
+                tmp_str = tmp_str +  "<li>" + r'<a href ="' + str(obj[index].href) + r'">' + str(obj[index].content) + '</a>' + "</li>"
         details_str = details_str + '<ul>' + tmp_str + '</ul>'
     return details_str
-
 
 
 # This method should return the formatted History and Contact Info items of Organization
@@ -233,8 +232,8 @@ def crisis_view (view_id) :
     c_lists = get_crisis_details (view_id)
     html_crisis_content = render ('crisis.html', {'date' : c_date, 'time' : c_time, 'lists' : c_lists, })
 
-#    html_media = get_media (view_id)
-    html_media = ''
+    html_media = get_media (view_id)
+#    html_media = ''
 
     html_content = html_common + html_crisis_content + html_media
 
