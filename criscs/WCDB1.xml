@@ -79,9 +79,6 @@
     </Crisis>
     
     <Crisis ID="CRI_EHAITI" Name="2010 Haiti Earthquake">
-        <People>
-            <Person ID="PER_MICHEL" />
-        </People>
         <Organizations>
             <Org ID="ORG_DIEMCO" />
         </Organizations>
@@ -136,7 +133,7 @@
             </Citations>
             <ExternalLinks>
                 <li href="http://en.wikipedia.org/wiki/2010_Haiti_earthquake">Wikipedia - 2010 Haiti Earthquake</li>
-                <li href="http://news.nationalgeographic.com/news/2010/01/100113-haiti-earthquake-red-cross/">National Geographic Article: Haiti Earthquake "Strange," Strongest in 200 Years</li>
+                <li href="http://news.nationalgeographic.com/news/2010/01/100113-haiti-earthquake-red-cross/">National Geographic Article: Haiti Earthquake Strange, Strongest in 200 Years</li>
                 <li href="http://www.trust.org/spotlight/Haiti-earthquake-2010">Haiti Earthquake - Thomson Reuters Foundation</li>
             </ExternalLinks>
             <Images>
@@ -1101,9 +1098,6 @@ Egeland was also Secretary General of the Norwegian Red Cross. He served as Stat
         <Crises>
             <Crisis ID="CRI_EHAITI" />
         </Crises>
-        <People>
-            <Person ID="PER_MICHEL" />
-        </People>
         <Kind> Umbrella Organization for 14 Humanitarian Aid Agencies</Kind>
         <Location>London, England</Location>
         <History>

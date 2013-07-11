@@ -34,7 +34,7 @@ def import_file (request) :
     if request.method == 'POST' :
         form = DocumentForm(request.POST, request.FILES)
         if form.is_valid () :
-            try :
+#            try :
                 # Check password
                 password = request.POST['password']
                 if not password == 'baddatamining' :
@@ -53,11 +53,11 @@ def import_file (request) :
 
                 error = False
                 error_string = ''
-            except Exception, e :
+#            except Exception, e :
                 error = True
                 error_string = str(e)
             # Redirect to the document list after POST
-            return render_to_response(
+                return render_to_response(
                 'crises/templates/upload_success_fail.html',
                 {'error': error, 'error_string': error_string},
                 context_instance=RequestContext(request),
