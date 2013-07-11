@@ -78,13 +78,7 @@
         </Common>
     </Crisis>
 
-    <Crisis ID="CRI_CYNA" Name="Cyclone Nargis">
-        <People>
-            
-        </People>
-        <Organizations>
-          
-        </Organizations>
+    <Crisis ID="CRI_CYCNAR" Name="Cyclone Nargis">
         <Kind>Natural Disaster</Kind>
         <Date>2008-04-27</Date>
         <Time>09:00:00+05:30</Time>
@@ -111,9 +105,6 @@
             <li href="http://salsa.democracyinaction.org/o/1189/t/5102/campaign.jsp?campaign_KEY=24494">Sign your name to request aid</li>
         </WaysToHelp>
         <Common>
-            <Citations>
-                <!-- Put text with optional hyperlinks here -->
-            </Citations>
             <ExternalLinks>
                 <!-- Put text with compulsory hyperlinks here -->
                 <li href="http://en.wikipedia.org/wiki/Cyclone_Nargis">Wikipedia</li>
@@ -128,7 +119,7 @@
             <Videos>
                 <!-- Put youtube link here (pull this URL out of the src="[GET THIS LINK]" attribute in the embed object given by youtube) -->
                 <!-- Embed example for your site: <iframe width="420" height="315" src="[THIS LINK]" frameborder="0" allowfullscreen></iframe> -->
-                <li embed="http://www.youtube.com/embed/E4b8b8YbK9w?feature=player_detailpage" />
+                <li embed="//www.youtube.com/embed/E4b8b8YbK9w?feature=player_detailpage" />
             </Videos>
             <Maps>
                 <!-- Put google maps link here (pull this URL out of the src="[GET THIS LINK]" attribute in the embed object given by google maps) -->
@@ -142,17 +133,15 @@
         </Common>
     </Crisis>
 
-     <Crisis ID="CRI_AIDS" Name="AIDS">
+     <Crisis ID="CRI_AIDSHI" Name="AIDS">
         <People>
-            <Person ID="PER_BILLGATES" />
+            <Person ID="PER_BGATES" />
         </People>
         <Organizations>
-            <Org ID="ORG_UN" />
-            <Org ID="ORG_BAMGF" />
+            <Org ID="ORG_UNITED" />
+            <Org ID="ORG_BAMGFN" />
         </Organizations>
         <Kind>Epidemic</Kind>
-        <Date></Date>
-        <Time></Time>
         <Locations>
             <li>Worldwide</li>
         </Locations>
@@ -197,14 +186,8 @@
                 <li embed="http://us.123rf.com/400wm/400/400/designua/designua1210/designua121000010/15819881-structure-of-the-aids-virus.jpg" />
             </Images>
             <Videos>
-                <li embed="http://www.youtube.com/watch?v=rv0yIICeg-E" />
+                <li embed="//www.youtube.com/embed/v=rv0yIICeg-E" />
             </Videos>
-            <Maps>
-                
-            </Maps>
-            <Feeds>
-                
-            </Feeds>
             <Summary>
                 Disease of human immune system that is transferred during unprotected sex, blood, breastfeeding, and child delivery with an infected person. Believed to have originiated in Africa in the early 20th century, it is reponsible
                 for millions of deaths. AIDs also serves as a source of discrimination and economic drain, and has profoundly impacted the countries where it is most prevelant.
@@ -212,18 +195,16 @@
         </Common>
     </Crisis>
 
-     <Crisis ID="CRI_MALARIA" Name="Malaria">
+     <Crisis ID="CRI_MALARI" Name="Malaria">
         <People>
-            <Person ID="PER_BILLGATES" />
+            <Person ID="PER_BGATES" />
         </People>
         <Organizations>
-            <Org ID="ORG_UN" />
-            <Org ID="ORG_BAMGF" />
-            <Org ID="ORG_NBN" />
+            <Org ID="ORG_UNITED" />
+            <Org ID="ORG_BAMGFN" />
+            <Org ID="ORG_NBNETS" />
         </Organizations>
         <Kind>Epidemic</Kind>
-        <Date></Date>
-        <Time></Time>
         <Locations>
             <li>Worldwide, tropical climates.</li>
         </Locations>
@@ -243,7 +224,6 @@
             <li>Mosquito nets provide a cheap barrier at night and can reduce infection rates by up to 90 percent.</li> 
         </ResourcesNeeded>
         <WaysToHelp>
-            <li href="https://secure.globalproblems-globalsolutions.org/site/Donation2?1340.donation=form1&df_id=1340&JServSessionIdr004=qsg4lbjtd2.app217b">Donate a mosquito net to Nothing But Nets</li>
             <li href="http://www.malarianomore.org/">Donate money to subsidize drug therapy</li>
             <li href="http://www.psi.org/our-work/healthy-lives/malaria">Donate both nets and drug therapy</li>
         </WaysToHelp>
@@ -257,17 +237,13 @@
             </ExternalLinks>
             
             <Images>
-                <li embed="http://malare-aware.weebly.com/uploads/1/8/6/3/18636798/1246003_orig.jpg" </li>
-                <li embed="http://www.newswise.com/images/uploads/2013/04/26/vecnet_malaria_hires.png" </li>
-                <li embed="http://upload.wikimedia.org/wikipedia/commons/d/db/Symptoms_of_Malaria.png" </li>
+                <li embed="http://malare-aware.weebly.com/uploads/1/8/6/3/18636798/1246003_orig.jpg" />
+                <li embed="http://www.newswise.com/images/uploads/2013/04/26/vecnet_malaria_hires.png" />
+                <li embed="http://upload.wikimedia.org/wikipedia/commons/d/db/Symptoms_of_Malaria.png"/>
             </Images>
             <Videos>
-                <li embed="http://www.youtube.com/watch?v=hztGkzwWR1I" />
+                <li embed="//www.youtube.com/embed/v=hztGkzwWR1I" />
             </Videos>
-            <Maps>
-            </Maps>
-            <Feeds>
-            </Feeds>
             <Summary>
                 Malaria is a life threatening illness and a major cause of death worldwide. It exists in tropical and subtropical climates and still infects hundred of millions of people annually. It is a major drain on productivity of heavily infected nations and has a major economic impact. Nations have successfully eliminated malaria with wide use of insecticides in the past, such as DDT. Global eradication of the four types of malaria is a major 
                 goal of several globaliazed communal orginizations.
@@ -280,11 +256,10 @@
             <Person ID="PER_ROBMUG" />
         </People>
         <Organizations>
-            <Org ID="ORG_UN" />
+            <Org ID="ORG_UNITED" />
         </Organizations>
         <Kind>Systemic Exploitation</Kind>
-        <Date>Discovered in 2006</Date>
-        <Time></Time>
+        <Date>2006-01-01</Date>
         <Locations>
             <li>Diamond fields Southwest of Mutare, Zimbabwe</li>
         </Locations>
@@ -298,8 +273,6 @@
             <li>Environmental impact, poisoning of Save river</li> 
             <li>One of the world's richest diamond deposits</li>
         </EconomicImpact>
-        <ResourcesNeeded>
-        </ResourcesNeeded>
         <WaysToHelp>
             <li>Advocate for tighter restrictions on the Kimerly Process member countries</li>
             <li>Demand proof that a diamond is conflict-free</li>
@@ -321,13 +294,11 @@
                 <li embed="http://24.media.tumblr.com/tumblr_m6m85lFmqH1r7k54qo1_500.jpg" />
             </Images>
             <Videos>
-                <li embed="http://www.youtube.com/watch?v=XPDC0WV9xjs" />
+                <li embed="//www.youtube.com/embed/v=XPDC0WV9xjs" />
             </Videos>
             <Maps>
-                <li embed="https://maps.google.com/maps?q=Mutare,+Zimbabwe&hl=en&sll=-18.986168,32.648621&sspn=0.555142,1.056747&hnear=Mutare,+Manicaland,+Zimbabwe&t=m&z=13" />
+                <li embed="https://maps.google.com/maps?q=Mutare,+Zimbabwe&amp;hl=en&amp;sll=-18.986168,32.648621&amp;sspn=0.555142,1.056747&amp;hnear=Mutare,+Manicaland,+Zimbabwe&amp;t=m&amp;ie=UTF8&amp;hq=&amp;z=13&amp;ll=-18.97476,32.65556&amp;output=embed" />
             </Maps>
-            <Feeds>
-            </Feeds>
             <Summary>
                 Extensive diamond deposits were located in late 2006 around Marange, Zimbabwe. The government quickly moved in and displaced local residents and miners. By 2008 the Zimbabwean military was practicing many humans right violations such as forced labor, torture, and mass killings to maintain its grasp. The United Nation's Kimberly Process dispatched a reviewer in 2009 to inspect claims of widespread violations and ultimately came to a
                 compromise with the Zimbabwean government.
@@ -392,18 +363,18 @@
             </Images>
             
             <Videos>
-                <li embed="//www.youtube.com/watch?v=R-jlyfzGP-o" />
-                <li embed="//www.youtube.com/watch?v=RDOuwMj7Xzo" />
-                <li embed="//www.youtube.com/watch?v=agqy1LncD-I" />
-                <li embed="//www.youtube.com/watch?v=OGkeMvxotzI" />
-                <li embed="//www.youtube.com/watch?v=J3sSkbnCtB0" />
+                <li embed="//www.youtube.com/embed/v=R-jlyfzGP-o" />
+                <li embed="//www.youtube.com/embed/v=RDOuwMj7Xzo" />
+                <li embed="//www.youtube.com/embed/v=agqy1LncD-I" />
+                <li embed="//www.youtube.com/embed/v=OGkeMvxotzI" />
+                <li embed="//www.youtube.com/embed/v=J3sSkbnCtB0" />
             </Videos>
             
             <Maps>
                 <li embed="https://maps.google.com/maps?q=google+maps+indian+ocean+tsunami&amp;safe=off&amp;hnear=2004+Indian+Ocean+earthquake+and+tsunami&amp;gl=us&amp;t=m&amp;ie=UTF8&amp;hq=&amp;z=8&amp;iwloc=A&amp;output=embed" />
             </Maps>
             <Feeds>
-                <li embed="https://twitter.com/search?q=%23boxingday%20%23tsunami&src=typd" />
+                <li embed="https://twitter.com/search?q=%23boxingday%20%23tsunami" />
             </Feeds>
             <Summary>The 2004 Indian Ocean earthquake was an undersea megathrust earthquake that occurred at 00:58:53 UTC on Sunday, 26 December 2004, with an epicentre off the west coast of Sumatra, Indonesia. The quake itself is known by the scientific community as the Sumatra earthquake.The resulting tsunami was given various names, including the 2004 Indian Ocean tsunami, South Asian tsunami, Indonesian tsunami, and the Boxing Day tsunami.
 The earthquake was caused when the�Indian Plate was subducted by the�Burma Plate and triggered a series of devastating tsunamis along the coasts of most landmasses bordering the Indian Ocean, killing over 230,000 people in fourteen countries, and inundating coastal communities with waves up to 30 meters (98�ft) high. It was one of the deadliest natural disasters in recorded history. Indonesia was the hardest-hit country, followed by Sri Lanka,India, and Thailand.
@@ -570,8 +541,6 @@ With a magnitude of Mw 9.1, it is the third largest earthquake ever recorded on 
         <Crises>
             <Crisis ID="CRI_ZMBDMD" />
         </Crises>
-        <Organizations>
-        </Organizations>
         <Kind>Politician</Kind>
         <Location>Zimbabwe</Location>
         <Common>
@@ -586,10 +555,6 @@ With a magnitude of Mw 9.1, it is the third largest earthquake ever recorded on 
                 <li embed="http://en.wikipedia.org/wiki/File:Robert_Mugabe_-_2009.jpg" />
                 <li embed="http://dingo.care2.com/pictures/c2c/share/12/129/949/1294930_370.jpg" />
             </Images>
-            <Videos>
-            </Videos>
-            <Feeds>
-            </Feeds>
             <Summary>
                 Controversial president of Zimbabwe since 1987. Zimbabwe's GDP/C has shrunk by more than half over his reign, and has included claims of racism, genocide, and other civil rights violations. Critics claim that he
                 was reponsible for the massacre of 150 illegal miners and ongoing civil rights violations around the Mutare diamond fields.
@@ -634,18 +599,16 @@ With a magnitude of Mw 9.1, it is the third largest earthquake ever recorded on 
             <Summary>Manmohan Singh (born 26 September 1932) is the 13th and current Prime Minister of India. Singh holds a doctorate in economics from Oxford university, and has served as an advisor to the Ministry of Foreign Trade, India (1966-69), Governer of the Reserve Bank of India (1982-85) and Deputy Chairman of the Planning Commission (1985-87), before being appointed the Minister of Finance in the Indian cabinet in 1991. As the Minister of finance, Singh carried out several structural reforms that liberalised India's economy. In 2004, Singh was elected as the Prime Minister of India. His government has since executed several key legislations and projects including the Rural Health Mission, Unique Identification Authority, Rural Employment Guarantee scheme and the Right to Information Act.</Summary>
         </Common>        
     </Person>
-     <Person ID="PER_BILLGATES" Name="Bill Gates">
+     <Person ID="PER_BGATES" Name="Bill Gates">
         <Crises>
-            <Crisis ID="CRI_AIDS" />
+            <Crisis ID="CRI_AIDSHI" />
         </Crises>
         <Organizations>
-            <Org ID="ORG_BAMGF" />
+            <Org ID="ORG_BAMGFN" />
         </Organizations>
         <Kind>Philanthropist</Kind>
         <Location>United States</Location>
         <Common>
-            <Citations>
-            </Citations>
             <ExternalLinks>
                 <li href="http://www.gatesfoundation.org/">Website</li>
             </ExternalLinks>
@@ -654,10 +617,8 @@ With a magnitude of Mw 9.1, it is the third largest earthquake ever recorded on 
                 <li embed="http://www.microsoft.com/global/en-us/news/PublishingImages/bod/billg/gates_print.jpg" />
             </Images>
             <Videos>
-                <li embed="http://www.youtube.com/watch?v=CIZGDT7ZqdM" />
+                <li embed="//www.youtube.com/embed/v=CIZGDT7ZqdM" />
             </Videos>
-            <Feeds>
-            </Feeds>
             <Summary>Famous founder of Microsoft and previously the richest man in the world, Bill Gates now spends most of his time heading his philanthropy organization, The Bill and Melinda Gates Foundation</Summary>
         </Common>        
     </Person>
@@ -687,11 +648,11 @@ With a magnitude of Mw 9.1, it is the third largest earthquake ever recorded on 
                 <li embed="http://english.nupi.no/var/ezwebin_site/storage/images/nupi.no/virksomheten/ledelse/jan-egeland/egelan-jan-04-x-crop/44014-1-nor-NO/Egelan-Jan-04-X-crop.jpg" />
             </Images>
             <Videos>
-                <li embed="//www.youtube.com/watch?v=_E_-xa2u2qE" />
-                <li embed="//www.youtube.com/watch?v=6S3gu9pnEFw" />
+                <li embed="//www.youtube.com/embed/v=_E_-xa2u2qE" />
+                <li embed="//www.youtube.com/embed/v=6S3gu9pnEFw" />
             </Videos>
             <Feeds>
-                <li embed="https://twitter.com/search?q=%23Egeland&src=typd" />
+                <li embed="https://twitter.com/search?q=%23Egeland" />
             </Feeds>
             <Summary>Jan Egeland (born 12 September 1957 in Stavanger, Norway) is a Norwegian politician from the Labour party. He is the Deputy Director of Human Rights Watch and the Director of Human Rights Watch Europe. Egeland took up the position as director of the Norwegian Institute of International Affairs on 1 September 2007. Egeland also holds a post as Professor II at theUniversity of Stavanger.
 Egeland was the United Nations Undersecretary-General for Humanitarian Affairs and Emergency Relief Coordinator from June 2003 to December 2006. Egeland was appointed bySecretary-General Kofi Annan and succeeded Kenzo Oshima. He traveled extensively, drawing attention to humanitarian emergencies.
@@ -856,7 +817,7 @@ Egeland was also Secretary General of the Norwegian Red Cross. He served as Stat
                 <li embed="http://www.un.org/News/dh/photos/large/2009/62206-tsunami.jpg" />
             </Images>
             <Videos>
-                <li embed="//www.youtube.com/watch?v=kn8Yh6lP4ks" />
+                <li embed="//www.youtube.com/embed/v=kn8Yh6lP4ks" />
             </Videos>
             <Feeds>
                 <li embed="https://twitter.com/UNOCHA" />
@@ -866,12 +827,10 @@ Egeland was also Secretary General of the Norwegian Red Cross. He served as Stat
     </Organization>
 
   
-    <Organization ID="ORG_UN" Name="United Nations">
+    <Organization ID="ORG_UNITED" Name="United Nations">
         <Crises>
-            <Crisis ID="CRI_AIDS" />
+            <Crisis ID="CRI_AIDSHI" />
         </Crises>
-        <People>
-        </People>
         <Kind>Interational Cooperative</Kind>
         <Location>Worldwide</Location>
         <History>
@@ -881,18 +840,11 @@ Egeland was also Secretary General of the Norwegian Red Cross. He served as Stat
             <li href="http://www.un.org/en/">Website</li>
         </ContactInfo>
         <Common>
-            <Citations>
-            </Citations>
-            <ExternalLinks>
-            </ExternalLinks>
-            
             <Images>
                 <li embed="http://2.bp.blogspot.com/-uUSCw_OQS7U/UFsbtC43cLI/AAAAAAAAAco/CC_iwH4OOoM/s320/United-nations-UN-flag-picrure.png" />
             </Images>
-            <Videos>
-            </Videos>
             <Feeds>
-                <li embed="http://www.youtube.com/watch?v=GbQTYHAN2c8" />
+                <li embed="//www.youtube.com/embed/v=GbQTYHAN2c8" />
             </Feeds>
             <Summary>
                 International organization containing 193 member countries as an advocate of peace and cooperation between member states.
@@ -900,13 +852,10 @@ Egeland was also Secretary General of the Norwegian Red Cross. He served as Stat
         </Common>
     </Organization>
 
-    <Organization ID="ORG_BAMGF" Name="Bill and Melinda Gates Foundaiton">
+    <Organization ID="ORG_BAMGFN" Name="Bill and Melinda Gates Foundaiton">
         <Crises>
-            <Crisis ID="CRI_AIDS" />
+            <Crisis ID="CRI_AIDSHI" />
         </Crises>
-        <People>
-
-        </People>
         <Kind>Interational Cooperative</Kind>
         <Location>Worldwide</Location>
         <History>
@@ -916,8 +865,6 @@ Egeland was also Secretary General of the Norwegian Red Cross. He served as Stat
             <li href="http://en.wikipedia.org/wiki/Bill_%26_Melinda_Gates_Foundation">Wikipedia Page</li>
         </ContactInfo>
         <Common>
-            <Citations>
-            </Citations>
             <ExternalLinks>
                 <li href="http://www.gatesfoundation.org/">Official Website</li>
             </ExternalLinks>
@@ -925,20 +872,17 @@ Egeland was also Secretary General of the Norwegian Red Cross. He served as Stat
                 <li embed="http://blogs-images.forbes.com/mfonobongnsehe/files/2012/07/Bill-and-Melinda-Gates-Foundation1.png" />
             </Images>
             <Videos>
-                <li embed="http://www.youtube.com/watch?v=2VdMqmVtnOM" />
+                <li embed="//www.youtube.com/embed/v=2VdMqmVtnOM" />
             </Videos>
-            <Feeds>
-            </Feeds>
+
             <Summary>A leading philanthrocapitalist organization founded by the founder of Microsoft Bill Gates and his wife Melinda. </Summary>
         </Common>
     </Organization>
 
-     <Organization ID="ORG_NBN" Name="Nothing But Nets">
+     <Organization ID="ORG_NBNETS" Name="Nothing But Nets">
         <Crises>
-            <Crisis ID="CRI_MALARIA" />
+            <Crisis ID="CRI_MALARI" />
         </Crises>
-        <People>
-        </People>
         <Kind>Charity</Kind>
         <Location>Worldwide</Location>
         <History>
@@ -948,18 +892,12 @@ Egeland was also Secretary General of the Norwegian Red Cross. He served as Stat
             <li href="http://www.nothingbutnets.net">Official Website</li>
         </ContactInfo>
         <Common>
-            <Citations>
-            </Citations>
-            <ExternalLinks>
-            </ExternalLinks>
             <Images>
                 <li embed="http://www.jcivancouver.com/wp-content/uploads/2012/05/Stop-This-Killer-A4.jpg" />
             </Images>
             <Videos>
-                <li embed="http://www.youtube.com/watch?v=dyBWjN1e31A" />
+                <li embed="//www.youtube.com/embed/v=dyBWjN1e31A" />
             </Videos>
-            <Feeds>
-            </Feeds>
             <Summary>A nonprofit organization dedicated to providing insecticide-treated mosquito nets for those most in need.</Summary>
         </Common>
     </Organization>
