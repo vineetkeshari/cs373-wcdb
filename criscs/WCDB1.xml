@@ -81,7 +81,7 @@
     <Crisis ID="CRI_CYCNAR" Name="Cyclone Nargis">
         <Kind>Natural Disaster</Kind>
         <Date>2008-04-27</Date>
-        <Time>09:00:00+05:30</Time>
+        <Time>09:00:00</Time>
         <Locations>
             <li>Bangladesh</li>
             <li>Burma</li>
@@ -315,7 +315,7 @@
         </Organizations>
         <Kind>Natural Disaster</Kind>
         <Date>2004-12-26</Date>
-        <Time>00:58:53+05:30</Time>
+        <Time>00:58:53</Time>
         <Locations>
             <li>Sumatra, Indonesia</li>
             <li>Tamil Nadu, India</li>
@@ -447,7 +447,7 @@ With a magnitude of Mw 9.1, it is the third largest earthquake ever recorded on 
                 <Org ID="ORG_SCOTAF" />
             </Organizations>
             <Kind>Political Revolution</Kind>
-            <Date>20011-01-25</Date>
+            <Date>2011-01-25</Date>
             <Time>00:00:00</Time>
             <Locations>
                 <li>Egypt</li>
@@ -496,7 +496,7 @@ With a magnitude of Mw 9.1, it is the third largest earthquake ever recorded on 
                 <Org ID="ORG_LABPAR" />
             </Organizations>
             <Kind>Terrorist Attack</Kind>
-            <Date>20011-07-22</Date>
+            <Date>2011-07-22</Date>
             <Time>15:25:22</Time>
             <Locations>
                 <li>Oslo, Norway</li>
