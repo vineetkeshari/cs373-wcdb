@@ -11,6 +11,14 @@ from django.core.urlresolvers import reverse
 from re import sub
 from subprocess import check_output, CalledProcessError, STDOUT
 
+def test_view (request) :
+    """
+    DEBUG: Use for quick renders
+    """
+    http_thing = r'<iframe marginheight="0" marginwidth="0" src="https://maps.google.com/maps?um=1&amp;amp;safe=off&amp;amp;amphl=en&amp;amp;ampq=2011%20Norway%20Attacks&amp;amp;bav=on.2,or.r_cp.r_qf.&amp;amp;bvm=bv.48705608,d.eWU&amp;amp;biw=1600&amp;amp;bih=775&amp;amp;ie=UTF-8&amp;amp;sa=N&amp;amp;tab=il" frameborder="0" height="350" scrolling="no" width="425"></iframe>'
+    http_2 = r'<iframe width="425" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?ie=UTF8&amp;ll=30.307761,-97.753401&amp;spn=0.33078,0.060425&amp;t=m&amp;z=10&amp;output=embed"></iframe><br /><small><a href="https://maps.google.com/maps?ie=UTF8&amp;ll=30.307761,-97.753401&amp;spn=0.33078,0.060425&amp;t=m&amp;z=10&amp;source=embed" style="color:#0000FF;text-align:left">View Larger Map</a></small>'
+    http_3 = r'<iframe width="425" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?ie=UTF8&amp;ll=30.307761,-97.753401&amp;spn=0.33078,0.060425&amp;t=m&amp;z=10&amp;output=embed"></iframe>'
+    return HttpResponse(http_3)
 
 def get_all_elems () :
     all_wcdb = WCDBElement.objects.all ()
@@ -198,7 +206,8 @@ def get_media (view_id) :
                 store_dict[mtype].append(tmp_list) 
 
             if mtype is "MAPS" and (indices[mtype] != []):
-                tmp_list = [str(obj[index].embed)]
+                print sub('&amp;','&',str(obj[index].embed))
+                tmp_list = [sub('&amp;','&',str(obj[index].embed))]
                 store_dict[mtype].append(tmp_list) 
 
             if mtype is "FEEDS" and (indices[mtype] != []):
