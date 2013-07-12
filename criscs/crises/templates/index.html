@@ -1,7 +1,18 @@
-<title> World Crises Database : CSw373 : Summer 2013 </title>
-<body>
-    <h1> Team CrisCS </h1>
-    <h2>Team Members:</h2>
+{% extends "base.html" %}
+
+{% block content %}
+<div id="page">
+	<div class="hero-unit">
+		<div class="hero-unit center no-border no-padding-bottom">
+			<div class="container"> 
+			<!--note the home class on the h1 tag-->
+			<h1><strong>Welcome to our World Crises Page!</strong></h1>
+			</div>
+			<!--close container--> 
+		</div>
+		<!--close hero-unit--> 
+		<!-- end row-fluid-->
+    <h2><span>Team Members:</span></h2>
     <ul>
     {% for member in members %}
         <li> {{ member }} </li>
@@ -11,28 +22,12 @@
     <ul>
         <li><a href="/import/"> Import </a> </li>
         <li><a href="/export/"> Export </a> </li>
-        <li><a href="/unittests/"> Run Unit Tests </a> </li>
     </ul>
-    <ul>
-        <li><b> Crises </b></li>
-        {% for elem in pages.crises %}
-            <li> <a href="/crises/{{ elem.id }}/"> {{ elem.name }} </a> </li>
-        {% endfor %}
-    </ul>
-    <br />
-    <ul>
-        <li><b> Organizations </b></li>
-        {% for elem in pages.orgs %}
-            <li> <a href="/crises/{{ elem.id }}/"> {{ elem.name }} </a> </li>
-        {% endfor %}
-    </ul>
-    <br />
-    <ul>
-        <li><b> People </b></li>
-        {% for elem in pages.people %}
-            <li> <a href="/crises/{{ elem.id }}/"> {{ elem.name }} </a> </li>
-        {% endfor %}
-        </li>
-    </ul>
-</body>
+
+</ul>
+</div>
+<!-- slide to top close--> 
+</div>
+<!--close #-main content--> 
+{% endblock %}
 
