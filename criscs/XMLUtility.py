@@ -41,7 +41,7 @@ def read_and_validate_xml (filename) :
                                 xsdFile=xsd_filename,
                                 xmlIfClass=pyxsval.XMLIF_ELEMENTTREE,
                                 warningProc=pyxsval.PRINT_WARNINGS,
-                                errorLimit=200, verbose=1,
+                                errorLimit=200, verbose=0,
                                 useCaching=0, processXInclude=0 )
         elemTree = elementTreeWrapper.getTree()
         return elemTree.getroot()
