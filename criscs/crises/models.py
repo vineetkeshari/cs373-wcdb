@@ -49,6 +49,7 @@ class R_Crisis_Person (models.Model) :
     """
     Stores relations between Crises and People
     """
+    ID = models.CharField (max_length=21, primary_key=True)
     crisis = models.CharField (max_length=10)
     person = models.CharField (max_length=10)
 
@@ -56,6 +57,7 @@ class R_Crisis_Org (models.Model) :
     """
     Stores relations between Crises and Organizations
     """
+    ID = models.CharField (max_length=21, primary_key=True)
     crisis = models.CharField (max_length=10)
     org = models.CharField (max_length=10)
 
@@ -63,6 +65,7 @@ class R_Org_Person (models.Model) :
     """
     Stores relations between Organizations and People
     """
+    ID = models.CharField (max_length=21, primary_key=True)
     org = models.CharField (max_length=10)
     person = models.CharField (max_length=10)
 
@@ -86,6 +89,7 @@ class LI (models.Model) :
     order : If order is important, this field stores the position in the list.
     content, href, embed, text : These contain the content in the list entry as defined in the XSD.
     """
+    ID = models.CharField (max_length=40, primary_key=True)
     ListID = models.CharField (max_length=30)
     order = models.IntegerField ()
     content = models.TextField (max_length=1000, null=True)

@@ -43,7 +43,7 @@ def read_list_content (element_id, list_content_type, node, list_types, list_ele
             li_embed = li.attrib['embed']
         if 'text' in li.attrib :
             li_text = li.attrib['text']
-        list_elements.append ( LI(ListID=list_type_id, order=count, content=li_content, href=li_href, embed=li_embed, text=li_text) )
+        list_elements.append ( LI(ID=list_type_id + '_' + str(count), ListID=list_type_id, order=count, content=li_content, href=li_href, embed=li_embed, text=li_text) )
 
 def read_common_content (element_id, node, list_types, list_elements) :
     """
@@ -114,12 +114,14 @@ def create_crisis_element (node) :
     if not node.find('Organizations') == None:
         for org in node.find('Organizations'):
             assert not org.attrib['ID'] == ''
-            r_co.append(R_Crisis_Org(crisis=crisis_id, org=org.attrib['ID']))
+            r_co.append(R_Crisis_Org(ID=crisis_id+'_'+org.attrib['ID'],
+                        crisis=crisis_id, org=org.attrib['ID']))
 
     if not node.find('People') == None:
         for person in node.find('People'):
             assert not org.attrib['ID'] == ''
-            r_cp.append(R_Crisis_Person(crisis=crisis_id, person=person.attrib['ID']))
+            r_cp.append(R_Crisis_Person(ID=crisis_id+'_'+person.attrib['ID'],
+                        crisis=crisis_id, person=person.attrib['ID']))
 
     return (crisis_id, new_model, list_types, list_elements, r_co, r_cp, text_store)
 
@@ -157,12 +159,14 @@ def create_org_element (node) :
     if not node.find('Crises') == None:
         for crisis in node.find('Crises'):
             assert not crisis.attrib['ID'] == ''
-            r_co.append(R_Crisis_Org(crisis=crisis.attrib['ID'], org=org_id))
+            r_co.append(R_Crisis_Org(ID=crisis.attrib['ID']+'_'+org_id,
+                        crisis=crisis.attrib['ID'], org=org_id))
 
     if not node.find('People') == None:
         for person in node.find('People'):
             assert not person.attrib['ID'] == ''
-            r_op.append(R_Org_Person(org=org_id, person=person.attrib['ID']))
+            r_op.append(R_Org_Person(ID=org_id+'_'+person.attrib['ID'],
+                        org=org_id, person=person.attrib['ID']))
 
     return (org_id, new_model, list_types, list_elements, r_co, r_op, text_store)
 
@@ -194,12 +198,14 @@ def create_person_element (node) :
     if not node.find('Crises') == None:
         for crisis in node.find('Crises'):
             assert not crisis.attrib['ID'] == ''
-            r_cp.append(R_Crisis_Person(crisis=crisis.attrib['ID'], person=person_id))
+            r_cp.append(R_Crisis_Person(ID=crisis.attrib['ID']+'_'+person_id, 
+                        crisis=crisis.attrib['ID'], person=person_id))
 
     if not node.find('Organizations') == None:
         for org in node.find('Organizations'):
             assert not org.attrib['ID'] == ''
-            r_op.append(R_Org_Person(org=org.attrib['ID'], person=person_id))
+            r_op.append(R_Org_Person(ID=org.attrib['ID']+'_'+person_id,
+                        org=org.attrib['ID'], person=person_id))
 
     return (person_id, new_model, list_types, list_elements, r_cp, r_op, text_store)
 

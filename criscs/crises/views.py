@@ -11,6 +11,14 @@ from django.core.urlresolvers import reverse
 from re import sub
 from subprocess import check_output, CalledProcessError, STDOUT
 
+def test_view (request) :
+    """
+    DEBUG: Use for quick renders
+    """
+    http_thing = r'<iframe marginheight="0" marginwidth="0" src="https://maps.google.com/maps?um=1&amp;amp;safe=off&amp;amp;amphl=en&amp;amp;ampq=2011%20Norway%20Attacks&amp;amp;bav=on.2,or.r_cp.r_qf.&amp;amp;bvm=bv.48705608,d.eWU&amp;amp;biw=1600&amp;amp;bih=775&amp;amp;ie=UTF-8&amp;amp;sa=N&amp;amp;tab=il" frameborder="0" height="350" scrolling="no" width="425"></iframe>'
+    http_2 = r'<iframe width="425" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?ie=UTF8&amp;ll=30.307761,-97.753401&amp;spn=0.33078,0.060425&amp;t=m&amp;z=10&amp;output=embed"></iframe><br /><small><a href="https://maps.google.com/maps?ie=UTF8&amp;ll=30.307761,-97.753401&amp;spn=0.33078,0.060425&amp;t=m&amp;z=10&amp;source=embed" style="color:#0000FF;text-align:left">View Larger Map</a></small>'
+    http_3 = r'<iframe width="425" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?ie=UTF8&amp;ll=30.307761,-97.753401&amp;spn=0.33078,0.060425&amp;t=m&amp;z=10&amp;output=embed"></iframe>'
+    return HttpResponse(http_3)
 
 def get_all_elems () :
     all_wcdb = WCDBElement.objects.all ()
@@ -50,6 +58,7 @@ def save_data (all_data) :
         r_op.save()
 
 def import_file (request) :
+    pages = get_all_elems ()
     # Handle file upload
     if request.method == 'POST' :
         form = DocumentForm(request.POST, request.FILES)
@@ -76,31 +85,30 @@ def import_file (request) :
             except Exception, e :
                 error = True
                 error_string = str(e)
-            # Redirect to the document list after POST
+            # Redirect after POST
             return render_to_response(
                 'crises/templates/upload_success_fail.html',
-                {'error': error, 'error_string': error_string},
+                {'error': error, 'error_string': error_string, 'pages': pages,},
                 context_instance=RequestContext(request),
             )
     else :
         form = DocumentForm() # An empty, unbound form
 
-    # Render list page with the documents and the form
+    # Render the form
     return render_to_response(
         'crises/templates/import.html',
-        {'form': form},
+        {'form': form, 'pages': pages,},
         context_instance=RequestContext(request),
     )
 
 
 def export_file (request) :
-#    xml_files = XMLFile.objects.all()
-#    xml = open (str(xml_files[len(xml_files)-1].xml_file), 'r')
-#    content = sub ('(\s+)', ' ', sub ('<!--(.*)-->', '', xml.read ()) )
+    pages = get_all_elems ()
     content = sub ('&', '&amp;', generate_xml ())
-    return render_to_response ('crises/templates/export.html', {'text' : content})
+    return render_to_response ('crises/templates/export.html', {'text' : content, 'pages' : pages, })
 
 def run_tests (request) :
+    pages = get_all_elems ()
     try :
         unittest_result = check_output(["python","manage.py", "test", "crises"],
                                                     stderr=STDOUT,
@@ -110,7 +118,7 @@ def run_tests (request) :
         error = True
         unittest_result = cpe.output
     return render_to_response ('crises/templates/unittest.html',
-                                {'error' : error, 'result' : unittest_result, },
+                                {'error' : error, 'result' : unittest_result, 'pages' : pages, },
                                 context_instance=RequestContext(request),
     )
 
@@ -125,19 +133,7 @@ def wrap_html (html_title, html_content) :
 
 def index (request) :
     members = ['Ambareesha Nittala', 'Brandon Fairchild', 'Chris Coney', 'Roberto Weller', 'Rogelio Sanchez', 'Vineet Keshari']
-
-    all_wcdb = WCDBElement.objects.all ()
-    pages = {}
-    pages ['crises'] = []
-    pages ['people'] = []
-    pages ['orgs'] = []
-    for elem in all_wcdb :
-        if elem.ID[:3] == 'CRI' :
-            pages ['crises'].append ({'name' : elem.name, 'id' : elem.ID})
-        if elem.ID[:3] == 'ORG' :
-            pages ['orgs'].append ({'name' : elem.name, 'id' : elem.ID})
-        if elem.ID[:3] == 'PER' :
-            pages ['people'].append ({'name' : elem.name, 'id' : elem.ID})
+    pages = get_all_elems ()
 
     return HttpResponse ( render ('index.html', {'members' : members, 'pages' : pages, }))
 
@@ -151,9 +147,9 @@ def base_view (request, view_id) :
         elif view_type == 'PER' :
             return person_view (view_id)
         else :
-            return HttpResponseNotFound('<h1>Page not found</h1>')
+            return HttpResponseNotFound('<h5>Page not found</h5>')
     except Exception, e :
-        return HttpResponseNotFound('<h1>Page not found</h1>' + '<p>' + e.args[0] + '</p>')
+        return HttpResponseNotFound('<h5>Page not found</h5>' + '<p>' + e.args[0] + '</p>')
 
 def wcdb_common_view (view_id, page_type) :
     b = WCDBElement.objects.get (pk=view_id)
@@ -210,7 +206,8 @@ def get_media (view_id) :
                 store_dict[mtype].append(tmp_list) 
 
             if mtype is "MAPS" and (indices[mtype] != []):
-                tmp_list = [str(obj[index].embed)]
+                print sub('&amp;','&',str(obj[index].embed))
+                tmp_list = [sub('&amp;','&',str(obj[index].embed))]
                 store_dict[mtype].append(tmp_list) 
 
             if mtype is "FEEDS" and (indices[mtype] != []):
