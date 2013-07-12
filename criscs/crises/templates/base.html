@@ -53,21 +53,21 @@
 	<li class="parent"><a href="javascript:void(0)">CRISES<i></i></a>
 	    <ul>
 		    {% for elem in pages.crises %}
-            		<li> <a href="/crises/{{ elem.id }}/"> {{ elem.name }} </a> </li>
+            		<li> <a href="{{prod_dir}}/crises/{{ elem.id }}/"> {{ elem.name }} </a> </li>
        		    {% endfor %}
 	    </ul>
 	</li>
 	<li class="parent"><a href="javascript:void(0)">ORGANIZATIONS<i></i></a>
 	    <ul>
                {% for elem in pages.orgs %}
-            	   <li> <a href="/crises/{{ elem.id }}/"> {{ elem.name }} </a> </li>
+            	   <li> <a href="{{prod_dir}}/crises/{{ elem.id }}/"> {{ elem.name }} </a> </li>
        	       {% endfor %}
 	    </ul>
 	</li>
 	<li class="parent"><a href="javascript:void(0)">PEOPLE<i></i></a>
 	    <ul>
 		    {% for elem in pages.people %}
-           		 <li> <a href="/crises/{{ elem.id }}/"> {{ elem.name }} </a> </li>
+           		 <li> <a href="{{prod_dir}}/crises/{{ elem.id }}/"> {{ elem.name }} </a> </li>
         	    {% endfor %}
 	    </ul>
 	</li>

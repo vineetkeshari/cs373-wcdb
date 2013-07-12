@@ -62,14 +62,14 @@
     <h5>Organisations</h5>
      <ul>
      	{% for elem in orgs %}
-     	<li>	<a href="/crises/{{elem.0}}">{{elem.1}}</a></li>
+     	<li>	<a href="{{prod_dir}}/crises/{{elem.0}}">{{elem.1}}</a></li>
      	{% endfor %}
      </ul>
 
 	<h5>Persons</h5>
      <ul>
      	{% for elem in person %}
-     	<li>	<a href="/crises/{{elem.0}}">{{elem.1}}</a></li>
+     	<li>	<a href="{{prod_dir}}/crises/{{elem.0}}">{{elem.1}}</a></li>
      	{% endfor %}
      </ul>
 

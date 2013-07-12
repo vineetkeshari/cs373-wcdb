@@ -4,6 +4,8 @@ from django.conf.urls.defaults import patterns, include, url
 from django.contrib import admin
 admin.autodiscover()
 
+prod_dir = 'users/cs373/rosuto82/django.wsgi/'
+
 urlpatterns = patterns('',
     # Examples:
     url(r'^$', 'crises.views.index'),
@@ -22,4 +24,10 @@ urlpatterns = patterns('',
 
     # Uncomment the next line to enable the admin:
     url(r'^admin/', include(admin.site.urls)),
+    url(r'^' + prod_dir.encode('string-escape') + r'$', 'crises.views.index'),
+    url(r'^' + prod_dir.encode('string-escape') + r'crises/$', 'crises.views.index'),
+    url(r'^' + prod_dir.encode('string-escape') + r'crises/(?P<view_id>\w{10})/$', 'crises.views.base_view'),
+    url(r'^' + prod_dir.encode('string-escape') + r'import/$', 'crises.views.import_file', name='import_file'),
+    url(r'^' + prod_dir.encode('string-escape') + r'export/$', 'crises.views.export_file', name='export_file'),
+    url(r'^' + prod_dir.encode('string-escape') + r'unittests/$', 'crises.views.run_tests', name='run_tests'),
 )

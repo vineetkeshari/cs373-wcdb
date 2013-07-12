@@ -11,6 +11,12 @@ from django.core.urlresolvers import reverse
 from re import sub
 from subprocess import check_output, CalledProcessError, STDOUT
 
+is_prod = True
+if is_prod :
+    prod_dir = '/users/cs373/rosuto82/django.wsgi'
+else :
+    prod_dir = ''
+
 def test_view (request) :
     """
     DEBUG: Use for quick renders
@@ -88,7 +94,7 @@ def import_file (request) :
             # Redirect after POST
             return render_to_response(
                 'crises/templates/upload_success_fail.html',
-                {'error': error, 'error_string': error_string, 'pages': pages,},
+                {'error': error, 'error_string': error_string, 'pages': pages, 'is_prod':is_prod, 'prod_dir':prod_dir,},
                 context_instance=RequestContext(request),
             )
     else :
@@ -97,7 +103,7 @@ def import_file (request) :
     # Render the form
     return render_to_response(
         'crises/templates/import.html',
-        {'form': form, 'pages': pages,},
+        {'form': form, 'pages': pages, 'is_prod':is_prod, 'prod_dir':prod_dir},
         context_instance=RequestContext(request),
     )
 
@@ -105,7 +111,7 @@ def import_file (request) :
 def export_file (request) :
     pages = get_all_elems ()
     content = sub ('&', '&amp;', generate_xml ())
-    return render_to_response ('crises/templates/export.html', {'text' : content, 'pages' : pages, })
+    return render_to_response ('crises/templates/export.html', {'text' : content, 'pages' : pages, 'is_prod':is_prod, 'prod_dir':prod_dir})
 
 def run_tests (request) :
     pages = get_all_elems ()
@@ -118,14 +124,14 @@ def run_tests (request) :
         error = True
         unittest_result = cpe.output
     return render_to_response ('crises/templates/unittest.html',
-                                {'error' : error, 'result' : unittest_result, 'pages' : pages, },
+                                {'error' : error, 'result' : unittest_result, 'pages' : pages, 'is_prod':is_prod, 'prod_dir':prod_dir},
                                 context_instance=RequestContext(request),
     )
 
 # Create your views here.
 def render (name, data) :
     template = loader.get_template ('crises/templates/' + name)
-    context = Context (data)
+    context = Context (dict(data.items() + {'is_prod':is_prod, 'prod_dir':prod_dir}.items()))
     return template.render (context)
 
 def wrap_html (html_title, html_content) :
