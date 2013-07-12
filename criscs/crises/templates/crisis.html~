@@ -1,15 +1,58 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <h1>{{nks.name.0}}</h1>
-    <b>Kind: </b>{{nks.kind.0}} <br/>
-    <b>Summary: </b> {{nks.summary.0}}<br/> 
-  
-     <b>Location:</b> {{ location }}<br/>
+    <h1><p> {{nks.name.0}} </p></h1>
+    <p><b>Kind: </b>{{nks.kind.0}}</p>
+    <p><b> Summary</b> {{nks.summary.0}} </p>
+    <p><b>Date: </b>{{date}}</p>
+    <p><b>Time: </b>{{time}}</p>
 
-    <h5>Crises</h5>
+
+    <h5><strong>Locations:</strong></h5>
+    <ul>
+    	{% for elem in details.LOCATIONS %}
+        <li>
+            <p>{{elem.1}}</p>
+        </li>
+        {% endfor %}
+    </ul>
+
+    <h5><strong>Human Impact</strong></h5>
+    <ul>
+    	{% for elem in details.HUMANIMPACT %}
+        <li>
+            <p>{{elem.1}}</p>
+        </li>
+        {% endfor %}
+    </ul>
+    <h5><strong>Economic Impact:</strong></h5>
+    <ul>
+    	{% for elem in details.ECONOMICIMPACT %}
+        <li>
+            <p>{{elem.1}}</p>
+        </li>
+        {% endfor %}
+    </ul>
+    <h5><strong>Ways to Help:</strong></h5>
+    <ul>
+    	{% for elem in details.WAYSTOHELP %}
+        <li>
+            <p>{{elem.1}}</p>
+        </li>
+        {% endfor %}
+    </ul>
+    <h5><strong>Resources Needed:</strong></h5>
+    <ul>
+    	{% for elem in details.RESOURCESNEEDED %}
+        <li>
+            <p>{{elem.1}}</p>
+        </li>
+        {% endfor %}
+    </ul>
+
+    <h5>Organisations</h5>
      <ul>
-     	{% for elem in crises %}
+     	{% for elem in orgs %}
      	<li>	<a href="/crises/{{elem.0}}">{{elem.1}}</a></li>
      	{% endfor %}
      </ul>

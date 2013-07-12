@@ -454,7 +454,7 @@ def crisis_view (view_id) :
     nks_dict = get_name_kind_summary(view_id)
     
     c = Crisis.objects.get (pk=view_id)
-    c_date = c_time = 'a'
+    c_date = c_time = 'Unspecified'
     if not c.date == None :
         c_date = str(c.date)
     if not c.time == None :
@@ -492,7 +492,7 @@ def org_view(view_id):
     org_crises = get_cop_details(view_id)[0]
     org_persons = get_cop_details(view_id)[1]
 
-    html_crisis_content = render ('organizations.html', {'lists':org_lists, 'details':org_details, 'crises':org_crises,  'person':org_persons, 'pages':pages, 'nks':nks_dict,})
+    html_crisis_content = render ('organizations.html', {'lists':org_lists, 'details':org_details, 'crises':org_crises,  'person':org_persons, 'pages':pages, 'nks':nks_dict, 'location':org_location,})
 
     html_content = html_crisis_content #+ html_media
 
@@ -517,7 +517,7 @@ def person_view(view_id):
     per_crises = get_cop_details(view_id)[0]
     per_orgs = get_cop_details(view_id)[1]
 
-    html_crisis_content = render ('persons.html', {'lists':per_lists, 'details':per_details, 'crises':per_crises, 'orgs':per_orgs, 'pages':pages, 'nks':nks_dict})
+    html_crisis_content = render ('persons.html', {'lists':per_lists, 'details':per_details, 'crises':per_crises, 'orgs':per_orgs, 'pages':pages, 'nks':nks_dict, 'location':per_location,})
 
     html_content = html_crisis_content #+ html_media
 

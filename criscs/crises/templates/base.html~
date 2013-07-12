@@ -1,0 +1,142 @@
+<!DOCTYPE HTML>
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en" dir="ltr"> <![endif]-->
+<!--[if IE 7]> <html class="no-js lt-ie9 lt-ie8" lang="en" dir="ltr"> <![endif]-->
+<!--[if IE 8]> <html class="no-js lt-ie9" lang="en" dir="ltr"> <![endif]-->
+<!--[if gt IE 8]><!--><html class="no-js" lang="en" dir="ltr"><!--<![endif]-->
+<head>
+<title>CS373 | CrisCS</title>
+
+<!-- Meta Data ================ -->
+<meta charset="UTF-8">
+<meta name="Description" content="Fill this in with your information">
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+<!-- CSS ================ -->
+<link rel="stylesheet" href="https://harbor.sailpoint.com/resources/statics/4886/bootstrap.min.css" type="text/css">
+<link rel="stylesheet" href="https://harbor.sailpoint.com/resources/statics/4886/style.css" type="text/css">
+<link rel="stylesheet" href="https://harbor.sailpoint.com/resources/statics/4886/header-1.css" type="text/css">
+<link rel="stylesheet" href="../demo/demo.css" type="text/css" media="all">
+<link rel="stylesheet" href="../demo/theme-google.css" type="text/css" media="all">
+
+<!-- JS JQuery in the head you can use ajax if you want ================ -->
+<script src="https://harbor.sailpoint.com/resources/statics/4886/jquery.min.js"></script>
+<script src="https://harbor.sailpoint.com/resources/statics/4886/modernizr.custom.87724.js"></script><!-- js multiple backgrounds svg background size -->
+
+<!-- Include jQuery Syntax Highlighter -->
+<script type="text/javascript" src="https://harbor.sailpoint.com/resources/statics/4886/jquery.syntaxhighlighter.min.js"></script>
+
+<!-- Initialise jQuery Syntax Highlighter -->
+<script type="text/javascript">$.SyntaxHighlighter.init();</script>
+</head>
+
+<body class="index">
+
+<!-- begin accesibility skip to nav skip content -->
+<ul class="visuallyhidden" id="top">
+<li><a href="#nav" title="Skip to navigation" accesskey="n">Skip to navigation</a></li>
+<li><a href="#page" title="Skip to content" accesskey="c">Skip to content</a></li>
+</ul>
+<!-- end /.visuallyhidden accesibility--> 
+
+<!-- mobile navigation trigger-->
+<h5 class="mobile_nav"><a href="javascript:void(0)">&nbsp;<span></span></a></h5>
+<!--end mobile navigation trigger-->
+
+<!-- begin .header-->
+<header class="header  "> <img src="" class="print logo" alt="" />
+	<div class="container"> 
+	<!-- begin #main_menu -->
+	<nav id="main_menu">
+	<ul class="accordmobile">
+	<li><a href="">Home</a></li>
+	<li class="parent"><a href="javascript:void(0)">CRISES<i></i></a>
+	    <ul>
+		    {% for elem in pages.crises %}
+            		<li> <a href="/crises/{{ elem.id }}/"> {{ elem.name }} </a> </li>
+       		    {% endfor %}
+	    </ul>
+	</li>
+	<li class="parent"><a href="javascript:void(0)">ORGANIZATIONS<i></i></a>
+	    <ul>
+               {% for elem in pages.orgs %}
+            	   <li> <a href="/crises/{{ elem.id }}/"> {{ elem.name }} </a> </li>
+       	       {% endfor %}
+	    </ul>
+	</li>
+	<li class="parent"><a href="javascript:void(0)">PEOPLE<i></i></a>
+	    <ul>
+		    {% for elem in pages.people %}
+           		 <li> <a href="/crises/{{ elem.id }}/"> {{ elem.name }} </a> </li>
+        	    {% endfor %}
+	    </ul>
+	</li>
+	<li><a href="">images</a></li>
+	</ul>
+</nav>
+<!-- close / #main_menu --> 
+<!-- begin #logo -->
+<div id="logos"> <a><img src="https://harbor.sailpoint.com/resources/statics/4886/rszlogo.png" /></a> </div>	<!-- end #logo --> 
+</div>
+<!-- close / .container--> 
+</header>
+
+
+{% block content %}
+{% endblock %}
+
+
+ 
+<!--begin footer -->
+<footer id="footer" class="clearfix">
+<!--close row-fluid-->
+<div class="row-fluid">
+<div class="span4">
+<section>
+<h4>Contact Us</h4>
+<p><strong>email:</strong> <a href="mailto:rweller@utexas.edu">rweller@utexas.edu</a> </p>
+</section>
+</div>
+
+<!-- close .span4 --> 
+</div>
+<!-- close .row-fluid--> 
+</div>
+<!-- close footer .container--> 
+<section class="footerCredits">
+<div class="container">
+<ul class="clearfix">
+<li>© 2013 Team CrisCS. All rights reserved.</li>
+</ul>
+</div>
+<!--footerCredits container--> 
+</section>
+<!--close section--> 
+</footer>
+<!--/.footer--> 
+<span class="backToTop"><a href="#top">back to top</a></span> </div>
+<!-- close #page--> 
+<!-- JS JQuery ================ --> 
+<script src="https://harbor.sailpoint.com/resources/statics/4886/bootstrap.min.js"></script><!--transitions, tooltips, popover, buttons, modals, alert messages--> 
+<script src="https://harbor.sailpoint.com/resources/statics/4886/ddsmoothmenu-min.js"></script><!-- desktop edge detect menu --> 
+<script src="https://harbor.sailpoint.com/resources/statics/4886/jquery.dcjqaccordion.2.7.min.js"></script><!-- mobile multi-level accordion menu --> 
+<script src="https://harbor.sailpoint.com/resources/statics/4886/jquery.easytabs.min.js"></script><!-- tabs/testimonials --> 
+<script src="https://harbor.sailpoint.com/resources/statics/4886/slide-to-top-accordion-min.js"></script><!-- slide to top accordion toggle --> 
+<script src="https://harbor.sailpoint.com/resources/statics/4886/jquery.easing-1.3.min.js"></script><!--easing--> 
+
+<script src="https://harbor.sailpoint.com/resources/statics/4886/jquery.flexslider-min.js"></script><!--flexslider content slider twitter slider and initializations--> 
+<script src="https://harbor.sailpoint.com/resources/statics/4886/responsive-tables.js"></script><!--responsive table--> 
+<script src="https://harbor.sailpoint.com/resources/statics/4886/jquery.fitvid.js"></script><!-- responsive videos --> 
+
+<!-- scripts on this page ================ --> 
+<script src="https://harbor.sailpoint.com/resources/statics/4886/jquery.fancybox.pack.js"></script>
+<!--main fancybox--> 
+<script src="https://harbor.sailpoint.com/resources/statics/4886/jquery.fancybox-media.js"></script><!--fancybox media--> 
+<script src="https://harbor.sailpoint.com/resources/statics/4886/jquery.fancybox-buttons.js"></script><!--fancybox buttons--> 
+<script src="https://harbor.sailpoint.com/resources/statics/4886/jquery.fancybox-thumbs.js"></script><!--fancybox thumbs--> 
+<script src="https://harbor.sailpoint.com/resources/statics/4886/fancybox_init.js"></script><!--fancybox load--> 
+
+<!--initialize scripts / custom scripts all pages--> 
+<script src="https://harbor.sailpoint.com/resources/statics/4886/scripts.js"></script>	
+
+</body>
