@@ -1,0 +1,171 @@
+<?xml version="1.0" ?>
+
+<!-- World Crises XML using schema (WorldCrises.xsd) -->
+
+<WorldCrises>
+    <!-- Example Crisis element -->
+    <Crisis ID="CRI_GOTINV" Name="The (Possible) Invasion of the White Walkers">
+        <People>
+            <Person ID="PER_JONSNO" />
+        </People>
+        <Organizations>
+            <Org ID="ORG_BLCROW" />
+        </Organizations>
+        <Kind>War</Kind>
+        <Date>2013-06-14</Date>
+        <Time>09:00:00</Time>
+        <Locations>
+            <li>Castle Black, The Wall</li>
+            <li>Craster's Keep</li>
+            <li>Fist of the First Men</li>
+        </Locations>
+        <HumanImpact>
+            <li>Countless humans killed .</li>
+            <li>Craster's male children killed.</li>
+            <li>Caused the wildings to attempt an unsuccessful invasion.</li>
+        </HumanImpact>
+        <EconomicImpact>
+            <li>Economic Impact unknown</li>
+        </EconomicImpact>
+        <ResourcesNeeded>
+            <li>Funds, food and men are required urgently by the Night's Watch to man teh castles along the Wall.</li>
+            <li>Obsidian daggers needed in great numbers. </li>
+        </ResourcesNeeded>
+        <WaysToHelp>
+            <!-- Put text with optional hyperlinks here -->
+            <li href="http://awoiaf.westeros.org/index.php/Night%27s_Watch">Enlist in the Night's Watch. (JK) </li>
+            <li href="">Donate to the Night's Watch. </li>
+        </WaysToHelp>
+        <Common>
+            <Citations>
+                <!-- Put text with optional hyperlinks here -->
+                <li>Martin, George R. R. A Clash of Kings. New York: Bantam Books, 2000.</li>
+                <li> Martin, George R. R. A Storm of Swords. New York: Bantam Books, 2000.</li>
+                <li>A Wiki Of Ice and Fire</li>
+            </Citations>
+            <ExternalLinks>
+                <!-- Put text with compulsory hyperlinks here -->
+                <li href="http://awoiaf.westeros.org/index.php/Battle_of_the_Fist_of_the_First_Men">Battle of the Fist of the First Men</li>
+            </ExternalLinks>
+            
+            <!-- hrefs optional in the following depending on how you want them to behave on your site -->
+            <Images>
+                <!-- Put full URLs to images here, display them on your site in your own cool way -->
+                <li embed="http://awoiaf.westeros.org/images/0/09/Zippo514_BattleoftheFistFirstMenII.jpg" />
+                <li embed="http://images4.wikia.nocookie.net/__cb20120605015935/gameofthrones/images/c/c7/White_Walker_2x10.jpg" />
+                <li embed="http://images4.wikia.nocookie.net/__cb20110411014304/gameofthrones/images/c/cb/White_Walker.jpg"/>
+            </Images>
+            <Videos>
+                <!-- Put youtube link here (pull this URL out of the src="[GET THIS LINK]" attribute in the embed object given by youtube) -->
+                <!-- Embed example for your site: <iframe width="420" height="315" src="[THIS LINK]" frameborder="0" allowfullscreen></iframe> -->
+                <li embed="//www.youtube.com/embed/-MCiL5u2KXc" />
+                <li embed="//www.youtube.com/embed/P6yoS3LFIFM" />
+            </Videos>
+            <Maps>
+                <!-- Put google maps link here (pull this URL out of the src="[GET THIS LINK]" attribute in the embed object given by google maps) -->
+                <!-- Embed example for your site: <iframe width="425" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="[THIS LINK]"></iframe> -->
+                <li embed="http://fc05.deviantart.net/fs71/i/2012/199/e/b/game_of_thrones___westeros_interactive_map_by_sanjota-d57opsi.jpg" />
+            </Maps>
+            <Feeds>
+                <!-- Put feed URL here and embed on your site in your own cool way-->
+                <li embed="https://twitter.com/WhiteWalkers" />
+            </Feeds>
+
+            <!-- Optional summary field for extra random data -->
+            <Summary>The Others, known as the "White Walkers" among the wildlings, exist north of the Wall.
+Before the events in the Novel, the Others had supposedly not been seen for many thousand years.
+So far the Others have appeared in the flesh only twice in the whole saga and their purpose remains unknown at this time.
+            </Summary>
+        </Common>
+    </Crisis>
+    
+    <!-- Example Person element -->
+    <Person ID="PER_JONSNO" Name="Jon Snow">
+        <Crises>
+            <Crisis ID="CRI_GOTINV" />
+        </Crises>
+        <Organizations>
+            <Org ID="ORG_BLCROW" />
+        </Organizations>
+        <Kind>Military Commander</Kind>
+        <Location>Westeros</Location>
+        <Common>
+            <Citations>
+                <li>Martin, George R. R. A Clash of Kings. New York: Bantam Books, 2000.</li>
+                <li> Martin, George R. R. A Storm of Swords. New York: Bantam Books, 2000.</li>
+                <li>A Wiki Of Ice and Fire</li>
+            </Citations>
+            <ExternalLinks>
+                <li href="http://awoiaf.westeros.org/index.php/Jon_Snow">Jon Snow</li>
+            </ExternalLinks>
+            
+            <Images>
+                <li embed="http://fc01.deviantart.net/fs71/i/2013/002/2/a/jon_snow___digital_painting_by_antikersg_p_photo-d5puisy.jpg" />
+                <li embed="http://img.pandawhale.com/54568-grumpy-cat-meme-jon-snow--you-m9Jj.jpeg" />
+            </Images>
+            <Videos>
+                <li embed="//www.youtube.com/embed/-MCiL5u2KXc" />
+                <li embed="//www.youtube.com/embed/P6yoS3LFIFM" />
+            </Videos>
+            <Maps>
+                <li embed="http://fc05.deviantart.net/fs71/i/2012/199/e/b/game_of_thrones___westeros_interactive_map_by_sanjota-d57opsi.jpg" />
+            </Maps>
+            <Feeds>
+                <li embed="https://twitter.com/WhiteWalkers" />
+            </Feeds>
+		<Summary>
+		Jon Snow is the bastard son of Eddard Stark, by a mother whose identity is a source of speculation.
+He was raised by his father alongside his true-born half-siblings, but joins the Night's Watch when he nears adulthood. He is constantly accompanied by his albino direwolf Ghost. 
+            	</Summary>
+        </Common>
+        
+    </Person>
+    
+    <!-- Example Organization element -->
+    <Organization ID="ORG_BLCROW" Name="The Night's Watch">
+        <Crises>
+            <Crisis ID="CRI_GOTINV" />
+        </Crises>
+        <People>
+            <Person ID="PER_JONSNO" />
+        </People>
+        <Kind>Military Order</Kind>
+        <Location>The Wall, Westeros</Location>
+        <History>
+            <li>The Night's Watch is one of the oldest orders in the Seven Kingdoms, as it survived the fall of the kingdoms of the First Men, following the Andal Invasion, and the War of Conquest.</li>
+            <li> It was founded over 8,000 years BC (Before Conquest), after the period known as the Long Night.</li> 
+        </History>
+        <ContactInfo>
+            <li>Send a raven to Castle Black.</li>
+            <li>Try becoming a warg.</li>
+        </ContactInfo>
+<Common>
+            <Citations>
+                <li>Martin, George R. R. A Clash of Kings. New York: Bantam Books, 2000.</li>
+                <li> Martin, George R. R. A Storm of Swords. New York: Bantam Books, 2000.</li>
+                <li>A Wiki Of Ice and Fire</li>
+            </Citations>
+            <ExternalLinks>
+                <li href="http://awoiaf.westeros.org/index.php/Night%27s_Watch">The Night's Watch</li>
+            </ExternalLinks>
+            
+            <Images>
+                <li embed="http://awoiaf.westeros.org/images/6/62/The_Wall_Castles.jpg" />
+            </Images>
+            <Videos>
+                <li embed="//www.youtube.com/embed/x8MrKpmYVLY" />
+                <li embed="//www.youtube.com/embed/JFkVih34ju8" />
+            </Videos>
+            <Maps>
+                <li embed="http://fc05.deviantart.net/fs71/i/2012/199/e/b/game_of_thrones___westeros_interactive_map_by_sanjota-d57opsi.jpg" />
+            </Maps>
+            <Feeds>
+                <li embed="https://twitter.com/Nights_Watch" />
+            </Feeds>
+		<Summary>The Night's Watch has built nineteen castles along the hundred leagues of the Wall. At the zenith of it's power, the Watch had seventeen of the castles manned, with over ten thousand men-at-arms between them. Castle Black alone quartered five thousand fighting men with all their horses, servants, and equipment. The highborn of the North have traditionally considered it an honor to serve on the Wall. Many younger sons of Northern houses, low in the line of succession, gladly took the black. 300 years after Aegon's conquest, only three castles remain in use and the Night's Watch's numbers have dwindled to fewer than a thousand men. Not only that, but the Night's Watch is now largely made up of the misfits of the Seven Kingdoms: peasants, debtors, poachers, rapers, thieves, and bastards. Only a few of the noble and knightly houses south of The Neck have members in the Night's Watch, and most serve because they fought on the wrong side of a war or fell afoul of political machinations.
+ 
+            	</Summary>
+        </Common>
+        <!-- See Crisis element above for examples of everything under <Common> -->
+    </Organization>
+</WorldCrises>
