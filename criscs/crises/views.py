@@ -1,6 +1,6 @@
 from django.http import HttpResponse, HttpResponseNotFound, HttpResponseRedirect
 from django.template import Context, loader, RequestContext
-from crises.models import Crisis, Person, Organization, WCDBElement, ListType, LI, R_Crisis_Person, R_Crisis_Org, R_Org_Person, XMLFile
+from crises.models import Crisis, Person, Organization, WCDBElement, ListType, LI, Text_Store, R_Crisis_Person, R_Crisis_Org, R_Org_Person, XMLFile
 from crises.forms import DocumentForm
 
 from XMLUtility import process_xml
@@ -10,6 +10,23 @@ from django.core.urlresolvers import reverse
 
 from re import sub
 from subprocess import check_output, CalledProcessError, STDOUT
+
+
+def get_all_elems () :
+    all_wcdb = WCDBElement.objects.all ()
+    pages = {}
+    pages ['crises'] = []
+    pages ['people'] = []
+    pages ['orgs'] = []
+    for elem in all_wcdb :
+        if elem.ID[:3] == 'CRI' :
+            pages ['crises'].append ({'name' : elem.name, 'id' : elem.ID})
+        if elem.ID[:3] == 'ORG' :
+            pages ['orgs'].append ({'name' : elem.name, 'id' : elem.ID})
+        if elem.ID[:3] == 'PER' :
+            pages ['people'].append ({'name' : elem.name, 'id' : elem.ID})
+    return pages
+
 
 def save_data (all_data) :
     for crisis in all_data['crises'] :
@@ -21,7 +38,10 @@ def save_data (all_data) :
     for list_type in all_data['list_types'] :
         list_type.save()
     for li in all_data['list_elements'] :
+        print li.content
         li.save()
+    for text in all_data['texts'] :
+        text.save()
     for r_co in all_data['rel_crisis_org'] :
         r_co.save()
     for r_cp in all_data['rel_crisis_person'] :
@@ -74,9 +94,10 @@ def import_file (request) :
 
 
 def export_file (request) :
-    xml_files = XMLFile.objects.all()
-    xml = open (str(xml_files[len(xml_files)-1].xml_file), 'r')
-    content = sub ('(\s+)', ' ', sub ('<!--(.*)-->', '', xml.read ()) )
+#    xml_files = XMLFile.objects.all()
+#    xml = open (str(xml_files[len(xml_files)-1].xml_file), 'r')
+#    content = sub ('(\s+)', ' ', sub ('<!--(.*)-->', '', xml.read ()) )
+    content = sub ('&', '&amp;', generate_xml ())
     return render_to_response ('crises/templates/export.html', {'text' : content})
 
 def run_tests (request) :
@@ -146,6 +167,20 @@ def wcdb_common_view (view_id, page_type) :
 
     return (html_title, html_common)
 
+def generate_xml () :
+    texts = Text_Store.objects.all ()
+
+    generated_xml = 'Your XML has %d elements:\n\n' % len(texts)
+    generated_xml += r'<?xml version="1.0" encoding="ISO-8859-1" ?>' + '\n'
+    generated_xml += '<WorldCrises>\n'
+
+    for text in texts :
+        generated_xml += text.content
+
+    generated_xml += '</WorldCrises>\n'
+
+    return generated_xml
+
 # This method should return the formatted Citations, External Links, Images, Videos, Maps and Feeds for any WCDBElement
 def get_media (view_id) :
     media_dict = {"CITATIONS":[] , "EXTERNALLINKS":[], "IMAGES":[], "VIDEOS":[], "MAPS":[], "FEEDS":[]}
@@ -179,7 +214,7 @@ def get_media (view_id) :
                 store_dict[mtype].append(tmp_list) 
 
             if mtype is "FEEDS" and (indices[mtype] != []):
-                ftmp_list = [str(obj[index].href), str(obj[index].href)]
+                tmp_list = [str(obj[index].embed), str(obj[index].embed)]
                 store_dict[mtype].append(tmp_list)     
     
     return store_dict
@@ -207,6 +242,142 @@ def get_content_href (obj_index) :
     return (my_content, my_href)
 
 
+def get_cop_details(view_id):
+    if view_id[:3] == "CRI":
+        org_dict = get_org_names_cris(view_id)
+        pers_dict = get_person_names_cris(view_id)
+        return [org_dict, pers_dict]
+
+    elif view_id[:3] == "ORG":
+        cris_dict = get_crises_names_orgs(view_id)
+        pers_dict = get_person_names_orgs(view_id)
+        return [cris_dict, pers_dict]
+
+    elif view_id[:3] == "PER":
+        cris_dict = get_crises_names_pers(view_id)
+        org_dict = get_org_names_pers(view_id)
+        return [cris_dict, org_dict]
+    else :
+        return None
+
+
+def get_org_names_cris(view_id):
+    obj = R_Crisis_Org.objects.all()
+    orgs = []
+    # Get orgs corresponding to the view_id
+    for i in range(0, len(obj)):
+        if obj[i].crisis == view_id:
+            orgs.append(obj[i].org)
+
+    orgs = list(set(orgs)) # Retain only unique items
+    final_list= []
+    obj_2 = WCDBElement.objects.all()
+
+    for i in range(0, len(obj_2)):
+        for org in orgs:
+            if obj_2[i].ID == org:
+                tmp_list = [org, str(obj_2[i].name)]
+                final_list.append(tmp_list)
+
+    return final_list
+
+def get_org_names_pers(view_id):
+    obj = R_Org_Person.objects.all()
+    orgs = []
+    for i in range(0, len(obj)):
+        if obj[i].person == view_id:
+            orgs.append(obj[i].org)
+
+    orgs = list(set(orgs)) # Retain only unique items
+    final_list =[]
+    obj_2 = WCDBElement.objects.all()
+
+    for i in range(0, len(obj_2)):
+        for org in orgs:
+            if obj_2[i].ID == org:
+                tmp_list = [org, str(obj_2[i].name)]
+                final_list.append(tmp_list)
+                
+
+    return final_list
+
+def get_person_names_cris(view_id):
+    obj = R_Crisis_Person.objects.all()
+    pers = []
+    for i in range(0, len(obj)):
+        if obj[i].crisis == view_id:
+            pers.append(obj[i].person)
+
+    pers = list(set(pers))
+    final_list = []
+    obj_2 = WCDBElement.objects.all()
+
+    for i in range(0, len(obj_2)):
+        for person in pers:
+            if obj_2[i].ID == person:
+                tmp_list = [person, str(obj_2[i].name)]
+                final_list.append(tmp_list)
+    return final_list
+
+def get_person_names_orgs(view_id):
+    obj = R_Org_Person.objects.all()
+    pers = []
+    for i in range(0, len(obj)):
+        if obj[i].org == view_id:
+            pers.append(obj[i].person)
+
+    pers = list(set(pers))
+    final_list = []
+    obj_2 = WCDBElement.objects.all()
+
+    for i in range(0, len(obj_2)):
+        for person in pers:
+            if obj_2[i].ID == person:
+                tmp_list = [person, str(obj_2[i].name)]
+                final_list.append(tmp_list)
+    return final_list
+
+def get_crises_names_orgs(view_id):
+    obj = R_Crisis_Org.objects.all()
+    crises = []
+    for i in range(0, len(obj)):
+        if obj[i].org == view_id:
+            crises.append(obj[i].crisis)
+
+    crises = list(set(crises))
+    final_list = []
+    obj_2 = WCDBElement.objects.all()
+
+    for i in range(0, len(obj_2)):
+        for crisis in crises:
+            if obj_2[i].ID == crisis:
+                tmp_list = [crisis, str(obj_2[i].name)]
+                final_list.append(tmp_list)
+    
+    return final_list
+
+def get_crises_names_pers(view_id):
+    obj = R_Crisis_Person.objects.all()
+    crises = []
+    for i in range(0, len(obj)):
+        if obj[i].person == view_id:
+            crises.append(obj[i].crisis)
+
+    crises = list(set(crises))
+    final_list = []
+    obj_2 = WCDBElement.objects.all()
+
+    for i in range(0, len(obj_2)):
+        for crisis in crises:
+            if obj_2[i].ID == crisis:
+                tmp_list = [crisis, str(obj_2[i].name)]
+                final_list.append(tmp_list)
+    
+    return final_list
+
+
+
+
 # This method should return the formatted Locations, HumanImpact, EconomicImpact, ResourcesNeeded, WaysToHelp items of Crisis
 def get_crisis_details (view_id) :
     details_dict = {'LOCATIONS':[], 'HUMANIMPACT':[], 'ECONOMICIMPACT':[], 'RESOURCESNEEDED':[], 'WAYSTOHELP':[]}
@@ -227,28 +398,74 @@ def get_crisis_details (view_id) :
 
 # This method should return the formatted History and Contact Info items of Organization
 def get_org_details (view_id) :
-    #1. Get the org(s) from the view_id, store in dict
-    #2. Query LI for the history
+    obj = R_Crisis_Org.objects.all()
+    orgs = []
+    for i in range(0, len(obj)):
+        if obj[i].crisis == view_id:
+            orgs.append(obj[i].org)
+   
+    obj_2 = LI.objects.all()
+    orgs = list(set(orgs)) # Retain only unique items
+    dict_org = dict.fromkeys(orgs)
     
-    return ''
+    for i in range(0, len(obj_2)):
+        for org in orgs:
+            if obj_2[i].ListID == org + "_" + "HISTORY":
+                dict_org[org] = [obj_2[i].content]
+
+    for i in range(0, len(obj_2)):
+        for org in orgs:
+            if obj_2[i].ListID == org + "_" + "CONTACTINFO":
+                dict_org[org].append(obj_2[i].content)
+
+    return dict_org
     
 # Returns all data associated with the person 
-def get_person_details(view_id):
-    return ''
-    
+
+def get_name_kind_summary(view_id):
+    obj = WCDBElement.objects.all()
+    nks_dict = {'name':[], 'kind':[], 'summary':[] }
+    for i in range(0, len(obj)):
+        if obj[i].ID == view_id:
+            nks_dict['name'].append(obj[i].name)
+            nks_dict['kind'].append(obj[i].kind)
+            nks_dict['summary'].append(obj[i].summary)
+    return nks_dict
+        
+
+def get_location(view_id):
+    location = ''
+    if view_id[:3] == "PER":
+        obj = Person.objects.all()
+        for i in range(0, len(obj)):
+            if obj[i].wcdbelement_ptr_id == view_id:
+                location = location + str(obj[i].location)
+    if view_id[:3] == "ORG":
+        obj = Organization.objects.all()
+        for i in range(0, len(obj)):
+            if obj[i].wcdbelement_ptr_id == view_id:
+                location = location + str(obj[i].location)
+    return location
+
 def crisis_view (view_id) :
     (html_title, html_common) = wcdb_common_view (view_id, 'Crisis')
+
+    pages = get_all_elems()
+    nks_dict = get_name_kind_summary(view_id)
     
     c = Crisis.objects.get (pk=view_id)
-    c_date = c_time = ''
+    c_date = c_time = 'a'
     if not c.date == None :
         c_date = str(c.date)
     if not c.time == None :
         c_time = str(c.time)
+
     c_lists = get_media (view_id) 
     c_details = get_crisis_details (view_id)
+    c_orgs = get_cop_details(view_id)[0]
+    c_persons = get_cop_details(view_id)[1]
 
-    html_crisis_content = render ('crisis.html', {'date' : c_date, 'time' : c_time, 'lists':c_lists, 'details':c_details,})
+    html_crisis_content = render ('crisis.html', {'date' : c_date, 'time' : c_time, 'lists':c_lists, 'details':c_details, 'orgs':c_orgs, 'person':c_persons, 'pages':pages, 'nks':nks_dict,})
 
     html_media = get_media (view_id)
 
@@ -258,3 +475,52 @@ def crisis_view (view_id) :
 
     return HttpResponse (final_html)
 
+
+def org_view(view_id):
+
+    pages = get_all_elems()
+    nks_dict = get_name_kind_summary(view_id)
+
+    (html_title, html_common) = wcdb_common_view (view_id, 'Organization')
+    
+    org_location = get_location(view_id)
+    
+    org_lists = get_media(view_id) 
+    
+    org_details = get_org_details (view_id)
+
+    org_crises = get_cop_details(view_id)[0]
+    org_persons = get_cop_details(view_id)[1]
+
+    html_crisis_content = render ('organizations.html', {'lists':org_lists, 'details':org_details, 'crises':org_crises,  'person':org_persons, 'pages':pages, 'nks':nks_dict,})
+
+    html_content = html_crisis_content #+ html_media
+
+    final_html = wrap_html (html_title, html_content)
+
+    return HttpResponse (final_html)
+
+
+def person_view(view_id):
+
+    pages = get_all_elems()
+    nks_dict = get_name_kind_summary(view_id)
+
+    (html_title, html_common) = wcdb_common_view (view_id, 'Person')
+    
+    per_location = get_location(view_id)
+    
+    per_lists = get_media(view_id) 
+    
+    per_details = get_org_details (view_id)
+
+    per_crises = get_cop_details(view_id)[0]
+    per_orgs = get_cop_details(view_id)[1]
+
+    html_crisis_content = render ('persons.html', {'lists':per_lists, 'details':per_details, 'crises':per_crises, 'orgs':per_orgs, 'pages':pages, 'nks':nks_dict})
+
+    html_content = html_crisis_content #+ html_media
+
+    final_html = wrap_html (html_title, html_content)
+
+    return HttpResponse (final_html)

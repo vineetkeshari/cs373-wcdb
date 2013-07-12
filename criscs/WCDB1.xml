@@ -69,7 +69,7 @@
                 <li embed="//www.youtube.com/embed/ZJjMSXhQA5w" />
             </Videos>
             <Maps>
-                <li embed="https://www.google.com/maps?sll=30.08236989592049,79.31189246107706&amp;sspn=3.2522150867582833,7.2072687770004205&amp;t=m&amp;q=uttarakhand&amp;dg=opt&amp;ie=UTF8&amp;hq=&amp;hnear=Uttarakhand,+India&amp;ll=30.066753,79.0193&amp;spn=2.77128,5.07019&amp;z=8&amp;output=embed" />
+                <li embed="https://www.google.com/maps?sll=30.08236989592049,79.31189246107706&amp;amp;sspn=3.2522150867582833,7.2072687770004205&amp;amp;t=m&amp;amp;q=uttarakhand&amp;amp;dg=opt&amp;amp;ie=UTF8&amp;amp;hq=&amp;amp;hnear=Uttarakhand,+India&amp;amp;ll=30.066753,79.0193&amp;amp;spn=2.77128,5.07019&amp;amp;z=8&amp;amp;output=embed" />
             </Maps>
             <Feeds>
                 <li embed="https://twitter.com/search?q=%23uttarakhand%20floods" />
@@ -114,8 +114,8 @@
             <li>After the quake there were 19 million cubic metres of rubble and debris in Port-au-Prince,  enough to fill a line of shipping containers stretching end to end from London to Beirut.</li>
         </EconomicImpact>
         <ResourcesNeeded>
-            <li>The DEC Appeal has now raised £107m, two-thirds directly and one-third through its member agencies, which will be spent over three years.</li>
-            <li>DEC agencies and their partners have nearly £380m to spend in total from all sources</li>
+            <li>The DEC Appeal has now raised pound 107m, two-thirds directly and one-third through its member agencies, which will be spent over three years.</li>
+            <li>DEC agencies and their partners have nearly pound 380m to spend in total from all sources</li>
             <li>1.8million people reached by DEC funded aid.</li>
             <li>DEC is also working on improving the water supply of 340,000 people.</li>
             <li>DEC is also supplying drugs to five cholera treatment facilities serving 18,000 people.</li>
@@ -156,7 +156,7 @@
                 <li embed="http://www.youtube.com/embed/B5dG6vyFWFo" />
             </Videos>
             <Maps>
-                <li embed="https://maps.google.com/maps?q=18.443+-72.571(M7.0+-+HAITI+REGION+-+2010+January+12++21:53:10+UTC)&amp;f=d&amp;t=m&amp;ie=UTF8&amp;z=8&amp;ll=18.443,-72.571&amp;output=embed" />
+                <li embed="https://maps.google.com/maps?q=18.443+-72.571(M7.0+-+HAITI+REGION+-+2010+January+12++21:53:10+UTC)&amp;amp;f=d&amp;amp;t=m&amp;amp;ie=UTF8&amp;amp;z=8&amp;amp;ll=18.443,-72.571&amp;amp;output=embed" />
             </Maps>
             <Feeds>
                 <li embed="https://twitter.com/nprnews/haiti-earthquake" />
@@ -213,7 +213,7 @@
             <Maps>
                 <!-- Put google maps link here (pull this URL out of the src="[GET THIS LINK]" attribute in the embed object given by google maps) -->
                 <!-- Embed example for your site: <iframe width="425" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="[THIS LINK]"></iframe> -->
-                <li embed="https://maps.google.com/maps?client=safari&amp;oe=UTF-8&amp;q=burma&amp;ie=UTF8&amp;hq=&amp;hnear=Burma&amp;gl=us&amp;ll=21.913965,95.956223&amp;spn=15.292545,41.44043&amp;t=h&amp;z=5&amp;source=embed" />
+                <li embed="https://maps.google.com/maps?client=safari&amp;amp;oe=UTF-8&amp;amp;q=burma&amp;amp;ie=UTF8&amp;amp;hq=&amp;amp;hnear=Burma&amp;amp;gl=us&amp;amp;ll=21.913965,95.956223&amp;amp;spn=15.292545,41.44043&amp;amp;t=h&amp;amp;z=5&amp;amp;source=embed" />
             </Maps>
             <Feeds>
                 <!-- Put feed URL here and embed on your site in your own cool way-->
@@ -275,7 +275,7 @@
                 <li embed="http://us.123rf.com/400wm/400/400/designua/designua1210/designua121000010/15819881-structure-of-the-aids-virus.jpg" />
             </Images>
             <Videos>
-                <li embed="//www.youtube.com/embed/v=rv0yIICeg-E" />
+                <li embed="//www.youtube.com/embed/rv0yIICeg-E" />
             </Videos>
             <Summary>
                 Disease of human immune system that is transferred during unprotected sex, blood, breastfeeding, and child delivery with an infected person. Believed to have originiated in Africa in the early 20th century, it is reponsible
@@ -331,7 +331,7 @@
                 <li embed="http://upload.wikimedia.org/wikipedia/commons/d/db/Symptoms_of_Malaria.png"/>
             </Images>
             <Videos>
-                <li embed="//www.youtube.com/embed/v=hztGkzwWR1I" />
+                <li embed="//www.youtube.com/embed/hztGkzwWR1I" />
             </Videos>
             <Summary>
                 Malaria is a life threatening illness and a major cause of death worldwide. It exists in tropical and subtropical climates and still infects hundred of millions of people annually. It is a major drain on productivity of heavily infected nations and has a major economic impact. Nations have successfully eliminated malaria with wide use of insecticides in the past, such as DDT. Global eradication of the four types of malaria is a major 
@@ -383,10 +383,10 @@
                 <li embed="http://24.media.tumblr.com/tumblr_m6m85lFmqH1r7k54qo1_500.jpg" />
             </Images>
             <Videos>
-                <li embed="//www.youtube.com/embed/v=XPDC0WV9xjs" />
+                <li embed="//www.youtube.com/embed/XPDC0WV9xjs" />
             </Videos>
             <Maps>
-                <li embed="https://maps.google.com/maps?q=Mutare,+Zimbabwe&amp;hl=en&amp;sll=-18.986168,32.648621&amp;sspn=0.555142,1.056747&amp;hnear=Mutare,+Manicaland,+Zimbabwe&amp;t=m&amp;ie=UTF8&amp;hq=&amp;z=13&amp;ll=-18.97476,32.65556&amp;output=embed" />
+                <li embed="https://maps.google.com/maps?q=Mutare,+Zimbabwe&amp;amp;hl=en&amp;amp;sll=-18.986168,32.648621&amp;amp;sspn=0.555142,1.056747&amp;amp;hnear=Mutare,+Manicaland,+Zimbabwe&amp;amp;t=m&amp;amp;ie=UTF8&amp;amp;hq=&amp;amp;z=13&amp;amp;ll=-18.97476,32.65556&amp;amp;output=embed" />
             </Maps>
             <Summary>
                 Extensive diamond deposits were located in late 2006 around Marange, Zimbabwe. The government quickly moved in and displaced local residents and miners. By 2008 the Zimbabwean military was practicing many humans right violations such as forced labor, torture, and mass killings to maintain its grasp. The United Nation's Kimberly Process dispatched a reviewer in 2009 to inspect claims of widespread violations and ultimately came to a
@@ -460,7 +460,7 @@
             </Videos>
             
             <Maps>
-                <li embed="https://maps.google.com/maps?q=google+maps+indian+ocean+tsunami&amp;safe=off&amp;hnear=2004+Indian+Ocean+earthquake+and+tsunami&amp;gl=us&amp;t=m&amp;ie=UTF8&amp;hq=&amp;z=8&amp;iwloc=A&amp;output=embed" />
+                <li embed="https://maps.google.com/maps?q=google+maps+indian+ocean+tsunami&amp;amp;safe=off&amp;amp;hnear=2004+Indian+Ocean+earthquake+and+tsunami&amp;amp;gl=us&amp;amp;t=m&amp;amp;ie=UTF8&amp;amp;hq=&amp;amp;z=8&amp;amp;iwloc=A&amp;amp;output=embed" />
             </Maps>
             <Feeds>
                 <li embed="https://twitter.com/search?q=%23boxingday%20%23tsunami" />
@@ -474,6 +474,7 @@ With a magnitude of Mw 9.1, it is the third largest earthquake ever recorded on 
     <Crisis ID="CRI_USDAIP" Name="US Drone Attacks in Pakistan">
                 <People>
                   <Person ID="PER_GEDAPE" />
+                  <Person ID="PER_BROBMA" />
               </People>
             <Organizations>
                 <Org ID="ORG_CEINAG" />
@@ -519,7 +520,7 @@ With a magnitude of Mw 9.1, it is the third largest earthquake ever recorded on 
               <li embed="//www.youtube.com/embed/-4-oOnjiGx8" />
           </Videos>
           <Maps>
-                <li embed="https://www.google.com/maps?sll=30.08236989592049,79.31189246107706&amp;sspn=3.2522150867582833,7.2072687770004205&amp;t=m&amp;q=uttarakhand&amp;dg=opt&amp;ie=UTF8&amp;hq=&amp;hnear=Uttarakhand,+India&amp;ll=30.066753,79.0193&amp;spn=2.77128,5.07019&amp;z=8&amp;output=embed" />
+                <li embed="https://www.google.com/maps?sll=30.08236989592049,79.31189246107706&amp;amp;sspn=3.2522150867582833,7.2072687770004205&amp;amp;t=m&amp;amp;q=uttarakhand&amp;amp;dg=opt&amp;amp;ie=UTF8&amp;amp;hq=&amp;amp;hnear=Uttarakhand,+India&amp;amp;ll=30.066753,79.0193&amp;amp;spn=2.77128,5.07019&amp;amp;z=8&amp;amp;output=embed" />
             </Maps>
             <Feeds>
               <li embed="https://www.facebook.com/ProtestAgainstUsDroneAttacks?fref=ts" />
@@ -605,7 +606,7 @@ With a magnitude of Mw 9.1, it is the third largest earthquake ever recorded on 
             </WaysToHelp>
             <Common>
               <Citations>
-                  <li href="http://www.jordskjelv.no/cgi-bin/showpage.cgi?type=siste&amp;id=1311425084">Norsar Jordskjelv.no.</li>
+                  <li href="http://www.jordskjelv.no/cgi-bin/showpage.cgi?type=siste&amp;amp;id=1311425084">Norsar Jordskjelv.no.</li>
               </Citations>
           <ExternalLinks>
               <li href="http://en.wikipedia.org/wiki/2011_Norway_attacks">Wikipedia article</li>
@@ -617,7 +618,7 @@ With a magnitude of Mw 9.1, it is the third largest earthquake ever recorded on 
               <li embed="//www.youtube.com/embed/n8B8dnbdvr8" />
           </Videos>
           <Maps>
-                <li embed="https://maps.google.com/maps?um=1&amp;safe=off&amp;amphl=en&amp;ampq=2011%20Norway%20Attacks&amp;bav=on.2,or.r_cp.r_qf.&amp;bvm=bv.48705608,d.eWU&amp;biw=1600&amp;bih=775&amp;ie=UTF-8&amp;sa=N&amp;tab=il" />
+                <li embed="https://maps.google.com/maps?um=1&amp;amp;safe=off&amp;amp;amphl=en&amp;amp;ampq=2011%20Norway%20Attacks&amp;amp;bav=on.2,or.r_cp.r_qf.&amp;amp;bvm=bv.48705608,d.eWU&amp;amp;biw=1600&amp;amp;bih=775&amp;amp;ie=UTF-8&amp;amp;sa=N&amp;amp;tab=il" />
             </Maps>
             <Feeds>
                 <li embed="https://www.facebook.com/pages/Norway-massacre/267299463284403" />
@@ -706,7 +707,7 @@ With a magnitude of Mw 9.1, it is the third largest earthquake ever recorded on 
                 <li embed="http://www.microsoft.com/global/en-us/news/PublishingImages/bod/billg/gates_print.jpg" />
             </Images>
             <Videos>
-                <li embed="//www.youtube.com/embed/v=CIZGDT7ZqdM" />
+                <li embed="//www.youtube.com/embed/CIZGDT7ZqdM" />
             </Videos>
             <Summary>Famous founder of Microsoft and previously the richest man in the world, Bill Gates now spends most of his time heading his philanthropy organization, The Bill and Melinda Gates Foundation</Summary>
         </Common>        
@@ -737,8 +738,8 @@ With a magnitude of Mw 9.1, it is the third largest earthquake ever recorded on 
                 <li embed="http://english.nupi.no/var/ezwebin_site/storage/images/nupi.no/virksomheten/ledelse/jan-egeland/egelan-jan-04-x-crop/44014-1-nor-NO/Egelan-Jan-04-X-crop.jpg" />
             </Images>
             <Videos>
-                <li embed="//www.youtube.com/embed/v=_E_-xa2u2qE" />
-                <li embed="//www.youtube.com/embed/v=6S3gu9pnEFw" />
+                <li embed="//www.youtube.com/embed/_E_-xa2u2qE" />
+                <li embed="//www.youtube.com/embed/6S3gu9pnEFw" />
             </Videos>
             <Feeds>
                 <li embed="https://twitter.com/search?q=%23Egeland" />
@@ -859,6 +860,36 @@ Egeland was also Secretary General of the Norwegian Red Cross. He served as Stat
         </Common>        
     </Person>
 
+    <Person ID="PER_BROBMA" Name="Barack Obama">
+        <Crises>
+            <Crisis ID="CRI_USDAIP"/>
+        </Crises>
+        <Kind>President</Kind>
+        <Location>Washington, D.C, United States of America</Location>
+        <Common>
+            <Citations>
+                <li href="http://en.wikipedia.org/wiki/Barack_Obama">Wikipedia page for Barack Obama</li>
+            </Citations>
+            <ExternalLinks>
+                <li href="http://www.whitehouse.gov/administration/president-obama/">Official Whitehouse page for Barack Obama</li>
+                <li href="http://www.barackobama.com">Barack Obama's campaign website</li>
+                <li href="http://bioguide.congress.gov/scripts/biodisplay.pl?index=o000167">Official Congressional page for Barack Obama</li>
+            </ExternalLinks>
+            <Images>
+                <li embed="http://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/President_Barack_Obama.jpg/220px-President_Barack_Obama.jpg" text="President Barack Obama"/>
+                <li embed="http://upload.wikimedia.org/wikipedia/en/thumb/3/33/Ann_Dunham_with_father_and_children.jpg/220px-Ann_Dunham_with_father_and_children.jpg" text="Young Barack Obama with family"/>
+                <li embed="http://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Flickr_Obama_Springfield_01.jpg/220px-Flickr_Obama_Springfield_01.jpg" text="President Obama and First Lady at a rally"/>
+                <li embed="http://disinfo.s3.amazonaws.com/wp-content/uploads/2010/02/JointSessionCongress.jpg" text="United States Congress joint session"/>
+            </Images>
+            <Videos>
+                <li embed="//www.youtube.com/embed/qIJr_Pr6A4o" />
+                <li embed="//www.youtube.com/embed/oMJxzueBxjQ" />
+            </Videos>
+            <Maps>
+                <li embed="https://maps.google.com/maps?q=1600+Pennsylvania+Avenue+Northwest,+Washington,+DC&amp;hl=en&amp;sll=30.307761,-97.753401&amp;sspn=0.732698,0.95993&amp;oq=1600+pen&amp;hnear=1600+Pennsylvania+Ave+NW,+Washington,+District+of+Columbia+20500&amp;t=m&amp;z=16" text="The White House"/>
+            </Maps>
+        </Common>
+    </Person>
 
     <Person ID="PER_MICHEL" Name="Michel Joseph Martelly">
         <Crises>
@@ -981,7 +1012,7 @@ Egeland was also Secretary General of the Norwegian Red Cross. He served as Stat
                 <li embed="http://www.un.org/News/dh/photos/large/2009/62206-tsunami.jpg" />
             </Images>
             <Videos>
-                <li embed="//www.youtube.com/embed/v=kn8Yh6lP4ks" />
+                <li embed="//www.youtube.com/embed/kn8Yh6lP4ks" />
             </Videos>
             <Feeds>
                 <li embed="https://twitter.com/UNOCHA" />
@@ -1008,7 +1039,7 @@ Egeland was also Secretary General of the Norwegian Red Cross. He served as Stat
                 <li embed="http://2.bp.blogspot.com/-uUSCw_OQS7U/UFsbtC43cLI/AAAAAAAAAco/CC_iwH4OOoM/s320/United-nations-UN-flag-picrure.png" />
             </Images>
             <Feeds>
-                <li embed="//www.youtube.com/embed/v=GbQTYHAN2c8" />
+                <li embed="//www.youtube.com/embed/GbQTYHAN2c8" />
             </Feeds>
             <Summary>
                 International organization containing 193 member countries as an advocate of peace and cooperation between member states.
@@ -1036,7 +1067,7 @@ Egeland was also Secretary General of the Norwegian Red Cross. He served as Stat
                 <li embed="http://blogs-images.forbes.com/mfonobongnsehe/files/2012/07/Bill-and-Melinda-Gates-Foundation1.png" />
             </Images>
             <Videos>
-                <li embed="//www.youtube.com/embed/v=2VdMqmVtnOM" />
+                <li embed="//www.youtube.com/embed/2VdMqmVtnOM" />
             </Videos>
 
             <Summary>A leading philanthrocapitalist organization founded by the founder of Microsoft Bill Gates and his wife Melinda. </Summary>
@@ -1060,7 +1091,7 @@ Egeland was also Secretary General of the Norwegian Red Cross. He served as Stat
                 <li embed="http://www.jcivancouver.com/wp-content/uploads/2012/05/Stop-This-Killer-A4.jpg" />
             </Images>
             <Videos>
-                <li embed="//www.youtube.com/embed/v=dyBWjN1e31A" />
+                <li embed="//www.youtube.com/embed/dyBWjN1e31A" />
             </Videos>
             <Summary>A nonprofit organization dedicated to providing insecticide-treated mosquito nets for those most in need.</Summary>
         </Common>
