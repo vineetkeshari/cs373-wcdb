@@ -52,7 +52,6 @@ def save_data (all_data) :
     for list_type in all_data['list_types'] :
         list_type.save()
     for li in all_data['list_elements'] :
-        print li.content
         li.save()
     for text in all_data['texts'] :
         text.save()
@@ -212,7 +211,6 @@ def get_media (view_id) :
                 store_dict[mtype].append(tmp_list) 
 
             if mtype is "MAPS" and (indices[mtype] != []):
-                print sub('&amp;','&',str(obj[index].embed))
                 tmp_list = [sub('&amp;','&',str(obj[index].embed))]
                 store_dict[mtype].append(tmp_list) 
 
