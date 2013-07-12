@@ -69,7 +69,7 @@
                 <li embed="//www.youtube.com/embed/ZJjMSXhQA5w" />
             </Videos>
             <Maps>
-                <li embed="https://www.google.com/maps?sll=30.08236989592049,79.31189246107706&amp;sspn=3.2522150867582833,7.2072687770004205&amp;t=m&amp;q=uttarakhand&amp;dg=opt&amp;ie=UTF8&amp;hq=&amp;hnear=Uttarakhand,+India&amp;ll=30.066753,79.0193&amp;spn=2.77128,5.07019&amp;z=8&amp;output=embed" />
+                <li embed="https://www.google.com/maps?sll=30.08236989592049,79.31189246107706&amp;amp;sspn=3.2522150867582833,7.2072687770004205&amp;amp;t=m&amp;amp;q=uttarakhand&amp;amp;dg=opt&amp;amp;ie=UTF8&amp;amp;hq=&amp;amp;hnear=Uttarakhand,+India&amp;amp;ll=30.066753,79.0193&amp;amp;spn=2.77128,5.07019&amp;amp;z=8&amp;amp;output=embed" />
             </Maps>
             <Feeds>
                 <li embed="https://twitter.com/search?q=%23uttarakhand%20floods" />
@@ -77,8 +77,97 @@
             <Summary>In June 2013, the North Indian states of Uttarakhand and Himachal Pradesh, some regions of Western Nepal and their adjoining areas experienced heavy rainfall that triggered devastating floods and landslides. As of 29 June 2013, more than 1,000 people have died with many more missing. Damage to bridges and roads left over 70,000 pilgrims and tourists trapped in various places. The Indian Air Force, the Army and paramilitary troops have evacuated more than 100,000 people from the flood hit areas.</Summary>
         </Common>
     </Crisis>
+    
+    <Crisis ID="CRI_EHAITI" Name="2010 Haiti Earthquake">
+        <People>
+            <Person ID="PER_MICHEL" />
+        </People>
+        <Organizations>
+            <Org ID="ORG_DIEMCO" />
+        </Organizations>
+        <Kind>Natural Disaster</Kind>
+        <Date>2010-01-12</Date>
+        <Time>16:53:00</Time>
+        <Locations>
+            <li>Port-au-Prince, Haiti</li>
+            <li>Leogane, Haiti</li>
+            <li>Tabarre, Haiti</li>
+            <li>Petionville, Haiti</li>
+            <li>Jacmel, Haiti</li>
+            <li>Petit Goave, Haiti</li>
+            <li>Grand Goave, Haiti</li>
+            <li>Gressier, Haiti</li>
+        </Locations>
+        <HumanImpact>
+            <li>3,500,000 people were affected and over 300,000 people were injured.</li>
+            <li>Haitian government estimated 316,000 deaths one year after the earthquake while the highest reliable death count was estimated at 220,000.</li>
+            <li>25% of civil servants in Port-au-Prince died.</li>
+            <li>Tens of thousands of refugees relocated to areas not affected.</li>
+            <li>Over 600,000 people left thier home area in Port-au-Prince and mostly stayed with host families.</li>
+            <li>At its peak, one and a half million people were living in camps including over 100,000 at critical risk from storms and flooding.</li>
+        </HumanImpact>
+        <EconomicImpact>
+            <li>Over 188,383 houses were badly damaged and 105,000 were destroyed.</li>
+            <li>1,500,000 people became homeless.</li>
+            <li>4,000 schools were damaged or destroyed.</li>
+            <li>60% of Government and administrative buildings, 80% of schools in Port-au-Prince and 60% of schools in the South and West Departments were destroyed or damaged</li>
+            <li>After the quake there were 19 million cubic metres of rubble and debris in Port-au-Prince,  enough to fill a line of shipping containers stretching end to end from London to Beirut.</li>
+        </EconomicImpact>
+        <ResourcesNeeded>
+            <li>The DEC Appeal has now raised pound 107m, two-thirds directly and one-third through its member agencies, which will be spent over three years.</li>
+            <li>DEC agencies and their partners have nearly pound 380m to spend in total from all sources</li>
+            <li>1.8million people reached by DEC funded aid.</li>
+            <li>DEC is also working on improving the water supply of 340,000 people.</li>
+            <li>DEC is also supplying drugs to five cholera treatment facilities serving 18,000 people.</li>
+            <li>DEC is also providing free medical care to 39,000 people and has improved shelters for 34,000 people.</li>
+        </ResourcesNeeded>
+        <WaysToHelp>
+            <li href="http://www.haitianhealthfoundation.org/">Donate to the Haitian Health Foundation</li>
+            <li href="http://www.savethechildren.org/">Sponser a child through Save the Children</li>
+            <li href="http://www.pih.org/">Partners in Health</li>
+            <li href="http://www.concernusa.org/">Help rebuild Haiti's schools through Concern Worldwide US</li>
+            <li href="http://mfkhaiti.org/index.php/contribute/">Help MFK raise money for a Medicine and Food Factory</li>
+            <li href="http://jphro.org/">Donate to the J/P Haitian Relief Foundation</li>
+        </WaysToHelp>
+        <Common>
+            <Citations>
+                <li href="http://earthquake.usgs.gov/earthquakes/eqinthenews/2010/us2010rja6/#details">US Geological Survey Releases</li>
+                <li href="http://www.dec.org.uk/haiti-earthquake-facts-and-figures">Disasters Emergency Committee</li>
+            </Citations>
+            <ExternalLinks>
+                <li href="http://en.wikipedia.org/wiki/2010_Haiti_earthquake">Wikipedia - 2010 Haiti Earthquake</li>
+                <li href="http://news.nationalgeographic.com/news/2010/01/100113-haiti-earthquake-red-cross/">National Geographic Article: Haiti Earthquake Strange, Strongest in 200 Years</li>
+                <li href="http://www.trust.org/spotlight/Haiti-earthquake-2010">Haiti Earthquake - Thomson Reuters Foundation</li>
+            </ExternalLinks>
+            <Images>
+                <li embed="http://earthquake.usgs.gov/earthquakes/dyfi/events/us/2010rja6/us/us2010rja6_ciim_zoom.jpg" />
+                <li embed="http://earthquake.usgs.gov/earthquakes/shakemap/global/shake/2010rja6/download/intensity.jpg" />
+                <li embed="http://racismandnationalconsciousness.files.wordpress.com/2012/07/dd.jpg" />
+                <li embed="http://i.dailymail.co.uk/i/pix/2010/01/15/article-1243540-07DCFE9B000005DC-496_964x659.jpg" />
+                <li embed="http://i.dailymail.co.uk/i/pix/2010/01/15/article-1243540-07DD03CB000005DC-719_964x607.jpg" />
+                <li embed="http://i.dailymail.co.uk/i/pix/2010/01/15/article-1243540-07DCFE8F000005DC-762_964x636.jpg" />
+                <li embed="http://upload.wikimedia.org/wikipedia/commons/c/ce/Haitian_national_palace_earthquake.jpg" />
+                <li embed="http://upload.wikimedia.org/wikipedia/commons/1/16/2010_Haiti_earthquake_relief_efforts_by_the_US_Army.jpg" />
+                <li embed="http://upload.wikimedia.org/wikipedia/commons/3/34/AirdropcloseJan18haiti_edited.jpg" />
+            </Images>
+            <Videos>
+                <li embed="http://www.youtube.com/embed/RdxnGEfLbvc" />
+                <li embed="http://www.youtube.com/embed/gn9ZmForiyo" />
+                <li embed="http://www.youtube.com/embed/B5dG6vyFWFo" />
+            </Videos>
+            <Maps>
+                <li embed="https://maps.google.com/maps?q=18.443+-72.571(M7.0+-+HAITI+REGION+-+2010+January+12++21:53:10+UTC)&amp;amp;f=d&amp;amp;t=m&amp;amp;ie=UTF8&amp;amp;z=8&amp;amp;ll=18.443,-72.571&amp;amp;output=embed" />
+            </Maps>
+            <Feeds>
+                <li embed="https://twitter.com/nprnews/haiti-earthquake" />
+            </Feeds>
+        </Common>
+    </Crisis>
 
     <Crisis ID="CRI_CYCNAR" Name="Cyclone Nargis">
+        <Organizations>
+            <Org ID="ORG_PMRLFD" />
+        </Organizations>
         <Kind>Natural Disaster</Kind>
         <Date>2008-04-27</Date>
         <Time>09:00:00</Time>
@@ -124,7 +213,7 @@
             <Maps>
                 <!-- Put google maps link here (pull this URL out of the src="[GET THIS LINK]" attribute in the embed object given by google maps) -->
                 <!-- Embed example for your site: <iframe width="425" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="[THIS LINK]"></iframe> -->
-                <li embed="https://maps.google.com/maps?client=safari&amp;oe=UTF-8&amp;q=burma&amp;ie=UTF8&amp;hq=&amp;hnear=Burma&amp;gl=us&amp;ll=21.913965,95.956223&amp;spn=15.292545,41.44043&amp;t=h&amp;z=5&amp;source=embed" />
+                <li embed="https://maps.google.com/maps?client=safari&amp;amp;oe=UTF-8&amp;amp;q=burma&amp;amp;ie=UTF8&amp;amp;hq=&amp;amp;hnear=Burma&amp;amp;gl=us&amp;amp;ll=21.913965,95.956223&amp;amp;spn=15.292545,41.44043&amp;amp;t=h&amp;amp;z=5&amp;amp;source=embed" />
             </Maps>
             <Feeds>
                 <!-- Put feed URL here and embed on your site in your own cool way-->
@@ -297,7 +386,7 @@
                 <li embed="//www.youtube.com/embed/v=XPDC0WV9xjs" />
             </Videos>
             <Maps>
-                <li embed="https://maps.google.com/maps?q=Mutare,+Zimbabwe&amp;hl=en&amp;sll=-18.986168,32.648621&amp;sspn=0.555142,1.056747&amp;hnear=Mutare,+Manicaland,+Zimbabwe&amp;t=m&amp;ie=UTF8&amp;hq=&amp;z=13&amp;ll=-18.97476,32.65556&amp;output=embed" />
+                <li embed="https://maps.google.com/maps?q=Mutare,+Zimbabwe&amp;amp;hl=en&amp;amp;sll=-18.986168,32.648621&amp;amp;sspn=0.555142,1.056747&amp;amp;hnear=Mutare,+Manicaland,+Zimbabwe&amp;amp;t=m&amp;amp;ie=UTF8&amp;amp;hq=&amp;amp;z=13&amp;amp;ll=-18.97476,32.65556&amp;amp;output=embed" />
             </Maps>
             <Summary>
                 Extensive diamond deposits were located in late 2006 around Marange, Zimbabwe. The government quickly moved in and displaced local residents and miners. By 2008 the Zimbabwean military was practicing many humans right violations such as forced labor, torture, and mass killings to maintain its grasp. The United Nation's Kimberly Process dispatched a reviewer in 2009 to inspect claims of widespread violations and ultimately came to a
@@ -371,7 +460,7 @@
             </Videos>
             
             <Maps>
-                <li embed="https://maps.google.com/maps?q=google+maps+indian+ocean+tsunami&amp;safe=off&amp;hnear=2004+Indian+Ocean+earthquake+and+tsunami&amp;gl=us&amp;t=m&amp;ie=UTF8&amp;hq=&amp;z=8&amp;iwloc=A&amp;output=embed" />
+                <li embed="https://maps.google.com/maps?q=google+maps+indian+ocean+tsunami&amp;amp;safe=off&amp;amp;hnear=2004+Indian+Ocean+earthquake+and+tsunami&amp;amp;gl=us&amp;amp;t=m&amp;amp;ie=UTF8&amp;amp;hq=&amp;amp;z=8&amp;amp;iwloc=A&amp;amp;output=embed" />
             </Maps>
             <Feeds>
                 <li embed="https://twitter.com/search?q=%23boxingday%20%23tsunami" />
@@ -385,6 +474,7 @@ With a magnitude of Mw 9.1, it is the third largest earthquake ever recorded on 
     <Crisis ID="CRI_USDAIP" Name="US Drone Attacks in Pakistan">
                 <People>
                   <Person ID="PER_GEDAPE" />
+                  <Person ID="PER_BROBMA" />
               </People>
             <Organizations>
                 <Org ID="ORG_CEINAG" />
@@ -430,7 +520,7 @@ With a magnitude of Mw 9.1, it is the third largest earthquake ever recorded on 
               <li embed="//www.youtube.com/embed/-4-oOnjiGx8" />
           </Videos>
           <Maps>
-                <li embed="https://www.google.com/maps?sll=30.08236989592049,79.31189246107706&amp;sspn=3.2522150867582833,7.2072687770004205&amp;t=m&amp;q=uttarakhand&amp;dg=opt&amp;ie=UTF8&amp;hq=&amp;hnear=Uttarakhand,+India&amp;ll=30.066753,79.0193&amp;spn=2.77128,5.07019&amp;z=8&amp;output=embed" />
+                <li embed="https://www.google.com/maps?sll=30.08236989592049,79.31189246107706&amp;amp;sspn=3.2522150867582833,7.2072687770004205&amp;amp;t=m&amp;amp;q=uttarakhand&amp;amp;dg=opt&amp;amp;ie=UTF8&amp;amp;hq=&amp;amp;hnear=Uttarakhand,+India&amp;amp;ll=30.066753,79.0193&amp;amp;spn=2.77128,5.07019&amp;amp;z=8&amp;amp;output=embed" />
             </Maps>
             <Feeds>
               <li embed="https://www.facebook.com/ProtestAgainstUsDroneAttacks?fref=ts" />
@@ -516,7 +606,7 @@ With a magnitude of Mw 9.1, it is the third largest earthquake ever recorded on 
             </WaysToHelp>
             <Common>
               <Citations>
-                  <li href="http://www.jordskjelv.no/cgi-bin/showpage.cgi?type=siste&amp;id=1311425084">Norsar Jordskjelv.no.</li>
+                  <li href="http://www.jordskjelv.no/cgi-bin/showpage.cgi?type=siste&amp;amp;id=1311425084">Norsar Jordskjelv.no.</li>
               </Citations>
           <ExternalLinks>
               <li href="http://en.wikipedia.org/wiki/2011_Norway_attacks">Wikipedia article</li>
@@ -528,7 +618,7 @@ With a magnitude of Mw 9.1, it is the third largest earthquake ever recorded on 
               <li embed="//www.youtube.com/embed/n8B8dnbdvr8" />
           </Videos>
           <Maps>
-                <li embed="https://maps.google.com/maps?um=1&amp;safe=off&amp;amphl=en&amp;ampq=2011%20Norway%20Attacks&amp;bav=on.2,or.r_cp.r_qf.&amp;bvm=bv.48705608,d.eWU&amp;biw=1600&amp;bih=775&amp;ie=UTF-8&amp;sa=N&amp;tab=il" />
+                <li embed="https://maps.google.com/maps?um=1&amp;amp;safe=off&amp;amp;amphl=en&amp;amp;ampq=2011%20Norway%20Attacks&amp;amp;bav=on.2,or.r_cp.r_qf.&amp;amp;bvm=bv.48705608,d.eWU&amp;amp;biw=1600&amp;amp;bih=775&amp;amp;ie=UTF-8&amp;amp;sa=N&amp;amp;tab=il" />
             </Maps>
             <Feeds>
                 <li embed="https://www.facebook.com/pages/Norway-massacre/267299463284403" />
@@ -747,10 +837,115 @@ Egeland was also Secretary General of the Norwegian Red Cross. He served as Stat
         </Common>        
     </Person>
 
+    <Person ID="PER_MRBONO" Name="Bono">
+        <Crises>
+            <Crisis ID="CRI_AIDSHI" />
+            <Crisis ID="CRI_MALARI" />
+        </Crises>
+        <Organizations>
+            <Org ID="ORG_GFFATM" />
+        </Organizations>
+        <Kind>Singer in group U2</Kind>
+        <Location>Ireland</Location>
+        <Common>
+                <ExternalLinks>
+                <li href="http://http://en.wikipedia.org/wiki/Bono">Wikipedia article</li>
+            </ExternalLinks>
+            <Images>
+                <li embed="http://greenbuzzz.net/wp-content/uploads/2011/10/bono-www-genomeboy-com.jpg" />
+            </Images>
+            <Videos>
+                <li embed="//http://www.youtube.com/embed/1VOlXwhp00Y" />
+            </Videos>
+        </Common>        
+    </Person>
+
+    <Person ID="PER_BROBMA" Name="Barack Obama">
+        <Crises>
+            <Crisis ID="CRI_USDAIP"/>
+        </Crises>
+        <Kind>President</Kind>
+        <Location>Washington, D.C, United States of America</Location>
+        <Common>
+            <Citations>
+                <li href="http://en.wikipedia.org/wiki/Barack_Obama">Wikipedia page for Barack Obama</li>
+            </Citations>
+            <ExternalLinks>
+                <li href="http://www.whitehouse.gov/administration/president-obama/">Official Whitehouse page for Barack Obama</li>
+                <li href="http://www.barackobama.com">Barack Obama's campaign website</li>
+                <li href="http://bioguide.congress.gov/scripts/biodisplay.pl?index=o000167">Official Congressional page for Barack Obama</li>
+            </ExternalLinks>
+            <Images>
+                <li embed="http://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/President_Barack_Obama.jpg/220px-President_Barack_Obama.jpg" text="President Barack Obama"/>
+                <li embed="http://upload.wikimedia.org/wikipedia/en/thumb/3/33/Ann_Dunham_with_father_and_children.jpg/220px-Ann_Dunham_with_father_and_children.jpg" text="Young Barack Obama with family"/>
+                <li embed="http://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Flickr_Obama_Springfield_01.jpg/220px-Flickr_Obama_Springfield_01.jpg" text="President Obama and First Lady at a rally"/>
+                <li embed="http://disinfo.s3.amazonaws.com/wp-content/uploads/2010/02/JointSessionCongress.jpg" text="United States Congress joint session"/>
+            </Images>
+            <Videos>
+                <li embed="//www.youtube.com/embed/qIJr_Pr6A4o" />
+                <li embed="//www.youtube.com/embed/oMJxzueBxjQ" />
+            </Videos>
+            <Maps>
+                <li embed="https://maps.google.com/maps?q=1600+Pennsylvania+Avenue+Northwest,+Washington,+DC&amp;hl=en&amp;sll=30.307761,-97.753401&amp;sspn=0.732698,0.95993&amp;oq=1600+pen&amp;hnear=1600+Pennsylvania+Ave+NW,+Washington,+District+of+Columbia+20500&amp;t=m&amp;z=16" text="The White House"/>
+            </Maps>
+        </Common>
+    </Person>
+
+    <Person ID="PER_MICHEL" Name="Michel Joseph Martelly">
+        <Crises>
+            <Crisis ID="CRI_EHAITI" />
+        </Crises>
+        <Kind>President of Haiti</Kind>
+        <Location>Port-au-Prince, Haiti</Location>
+        <Common>
+                <ExternalLinks>
+                <li href="http://en.wikipedia.org/wiki/Michel_Martelly">Wikipedia article</li>
+            </ExternalLinks>
+            <Images>
+                <li embed="http://upload.wikimedia.org/wikipedia/commons/5/50/Michel_Martelly_on_April_20%2C_2011.jpg" />
+            </Images>
+            <Videos>
+                <li embed="//http://www.youtube.com/embed/uUhQzYyGCdU" />
+            </Videos>
+        </Common>        
+    </Person>
+
+    <Organization ID="ORG_GFFATM" Name="The Global Fund">
+        <Crises>
+            <Crisis ID="CRI_AIDSHI" />
+            <Crisis ID="CRI_MALARI" />
+        </Crises>
+        <People>
+            <Person ID="PER_MRBONO" />
+        </People>
+        <Kind>International Financing Organization</Kind>
+        <Location>India</Location>
+        <History>
+            <li>Since the Fund was created in 2002, public sector pledges have totaled USD 28.3 billion (95 percent of all pledges). The remaining USD 1.6 billion (5 percent) has been pledged from the private sector or other financing initiatives. </li>
+        </History>
+        <ContactInfo>
+            <li>Telephone: +41 58 791 1700</li>
+            <li href="http://www.theglobalfund.org/en/contact/">Contact Online</li>
+        </ContactInfo>
+        <Common>
+            <ExternalLinks>
+                <li href="http://www.theglobalfund.org/en/">The Global Fund: Home</li>
+            </ExternalLinks>
+            
+            <Images>
+                <li embed="http://www.fightaidsghana.org/wp-content/uploads/2012/09/Global-fund.jpg" />
+            </Images>
+            <Videos>
+                <li embed="//www.youtube.com/embed/Q3UCryoc6sc?feature=player_detailpage" />
+            </Videos>
+            <Summary>The Global Fund is an innovative financing institution that provides funding to countries to support programs that prevent, treat and care for people with HIV and AIDS, tuberculosis and malaria.</Summary>
+        </Common>
+    </Organization>
     
     <Organization ID="ORG_PMRLFD" Name="Prime Minister's Relief Fund">
         <Crises>
             <Crisis ID="CRI_NRINFL" />
+            <Crisis ID="CRI_CYCNAR" />
         </Crises>
         <People>
             <Person ID="PER_MNSNGH" />
@@ -1003,6 +1198,37 @@ Egeland was also Secretary General of the Norwegian Red Cross. He served as Stat
             </Videos>
                 <Feeds>
                 <li embed="https://www.facebook.com/pages/Norwegian-Labour-Party/105784066119047?nr" />
+            </Feeds>
+            </Common>
+    </Organization>
+    
+    <Organization ID="ORG_DIEMCO" Name="Disasters Emergency Committee">
+        <Crises>
+            <Crisis ID="CRI_EHAITI" />
+        </Crises>
+        <Kind> Umbrella Organization for 14 Humanitarian Aid Agencies</Kind>
+        <Location>London, England</Location>
+        <History>
+            <li>The DEC began its life in 1963 in the offices of the British Red Cross in Grosvenor Crescent in London as a simple co-ordinating committee.</li>
+        </History>
+        <ContactInfo>
+            <li href="http://www.dec.org.uk/about-dec/contact-us">Disasters Emergency Committe Contact Page</li>
+        </ContactInfo>
+        <Common>
+            <Citations>
+                <li href="http://www.dec.org.uk/">DEC Disasters Emergency Committee</li>
+            </Citations>
+                <ExternalLinks>
+                <li href="http://en.wikipedia.org/wiki/Disasters_Emergency_Committee">Wikipedia Disasters Emergency Committee</li>
+            </ExternalLinks>
+            <Images>
+                <li embed="http://johnsonbanks.co.uk/wp-content/uploads/DEC_logo_main.jpg" />
+            </Images>
+            <Videos>
+                <li embed="http://www.youtube.com/embed/_tMWAm1y904" />
+            </Videos>
+                <Feeds>
+                <li embed="https://twitter.com/decappeal" />
             </Feeds>
             </Common>
     </Organization>
