@@ -1,1 +1,1 @@
-web: gunicorn criscs.app
+web: gunicorn crises.app
