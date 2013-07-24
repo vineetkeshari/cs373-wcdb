@@ -141,7 +141,7 @@ def run_tests (request) :
 
 # Create your views here.
 def render (name, data) :
-    template = loader.get_template ('crises/templates/' + name)
+    template = loader.get_template (name)
     context = Context (dict(data.items() + {'is_prod':is_prod, 'prod_dir':prod_dir}.items()))
     return template.render (context)
 
