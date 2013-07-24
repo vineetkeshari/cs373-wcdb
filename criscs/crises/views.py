@@ -7,9 +7,12 @@ from XMLUtility import process_xml
 
 from django.shortcuts import render_to_response
 from django.core.urlresolvers import reverse
+from django.core.files import File
+from django.core.servers.basehttp import FileWrapper
 
 from re import sub
 from subprocess import check_output, CalledProcessError, STDOUT
+from os.path import getsize
 
 is_prod = True
 if is_prod :
@@ -106,11 +109,20 @@ def import_file (request) :
         context_instance=RequestContext(request),
     )
 
-
 def export_file (request) :
     pages = get_all_elems ()
     content = sub ('&', '&amp;', generate_xml ())
-    return render_to_response ('crises/templates/export.html', {'text' : content, 'pages' : pages, 'is_prod':is_prod, 'prod_dir':prod_dir})
+
+    filename = 'xml/export/WCDB_CrisCS.xml'                                
+    export_file = File (open (filename, 'w'))
+    export_file.write (content.encode('ascii', 'xmlcharrefreplace'))
+    export_file.close()
+
+    wrapper = FileWrapper(file(filename))
+    response = HttpResponse(wrapper, content_type='text/force-download')
+    response['Content-Disposition'] = 'attachment; filename="WCDB-CrisCS.xml"'
+    response['Content-Length'] = getsize(filename)
+    return response
 
 def run_tests (request) :
     pages = get_all_elems ()
@@ -171,7 +183,8 @@ def wcdb_common_view (view_id, page_type) :
 def generate_xml () :
     texts = Text_Store.objects.all ()
 
-    generated_xml = 'Your XML has %d elements:\n\n' % len(texts)
+    generated_xml = ''
+    #generated_xml += 'Your XML has %d elements:\n\n' % len(texts)
     generated_xml += r'<?xml version="1.0" encoding="ISO-8859-1" ?>' + '\n'
     generated_xml += '<WorldCrises>\n'
 
