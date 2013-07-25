@@ -7,6 +7,28 @@
   
      <b>Location:</b> {{ location }}<br/>
 
+    <h5>History</h5>
+    <ul>
+        {% for elem in details.history%}
+         <li> {{elem}} </li>
+         {% endfor %}
+    </ul>
+
+    <h5>Contact Info</h5>
+    <ul>
+        {% for elem in details.contact%}
+
+        <li> 
+            {% if elem.1 %}<a href="{{elem.1}}">{{elem.0}}</a>
+            {% else %}
+            {{elem.0}}
+            {% endif %}
+        </li>
+        
+        {% endfor %}
+    </ul>
+
+
     <h5>Crises</h5>
      <ul>
      	{% for elem in crises %}
