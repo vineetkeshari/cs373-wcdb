@@ -78,16 +78,13 @@ def import_file (request) :
                     raise Exception('Incorrect Password!')
 
                 # Store the file in the database
-                newdoc = XMLFile (xml_file = request.FILES['docfile'])
-                newdoc.save ()
                 uploaded_file = 'WCDB_tmp.xml'
                 f = open (uploaded_file, 'w')
                 for chunk in request.FILES['docfile'].chunks():
                     f.write(chunk)
-                    f.close()
+                f.close()
 
                 # Validate xml and create models
-                uploaded_file = str(newdoc.xml_file)
                 all_data = process_xml (uploaded_file)
                
                 # Save the data to DB 
@@ -118,7 +115,7 @@ def export_file (request) :
     pages = get_all_elems ()
     content = sub ('&', '&amp;', generate_xml ())
 
-    filename = 'xml/export/WCDB_CrisCS.xml'                                
+    filename = 'WCDB_CrisCS_export.xml'                                
     export_file = File (open (filename, 'w'))
     export_file.write (content.encode('ascii', 'xmlcharrefreplace'))
     export_file.close()
