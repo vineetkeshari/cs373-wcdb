@@ -136,7 +136,7 @@ def run_tests (request) :
     except CalledProcessError, cpe :
         error = True
         unittest_result = cpe.output
-    return render_to_response ('crises/templates/unittest.html',
+    return render_to_response ('unittest.html',
                                 {'error' : error, 'result' : unittest_result, 'pages' : pages, 'is_prod':is_prod, 'prod_dir':prod_dir},
                                 context_instance=RequestContext(request),
     )
