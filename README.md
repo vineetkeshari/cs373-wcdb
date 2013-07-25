@@ -13,3 +13,5 @@ Rogelio Sanchez,
 Vineet Keshari.
 
 Public Link: http://zweb.cs.utexas.edu/users/cs373/rosuto82/django.wsgi/
+
+Heroku: http://pure-bastion-1774.herokuapp.com/
