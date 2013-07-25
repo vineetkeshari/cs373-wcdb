@@ -1,0 +1,4 @@
+settings.py
+manage.py
+*.pyc
+__init__.py
