@@ -184,7 +184,7 @@
             <li>Damage was estimated at over US$10 billion, which made it the most damaging cyclone ever recorded in this basin.</li>
         </EconomicImpact>
         <ResourcesNeeded>
-            <li>The united Kingdom donated 33.5 million USD for the relief effort.</li>
+            <li>The United Kingdom donated 33.5 million USD for the relief effort.</li>
             <li>Burma made it very difficult to provide aid to the country, claiming foreign personel providing aid would violate their sovereignty.</li>
             <li>The rice production was affected because of the cyclone and it was necesseary to aid to prevent famine. </li>
             <li>The UN Human Settlements Programme (UN-HABITAT) reported the extent of the international response to date as less than 7 percent of the actual needs for shelter after 15 months, although emergency shelter relief efforts were well funded.</li>
@@ -603,7 +603,7 @@ With a magnitude of Mw 9.1, it is the third largest earthquake ever recorded on 
                 <li>na</li>
             </ResourcesNeeded>
             <WaysToHelp>
-                <li href="http://www.twinutesilence.com/">A moment of sociall media silence in memory of the victims.</li>
+                <li href="http://www.twinutesilence.com/">A moment of social media silence in memory of the victims.</li>
             </WaysToHelp>
             <Common>
               <Citations>
@@ -684,6 +684,9 @@ With a magnitude of Mw 9.1, it is the third largest earthquake ever recorded on 
                 <li embed="//www.youtube.com/embed/DiFftNWRu6g" />
                 <li embed="//www.youtube.com/embed/TBrbnaSfDDo" />
             </Videos>
+            <Maps>
+                <li embed="https://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=7,+Race+Course+Road,+Delhi+Gymkhana+Club,+Delhi,+India&amp;aq=0&amp;oq=7+race+course+road+del&amp;sll=30.325471,-97.753601&amp;sspn=0.708857,1.234589&amp;ie=UTF8&amp;hq=&amp;hnear=Race+Course+Rd,+Delhi+Gymkhana+Club,+New+Delhi,+Delhi+110011,+India&amp;t=m&amp;z=14&amp;ll=28.598757,77.203198&amp;output=embed"/>
+            </Maps>
             <Feeds>
                 <li embed="https://twitter.com/search?q=%23manmohan%20singh" />
             </Feeds>
@@ -710,6 +713,12 @@ With a magnitude of Mw 9.1, it is the third largest earthquake ever recorded on 
             <Videos>
                 <li embed="//www.youtube.com/embed/CIZGDT7ZqdM" />
             </Videos>
+            <Maps>
+                <li embed="https://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=bill+gates+usa&amp;aq=&amp;sll=45.41002,-119.075317&amp;sspn=2.306106,4.938354&amp;ie=UTF8&amp;hq=&amp;hnear=Bill+Gates'+House,+Medina,+Washington+98039&amp;ll=47.628017,-122.242108&amp;spn=0.034591,0.077162&amp;t=m&amp;z=14&amp;output=embed"/>
+            </Maps>
+            <Feeds>
+                <li embed="https://twitter.com/BillGates"></li>
+            </Feeds>
             <Summary>Famous founder of Microsoft and previously the richest man in the world, Bill Gates now spends most of his time heading his philanthropy organization, The Bill and Melinda Gates Foundation</Summary>
         </Common>        
     </Person>
@@ -742,6 +751,9 @@ With a magnitude of Mw 9.1, it is the third largest earthquake ever recorded on 
                 <li embed="//www.youtube.com/embed/_E_-xa2u2qE" />
                 <li embed="//www.youtube.com/embed/6S3gu9pnEFw" />
             </Videos>
+            <Maps>
+                <li embed="None"></li>
+            </Maps>
             <Feeds>
                 <li embed="https://twitter.com/search?q=%23Egeland" />
             </Feeds>
@@ -776,6 +788,9 @@ Egeland was also Secretary General of the Norwegian Red Cross. He served as Stat
                 <li embed="//www.youtube.com/embed/mgake-R32YE" />
                 <li embed="//www.youtube.com/embed/iNVmqCwxQQo" />
             </Videos>
+            <Maps>
+                <li embed="None"></li>
+            </Maps>
             <Feeds>
                 <li embed="https://twitter.com/PetraeusNews" />
             </Feeds>
@@ -804,6 +819,9 @@ Egeland was also Secretary General of the Norwegian Red Cross. He served as Stat
             <Videos>
                 <li embed="//www.youtube.com/embed/NtpamD9Jx3g" />
             </Videos>
+            <Maps>
+                <li embed="https://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=torah+prison+egypt&amp;aq=&amp;sll=30.04442,31.235712&amp;sspn=0.177721,0.308647&amp;ie=UTF8&amp;hq=&amp;hnear=Passages+Insaid+Toura+Prison,+Egypt&amp;t=m&amp;z=14&amp;ll=29.955847,31.281636&amp;output=embed"></li>
+            </Maps>
             <Feeds>
                 <li embed="https://www.facebook.com/pages/Hosni-Mubarak/112362755441646?fref=ts" />
             </Feeds>
@@ -817,7 +835,7 @@ Egeland was also Secretary General of the Norwegian Red Cross. He served as Stat
         <Organizations>
             <Org ID="ORG_LABPAR" />
         </Organizations>
-        <Kind>current Prime Minister of NOrway</Kind>
+        <Kind>Current Prime Minister of Norway</Kind>
         <Location>Norway</Location>
         <Common>
             <Citations>
@@ -832,6 +850,9 @@ Egeland was also Secretary General of the Norwegian Red Cross. He served as Stat
             <Videos>
                 <li embed="//www.youtube.com/embed/8oPbd9UvZuY" />
             </Videos>
+            <Maps>
+                <li embed="https://maps.google.com/maps?q=Inkognitogata+18+map&amp;ie=UTF8&amp;hq=&amp;hnear=Inkognitogata+18&amp;gl=us&amp;ll=59.918056,10.723611&amp;spn=0.006432,0.01929&amp;t=m&amp;z=14&amp;output=embed"></li>
+            </Maps>
             <Feeds>
                 <li embed="https://www.facebook.com/jensstoltenberg?fref=ts" />
             </Feeds>
@@ -858,6 +879,12 @@ Egeland was also Secretary General of the Norwegian Red Cross. He served as Stat
             <Videos>
                 <li embed="//www.youtube.com/embed/1VOlXwhp00Y" />
             </Videos>
+            <Maps>
+                <li embed="None"></li>
+            </Maps>
+            <Feeds>
+                <li embed="https://twitter.com/paul_hewson"></li>
+            </Feeds>
         </Common>        
     </Person>
 
@@ -889,6 +916,9 @@ Egeland was also Secretary General of the Norwegian Red Cross. He served as Stat
             <Maps>
                 <li embed="https://maps.google.com/maps?client=ubuntu&amp;channel=cs&amp;ie=UTF8&amp;q=white+house+maps&amp;fb=1&amp;gl=us&amp;hq=white+house+maps&amp;hnear=white+house+maps&amp;cid=0,0,8167675777476425407&amp;t=m&amp;iwloc=A&amp;ll=38.897683,-77.036497&amp;spn=0.006295,0.006295&amp;output=embed" text="The White House"/>
             </Maps>
+            <Feeds>
+                <li embed="https://twitter.com/BarackObama"></li>
+            </Feeds>
         </Common>
     </Person>
 
@@ -908,6 +938,9 @@ Egeland was also Secretary General of the Norwegian Red Cross. He served as Stat
             <Videos>
                 <li embed="//www.youtube.com/embed/uUhQzYyGCdU" />
             </Videos>
+            <Maps>
+                <li embed ="https://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=michel+martelly+residence&amp;aq=&amp;sll=18.94266,-72.246094&amp;sspn=1.45995,2.469177&amp;ie=UTF8&amp;ll=18.94266,-72.246094&amp;spn=2.919691,4.938354&amp;t=m&amp;z=8&amp;output=embed"></li>
+            </Maps>
         </Common>        
     </Person>
 
