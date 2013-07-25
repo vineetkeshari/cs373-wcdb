@@ -1,22 +1,82 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <h1> {{nks.name.0}} </h1>
-    <b>Kind: </b>{{nks.kind.0}}<br />
-    <b> Summary: </b> {{nks.summary.0}}<br /> 
-    <b>Date: </b>{{date}}<br />
-    <b>Time: </b>{{time}}<br />
+    <div id="contact">
+        <div class="row map">
+            <div class="container">
+                <div class="span5 box_wrapp">
+                    <div class="box_cont">
+                        <ul class="street">
+                            <li>
+                                <h1> {{nks.name.0}} </h1>
+                                <b>Kind: </b>{{nks.kind.0}}<br />
+                                <b>Date: </b>{{date}}<br />
+                                <b>Time: </b>{{time}}<br />  
+                            </li>
+                            <li>
+                                <h5><strong>Locations:</strong></h5>
+                                <ul>
+                                    {% for elem in details.LOCATIONS %}
+                                    <li>
+                                        {{elem.1}}
+                                    </li>
+                                    {% endfor %}
+                                </ul>
+                            </li>
+                            <li>
+                                <h5><strong>Organizations</strong></h5>
+                                 <ul>
+                                    {% for elem in orgs %}
+                                    <li>    <a href="{{prod_dir}}/crises/{{elem.0}}">{{elem.1}}</a></li>
+                                    {% endfor %}
+                                 </ul>
+                            <li>
+                                <h5><strong>Persons</strong></h5>
+                                 <ul>
+                                    {% for elem in person %}
+                                    <li>    <a href="{{prod_dir}}/crises/{{elem.0}}">{{elem.1}}</a></li>
+                                    {% endfor %}
+                                 </ul>
+                            </li>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+                {% if lists.MAPS %}
+                {% for elem in lists.MAPS %}
+<iframe width="100%" height="500" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src={{elem.0}}></iframe>
+ 
+		{% endfor %}
+                {% else %}
+<iframe width="100%" height="500" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/?ie=UTF8&amp;ll=19.973349,-87.539062&amp;spn=160.950618,33.046875&amp;t=m&amp;z=2.5&amp;output=embed"></iframe>
+                   
+       		{% endif %}
+        </div>
+    </div>
+    <div id="portafolio_tem">
+	<div class="span7 left_box">
+    		<h3>Media</h3>
+    		<div class "gallery lightbox row-fluid">
+      	   	  	<ul class="gallery lightbox two_col clearfix">
+    			    {% for elem in lists.IMAGES %}
+       		         	<li class="letter-press vp"> <a class="hover" data-fancybox-group="portfolio"> <img src={{ elem.0 }} alt="" /></a>
+				</li>
+       			    {% endfor %}
+           	 	</ul>
+   	 	</div>
+    <div class="carousel">
+            <ul>
+    		    {% for elem in lists.VIDEOS %}
+                	<li class="letter-press vp"> <a class="hover" data-fancybox-group="portfolio"> <iframe width="100%" height="315" src={{elem.0}} frameborder="0" allowfullscreen></iframe></a></li>
 
+       		    {% endfor %}
+            </ul>
+    </div>
+	</div>
+	<div class="span5 right_box">
 
-    <h5><strong>Locations:</strong></h5>
-    <ul>
-    	{% for elem in details.LOCATIONS %}
-        <li>
-            {{elem.1}}
-        </li>
-        {% endfor %}
-    </ul>
-
+    <b> Summary: </b> {{nks.summary.0}}<br />
     <h5><strong>Human Impact</strong></h5>
     <ul>
     	{% for elem in details.HUMANIMPACT %}
@@ -59,52 +119,6 @@
         {% endfor %}
     </ul>
 
-    <h5>Organisations</h5>
-     <ul>
-     	{% for elem in orgs %}
-     	<li>	<a href="{{prod_dir}}/crises/{{elem.0}}">{{elem.1}}</a></li>
-     	{% endfor %}
-     </ul>
-
-	<h5>Persons</h5>
-     <ul>
-     	{% for elem in person %}
-     	<li>	<a href="{{prod_dir}}/crises/{{elem.0}}">{{elem.1}}</a></li>
-     	{% endfor %}
-     </ul>
-
-    </div>
-
-    <h3>Images</h3>
-    <div class "gallery lightbox row-fluid">
-            <ul class="gallery lightbox four_col clearfix">
-    		    {% for elem in lists.IMAGES %}
-                	<li class="letter-press vp"> <a class="hover" data-fancybox-group="portfolio"> <img src={{ elem.0 }} alt="" /></a></li>
-       		    {% endfor %}
-            </ul>
-    </div>
-
-
-    <h3>Videos</h3>
-    <div class "gallery lightbox row-fluid">
-            <ul class="gallery lightbox four_col clearfix">
-    		    {% for elem in lists.VIDEOS %}
-                	<li class="letter-press vp"> <a class="hover" data-fancybox-group="portfolio"> <iframe width="420" height="315" src={{elem.0}} frameborder="0" allowfullscreen></iframe></a></li>
-
-       		    {% endfor %}
-            </ul>
-    </div>
-
-         <h3>Map</h3>
-    <div class "gallery lightbox row-fluid">
-            <ul class="gallery lightbox four_col clearfix">
-            {% for elem in lists.MAPS %}
-                  <li class="letter-press vp"> <a class="hover" data-fancybox-group="portfolio"> <iframe width="425" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src={{elem.0}}></iframe></a></li>
-
-               {% endfor %}
-               
-            </ul>
-    </div>
     <h3>Feeds</h3>
     <ul>
     	{% for elem in lists.FEEDS %}
@@ -131,7 +145,12 @@
         </li>
         {% endfor %}
     </ul>
+	</div>
+    </div>
 
-   
+
+
+    </div>
+
+
 {% endblock %}
-
