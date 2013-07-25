@@ -71,18 +71,26 @@ def import_file (request) :
     if request.method == 'POST' :
         form = DocumentForm(request.POST, request.FILES)
         if form.is_valid () :
-            try :
+            #try :
                 # Check password
-                password = request.POST['password']
+            	password = request.POST['password']
                 if not password == 'baddatamining' :
                     raise Exception('Incorrect Password!')
 
                 # Store the file in the database
-                newdoc = XMLFile (xml_file = request.FILES['docfile'])
-                newdoc.save ()
+                #newdoc = XMLFile (xml_file = request.FILES['docfile'])
+                #newdoc.save ()
+                uploaded_file = 'WCDB_tmp.xml'
+                f = open (uploaded_file, 'w')
+                for chunk in request.FILES['docfile'].chunks():
+                    f.write(chunk)
+                f.close()
 
                 # Validate xml and create models
-                uploaded_file = str(newdoc.xml_file)
+                #uploaded_file = str(newdoc.xml_file)
+                #print uploaded_file
+                #print type(newdoc.xml_file)
+                #print newdoc.xml_file.url
                 all_data = process_xml (uploaded_file)
                
                 # Save the data to DB 
@@ -90,15 +98,15 @@ def import_file (request) :
 
                 error = False
                 error_string = ''
-            except Exception, e :
-                error = True
-                error_string = str(e)
+            #except Exception, e :
+            #    error = True
+            #    error_string = str(e)
             # Redirect after POST
-            return render_to_response(
+            	return render_to_response(
                 'upload_success_fail.html',
                 {'error': error, 'error_string': error_string, 'pages': pages, 'is_prod':is_prod, 'prod_dir':prod_dir,},
                 context_instance=RequestContext(request),
-            )
+            	)
     else :
         form = DocumentForm() # An empty, unbound form
 
