@@ -100,7 +100,7 @@ def import_file (request) :
                 error_string = str(e)
             # Redirect after POST
             return render_to_response(
-                'crises/templates/upload_success_fail.html',
+                'upload_success_fail.html',
                 {'error': error, 'error_string': error_string, 'pages': pages, 'is_prod':is_prod, 'prod_dir':prod_dir,},
                 context_instance=RequestContext(request),
             )
