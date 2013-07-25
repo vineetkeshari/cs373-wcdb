@@ -415,27 +415,24 @@ def get_crisis_details (view_id) :
 # This method should return the formatted History and Contact Info items of Organization
 def get_org_details (view_id) :
     obj = R_Crisis_Org.objects.all()
-    orgs = []
-    for i in range(0, len(obj)):
-        if obj[i].crisis == view_id:
-            orgs.append(obj[i].org)
-   
     obj_2 = LI.objects.all()
-    orgs = list(set(orgs)) # Retain only unique items
+    orgs = ['history', 'contact'] # Retain only unique items
+    cntct = ['content', 'href']
+    cntct_org = dict.fromkeys(cntct)
     dict_org = dict.fromkeys(orgs)
+    dict_org['contact'] = []
     
     for i in range(0, len(obj_2)):
-        for org in orgs:
-            if obj_2[i].ListID == org + "_" + "HISTORY":
-                dict_org[org] = [obj_2[i].content]
+        if obj_2[i].ListID == view_id + "_" + "HISTORY":
+            dict_org['history'] = [obj_2[i].content]
 
     for i in range(0, len(obj_2)):
-        for org in orgs:
-            if obj_2[i].ListID == org + "_" + "CONTACTINFO":
-                dict_org[org].append(obj_2[i].content)
+        if obj_2[i].ListID == view_id + "_" + "CONTACTINFO":
+            tmp_list = [obj_2[i].content, obj_2[i].href]
+            dict_org['contact'].append(tmp_list)
 
     return dict_org
-    
+
 # Returns all data associated with the person 
 
 def get_name_kind_summary(view_id):
@@ -528,12 +525,11 @@ def person_view(view_id):
     
     per_lists = get_media(view_id) 
     
-    per_details = get_org_details (view_id)
 
     per_crises = get_cop_details(view_id)[0]
     per_orgs = get_cop_details(view_id)[1]
 
-    html_crisis_content = render ('persons.html', {'lists':per_lists, 'details':per_details, 'crises':per_crises, 'orgs':per_orgs, 'pages':pages, 'nks':nks_dict, 'location':per_location,})
+    html_crisis_content = render ('persons.html', {'lists':per_lists, 'crises':per_crises, 'orgs':per_orgs, 'pages':pages, 'nks':nks_dict, 'location':per_location,})
 
     html_content = html_crisis_content #+ html_media
 
