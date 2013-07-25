@@ -4,7 +4,7 @@ from django.conf.urls.defaults import patterns, include, url
 from django.contrib import admin
 admin.autodiscover()
 
-prod_dir = 'users/cs373/rosuto82/django.wsgi/'
+prod_dir = ''
 
 urlpatterns = patterns('',
     # Examples:

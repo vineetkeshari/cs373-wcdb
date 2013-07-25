@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block content %}
+{% if error %}
+    <h3> Document upload failed. </h3>
+    <p>
+    {{ error_string }}
+    </p>
+{% else %}
+    <h3> Success! </h3>
+    <p> Your data was successfully validated and stored. </p>
+{% endif %}
+{% endblock %}    

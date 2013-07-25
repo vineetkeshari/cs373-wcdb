@@ -1,0 +1,1 @@
+web: gunicorn criscs.wsgi
