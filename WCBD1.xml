@@ -1102,7 +1102,7 @@ Egeland was also Secretary General of the Norwegian Red Cross. He served as Stat
         </Common>
     </Organization>
 
-    <Organization ID="ORG_BAMGFN" Name="Bill and Melinda Gates Foundaiton">
+    <Organization ID="ORG_BAMGFN" Name="Bill and Melinda Gates Foundation">
         <Crises>
             <Crisis ID="CRI_AIDSHI" />
         </Crises>
