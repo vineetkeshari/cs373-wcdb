@@ -13,18 +13,26 @@ from crises.models import WCDBElement, Crisis, Organization, Person, ListType, L
 from genxmlif import GenXmlIfError
 from minixsv import pyxsval
 from django.test.simple import DjangoTestSuiteRunner
+from django.test import Client
 
-class NoTestDbDatabaseTestRunner(DjangoTestSuiteRunner):
-    #Override setup and teardown of databases to force test runner to work.
-    def setup_databases(self, **kwargs):
-        pass
-    def teardown_databases(self, old_config, **kwargs):
-        pass
+
+####
+####Begin database tests
+####
+
+class TestViews(unittest.TestCase) :
+	def test_import (self) :
+		#org = Organization.objects.all ()
+		c = Client()
+		with open('WCDB_tmp.xml') as fp:
+			response = c.post('/import/', {'password': 'baddatamining', 'docfile':fp})
+		self.assertEqual(response.status_code, 200)
+
 
 ####
 ####Begin tests
 ####
-
+"""
 class TestXMLUtility (unittest.TestCase) :
 	def test_process_xml_1(self) :
 		testXMLFile = "crises/test_data/WorldCrises_good.xml"
@@ -223,3 +231,4 @@ class TestModelFactoryUtility (unittest.TestCase) :
 			assert(False)
 		except :
 			assert(True)
+"""
