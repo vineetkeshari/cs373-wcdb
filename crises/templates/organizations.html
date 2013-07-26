@@ -11,18 +11,9 @@
                             <li>
                                 <h1> {{nks.name.0}} </h1>
                                 <b>Kind: </b>{{nks.kind.0}}<br />
-                                <b>Date: </b>{{date}}<br />
-                                <b>Time: </b>{{time}}<br />  
                             </li>
                             <li>
-                                <h5><strong>Locations:</strong></h5>
-                                <ul>
-                                    {% for elem in details.LOCATIONS %}
-                                    <li>
-                                        {{elem.1}}
-                                    </li>
-                                    {% endfor %}
-                                </ul>
+                                 <b>Location:</b> {{ location }}<br/>
                             </li>
     <h5>Crises</h5>
      <ul>
