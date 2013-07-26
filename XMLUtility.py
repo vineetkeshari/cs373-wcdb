@@ -113,6 +113,6 @@ def process_xml (xml_file) :
     Processes an XML file by reading, validating and creating models
     """
     root = read_and_validate_xml (xml_file)
-    print_rec_xml (root, 0)
+    # print_rec_xml (root, 0)
     return parse_xml (root)
 
