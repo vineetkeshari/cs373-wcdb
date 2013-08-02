@@ -112,7 +112,6 @@ def import_file (request) :
     )
 
 def export_file (request) :
-    pages = get_all_elems ()
     content = sub ('&', '&amp;', generate_xml ())
 
     filename = 'WCDB_CrisCS_export.xml'                                
