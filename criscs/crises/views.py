@@ -161,6 +161,19 @@ def index (request) :
         context_instance=RequestContext(request),
     )
 
+def search_result_helper(needle, haystack) :
+    if (needle is None or haystack is None) :
+        return False
+    
+    needle = needle.lower()
+    haystack = haystack.lower()
+
+    if needle in haystack :
+        location = haystack.find(needle)
+        return haystack[location-15:location+15]
+    else :
+        return False
+
 def search_results (request) :
     results = []
     if request.method == 'GET' and ('query' in request.GET) :
@@ -169,8 +182,14 @@ def search_results (request) :
             query = request.GET['query']
             all_wcdb = WCDBElement.objects.all ()
             for wcdb in all_wcdb :
-                if wcdb.name == query :
-                    results.append([wcdb.name, wcdb.ID])
+                find_result = search_result_helper(query, wcdb.name)
+                if (find_result is not False) :
+                    results.append([wcdb.name, wcdb.ID, find_result])
+
+                find_result = search_result_helper(query, wcdb.summary)
+                if (find_result is not False) :
+                    results.append([wcdb.name, wcdb.ID, find_result])
+                    
         else :
             #Query was blank
             results.append("Please enter a query")
@@ -178,7 +197,7 @@ def search_results (request) :
     pages = get_all_elems ()
     return render_to_response(
         'search_results.html',
-        {'results': results, 'pages': pages, 'is_prod':is_prod, 'prod_dir':prod_dir},
+        {'query': query, 'results': results, 'pages': pages, 'is_prod':is_prod, 'prod_dir':prod_dir},
         context_instance=RequestContext(request),
     )  
 
