@@ -167,7 +167,10 @@ def search_results (request) :
         if len(request.GET['query']) > 0 :
             #Had a search query
             query = request.GET['query']
-            results = query
+            all_wcdb = WCDBElement.objects.all ()
+            for wcdb in all_wcdb :
+                if wcdb.name == query :
+                    results.append([wcdb.name, wcdb.ID])
         else :
             #Query was blank
             results.append("Please enter a query")
