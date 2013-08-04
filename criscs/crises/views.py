@@ -152,9 +152,28 @@ def wrap_html (html_title, html_content) :
 
 def index (request) :
     members = ['Ambareesha Nittala', 'Brandon Fairchild', 'Chris Coney', 'Roberto Weller', 'Rogelio Sanchez', 'Vineet Keshari']
+
     pages = get_all_elems ()
 
-    return HttpResponse ( render ('index.html', {'members' : members, 'pages' : pages, }))
+    return render_to_response(
+        'index.html',
+        {'members': members, 'pages': pages, 'is_prod':is_prod, 'prod_dir':prod_dir},
+        context_instance=RequestContext(request),
+    )
+
+def search_results (request) :
+    #Had a search query
+    if request.method == 'GET' and ('query' in request.GET)  :
+        query = request.GET['query']
+        results = query
+
+    pages = get_all_elems ()
+    return render_to_response(
+        'search_results.html',
+        {'results': results, 'pages': pages, 'is_prod':is_prod, 'prod_dir':prod_dir},
+        context_instance=RequestContext(request),
+    )  
+
 
 def base_view (request, view_id) :
     view_type = view_id[:3]

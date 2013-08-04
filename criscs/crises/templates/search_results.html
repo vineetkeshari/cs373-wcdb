@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div id="page">
+		<!--close hero-unit--> 
+		<!-- end row-fluid-->
+    <h2><span>Search Results:</span></h2>
+    <ul>
+    {% for search_result in results %}
+        <li> {{ search_result }} </li>
+    {% endfor %}
+    </ul>
+
+</ul>
+</div>
+<!-- slide to top close--> 
+</div>
+<!--close #-main content--> 
+{% endblock %}
+

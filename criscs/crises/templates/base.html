@@ -50,11 +50,13 @@
 	<nav id="main_menu">
 	<ul class="accordmobile">
 	<li class = "parent"><i></i>
-		<div class='input-append'>
-    	<input class='search_field' placeholder="Search..." />
-    	<button class='btn add-on'>
-        <i class="icon-search"></i>
-    	</button>
+		<form action="/search_results.html" method="get" enctype="multipart/form-data">
+			<div class='input-append'>
+	    	<input name='query' class='search_field' placeholder="Search..." />
+	    	<button class='btn add-on' action="/" method="post">
+	        <i class="icon-search"></i>
+	    	</button>
+    	</form>
 	</div> </li>
 	<li><a href="{{prod_dir}}/crises/">Home</a></li>
 	<li class="parent"><a href="javascript:void(0)">CRISES<i></i></a>
