@@ -162,10 +162,15 @@ def index (request) :
     )
 
 def search_results (request) :
-    #Had a search query
-    if request.method == 'GET' and ('query' in request.GET)  :
-        query = request.GET['query']
-        results = query
+    results = []
+    if request.method == 'GET' and ('query' in request.GET) :
+        if len(request.GET['query']) > 0 :
+            #Had a search query
+            query = request.GET['query']
+            results = query
+        else :
+            #Query was blank
+            results.append("Please enter a query")
 
     pages = get_all_elems ()
     return render_to_response(
