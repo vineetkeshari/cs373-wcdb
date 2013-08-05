@@ -12,6 +12,7 @@ urlpatterns = patterns('',
     url(r'^crises/$', 'crises.views.index'),
     url(r'^crises/(?P<view_id>\w{10})/$', 'crises.views.base_view'),
     url(r'^import/$', 'crises.views.import_file', name='import_file'),
+    url(r'^search_results.html/$', 'crises.views.search_results', name='search_results'),
     url(r'^export/$', 'crises.views.export_file', name='export_file'),
     url(r'^unittests/$', 'crises.views.run_tests', name='run_tests'),
 

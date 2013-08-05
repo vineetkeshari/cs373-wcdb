@@ -151,9 +151,84 @@ def wrap_html (html_title, html_content) :
 
 def index (request) :
     members = ['Ambareesha Nittala', 'Brandon Fairchild', 'Chris Coney', 'Roberto Weller', 'Rogelio Sanchez', 'Vineet Keshari']
+
     pages = get_all_elems ()
 
-    return HttpResponse ( render ('index.html', {'members' : members, 'pages' : pages, }))
+    return render_to_response(
+        'index.html',
+        {'members': members, 'pages': pages, 'is_prod':is_prod, 'prod_dir':prod_dir},
+        context_instance=RequestContext(request),
+    )
+
+def search_result_helper(needle, haystack) :
+    if (needle is None or haystack is None) :
+        return False
+    
+    needle = needle.lower().strip()
+    haystack = haystack.lower().strip()
+
+    if needle in haystack :
+        location = haystack.find(needle)
+        return haystack[location-15:location+15]
+    else :
+        return False
+
+def search_in_wcdb_element(query, wcdb) :
+    find_result = search_result_helper(query, wcdb.name)
+    if (find_result is not False) :
+        return [wcdb.name, wcdb.ID, find_result]
+
+    find_result = search_result_helper(query, wcdb.summary)
+    if (find_result is not False) :
+        return [wcdb.name, wcdb.ID, find_result]
+
+    return False
+
+def search_results (request) :
+    results = []
+    if request.method == 'GET' and ('query' in request.GET) :
+        if len(request.GET['query']) > 0 :
+            #Had a search query
+            query = request.GET['query']
+            all_wcdb = WCDBElement.objects.all ()
+            
+            if "AND" in query:
+                ands = query.split("AND")
+                for wcdb in all_wcdb :
+                    okay = True
+                    for an_and in ands :
+                        result = search_in_wcdb_element(an_and, wcdb)
+                        if (result is False) :
+                            okay = False
+                    if okay :
+                        results.append(result)            
+                    okay = True
+            elif "OR" in query:
+                ors = query.split("OR")
+                for wcdb in all_wcdb :
+                    for an_or in ors :
+                        result = search_in_wcdb_element(an_or, wcdb)
+                        if (result is not False) :
+                            results.append(result)
+                        continue               
+            else :
+                for wcdb in all_wcdb :
+                    result = search_in_wcdb_element(query, wcdb)
+                    if (result is not False) :
+                        results.append(result)
+
+                    
+        else :
+            #Query was blank
+            results.append("Please enter a query")
+
+    pages = get_all_elems ()
+    return render_to_response(
+        'search_results.html',
+        {'query': query, 'results': results, 'pages': pages, 'is_prod':is_prod, 'prod_dir':prod_dir},
+        context_instance=RequestContext(request),
+    )  
+
 
 def base_view (request, view_id) :
     view_type = view_id[:3]
