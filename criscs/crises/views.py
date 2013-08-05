@@ -165,14 +165,25 @@ def search_result_helper(needle, haystack) :
     if (needle is None or haystack is None) :
         return False
     
-    needle = needle.lower()
-    haystack = haystack.lower()
+    needle = needle.lower().strip()
+    haystack = haystack.lower().strip()
 
     if needle in haystack :
         location = haystack.find(needle)
         return haystack[location-15:location+15]
     else :
         return False
+
+def search_in_wcdb_element(query, wcdb) :
+    find_result = search_result_helper(query, wcdb.name)
+    if (find_result is not False) :
+        return [wcdb.name, wcdb.ID, find_result]
+
+    find_result = search_result_helper(query, wcdb.summary)
+    if (find_result is not False) :
+        return [wcdb.name, wcdb.ID, find_result]
+
+    return False
 
 def search_results (request) :
     results = []
@@ -181,14 +192,32 @@ def search_results (request) :
             #Had a search query
             query = request.GET['query']
             all_wcdb = WCDBElement.objects.all ()
-            for wcdb in all_wcdb :
-                find_result = search_result_helper(query, wcdb.name)
-                if (find_result is not False) :
-                    results.append([wcdb.name, wcdb.ID, find_result])
+            
+            if "AND" in query:
+                ands = query.split("AND")
+                for wcdb in all_wcdb :
+                    okay = True
+                    for an_and in ands :
+                        result = search_in_wcdb_element(an_and, wcdb)
+                        if (result is False) :
+                            okay = False
+                    if okay :
+                        results.append(result)            
+                    okay = True
+            elif "OR" in query:
+                ors = query.split("OR")
+                for wcdb in all_wcdb :
+                    for an_or in ors :
+                        result = search_in_wcdb_element(an_or, wcdb)
+                        if (result is not False) :
+                            results.append(result)
+                        continue               
+            else :
+                for wcdb in all_wcdb :
+                    result = search_in_wcdb_element(query, wcdb)
+                    if (result is not False) :
+                        results.append(result)
 
-                find_result = search_result_helper(query, wcdb.summary)
-                if (find_result is not False) :
-                    results.append([wcdb.name, wcdb.ID, find_result])
                     
         else :
             #Query was blank
