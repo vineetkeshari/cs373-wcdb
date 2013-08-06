@@ -1,0 +1,328 @@
+All group xmls are here except for alexk's because 
+they don't know how to data mine.  
+They are bad data miners.
+I only focused on changes that WE need to do for our
+keys.  I haven't changed anything yet on our end
+as of 8/05/13.
+
+
+vkeshari-WCDB2.xml
+
+CRI_UEGYPT  ---> CRI_EGYPTR	Political Unrest in Egypt
+CRI_MALARI	Malaria
+CRI_USDAIP	US Drone Attacks in Pakistan
+CRI_NORWAY	2011 Norway attacks
+CRI_NRINFL	2013 Northern India Floods
+CRI_CYCNAR	Cyclone Nargis
+CRI_EHAITI  --->CRI_HAIEAR	2010 Haiti Earthquake
+CRI_IOTSUN	Indian Ocean Tsunami and Earthquake (2004)
+CRI_AIDSHI	AIDS ---> AIDS/HIV
+CRI_ZMBDMD	Zimbabwe Conflict Diamonds
+
+people
+PER_GEDAPE	General David Petraeus
+PER_BROBMA	Barack Obama
+PER_BGATES	Bill Gates
+PER_ROBMUG	Robert Mugabe
+PER_MNSNGH	Manmohan Singh
+PER_JENSTO	Jens Stoltenberg
+PER_HOSMUB	---> PER_MUBRAK or ---> PER_HOSMBK   Hosni Mubarak
+PER_MICHEL	Michel Joseph Martelly
+PER_JANEGE	Jan Egeland
+PER_MRBONO	Bono
+
+orgs
+ORG_PMRLFD	Prime Minister's Relief Fund
+ORG_BAMGFN	Bill and Melinda Gates Foundation
+ORG_UNITED	---> ORG_UNINAT	United Nations
+ORG_CEINAG	---> ORG_CENTIA (benbb has it this way) Central Intelligence Agency
+ORG_UNOCHA	United Nations Office for the Coordination of Humanitarian Affairs
+ORG_SCOTAF	Supreme Council of the Armed Forces
+ORG_GFFATM	The Global Fund
+ORG_NBNETS	Nothing But Nets
+ORG_LABPAR	Labour Party (Norway)
+ORG_DIEMCO	Disasters Emergency Committee
+
+++++++++++++++++++++++++++++++++++
+
+astacy-WCDB2.xml
+
+crises
+CRI_FUKUSH	Fukushima Daiichi Nuclear Disaster
+CRI_HAIEAR	2010 Haiti Earthquake
+CRI_HURSAN	Hurricane Sandy
+CRI_BMBOMB	Boston Marathon Bombings
+CRI_SYCLWR	Syrian Civil War
+CRI_SSCHAD	Space Shuttle Challenger Disaster
+CRI_AIDSHI	AIDS/HIV
+CRI_BFACTO	Savar Building Collapse
+CRI_PIRATE	Piracy in Somalia
+CRI_EXXVAL	Exxon Valdez Oil Spill
+
+people
+PER_RENPRE	René Préval
+PER_RBOISJ	Roger Boisjoly
+PER_JOSHAZ	Joseph Hazelwood
+PER_VPUTIN	Vladimir Putin
+PER_BROBMA	Barack Obama
+PER_CEOTEP	Masataka Shimizu
+PER_SYRIDE	Sally Ride
+PER_POPEFR	Pope Francis
+PER_ABDALA	Ahmedou Ould-Abdallah
+PER_BOMBER	Dzhokhar and Tamerlan Tsarnaev
+
+orgs
+ORG_WHORGN	World Health Organization
+ORG_REDCRS	Red Cross
+ORG_UNAIDS	Joint United Nations Programme on HIV/AIDS
+ORG_MARORG	International Maritime Organization
+ORG_NASAUS	National Aeronautics and Space Administration (NASA)
+ORG_TEPCOM	Tokyo Electric Power Comapny
+ORG_GENELE	General Electric
+ORG_CATHLC	Catholic Church
+ORG_NATOAA	National Oceanic and Atmospheric Administration
+ORG_THIOKL	Morton-Thiokol
+
++++++++++++++++++++++++++++++++++++
+
+benbb-WCDB2.xml
+
+crises
+CRI_EGYPTR	Political Unrest in Egypt
+CRI_ALABUN	2013 Alabama bunker hostage crisis
+CRI_OSLOSH	Oslo Shootings
+CRI_HAIEAR	2010 Haiti Earthquake
+CRI_AURORA	2012 Aurora Shooting
+CRI_COPMAC	2010 Copiago mining accident
+CRI_RRCOMP	2008 Raid on Religious Compound
+CRI_PIRATE	Piracy in Somalia
+CRI_MUMBAI	2008 Mumbai attacks
+CRI_TOHOQU	2011 Tohoku Earthquake and Tsunami
+
+people
+PER_CAPRIC	Captain Richard Phillips
+PER_LUISUR	Luis Urzúa
+PER_JEABEL	Jean-Max Bellerive
+PER_NAOKAN	Naoto Kan
+PER_JAMHOL	James Eagan Holmes
+PER_JDYKES	Jimmy Lee Dykes
+PER_BROBMA	Barack Obama
+PER_TAHUSS	Tahawwur Hussain Rana
+PER_AJKASA	Ajmal Kasab
+PER_ANDVIK	Anders Behring Breivik
+
+orgs
+ORG_UNINAT	United Nations
+ORG_LASHTA	Lashkar-e-Taiba
+ORG_SEMINE	San Estaban Mining Company
+ORG_COMFFO	The Community First Foundation
+ORG_REDCRS	Red Cross
+ORG_WWCPSE	Child Protective Services
+ORG_HLFLIF	Valve
+ORG_FEDBOI	Federal Bureau of Investigation
+ORG_FCLATT	Fundamentalist Church of Jesus Christ of Latter Day Saints
+ORG_CENTIA	Central Intelligence Agency
+
+++++++++++++++++++++++++++++++++++++++++++++++=
+
+cheerio-WCDB2.xml
+
+crises
+CRI_EGYPTR	Political Unrest in Egypt
+CRI_AZWILD	Arizona Wildfires
+CRI_LRACON	LRA Conflict
+CRI_CHINAD	Democracy in China
+CRI_OSLOSH	Oslo Shootings
+CRI_FINCRI	Global financial crisis
+CRI_AIDSHI	AIDS/HIV
+CRI_SCMARI	South China Maritime Conflicts
+CRI_HUMTRA	Human trafficking
+CRI_NKCONF	North Korean Conflict
+people
+PER_COPETE	Enrique Pena Nieto
+PER_CYLUNG	CY Leung
+PER_MMORSI	Mohamed Morsi
+PER_VPUTIN	Vladimir Putin
+PER_JEABEL	Jean-Max Bellerive
+PER_BROBMA	Barack Obama
+PER_GASPAR	Vitor Gaspar
+PER_LALOCA	Ricky Martin
+PER_JONGUN	Kim Jong-un
+PER_JKERRY	John Kerry
+PER_MAGICJ	Magic Johnson
+orgs
+ORG_UNINAT	United Nations
+ORG_RIBBON	Pink Ribbon Red Ribbon
+ORG_SALARM	Salvation Army
+ORG_WHORGN	World Health Organization
+ORG_FIREDP	Prescott Fire Department
+ORG_PARIBS	BNP Paribas
+ORG_MAMFDN	Somaly Mam Foundation
+ORG_POLARS	Polaris Project
+ORG_ASEANA	ASEAN
+ORG_CHILDR	Invisible Children
+ORG_IMFUND	International Monetary Fund
+
+++++++++++++++++++++++++
+
+eddies-WCDB.xml
+
+crises
+CRI_EGYPTR	Political unrest in Egypt
+CRI_BRZLPR	Brazilian Protests
+CRI_TXWDFR	Texas Wild Fires
+CRI_FWATER	Fresh Water Scarcity
+CRI_BEEDIE	Bee Colony Collapse Disorder
+CRI_FOREST	Deforestation
+CRI_LGBTRU	LGBT Issues in Russia
+CRI_NSAWRT	NSA Wiretapping
+CRI_MEXDRG	Mexican Drug Violence
+CRI_NUCDIS	Nuclear Disasters
+
+people
+PER_HPASSS	Hildebrando Pascoal
+PER_MTTDMN	Matt Damon
+PER_NIKALX	Nikolay Alexeyev
+PER_TTHBLD	Tom Theobald
+PER_XNSHNG	Zhang Xinsheng
+PER_DLVRUS	Dilma Vana Rousseff
+PER_ESNWDN	Edward Snowden
+PER_GUZMAN	Joaquin Guzman Loera
+PER_RFLCRR	Rafael Correa
+PER_RPERRY	Rick Perry
+PER_MMORSI	Mohammed Morsi
+PER_YYAMAD	Yasuteru Yamada
+
+orgs
+ORG_FEMAAA	Federal Emergency Management Service
+ORG_IUCNAT	International Union for Conservation of Nature
+ORG_SINCAR	Sinaloa Cartel
+ORG_UOCSCI	The Union of Concerned Scientists
+ORG_LOSZTA	Los Zetas Cartel
+ORG_MUSBRO	The Muslim Brotherhood
+ORG_EPAAAA	Environmental Protection Agency
+ORG_GAYRUS	LGBT Human Rights Project GayRussia.Ru
+ORG_NSAAAA	National Security Agency
+ORG_WATERO	Water.org
+ORG_BRAGOV	Brazilian Government
+ORG_MEXGOV	Government of Mexico
+ORG_EGYGOV	Egyptian Government
+
++++++++++++++++++++++++++++++++++++
+
+hc7795-WCDB2.xml
+
+CRI_HURIKE	Hurricane Ike
+CRI_IRAQWR	Iraq War
+CRI_SWNFLU	Influenza A virus subtype H1N1
+CRI_WSAFRC	Water Scarcity in Africa
+CRI_NINEOO	September 11 Attacks
+CRI_BAGAIR	Baghdad Airstrike
+CRI_UEGYPT	Political unrest in Egypt
+CRI_AIDSHI	AIDS/HIV
+CRI_HAITIE	Haiti Earthquake
+CRI_EXXONV	Exxon Valdez Oil Spill
+
+people
+PER_RENPRE	Rene Preval
+PER_JULASS	Julian Assange
+PER_BROBMA	Barack Obama
+PER_MUBRAK	Hosni Mubarak
+PER_BUSDAD	George H. W. Bush
+PER_SADHUS	Saddam Hussein
+PER_BRAMAN	Bradley Manning
+PER_GHARTL	Gregory Hartl
+PER_MICCAM	Michel Camdessus
+PER_MAGICJ	Magic Johnson
+PER_OSAMAB	Osama Bin Laden
+
+orgs
+ORG_EGYHUM	Egyptian Organization for Human Rights
+ORG_AQAEDA	al-Qaeda
+ORG_UNICEF	UNICEF
+ORG_REDCRS	Red Cross
+ORG_CARERA	Care
+ORG_CFDCAP	Centers for Disease Control and Prevention
+ORG_OILREC	Oil Spill Recovery Institute
+ORG_WHLORG	World Health Organization
+ORG_IAVETA	Iraq and Afghanistan Veterans of America
+ORG_WIKLKS	Wikileaks
+ORG_FEDEMA	Federal Emergency Management Agency
+
++++++++++++++++++++++++++++++++++++++++
+
+ryan76-WCDB2.xml
+
+CRI_EGYPTR	Political Unrest in Egypt
+CRI_OKCBOM	Oklahoma City Bombings
+CRI_WTXPLX	West Fertilizer Plant Explosion
+CRI_MOKTOR	Moore, Oklahoma Tornado
+CRI_DARFUR	War in Darfur
+CRI_SPTMEL	September 11th
+CRI_HAIEAR	2010 Haiti Earthquake
+CRI_COLSSD	Columbia Space Shuttle Disaster
+CRI_AIDSHI	AIDS/HIV
+CRI_BFACTO	Savar Building Collapse
+
+people
+PER_DADAIR	Donald Adair
+PER_HASINA	Sheikh Hasina
+PER_BROBMA	Barack Obama
+PER_MVEIGH	Timothy McVeigh
+PER_RPERRY	Rick Perry
+PER_HOSMBK	Hosni Mubarak
+PER_HUSBND	Rick Husband
+PER_MAGICJ	Magic Johnson
+PER_FALLIN	Mary Fallin
+PER_OSAMAB	Osama Bin Laden
+
+orgs
+ORG_UNINAT	United Nations
+ORG_FEMAAA	Federal Emergency Management Agency
+ORG_SALARM	Salvation Army
+ORG_WHORGN	World Health Organization
+ORG_REDCRS	Red Cross
+ORG_NASAUS	National Aeronautics and Space Administration (NASA)
+ORG_INDGLU	IndustriALL Global Union
+ORG_OKNATG	Oklahoma National Guard
+ORG_TCEQTX	Texas Commission on Environmental Quality
+ORG_OKCNMF	Oklahoma City National Memorial Foundation
+
++++++++++++++++++++++++++++++++++++++++++
+
+tmtorres-WCDB2.xml
+
+CRI_SCHERQ	2008 Sichuan earthquake
+CRI_LYCLWR	Libyan Civil War
+CRI_SPTMEL	September 11th
+CRI_TUKPRO	2013 protests in Turkey
+CRI_HAIEAR	2010 Haiti Earthquake
+CRI_NRMACF	Northern Mali Conflict
+CRI_SHESSG	Sandy Hook Elementary School Shooting
+CRI_AIDSHI	HIV/AIDS
+CRI_EXXVAL	Exxon Valdez Oil Spill
+CRI_TOHOQU	2011 Tohoku Earthquake and Tsunami
+
+people
+PER_JOSHAZ	Joseph Hazelwood
+PER_BROBMA	Barack Obama
+PER_ERDOGA	Recep Tayyip Erdogan
+PER_NAOKAN	Naoto Kan
+PER_HUJNTO	Hu Jintao
+PER_MURGDI	Muammar Gaddafi
+PER_MAGICJ	Magic Johnson
+PER_AMTOTO	Amadou Toumani Touré
+PER_ADMLNZ	Adam Lanza
+PER_OSAMAB	Osama Bin Laden
+
+orgs
+ORG_USGEOS	United States Geological Survey
+ORG_WHORGN	World Health Organization
+ORG_EXXSHI	Exxon Shipping Company
+ORG_UNDWAY	United Way
+ORG_CDCPRE	Centers for Disease Control and Prevention
+ORG_NLTLCL	National Transitional Council
+ORG_TWITER	Twitter
+ORG_SNQKRF	Sichuan Quake Relief
+ORG_UNNSCL	United Nations Security Council
+ORG_AFIUNI	African Union
