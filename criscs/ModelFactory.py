@@ -7,19 +7,19 @@ def read_wcdb_model (node) :
     """
     assert 'ID' in node.attrib
     assert 'Name' in node.attrib
-    element_id = node.attrib['ID']
-    element_name = node.attrib['Name']
+    element_id = node.attrib['ID'].encode('ascii', 'ignore')
+    element_name = node.attrib['Name'].encode('ascii', 'ignore')
     
     #assert WCDBElement.objects.get (pk=element_id) == None
 
     element_kind = None
     if not node.find('Kind') == None :
-        element_kind = node.find('Kind').text.strip()
+        element_kind = node.find('Kind').text.strip().encode('ascii', 'ignore')
     
     element_summary = None
     if not node.find('Common') == None :
         if not node.find('Common').find('Summary') == None and not node.find('Common').find('Summary').text == None:
-            element_summary = node.find('Common').find('Summary').text.strip()
+            element_summary = node.find('Common').find('Summary').text.strip().encode('ascii', 'ignore')
 
     return (element_id, element_name, element_kind, element_summary)
 
@@ -36,13 +36,13 @@ def read_list_content (element_id, list_content_type, node, list_types, list_ele
         count = count + 1
         li_content = li_href = li_embed = li_text = None
         if not li.text == None:
-            li_content = li.text.strip()
+            li_content = li.text.strip().encode('ascii', 'ignore')
         if 'href' in li.attrib :
             li_href = li.attrib['href']
         if 'embed' in li.attrib :
             li_embed = li.attrib['embed']
         if 'text' in li.attrib :
-            li_text = li.attrib['text']
+            li_text = li.attrib['text'].encode('ascii', 'ignore')
         list_elements.append ( LI(ID=list_type_id + '_' + str(count), ListID=list_type_id, order=count, content=li_content, href=li_href, embed=li_embed, text=li_text) )
 
 def read_common_content (element_id, node, list_types, list_elements) :
@@ -67,11 +67,11 @@ def get_xml_text (node, depth) :
     if len(node.attrib) > 0 :
         for att in node.attrib :
             attrib_print += att + '="' + node.attrib[att] + '" '
-        attrib_print = ' ' + attrib_print.strip()
+        attrib_print = ' ' + attrib_print.strip().encode('ascii', 'ignore')
     content_print = ''
     if not node.text == None :
         content_print = node.text
-    my_string += '  '*depth + '<' + node.tag + attrib_print + '>' + content_print.strip() + '\n'
+    my_string += '  '*depth + '<' + node.tag + attrib_print + '>' + content_print.strip().encode('ascii', 'ignore') + '\n'
     for child in node :
         my_string += get_xml_text (child, depth+1)
     my_string += '  '*depth + '</' + node.tag + '>' + '\n'
@@ -135,7 +135,7 @@ def create_org_element (node) :
 
     org_location = None
     if not node.find('Location') == None :
-        org_location = node.find('Location').text.strip()
+        org_location = node.find('Location').text.strip().encode('ascii', 'ignore')
 
     new_model = Organization (ID=org_id, name=org_name, location=org_location, kind=org_kind, summary=org_summary)
 
@@ -180,7 +180,7 @@ def create_person_element (node) :
 
     person_location = None
     if not node.find('Location') == None:
-        person_location = node.find('Location').text.strip()
+        person_location = node.find('Location').text.strip().encode('ascii', 'ignore')
 
     new_model = Person (ID=person_id, name=person_name, location=person_location, kind=person_kind, summary=person_summary)
 
