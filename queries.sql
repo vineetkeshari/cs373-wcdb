@@ -84,4 +84,26 @@ GROUP BY person
 ) AS A  
 WHERE A.link >= 2;
 
+SELECT "4.Crises that took place between 12 am and 12 pm"
 
+SELECT 
+A.name 
+FROM crises_wcdbelement AS A INNER JOIN crises_crisis AS B ON A.ID == B.wcdbelement_ptr_id  
+WHERE time BETWEEN "00:00:00" AND "12:00:00" ;
+
+SELECT "5.Show the person/people with the most images."
+
+SELECT name FROM
+(
+SELECT 
+B.name AS name , 
+SUM(CASE WHEN content_type == "IMAGES" THEN num_elements ELSE 0 END) AS image_cnt FROM crises_listtype AS A LEFT JOIN crises_wcdbelement AS B ON A.element == B.ID  WHERE B.ID LIKE "%PER_%" AND content_type == "IMAGES" GROUP BY element ORDER BY image_cnt DESC
+) AS tab
+WHERE image_cnt = (
+SELECT MAX(image_cnt) 
+FROM (
+SELECT 
+B.name AS name , 
+SUM(CASE WHEN content_type == "IMAGES" THEN num_elements ELSE 0 END) AS image_cnt FROM crises_listtype AS A LEFT JOIN crises_wcdbelement AS B ON A.element == B.ID  WHERE B.ID LIKE "%PER_%" AND content_type == "IMAGES" GROUP BY element ORDER BY image_cnt DESC
+)
+);
