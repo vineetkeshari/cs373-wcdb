@@ -1,6 +1,3 @@
-All group xmls are here except for alexk's because 
-they don't know how to data mine.  
-They are bad data miners.
 I only focused on changes that WE need to do for our
 keys.  I haven't changed anything yet on our end
 as of 8/05/13.
@@ -26,7 +23,7 @@ PER_BGATES	Bill Gates
 PER_ROBMUG	Robert Mugabe
 PER_MNSNGH	Manmohan Singh
 PER_JENSTO	Jens Stoltenberg
-PER_HOSMUB	---> PER_MUBRAK or ---> PER_HOSMBK   Hosni Mubarak
+PER_HOSMUB	---> PER_MUBRAK or ---> PER_HOSMBK (which one should we pick?)   Hosni Mubarak
 PER_MICHEL	Michel Joseph Martelly
 PER_JANEGE	Jan Egeland
 PER_MRBONO	Bono
@@ -35,7 +32,7 @@ orgs
 ORG_PMRLFD	Prime Minister's Relief Fund
 ORG_BAMGFN	Bill and Melinda Gates Foundation
 ORG_UNITED	---> ORG_UNINAT	United Nations
-ORG_CEINAG	---> ORG_CENTIA (benbb has it this way) Central Intelligence Agency
+ORG_CEINAG	---> ORG_CENTIA (benbb has it this way, which one?) Central Intelligence Agency
 ORG_UNOCHA	United Nations Office for the Coordination of Humanitarian Affairs
 ORG_SCOTAF	Supreme Council of the Armed Forces
 ORG_GFFATM	The Global Fund
@@ -44,6 +41,45 @@ ORG_LABPAR	Labour Party (Norway)
 ORG_DIEMCO	Disasters Emergency Committee
 
 ++++++++++++++++++++++++++++++++++
+alexk-WCDB2.xml
+
+crises
+CRI_EUDEBT	Debt in Europe
+CRI_DARFUR	War in Darfur
+CRI_NAPLES	Naples trash crisis
+CRI_UEGYPT	Political unrest in Egypt (please change to follow the herd, we are changing this one to CRI_EGYPTR)
+CRI_KATRIN	Katrina
+CRI_HAIEAR	Earthquake in Haiti
+CRI_KKKMEM	KKK in Memphis
+CRI_AIDSHI	AIDS and HIV
+CRI_BPOILS	Deepwater Horizon Oil Spill
+CRI_TOHOQU	Earthquake in Tohoku
+
+people
+PER_GWBUSH	George W. Bush
+PER_JMAXBE	Jean-Max Bellerive
+PER_TONYHA	Tony Hayward
+PER_OMARAL	Omar al-Bashir
+PER_GAILMC	Gail J. McGovern
+PER_KATBLA	Kathleen Blanco
+PER_SILBER	Silvio Berlusconi
+PER_MAGICJ	Magic Johnson
+PER_MLAGWA	Martin Luther Agwai
+PER_EDWCYC	Edward Exalted Cyclops
+
+orgs
+ORG_FEMAAA	Federal Emergency Management Agency
+ORG_MAJFOU	Magic Johnson Foundation
+ORG_BPETRO	British Petroleum
+ORG_KUKLUX	Ku Klux Klan
+ORG_REDCRS	Red Cross
+ORG_HOMESC	Department of Homeland Security
+ORG_SMAFIA	Sicilian Mafia
+ORG_UNINAT	United Nations
+ORG_IMFUND	International Monetary Fund
+ORG_SALARM	Salvation Army
+
+++++++++++++++++++++++++++++++++++++++++++++++
 
 astacy-WCDB2.xml
 
