@@ -119,7 +119,7 @@ def create_crisis_element (node) :
 
     if not node.find('People') == None:
         for person in node.find('People'):
-            assert not org.attrib['ID'] == ''
+            assert not person.attrib['ID'] == ''
             r_cp.append(R_Crisis_Person(ID=crisis_id+'_'+person.attrib['ID'],
                         crisis=crisis_id, person=person.attrib['ID']))
 
@@ -208,4 +208,14 @@ def create_person_element (node) :
                         org=org.attrib['ID'], person=person_id))
 
     return (person_id, new_model, list_types, list_elements, r_cp, r_op, text_store)
+
+def merge_element_content (wcdb_element) :
+    list_types = []
+    list_elements = []
+    r_co = []
+    r_cp = []
+    r_op = []
+    text = None
+    
+    return (list_types, list_elements, r_co, r_cp, r_op, text)
 

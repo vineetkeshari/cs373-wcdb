@@ -85,7 +85,7 @@ def import_file (request) :
                 f.close()
 
                 # Validate xml and create models
-                all_data = process_xml (uploaded_file)
+                all_data = process_xml (uploaded_file, False)
                
                 # Save the data to DB 
                 save_data (all_data)
@@ -107,6 +107,52 @@ def import_file (request) :
     # Render the form
     return render_to_response(
         'import.html',
+        {'form': form, 'pages': pages, 'is_prod':is_prod, 'prod_dir':prod_dir},
+        context_instance=RequestContext(request),
+    )
+
+def merge_import_file (request) :
+    pages = get_all_elems ()
+    # Handle file upload
+    if request.method == 'POST' :
+        form = DocumentForm(request.POST, request.FILES)
+        if form.is_valid () :
+#            try :
+                # Check password
+                password = request.POST['password']
+                if not password == 'baddatamining' :
+                    raise Exception('Incorrect Password!')
+
+                # Store the file in the database
+                uploaded_file = 'WCDB_merge_tmp.xml'
+                f = open (uploaded_file, 'w')
+                for chunk in request.FILES['docfile'].chunks():
+                    f.write(chunk)
+                f.close()
+
+                # Validate xml and create models
+                all_data = process_xml (uploaded_file, True)
+               
+                # Save the data to DB 
+                save_data (all_data)
+
+                error = False
+                error_string = ''
+#            except Exception, e :
+#                error = True
+#                error_string = str(e)
+            # Redirect after POST
+                return render_to_response(
+                'upload_success_fail.html',
+                {'error': error, 'error_string': error_string, 'pages': pages, 'is_prod':is_prod, 'prod_dir':prod_dir,},
+                context_instance=RequestContext(request),
+                )
+    else :
+        form = DocumentForm() # An empty, unbound form
+
+    # Render the form
+    return render_to_response(
+        'merge_import.html',
         {'form': form, 'pages': pages, 'is_prod':is_prod, 'prod_dir':prod_dir},
         context_instance=RequestContext(request),
     )
