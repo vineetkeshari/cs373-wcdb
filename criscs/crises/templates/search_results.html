@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div id="page">
+		<!--close hero-unit--> 
+		<!-- end row-fluid-->
+    <h2><span>Search Results for <b>{{query}}</b>:</span></h2>
+    <ul>
+    {% for search_result in results %}
+       <li><a href="http://127.0.0.1:8000/crises/{{ search_result.1}}" >{{ search_result.0 }}</a></li>
+       <li> {{search_result.2}}
+    {% endfor %}
+    </ul>
+
+</ul>
+</div>
+<!-- slide to top close--> 
+</div>
+<!--close #-main content--> 
+{% endblock %}
+
