@@ -277,8 +277,8 @@ def search_results (request) :
 
 
 def base_view (request, view_id) :
-    view_type = view_id[:3]
-    try :
+        view_type = view_id[:3]
+#    try :
         if view_type == 'CRI' :
             return crisis_view (view_id)
         elif view_type == 'ORG' :
@@ -287,8 +287,8 @@ def base_view (request, view_id) :
             return person_view (view_id)
         else :
             return HttpResponseNotFound('<h5>Page not found</h5>')
-    except Exception, e :
-        return HttpResponseNotFound('<h5>Page not found</h5>' + '<p>' + e.args[0] + '</p>')
+#    except Exception, e :
+#        return HttpResponseNotFound('<h5>Page not found</h5>' + '<p>' + e + '</p>')
 
 def wcdb_common_view (view_id, page_type) :
     b = WCDBElement.objects.get (pk=view_id)

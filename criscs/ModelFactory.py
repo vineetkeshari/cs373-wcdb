@@ -18,7 +18,7 @@ def read_wcdb_model (node) :
     
     element_summary = None
     if not node.find('Common') == None :
-        if not node.find('Common').find('Summary') == None :
+        if not node.find('Common').find('Summary') == None and not node.find('Common').find('Summary').text == None:
             element_summary = node.find('Common').find('Summary').text.strip()
 
     return (element_id, element_name, element_kind, element_summary)
