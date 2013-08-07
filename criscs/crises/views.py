@@ -267,7 +267,7 @@ def search_results (request) :
     )    
 
 def base_view (request, view_id) :
-        view_type = view_id[:3]
+    view_type = view_id[:3]
     try :
         if view_type == 'CRI' :
             return crisis_view (view_id)
