@@ -8,90 +8,54 @@
                     <div class="box_cont">
                         <ul class="street">
                             
-    <h5>Question</h5>
+    <h2>Question {{q_id}}</h2>
      <ul>
      	<li> {{question}} </li>
      </ul>
-
-
-	<h5>SQL Query</h5>
-     <ul>
-     	<li>{{query}}</li>
-     </ul>
+     <br />
+     <strong><a href="/queries/"> Back to Query List</a></strong>
 
                         </ul>
                     </div>
                 </div>
             </div>
-                {% if lists.MAPS %}
-                {% for elem in lists.MAPS %}
-<iframe width="100%" height="500" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src={{elem.0}}></iframe>
- 
-		{% endfor %}
-                {% else %}
 <iframe width="100%" height="500" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/?ie=UTF8&amp;ll=19.973349,-87.539062&amp;spn=160.950618,33.046875&amp;t=m&amp;z=2.5&amp;output=embed"></iframe>
-                   
-       		{% endif %}
         </div>
     </div>
-    <div id="portafolio_tem">
-	<div class="span7 left_box">
-    		<h3>Media</h3>
-    		<div class "gallery lightbox row-fluid">
-      	   	  	<ul class="gallery lightbox two_col clearfix">
-    			    {% for elem in lists.IMAGES %}
-       		         	<li class="letter-press vp"> <a class="hover" data-fancybox-group="portfolio"> <img src={{ elem.0 }} alt="" /></a>
-				</li>
-       			    {% endfor %}
-           	 	</ul>
-   	 	</div>
-    <div class="carousel">
-            <ul>
-    		    {% for elem in lists.VIDEOS %}
-                	<li class="letter-press vp"> <a class="hover" data-fancybox-group="portfolio"> <iframe width="100%" height="315" src={{elem.0}} frameborder="0" allowfullscreen></iframe></a></li>
 
-       		    {% endfor %}
-            </ul>
-    </div>
-	</div>
-	<div class="span5 right_box">
+	
+<div class ="box_cont">
+<ul class = "street">
+    <h3>SQL Query</h3>
+     <ul>
+        <li>{{query}}</li>
+     </ul>
 
-    <b> Summary: </b> {{nks.summary.0}}<br />
 
-    <h3>Feeds</h3>
-    <ul>
-    	{% for elem in lists.FEEDS %}
-            <li>
-            <a href={{elem.0}}>Feed</a>
-        </li>
+    <h3>Results</h3>
+    <table border="1">
+        <tr>
+        {% for col_names in results.0 %}
+        <th>
+                {{col_names}}
+        </th>
+ 
         {% endfor %}
-    </ul>
+        </tr>
+        {% for result in results.1 %}
+        <tr>
+            {% for col in result %}
+            <td>
+              {{col}}
+          </td>
+          {% endfor %}
+      </tr>
+      {% endfor %}
+  </table>
 
-    <h3>External Links</h3>
-    <ul>
-    	{% for elem in lists.EXTERNALLINKS %}
-        <li>
-            <a href={{elem.0}}>{{elem.1}}</a>
-        </li>
-        {% endfor %}
-    </ul>
+</ul>
 
-        <h3>Citations</h3>
-    <ul>
-    	{% for elem in lists.CITATIONS %}
-        <li>
-            <a href={{elem.0}}>{{elem.1}}</a>
-        </li>
-        {% endfor %}
-    </ul>
-	</div>
-    </div>
-
-
-    </div>
-
-
-    </div>
+</div>
 
 
 {% endblock %}

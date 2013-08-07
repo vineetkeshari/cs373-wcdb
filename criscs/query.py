@@ -15,11 +15,11 @@ r'SELECT D.name, D.kind, A.date, C.content  FROM crises_crisis AS A INNER JOIN c
 
 # The questions go here. Copy-paste from queries.sql
 prashn = [
-r'1.Show all crises with 2 or more external links.',
-r'2. Show the counts of videos, images and citations for each crisis.', 
-r'3.Show the names of crises which have more than one location, with the count of locations.',
-r'4.Show the name, id and summary for organization(s) that is(are) associated with maximum number of crises.',
-r'5.Show the name and economic impact of natural disasters occuring after 2001.'
+r'Show all crises with 2 or more external links.',
+r'Show the counts of videos, images and citations for each crisis.', 
+r'Show the names of crises which have more than one location, with the count of locations.',
+r'Show the name, id and summary for organization(s) that is(are) associated with maximum number of crises.',
+r'Show the name and economic impact of natural disasters occuring after 2001.'
 ]
 
 """
@@ -43,21 +43,22 @@ def get_query_results(q_id):
 	c.execute(str_query[q_id])
 	col_names = tuple(map(lambda x: x[0], c.description))
 	tmp_list = c.fetchall()
+	#num_col = len(col_names)
+	#num_tmp_list = len(num_tmp_list)
 	return [col_names,tmp_list]
+
+def get_all_queries ():
+	d = {}
+	count = 0
+	for p in prashn :
+		d[count] = p
+		count = count + 1
+	return d
 
 #Fill out the function below. All of the functions go into views.py
 def query_view(q_id):
-
-	pages = get_all_elems()
-	
-	html_title = render('title.html', {'title' : 'World Crises Database: ' + 'SQL Queries' } ) #Write code for html_common below.
-    
-	question = get_question(q_id)
-	
-	query  = get_query(q_id)
-
-	results = get_query_results(q_id)
-	
-	final_html = wrap_html(html_title, render('query.html', {'question' : question, 'query':query, 'results':results, 'pages':pages, }))
-
-	return HttpResponse(final_html)
+    q_id = eval(q_id.encode('ascii','ignore'))
+    question = get_question(q_id)
+    query  = get_query(q_id)
+    results = get_query_results(q_id)
+    return (question, query, results, q_id)

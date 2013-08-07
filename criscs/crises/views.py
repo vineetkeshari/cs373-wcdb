@@ -4,6 +4,7 @@ from crises.models import Crisis, Person, Organization, WCDBElement, ListType, L
 from crises.forms import DocumentForm
 
 from XMLUtility import process_xml
+from query import query_view, get_all_queries
 
 from django.shortcuts import render_to_response
 from django.core.urlresolvers import reverse
@@ -658,38 +659,52 @@ def person_view(view_id):
     return HttpResponse (final_html)
 
 def mcrises (request) :
-    members = ['Ambareesha Nittala', 'Brandon Fairchild', 'Chris Coney', 'Roberto Weller', 'Rogelio Sanchez', 'Vineet Keshari']
 
     pages = get_all_elems ()
 
     return render_to_response(
         'morecrises.html',
-        {'members': members, 'pages': pages, 'is_prod':is_prod, 'prod_dir':prod_dir},
+        {'pages': pages, 'is_prod':is_prod, 'prod_dir':prod_dir},
         context_instance=RequestContext(request),
     )
 
 def morganizations (request) :
-    members = ['Ambareesha Nittala', 'Brandon Fairchild', 'Chris Coney', 'Roberto Weller', 'Rogelio Sanchez', 'Vineet Keshari']
 
     pages = get_all_elems ()
 
     return render_to_response(
         'moreorganizations.html',
-        {'members': members, 'pages': pages, 'is_prod':is_prod, 'prod_dir':prod_dir},
+        {'pages': pages, 'is_prod':is_prod, 'prod_dir':prod_dir},
         context_instance=RequestContext(request),
     )
 
 def mpeople (request) :
-    members = ['Ambareesha Nittala', 'Brandon Fairchild', 'Chris Coney', 'Roberto Weller', 'Rogelio Sanchez', 'Vineet Keshari']
 
     pages = get_all_elems ()
 
     return render_to_response(
         'morepeople.html',
-        {'members': members, 'pages': pages, 'is_prod':is_prod, 'prod_dir':prod_dir},
+        {'pages': pages, 'is_prod':is_prod, 'prod_dir':prod_dir},
         context_instance=RequestContext(request),
     )
 
+def query_view_wrapper (request, q_id) :
 
+    pages = get_all_elems ()
+    (question, query, results, q_id) = query_view (q_id)
 
+    return render_to_response(
+        'query.html',
+        {'pages': pages, 'is_prod':is_prod, 'prod_dir':prod_dir, 'question' : question, 'query':query, 'results':results, 'q_id':q_id+1,},
+        context_instance=RequestContext(request),
+    )
 
+def list_queries (request) :
+    pages = get_all_elems ()
+    queries = get_all_queries()
+
+    return render_to_response(
+        'queries_page.html',
+        {'pages': pages, 'is_prod':is_prod, 'prod_dir':prod_dir, 'queries':queries},
+        context_instance=RequestContext(request),
+    )
