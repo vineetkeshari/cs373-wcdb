@@ -83,7 +83,7 @@ def merge_list_content (element_id, list_content_type, node, list_types, list_el
                    do_string_match(existing_li.text, li_text) or \
                    do_string_match(existing_li.content, li_content) :
                     unique = False
-                    print str(existing_li.href) + '\t' + str(existing_li.embed) + '\t' + str(existing_li.text) + '\t' + str(existing_li.content) + '\n' + str(li_href) + '\t' + str(li_embed) + '\t' + str(li_text) + '\t' + str(li_content)
+                    #print str(existing_li.href) + '\t' + str(existing_li.embed) + '\t' + str(existing_li.text) + '\t' + str(existing_li.content) + '\n' + str(li_href) + '\t' + str(li_embed) + '\t' + str(li_text) + '\t' + str(li_content)
                     break
             if unique :
                 count = count + 1
@@ -284,7 +284,6 @@ def merge_crisis_content (node) :
     if crisis_summary == None and not node.find('Summary') == None:
         crisis_summary = node.find('Summary').text.strip().encode('ascii','ignore')
 
-    print crisis_kind
     if crisis_kind == None and not node.find('Kind') == None:
         crisis_kind = node.find('Kind').text.strip().encode('ascii','ignore')
 
