@@ -645,3 +645,40 @@ def person_view(view_id):
     final_html = wrap_html (html_title, html_content)
 
     return HttpResponse (final_html)
+
+def mcrises (request) :
+    members = ['Ambareesha Nittala', 'Brandon Fairchild', 'Chris Coney', 'Roberto Weller', 'Rogelio Sanchez', 'Vineet Keshari']
+
+    pages = get_all_elems ()
+
+    return render_to_response(
+        'morecrises.html',
+        {'members': members, 'pages': pages, 'is_prod':is_prod, 'prod_dir':prod_dir},
+        context_instance=RequestContext(request),
+    )
+
+def morganizations (request) :
+    members = ['Ambareesha Nittala', 'Brandon Fairchild', 'Chris Coney', 'Roberto Weller', 'Rogelio Sanchez', 'Vineet Keshari']
+
+    pages = get_all_elems ()
+
+    return render_to_response(
+        'moreorganizations.html',
+        {'members': members, 'pages': pages, 'is_prod':is_prod, 'prod_dir':prod_dir},
+        context_instance=RequestContext(request),
+    )
+
+def mpeople (request) :
+    members = ['Ambareesha Nittala', 'Brandon Fairchild', 'Chris Coney', 'Roberto Weller', 'Rogelio Sanchez', 'Vineet Keshari']
+
+    pages = get_all_elems ()
+
+    return render_to_response(
+        'morepeople.html',
+        {'members': members, 'pages': pages, 'is_prod':is_prod, 'prod_dir':prod_dir},
+        context_instance=RequestContext(request),
+    )
+
+
+
+
