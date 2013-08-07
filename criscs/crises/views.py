@@ -13,6 +13,7 @@ from django.core.servers.basehttp import FileWrapper
 from re import sub
 from subprocess import check_output, CalledProcessError, STDOUT
 from os.path import getsize
+from django.utils.safestring import mark_safe
 
 is_prod = False
 if is_prod :
@@ -215,7 +216,9 @@ def search_result_helper(needle, haystack) :
 
     if needle in haystack :
         location = haystack.find(needle)
-        return haystack[location-15:location+15]
+        size = len(needle)
+        found = "<strong>" + haystack[location:location+size] + "</strong>"
+        return haystack[location-15:location] + found + haystack[location+size:location+size+15]
     else :
         return False
 
@@ -243,45 +246,24 @@ def search_results (request) :
                 for word in query.split():
                     result = search_in_wcdb_element(word, wcdb)
                     if (result is not False) :
-                        query_result.append(word)
+                        query_result.append(result[2])
                 if query_result is not None and len(query_result) > 0:
-                    results.append([wcdb.ID, query_result])
+                    results.append([wcdb.ID, query_result, wcdb.name])
                     
         else :
             #Query was blank
             results.append("Please enter a query")
 
+    #Sort results on number of hits
     results.sort(key = lambda s: len(s[1]))
     results.reverse()
+
     pages = get_all_elems ()
     return render_to_response(
         'search_results.html',
         {'query': query, 'results': results, 'pages': pages, 'is_prod':is_prod, 'prod_dir':prod_dir},
         context_instance=RequestContext(request),
-    )  
-
-
-
-            # if "AND" in query:
-            #     ands = query.split("AND")
-            #     for wcdb in all_wcdb :
-            #         okay = True
-            #         for an_and in ands :
-            #             result = search_in_wcdb_element(an_and, wcdb)
-            #             if (result is False) :
-            #                 okay = False
-            #         if okay :
-            #             results.append(result)            
-            #         okay = True
-            # elif "OR" in query:
-            #     ors = query.split("OR")
-            #     for wcdb in all_wcdb :
-            #         for an_or in ors :
-            #             result = search_in_wcdb_element(an_or, wcdb)
-            #             if (result is not False) :
-            #                 results.append(result)
-            #             continue  
-
+    )    
 
 def base_view (request, view_id) :
         view_type = view_id[:3]
