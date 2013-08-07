@@ -236,44 +236,51 @@ def search_results (request) :
         if len(request.GET['query']) > 0 :
             #Had a search query
             query = request.GET['query']
+             
             all_wcdb = WCDBElement.objects.all ()
-            
-            if "AND" in query:
-                ands = query.split("AND")
-                for wcdb in all_wcdb :
-                    okay = True
-                    for an_and in ands :
-                        result = search_in_wcdb_element(an_and, wcdb)
-                        if (result is False) :
-                            okay = False
-                    if okay :
-                        results.append(result)            
-                    okay = True
-            elif "OR" in query:
-                ors = query.split("OR")
-                for wcdb in all_wcdb :
-                    for an_or in ors :
-                        result = search_in_wcdb_element(an_or, wcdb)
-                        if (result is not False) :
-                            results.append(result)
-                        continue               
-            else :
-                for wcdb in all_wcdb :
-                    result = search_in_wcdb_element(query, wcdb)
+            for wcdb in all_wcdb :
+                query_result = []
+                for word in query.split():
+                    result = search_in_wcdb_element(word, wcdb)
                     if (result is not False) :
-                        results.append(result)
-
+                        query_result.append(word)
+                if query_result is not None and len(query_result) > 0:
+                    results.append([wcdb.ID, query_result])
                     
         else :
             #Query was blank
             results.append("Please enter a query")
 
+    results.sort(key = lambda s: len(s[1]))
+    results.reverse()
     pages = get_all_elems ()
     return render_to_response(
         'search_results.html',
         {'query': query, 'results': results, 'pages': pages, 'is_prod':is_prod, 'prod_dir':prod_dir},
         context_instance=RequestContext(request),
     )  
+
+
+
+            # if "AND" in query:
+            #     ands = query.split("AND")
+            #     for wcdb in all_wcdb :
+            #         okay = True
+            #         for an_and in ands :
+            #             result = search_in_wcdb_element(an_and, wcdb)
+            #             if (result is False) :
+            #                 okay = False
+            #         if okay :
+            #             results.append(result)            
+            #         okay = True
+            # elif "OR" in query:
+            #     ors = query.split("OR")
+            #     for wcdb in all_wcdb :
+            #         for an_or in ors :
+            #             result = search_in_wcdb_element(an_or, wcdb)
+            #             if (result is not False) :
+            #                 results.append(result)
+            #             continue  
 
 
 def base_view (request, view_id) :
