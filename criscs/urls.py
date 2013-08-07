@@ -19,6 +19,10 @@ urlpatterns = patterns('',
 
     url(r'^debug/$', 'crises.views.test_view', name='test_view'),
 
+
+    url(r'^morecrises/$', 'crises.views.mcrises'),
+    url(r'^moreorganizations/$', 'crises.views.morganizations'),
+    url(r'^morepeople/$', 'crises.views.mpeople'),
     # Uncomment the admin/doc line below to enable admin documentation:
     # url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
 
