@@ -4,6 +4,7 @@ from crises.models import Crisis, Person, Organization, WCDBElement, ListType, L
 from crises.forms import DocumentForm
 
 from XMLUtility import process_xml
+from query import get_all_queries, query_view
 
 from django.shortcuts import render_to_response
 from django.core.urlresolvers import reverse
@@ -118,7 +119,7 @@ def merge_import_file (request) :
     if request.method == 'POST' :
         form = DocumentForm(request.POST, request.FILES)
         if form.is_valid () :
-#            try :
+            try :
                 # Check password
                 password = request.POST['password']
                 if not password == 'baddatamining' :
@@ -139,15 +140,15 @@ def merge_import_file (request) :
 
                 error = False
                 error_string = ''
-#            except Exception, e :
-#                error = True
-#                error_string = str(e)
+            except Exception, e :
+                error = True
+                error_string = str(e)
             # Redirect after POST
-                return render_to_response(
+            return render_to_response(
                 'upload_success_fail.html',
                 {'error': error, 'error_string': error_string, 'pages': pages, 'is_prod':is_prod, 'prod_dir':prod_dir,},
                 context_instance=RequestContext(request),
-                )
+            )
     else :
         form = DocumentForm() # An empty, unbound form
 
@@ -317,8 +318,8 @@ def search_results (request) :
     )    
 
 def base_view (request, view_id) :
-        view_type = view_id[:3]
-#    try :
+    view_type = view_id[:3]
+    try :
         if view_type == 'CRI' :
             return crisis_view (view_id)
         elif view_type == 'ORG' :
@@ -327,8 +328,8 @@ def base_view (request, view_id) :
             return person_view (view_id)
         else :
             return HttpResponseNotFound('<h5>Page not found</h5>')
-#    except Exception, e :
-#        return HttpResponseNotFound('<h5>Page not found</h5>' + '<p>' + e + '</p>')
+    except Exception, e :
+        return HttpResponseNotFound('<h5>Page not found</h5>' + '<p>' + e + '</p>')
 
 def wcdb_common_view (view_id, page_type) :
     b = WCDBElement.objects.get (pk=view_id)
@@ -698,38 +699,50 @@ def person_view(view_id):
     return HttpResponse (final_html)
 
 def mcrises (request) :
-    members = ['Ambareesha Nittala', 'Brandon Fairchild', 'Chris Coney', 'Roberto Weller', 'Rogelio Sanchez', 'Vineet Keshari']
-
     pages = get_all_elems ()
 
     return render_to_response(
         'morecrises.html',
-        {'members': members, 'pages': pages, 'is_prod':is_prod, 'prod_dir':prod_dir},
+        {'pages': pages, 'is_prod':is_prod, 'prod_dir':prod_dir},
         context_instance=RequestContext(request),
     )
 
 def morganizations (request) :
-    members = ['Ambareesha Nittala', 'Brandon Fairchild', 'Chris Coney', 'Roberto Weller', 'Rogelio Sanchez', 'Vineet Keshari']
-
     pages = get_all_elems ()
 
     return render_to_response(
         'moreorganizations.html',
-        {'members': members, 'pages': pages, 'is_prod':is_prod, 'prod_dir':prod_dir},
+        {'pages': pages, 'is_prod':is_prod, 'prod_dir':prod_dir},
         context_instance=RequestContext(request),
     )
 
 def mpeople (request) :
-    members = ['Ambareesha Nittala', 'Brandon Fairchild', 'Chris Coney', 'Roberto Weller', 'Rogelio Sanchez', 'Vineet Keshari']
-
     pages = get_all_elems ()
 
     return render_to_response(
         'morepeople.html',
-        {'members': members, 'pages': pages, 'is_prod':is_prod, 'prod_dir':prod_dir},
+        {'pages': pages, 'is_prod':is_prod, 'prod_dir':prod_dir},
         context_instance=RequestContext(request),
     )
 
+def query_view_wrapper (request, q_id) :
+ 
+    pages = get_all_elems ()
+    (question, query, results, q_id) = query_view (q_id)
 
-
+    return render_to_response(
+        'query.html',
+        {'pages': pages, 'is_prod':is_prod, 'prod_dir':prod_dir, 'question' : question, 'query':query, 'results':results, 'q_id':q_id+1,},
+        context_instance=RequestContext(request),
+    )
+ 
+def list_queries (request) :
+    pages = get_all_elems ()
+    queries = get_all_queries()
+ 
+    return render_to_response(
+        'queries_page.html',
+        {'pages': pages, 'is_prod':is_prod, 'prod_dir':prod_dir, 'queries':queries},
+        context_instance=RequestContext(request),
+    )
 

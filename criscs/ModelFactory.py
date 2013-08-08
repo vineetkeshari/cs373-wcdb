@@ -77,24 +77,12 @@ def merge_list_content (element_id, list_content_type, node, list_types, list_el
             if 'text' in li.attrib :
                 li_text = li.attrib['text'].encode('ascii', 'ignore')
             if '_MAPS' in list_type_id and (li_embed == None or 'google' not in li_embed) :
-                if li_embed == None:
-                    li_embed = 'NONE'
-                print 'IGNORE (MAP) : ' + li_embed
                 continue
             if '_VIDEOS' in list_type_id and (li_embed == None or 'youtube' not in li_embed) :
-                if li_embed == None:
-                    li_embed = 'NONE'
-                print 'IGNORE (VIDEO) : ' + li_embed
                 continue
             if '_FEEDS' in list_type_id and li_embed == None :
-                if li_embed == None:
-                    li_embed = 'NONE'
-                print 'IGNORE (FEED) : ' + li_embed
                 continue
             if '_IMAGES' in list_type_id and li_embed == None :
-                if li_embed == None:
-                    li_embed = 'NONE'
-                print 'IGNORE (IMAGE) : ' + li_embed
                 continue
             unique = True
             for existing_li in existing_lis :
@@ -103,7 +91,6 @@ def merge_list_content (element_id, list_content_type, node, list_types, list_el
                    do_string_match(existing_li.text, li_text) or \
                    do_string_match(existing_li.content, li_content) :
                     unique = False
-                    #print str(existing_li.href) + '\t' + str(existing_li.embed) + '\t' + str(existing_li.text) + '\t' + str(existing_li.content) + '\n' + str(li_href) + '\t' + str(li_embed) + '\t' + str(li_text) + '\t' + str(li_content)
                     break
             if unique :
                 count = count + 1
