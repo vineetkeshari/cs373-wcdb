@@ -219,7 +219,7 @@ def search_result_helper(needle, haystack) :
         location = haystack.find(needle)
         size = len(needle)
         found = "<strong>" + haystack[location:location+size] + "</strong>"
-        return haystack[location-15:location] + found + haystack[location+size:location+size+15]
+        return haystack[location-40:location] + found + haystack[location+size:location+size+40]
     else :
         return False
 

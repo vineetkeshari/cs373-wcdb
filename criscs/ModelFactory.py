@@ -76,11 +76,25 @@ def merge_list_content (element_id, list_content_type, node, list_types, list_el
                 li_embed = li.attrib['embed']
             if 'text' in li.attrib :
                 li_text = li.attrib['text'].encode('ascii', 'ignore')
-            if '_MAPS_' in list_type_id and (li_embed == None or 'maps.google.com' not in li_embed) :
+            if '_MAPS' in list_type_id and (li_embed == None or 'google' not in li_embed) :
+                if li_embed == None:
+                    li_embed = 'NONE'
+                print 'IGNORE (MAP) : ' + li_embed
                 continue
-            if '_VIDEOS_' in list_type_id and (li_embed == None or 'youtube' not in li_embed) :
+            if '_VIDEOS' in list_type_id and (li_embed == None or 'youtube' not in li_embed) :
+                if li_embed == None:
+                    li_embed = 'NONE'
+                print 'IGNORE (VIDEO) : ' + li_embed
                 continue
-            if '_FEEDS_' in list_type_id and li_embed == None :
+            if '_FEEDS' in list_type_id and li_embed == None :
+                if li_embed == None:
+                    li_embed = 'NONE'
+                print 'IGNORE (FEED) : ' + li_embed
+                continue
+            if '_IMAGES' in list_type_id and li_embed == None :
+                if li_embed == None:
+                    li_embed = 'NONE'
+                print 'IGNORE (IMAGE) : ' + li_embed
                 continue
             unique = True
             for existing_li in existing_lis :
@@ -157,7 +171,7 @@ def create_crisis_element (node) :
 
     crisis_time = None
     if not node.find('Time') == None:
-        crisis_time = node.find('Time').text.strip()
+        crisis_time = node.find('Time').text.strip().split('+')[0]
 
     new_model = Crisis (ID=crisis_id, name=crisis_name, date=crisis_date, time=crisis_time, kind=crisis_kind, summary=crisis_summary)
 
@@ -299,7 +313,7 @@ def merge_crisis_content (node) :
 
     crisis_time = c.time
     if crisis_time == None and not node.find('Time') == None:
-        crisis_time = node.find('Time').text.strip()
+        crisis_time = node.find('Time').text.strip().split('+')[0]
 
     new_model = Crisis (ID=crisis_id, name=crisis_name, date=crisis_date, time=crisis_time, kind=crisis_kind, summary=crisis_summary)
 
