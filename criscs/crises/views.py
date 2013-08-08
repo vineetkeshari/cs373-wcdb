@@ -329,7 +329,7 @@ def base_view (request, view_id) :
         else :
             return HttpResponseNotFound('<h5>Page not found</h5>')
     except Exception, e :
-        return HttpResponseNotFound('<h5>Page not found</h5>' + '<p>' + e + '</p>')
+        return HttpResponseNotFound('<h5>Page not found</h5>' + '<p>' + str(e) + '</p>')
 
 def wcdb_common_view (view_id, page_type) :
     b = WCDBElement.objects.get (pk=view_id)
@@ -366,7 +366,6 @@ def get_media (view_id) :
     obj = LI.objects.all() # Get all objects from the LI table
     indices = get_indices(view_id, obj, media_dict) # Get indices for each of the Citations, External Links, Images, Videos, Maps and Feeds
     
-    
     #Extract URL and content for each citation
     for mtype in media_type:
         for index in indices[mtype]:
@@ -378,19 +377,19 @@ def get_media (view_id) :
                 tmp_list = [str(obj[index].href), str(obj[index].content)]
                 store_dict[mtype].append(tmp_list)
 
-            if mtype is "IMAGES" and (indices[mtype] != []):
+            if mtype is "IMAGES" and (indices[mtype] != []) and obj[index].embed != None :
                 tmp_list = [str(obj[index].embed), str(obj[index].content)]
                 store_dict[mtype].append(tmp_list)
 
-            if mtype is "VIDEOS" and (indices[mtype] != []):
+            if mtype is "VIDEOS" and (indices[mtype] != []) and obj[index].embed != None :
                 tmp_list = [sub('http:', '', sub('watch\?v=', 'embed/',str(obj[index].embed)))]
                 store_dict[mtype].append(tmp_list) 
 
-            if mtype is "MAPS" and (indices[mtype] != []):
+            if mtype is "MAPS" and (indices[mtype] != []) and obj[index].embed != None:
                 tmp_list = [sub('&amp;','&',str(obj[index].embed))]
                 store_dict[mtype].append(tmp_list) 
 
-            if mtype is "FEEDS" and (indices[mtype] != []):
+            if mtype is "FEEDS" and (indices[mtype] != []) and obj[index].embed != None:
                 tmp_list = [str(obj[index].embed), str(obj[index].embed)]
                 store_dict[mtype].append(tmp_list)     
     

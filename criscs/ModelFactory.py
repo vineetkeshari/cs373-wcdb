@@ -10,8 +10,6 @@ def read_wcdb_model (node) :
     element_id = node.attrib['ID'].encode('ascii', 'ignore')
     element_name = node.attrib['Name'].encode('ascii', 'ignore')
     
-    #assert WCDBElement.objects.get (pk=element_id) == None
-
     element_kind = None
     if not node.find('Kind') == None :
         element_kind = node.find('Kind').text.strip().encode('ascii', 'ignore')
@@ -30,10 +28,10 @@ def read_list_content (element_id, list_content_type, node, list_types, list_ele
     assert not element_id == ''
     assert not list_content_type == ''
     list_type_id = element_id + '_' + list_content_type
-    list_types.append ( ListType(ID=list_type_id, element=element_id, content_type=list_content_type, num_elements=len(node)) )
     count = 0
+
+    # Iterate through elements of list in sequence
     for li in node :
-        count = count + 1
         li_content = li_href = li_embed = li_text = None
         if not li.text == None:
             li_content = li.text.strip().encode('ascii', 'ignore')
@@ -43,47 +41,73 @@ def read_list_content (element_id, list_content_type, node, list_types, list_ele
             li_embed = li.attrib['embed']
         if 'text' in li.attrib :
             li_text = li.attrib['text'].encode('ascii', 'ignore')
+
+        # Store a new li element
+        count = count + 1
         list_elements.append ( LI(ID=list_type_id + '_' + str(count), ListID=list_type_id, order=count, content=li_content, href=li_href, embed=li_embed, text=li_text) )
+
+    # Store the list type with num of elements
+    list_types.append ( ListType(ID=list_type_id, element=element_id, content_type=list_content_type, num_elements=count) )
 
 def merge_list_content (element_id, list_content_type, node, list_types, list_elements) :
     """
     Merges a ListType model along with all LI models contained in the list
+
+    Calls read_list_content if it doesn't already exist
+    Merges with existing list by appending new elements otherwise
+    Ignores empty elements or those that do not conform to XSD guidelines.
     """
     assert not element_id == ''
     assert not list_content_type == ''
     list_type_id = element_id + '_' + list_content_type
+    # Try to get an existing list type object
     try :
         existing = ListType.objects.get(pk=list_type_id)
     except :
         existing = None
+
+    # If the list type doesn't exist, create a new one.
+    # Otherwise, merge the content of this one with the existing one.
     if existing == None :
         read_list_content (element_id, list_content_type, node, list_types, list_elements)
     else :
         count = existing.num_elements
-        
+       
+        # Load all li elements and get the relevant ones.
+        # There should be count no. of li elements.
         existing_lis_all = LI.objects.all()
         existing_lis = []
         for li in existing_lis_all :
             if li.ID.startswith (list_type_id) :
                 existing_lis.append (li)
+        assert count == len(existing_lis)
+
         for li in node :
             li_content = li_href = li_embed = li_text = None
             if not li.text == None:
-                li_content = li.text.strip().encode('ascii', 'ignore')
+                li_content = li.text.strip().encode('ascii', 'ignore').strip()
             if 'href' in li.attrib :
-                li_href = li.attrib['href']
+                li_href = li.attrib['href'].strip()
             if 'embed' in li.attrib :
-                li_embed = li.attrib['embed']
+                li_embed = li.attrib['embed'].strip()
             if 'text' in li.attrib :
-                li_text = li.attrib['text'].encode('ascii', 'ignore')
-            if '_MAPS' in list_type_id and (li_embed == None or 'google' not in li_embed) :
+                li_text = li.attrib['text'].encode('ascii', 'ignore').strip()
+
+            # Ignore embed elements that are empty or do not follow the XSD standard, as these break the frontend.
+            # Maps :  Must be the embed link from google maps. Ignore bing maps, etc as well as images.
+            # Videos : Must be the embed link from youtube. Ignore vimeo, wikimedia, etc.
+            # Feeds and Images : Must not be empty.
+            if '_MAPS' in list_type_id and (li_embed == None or li_embed == '' or li_embed == 'None' or 'google' not in li_embed \
+                    or 'png' in li_embed.lower() or 'jpg' in li_embed.lower() or 'jpeg' in li_embed.lower() or 'gif' in li_embed.lower() or 'bmp' in li_embed.lower()) :
                 continue
-            if '_VIDEOS' in list_type_id and (li_embed == None or 'youtube' not in li_embed) :
+            if '_VIDEOS' in list_type_id and (li_embed == None or li_embed == '' or li_embed == 'None' or 'youtube' not in li_embed) :
                 continue
-            if '_FEEDS' in list_type_id and li_embed == None :
+            if '_FEEDS' in list_type_id and (li_embed == None or li_embed == '' or li_embed == 'None'):
                 continue
-            if '_IMAGES' in list_type_id and li_embed == None :
+            if '_IMAGES' in list_type_id and (li_embed == None or li_embed == '' or li_embed == 'None'):
                 continue
+
+            # An li element is unique if none of the four fields match
             unique = True
             for existing_li in existing_lis :
                 if do_string_match(existing_li.href, li_href) or \
@@ -92,12 +116,19 @@ def merge_list_content (element_id, list_content_type, node, list_types, list_el
                    do_string_match(existing_li.content, li_content) :
                     unique = False
                     break
+
+            # Add the li element if unique
             if unique :
                 count = count + 1
                 list_elements.append ( LI(ID=list_type_id + '_' + str(count), ListID=list_type_id, order=count, content=li_content, href=li_href, embed=li_embed, text=li_text) )
+
+        # Update the list type
         list_types.append ( ListType(ID=list_type_id, element=element_id, content_type=list_content_type, num_elements=count) )
 
 def do_string_match (s1, s2) :
+    """
+    Compares if one string contains the other or vica versa (case-ignored)
+    """
     return not s1 == None and not s2 == None and (s1.lower() in s2.lower() or s2.lower() in s1.lower())
 
 def read_common_content (element_id, node, list_types, list_elements) :
@@ -150,8 +181,10 @@ def create_crisis_element (node) :
     Creates a crisis model along with models for all lists contained in it
     """
     assert node.tag == 'Crisis'
+    # Read common WCDB content
     (crisis_id, crisis_name, crisis_kind, crisis_summary) = read_wcdb_model (node)
 
+    # Read crisis specific fields
     crisis_date = None
     if not node.find('Date') == None:
         crisis_date = node.find('Date').text.strip()
@@ -160,8 +193,10 @@ def create_crisis_element (node) :
     if not node.find('Time') == None:
         crisis_time = node.find('Time').text.strip().split('+')[0]
 
+    # Create a new model
     new_model = Crisis (ID=crisis_id, name=crisis_name, date=crisis_date, time=crisis_time, kind=crisis_kind, summary=crisis_summary)
 
+    # Read all lists
     list_types = []
     list_elements = []
 
@@ -199,14 +234,18 @@ def create_org_element (node) :
     """
     assert node.tag == 'Organization'
 
+    # Read common WCDB content
     (org_id, org_name, org_kind, org_summary) = read_wcdb_model (node)
 
+    # Read org specific fields
     org_location = None
     if not node.find('Location') == None :
         org_location = node.find('Location').text.strip().encode('ascii', 'ignore')
 
+    # Create a new model
     new_model = Organization (ID=org_id, name=org_name, location=org_location, kind=org_kind, summary=org_summary)
 
+    # Read all lists
     list_types = []
     list_elements = []
 
@@ -244,14 +283,18 @@ def create_person_element (node) :
     """
     assert node.tag == 'Person'
 
+    # Read common WCDB content
     (person_id, person_name, person_kind, person_summary) = read_wcdb_model (node)
 
+    # Read person specific fields
     person_location = None
     if not node.find('Location') == None:
         person_location = node.find('Location').text.strip().encode('ascii', 'ignore')
 
+    # Create a new model
     new_model = Person (ID=person_id, name=person_name, location=person_location, kind=person_kind, summary=person_summary)
 
+    # Read all lists
     list_types = []
     list_elements = []
 
@@ -283,7 +326,9 @@ def merge_crisis_content (node) :
     """
     assert node.tag == 'Crisis'
 
+    # Read existing model, ignore existing fields, add new fields
     (crisis_id, crisis_name, crisis_kind, crisis_summary) = read_wcdb_model (node)
+
     c = Crisis.objects.get(pk=crisis_id)
     crisis_id = c.ID
     crisis_name = c.name
@@ -302,8 +347,10 @@ def merge_crisis_content (node) :
     if crisis_time == None and not node.find('Time') == None:
         crisis_time = node.find('Time').text.strip().split('+')[0]
 
+    # Create a new model with updated content
     new_model = Crisis (ID=crisis_id, name=crisis_name, date=crisis_date, time=crisis_time, kind=crisis_kind, summary=crisis_summary)
 
+    # Update all lists
     list_types = []
     list_elements = []
 
@@ -316,7 +363,7 @@ def merge_crisis_content (node) :
     if not node.find('Common') == None:
         merge_common_content (crisis_id, node.find('Common'), list_types, list_elements)
 
-    # Store relations
+    # Update relations
     r_co = r_cp = []
     if not node.find('Organizations') == None:
         for org in node.find('Organizations'):
@@ -338,6 +385,7 @@ def merge_org_content (node) :
     """
     assert node.tag == 'Organization'
 
+    # Read existing model, ignore existing fields, add new fields
     (org_id, org_name, org_kind, org_summary) = read_wcdb_model (node)
 
     o = Organization.objects.get(pk=org_id)
@@ -354,8 +402,10 @@ def merge_org_content (node) :
     if org_location == None and not node.find('Location') == None :
         org_location = node.find('Location').text.strip().encode('ascii', 'ignore')
 
+    # Create new model with updated fields
     new_model = Organization (ID=org_id, name=org_name, location=org_location, kind=org_kind, summary=org_summary)
 
+    # Update all lists
     list_types = []
     list_elements = []
 
@@ -368,7 +418,7 @@ def merge_org_content (node) :
     if not node.find('Common') == None:
         merge_common_content (org_id, node.find('Common'), list_types, list_elements)
 
-    # Store relations
+    # Update relations
     r_co = r_op = []
     if not node.find('Crises') == None:
         for crisis in node.find('Crises'):
@@ -390,6 +440,7 @@ def merge_person_content (node) :
     """
     assert node.tag == 'Person'
 
+    # Read existing model, ignore existing fields, add new fields
     (person_id, person_name, person_kind, person_summary) = read_wcdb_model (node)
 
     p = Person.objects.get(pk=person_id)
@@ -406,15 +457,17 @@ def merge_person_content (node) :
     if not node.find('Location') == None:
         person_location = node.find('Location').text.strip().encode('ascii', 'ignore')
 
+    # Create a new model with updated fields
     new_model = Person (ID=person_id, name=person_name, location=person_location, kind=person_kind, summary=person_summary)
 
+    # Update all lists
     list_types = []
     list_elements = []
 
     if not node.find('Common') == None:
         merge_common_content (person_id, node.find('Common'), list_types, list_elements)
 
-    # Store relations
+    # Update relations
     r_cp = r_op = []
     if not node.find('Crises') == None:
         for crisis in node.find('Crises'):
