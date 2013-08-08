@@ -76,6 +76,12 @@ def merge_list_content (element_id, list_content_type, node, list_types, list_el
                 li_embed = li.attrib['embed']
             if 'text' in li.attrib :
                 li_text = li.attrib['text'].encode('ascii', 'ignore')
+            if '_MAPS_' in list_type_id and (li_embed == None or 'maps.google.com' not in li_embed) :
+                continue
+            if '_VIDEOS_' in list_type_id and (li_embed == None or 'youtube' not in li_embed) :
+                continue
+            if '_FEEDS_' in list_type_id and li_embed == None :
+                continue
             unique = True
             for existing_li in existing_lis :
                 if do_string_match(existing_li.href, li_href) or \
