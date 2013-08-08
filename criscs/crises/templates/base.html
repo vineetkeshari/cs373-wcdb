@@ -62,22 +62,31 @@
 	<li class="parent"><a href="javascript:void(0)">CRISES<i></i></a>
 	    <ul>
 		    {% for elem in pages.crises %}
+		    {% if elem.id == "CRI_NORWAY" or elem.id == "CRI_UEGYPT" or elem.id == "CRI_AIDSHI" or elem.id == "CRI_CYCNAR" 	or elem.id == "CRI_USDAIP" or elem.id == "CRI_NRINFL" or elem.id == "CRI_EHAITI" or elem.id == "CRI_MALARI" or elem.id == "CRI_ZMBDMD" or elem.id == "CRI_IOTSUN"%}
             		<li> <a href="{{prod_dir}}/crises/{{ elem.id }}/"> {{ elem.name }} </a> </li>
-       		    {% endfor %}
+			{% endif %}
+       		{% endfor %}
+       		    	<li><a href="{{prod_dir}}/morecrises/"><strong>All Crises</strong></a></li>
 	    </ul>
 	</li>
 	<li class="parent"><a href="javascript:void(0)">ORGANIZATIONS<i></i></a>
 	    <ul>
                {% for elem in pages.orgs %}
+               {% if elem.id == "ORG_DIEMCO" or elem.id == "ORG_PMRLFD" or elem.id == "ORG_BAMGFN" or elem.id == "ORG_UNITED" 	or elem.id == "ORG_CEINAG" or elem.id == "ORG_LABPAR" or elem.id == "ORG_NBNETS" or elem.id == "ORG_SCOTAF" or elem.id == "ORG_GFFATM" or elem.id == "ORG_UNOCHA"%}
             	   <li> <a href="{{prod_dir}}/crises/{{ elem.id }}/"> {{ elem.name }} </a> </li>
+            	{% endif %}
        	       {% endfor %}
+       	       <li><a href="{{prod_dir}}/moreorganizations/"><strong>All Organizations</strong></a></li>
 	    </ul>
 	</li>
 	<li class="parent"><a href="javascript:void(0)">PEOPLE<i></i></a>
 	    <ul>
 		    {% for elem in pages.people %}
+		    {% if elem.id == "PER_ROBMUG" or elem.id == "PER_MNSNGH" or elem.id == "PER_BGATES" or elem.id == "PER_JANEGE" 	or elem.id == "PER_GEDAPE" or elem.id == "PER_HOSMUB" or elem.id == "PER_JENSTO" or elem.id == "PER_MRBONO" or elem.id == "PER_BROBMA" or elem.id == "PER_MICHEL"%}
            		 <li> <a href="{{prod_dir}}/crises/{{ elem.id }}/"> {{ elem.name }} </a> </li>
+           		 {% endif %}
         	    {% endfor %}
+        	    <li><a href="{{prod_dir}}/morepeople/"><strong>All People</strong></a></li>
 	    </ul>
 	</li>
 	</ul>

@@ -13,6 +13,7 @@ from django.core.servers.basehttp import FileWrapper
 from re import sub
 from subprocess import check_output, CalledProcessError, STDOUT
 from os.path import getsize
+from django.utils.safestring import mark_safe
 
 is_prod = False
 if is_prod :
@@ -206,6 +207,7 @@ def index (request) :
         context_instance=RequestContext(request),
     )
 
+# Search for string needle in string haystack
 def search_result_helper(needle, haystack) :
     if (needle is None or haystack is None) :
         return False
@@ -215,70 +217,108 @@ def search_result_helper(needle, haystack) :
 
     if needle in haystack :
         location = haystack.find(needle)
-        return haystack[location-15:location+15]
+        size = len(needle)
+        found = "<strong>" + haystack[location:location+size] + "</strong>"
+        return haystack[location-15:location] + found + haystack[location+size:location+size+15]
     else :
         return False
 
 def search_in_wcdb_element(query, wcdb) :
-    find_result = search_result_helper(query, wcdb.name)
-    if (find_result is not False) :
-        return [wcdb.name, wcdb.ID, find_result]
-
     find_result = search_result_helper(query, wcdb.summary)
     if (find_result is not False) :
         return [wcdb.name, wcdb.ID, find_result]
+
+    find_result = search_result_helper(query, wcdb.name)
+    if (find_result is not False) :
+        return [wcdb.name, wcdb.ID, find_result]   
+
+    return False
+
+def search_in_people_org(query, person) :
+    base = search_in_wcdb_element(query, person)
+    if base is not False:
+        return base
+    else :
+        #Did not find in wcdb element fields. Try to find in people/org-specific fields
+        find_result = search_result_helper(query, person.location)
+        if (find_result is not False) :
+            return [person.name, person.ID, find_result] 
+    return False
+
+def search_in_crisis(query, crisis) :
+    base = search_in_wcdb_element(query, crisis)
+    if base is not False:
+        return base
+    else :
+        #Did not find in wcdb element fields. Try to find in crisis-specific fields
+        find_result = search_result_helper(query, str(crisis.date))
+        if (find_result is not False) :
+            return [crisis.name, crisis.ID, find_result]     
+
+        find_result = search_result_helper(query, str(crisis.time))
+        if (find_result is not False) :
+            return [crisis.name, crisis.ID, find_result]     
 
     return False
 
 def search_results (request) :
     results = []
+    query = ""
     if request.method == 'GET' and ('query' in request.GET) :
         if len(request.GET['query']) > 0 :
             #Had a search query
             query = request.GET['query']
-            all_wcdb = WCDBElement.objects.all ()
-            
-            if "AND" in query:
-                ands = query.split("AND")
-                for wcdb in all_wcdb :
-                    okay = True
-                    for an_and in ands :
-                        result = search_in_wcdb_element(an_and, wcdb)
-                        if (result is False) :
-                            okay = False
-                    if okay :
-                        results.append(result)            
-                    okay = True
-            elif "OR" in query:
-                ors = query.split("OR")
-                for wcdb in all_wcdb :
-                    for an_or in ors :
-                        result = search_in_wcdb_element(an_or, wcdb)
-                        if (result is not False) :
-                            results.append(result)
-                        continue               
-            else :
-                for wcdb in all_wcdb :
-                    result = search_in_wcdb_element(query, wcdb)
+             
+            all_people = Person.objects.all ()
+            all_orgs = Organization.objects.all ()
+            all_crises = Crisis.objects.all ()
+            #Search people
+            for person in all_people :
+                query_result = []
+                for word in query.split():
+                    result = search_in_people_org(word, person)
                     if (result is not False) :
-                        results.append(result)
+                        query_result.append(result[2])
+                if query_result is not None and len(query_result) > 0:
+                    results.append([person.ID, query_result, person.name])
+            #Search orgs
+            for org in all_orgs :
+                query_result = []
+                for word in query.split():
+                    result = search_in_people_org(word, org)
+                    if (result is not False) :
+                        query_result.append(result[2])
+                if query_result is not None and len(query_result) > 0:
+                    results.append([org.ID, query_result, org.name])
+            #Search crises
+            for crisis in all_crises :
+                query_result = []
+                for word in query.split():
+                    result = search_in_crisis(word, crisis)
+                    if (result is not False) :
+                        query_result.append(result[2])
+                if query_result is not None and len(query_result) > 0:
+                    results.append([crisis.ID, query_result, crisis.name])
+            
 
-                    
-        else :
-            #Query was blank
-            results.append("Please enter a query")
+    #Sort results on number of hits
+    results.sort(key = lambda s: len(s[1]))
+    results.reverse()
+
+    if query == "":
+        query = "Please enter a query"
+
 
     pages = get_all_elems ()
     return render_to_response(
         'search_results.html',
         {'query': query, 'results': results, 'pages': pages, 'is_prod':is_prod, 'prod_dir':prod_dir},
         context_instance=RequestContext(request),
-    )  
-
+    )    
 
 def base_view (request, view_id) :
-    view_type = view_id[:3]
-    try :
+        view_type = view_id[:3]
+#    try :
         if view_type == 'CRI' :
             return crisis_view (view_id)
         elif view_type == 'ORG' :
@@ -287,8 +327,8 @@ def base_view (request, view_id) :
             return person_view (view_id)
         else :
             return HttpResponseNotFound('<h5>Page not found</h5>')
-    except Exception, e :
-        return HttpResponseNotFound('<h5>Page not found</h5>' + '<p>' + e.args[0] + '</p>')
+#    except Exception, e :
+#        return HttpResponseNotFound('<h5>Page not found</h5>' + '<p>' + e + '</p>')
 
 def wcdb_common_view (view_id, page_type) :
     b = WCDBElement.objects.get (pk=view_id)
@@ -656,3 +696,40 @@ def person_view(view_id):
     final_html = wrap_html (html_title, html_content)
 
     return HttpResponse (final_html)
+
+def mcrises (request) :
+    members = ['Ambareesha Nittala', 'Brandon Fairchild', 'Chris Coney', 'Roberto Weller', 'Rogelio Sanchez', 'Vineet Keshari']
+
+    pages = get_all_elems ()
+
+    return render_to_response(
+        'morecrises.html',
+        {'members': members, 'pages': pages, 'is_prod':is_prod, 'prod_dir':prod_dir},
+        context_instance=RequestContext(request),
+    )
+
+def morganizations (request) :
+    members = ['Ambareesha Nittala', 'Brandon Fairchild', 'Chris Coney', 'Roberto Weller', 'Rogelio Sanchez', 'Vineet Keshari']
+
+    pages = get_all_elems ()
+
+    return render_to_response(
+        'moreorganizations.html',
+        {'members': members, 'pages': pages, 'is_prod':is_prod, 'prod_dir':prod_dir},
+        context_instance=RequestContext(request),
+    )
+
+def mpeople (request) :
+    members = ['Ambareesha Nittala', 'Brandon Fairchild', 'Chris Coney', 'Roberto Weller', 'Rogelio Sanchez', 'Vineet Keshari']
+
+    pages = get_all_elems ()
+
+    return render_to_response(
+        'morepeople.html',
+        {'members': members, 'pages': pages, 'is_prod':is_prod, 'prod_dir':prod_dir},
+        context_instance=RequestContext(request),
+    )
+
+
+
+
