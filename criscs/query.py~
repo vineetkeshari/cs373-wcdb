@@ -1,7 +1,7 @@
 import sqlite3
 
 
-conn = sqlite3.connect('default') # Open connection to the database
+conn = sqlite3.connect('default.db') # Open connection to the database
 c = conn.cursor() 
 
 # All queries go here. Copy paste from queries.sql in the root. Must be raw strings. Add ALL queries
