@@ -7,10 +7,11 @@
     <h2><span>Search Results for <b>{{query}}</b>:</span></h2>
     <ul>
     {% for search_result in results %}
-       <li><a href="http://127.0.0.1:8000/crises/{{ search_result.0}}" >{{ search_result.2 }}</a></li>
+       <li><strong><a href="http://127.0.0.1:8000/crises/{{ search_result.0}}" >{{ search_result.2 }}</a></strong></li>
        	{% for context in search_result.1 %}
        		{{ context|safe }}<br>
        	{% endfor %}
+        <br />
     {% endfor %}
     </ul>
 

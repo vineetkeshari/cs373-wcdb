@@ -1,5 +1,5 @@
 from xml.etree import ElementTree as ET
-from ModelFactory import create_crisis_element, create_org_element, create_person_element, merge_element_content
+from ModelFactory import create_crisis_element, create_org_element, create_person_element, merge_crisis_content, merge_org_content, merge_person_content
 from crises.models import WCDBElement
 
 def print_rec_xml (node, depth) :
@@ -86,27 +86,28 @@ def parse_models (root, all_models, is_merge) :
     for child in root :
         assert child.tag in ['Crisis', 'Person', 'Organization']
         r_co = r_cp = r_op = []
+        text = None
         if child.tag == 'Crisis' :
             if child.attrib['ID'] in existingIDs :
-                (list_types, list_elements, r_co, r_cp, r_op, text) = merge_element_content (child)
                 print child.attrib['ID'] + ' exists!'
+                (crisis_id, new_model, list_types, list_elements, r_co, r_cp) = merge_crisis_content (child)
             else :
                 (crisis_id, new_model, list_types, list_elements, r_co, r_cp, text) = create_crisis_element (child)
-                all_models['crises'][crisis_id] = new_model
+            all_models['crises'][crisis_id] = new_model
         elif child.tag == 'Person' :
             if child.attrib['ID'] in existingIDs :
-                (list_types, list_elements, r_co, r_cp, r_op, text) = merge_element_content (child)
                 print child.attrib['ID'] + ' exists!'
+                (person_id, new_model, list_types, list_elements, r_cp, r_op) = merge_person_content (child)
             else :
                 (person_id, new_model, list_types, list_elements, r_cp, r_op, text) = create_person_element (child)
-                all_models['people'][person_id] = new_model
+            all_models['people'][person_id] = new_model
         elif child.tag == 'Organization' :
             if child.attrib['ID'] in existingIDs :
-                (list_types, list_elements, r_co, r_cp, r_op, text) = merge_element_content (child)
                 print child.attrib['ID'] + ' exists!'
+                (org_id, new_model, list_types, list_elements, r_co, r_op) = merge_org_content (child)
             else :
                 (org_id, new_model, list_types, list_elements, r_co, r_op, text) = create_org_element (child)
-                all_models['orgs'][org_id] = new_model
+            all_models['orgs'][org_id] = new_model
         else :
             # should never reach here
             pass

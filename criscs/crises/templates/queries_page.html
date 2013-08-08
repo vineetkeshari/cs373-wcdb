@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block content %}
+<div id="page">
+	<div class="hero-unit">
+		<div class="hero-unit center no-border no-padding-bottom">
+			<div class="container"> 
+			<!--note the home class on the h1 tag-->
+			<h1>Queries</h1>
+			</div>
+            <div align="left" margin="30">
+
+				<ul>
+	               {% for key,value in queries.items %}
+	            	<li> <a href="{{prod_dir}}/queries/{{ key }}/"> {{ value }} </a> </li>
+	       	       {% endfor %}
+	    		</ul>
+
+        	</div>
+		</div>
+		<!--close hero-unit--> 
+		<!-- end row-fluid-->
+</ul>
+</div>
+<!-- slide to top close--> 
+</div>
+
+
+{% endblock %}
