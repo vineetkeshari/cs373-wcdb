@@ -15,14 +15,14 @@
                             <li>
                                  <b>Location:</b> {{ location }}<br/>
                             </li>
-    <h3><strong>Crises</strong></h3>
+    <h3>Crises</h3>
      <ul>
      	{% for elem in crises %}
      	<li>	<a href="{{prod_dir}}/crises/{{elem.0}}">{{elem.1}}</a></li>
      	{% endfor %}
      </ul>
 
-	<h3><strong>Persons</strong></h3>
+	<h3>Persons</h3>
      <ul>
      	{% for elem in person %}
      	<li>	<a href="{{prod_dir}}/crises/{{elem.0}}">{{elem.1}}</a></li>
@@ -47,14 +47,14 @@
     <div id="portafolio_tem">
         <div class="span5 right_box">
 
-    <h3><strong>Summary:</strong></h3> {{nks.summary.0}}<br />
-    <h3><strong>History</strong></h3>
+    <h3> Summary: </h3> {{nks.summary.0}}<br />
+    <h3>History</h3>
     <ul>
         {% for elem in details.history%}
          <li> {{elem}} </li>
          {% endfor %}
     </ul>
-    <h3><strong>Contact Info</strong></h3>
+    <h3>Contact Info</h3>
     <ul>
         {% for elem in details.contact%}
 
@@ -69,7 +69,7 @@
     </ul>
 
 
-    <h3><strong>Feeds</strong></h3>
+    <h3>Feeds</h3>
     <ul>
       {% for elem in lists.FEEDS %}
 	{% if elem.0 == None or elem.0 == 'None' or elem.0 == ''%}
@@ -81,7 +81,7 @@
         {% endfor %}
     </ul>
 
-    <h3><strong>External Links</strong></h3>
+    <h3>External Links</h3>
     <ul>
       {% for elem in lists.EXTERNALLINKS %}
 	{% if elem.0 == None or elem.0 == 'None' or elem.0 == ''%}
@@ -93,7 +93,7 @@
         {% endfor %}
     </ul>
 
-        <h3><strong>Citations</strong></h3>
+        <h3>Citations</h3>
     <ul>
       {% for elem in lists.CITATIONS %}
 	{% if elem.0 == None or elem.0 == 'None' or elem.0 == ''%}
@@ -106,7 +106,7 @@
     </ul>
   </div>
 	<div class="span7 left_box">
-    		<h3><strong>Media</strong></h3>
+    		<h3>Media</h3>
     		<div class "gallery lightbox row-fluid">
       	   	  	<ul class="gallery lightbox two_col clearfix">
     			    {% for elem in lists.IMAGES %}

@@ -60,24 +60,18 @@
             <h3><strong>External Links</strong></h3>
             <ul>
             	{% for elem in lists.EXTERNALLINKS %}
-		{% if elem.0 == None or elem.0 == 'None' or elem.0 == ''%}
-		{% else %}
                 <li>
                     <a href={{elem.0}}>{{elem.1}}</a>
                 </li>
-		{% endif %}
                 {% endfor %}
             </ul>
 
             <h3><strong>Citations</strong></h3>
             <ul>
             	{% for elem in lists.CITATIONS %}
-		{% if elem.0 == None or elem.0 == 'None' or elem.0 == ''%}
-		{% else %}
                 <li>
                     <a href={{elem.0}}>{{elem.1}}</a>
                 </li>
-		{% endif %}
                 {% endfor %}
             </ul>
             {% if lists.VIDEOS.0 %}
@@ -100,7 +94,7 @@
                 <div class "gallery lightbox row-fluid">
                     <ul class="gallery lightbox two_col clearfix">
                         {% for elem in lists.IMAGES %}
-                            <li class="letter-press vp"> <a class="hover" data-fancybox-group="portfolio"> <img src= {{ elem.0 }} alt="" /></a></li>
+                            <li class="letter-press vp"> <a class="hover" data-fancybox-group="portfolio"> <img src={{ elem.0 }} alt="" /></a></li>
                         {% endfor %}
                     </ul>
                 </div>

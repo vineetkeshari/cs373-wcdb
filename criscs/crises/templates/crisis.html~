@@ -57,7 +57,7 @@
     <div id="portafolio_tem">
         <div class="span5 right_box">
 
-    <h3> <strong>Summary:</strong></h3> {{nks.summary.0}}<br />
+    <h3> Summary: </h3> {{nks.summary.0}}<br />
     <h3><strong>Human Impact</strong></h3>
     <ul>
         {% for elem in details.HUMANIMPACT %}
@@ -100,7 +100,7 @@
         {% endfor %}
     </ul>
 
-    <h3><strong>Feeds</strong></h3>
+    <h3>Feeds</h3>
     <ul>
         {% for elem in lists.FEEDS %}
 	
@@ -113,7 +113,7 @@
         {% endfor %}
     </ul>
 
-    <h3><strong>External Links</strong></h3>
+    <h3>External Links</h3>
     <ul>
         {% for elem in lists.EXTERNALLINKS %}
 	{% if elem.0 == None or elem.0 == 'None' or elem.0 == ''%}
@@ -125,7 +125,7 @@
         {% endfor %}
     </ul>
 
-        <h3><strong>Citations</strong></h3>
+        <h3>Citations</h3>
     <ul>
         {% for elem in lists.CITATIONS %}
 	{% if elem.0 == None or elem.0 == 'None' or elem.0 == ''%}
@@ -138,7 +138,7 @@
     </ul>
     </div>
 	<div class="span7 left_box">
-    		<h3><strong>Media</strong></h3>
+    		<h3>Media</h3>
     		<div class "gallery lightbox row-fluid">
       	   	  	<ul class="gallery lightbox two_col clearfix">
     			    {% for elem in lists.IMAGES %}
