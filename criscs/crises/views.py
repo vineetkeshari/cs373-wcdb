@@ -207,6 +207,7 @@ def index (request) :
         context_instance=RequestContext(request),
     )
 
+# Search for string needle in string haystack
 def search_result_helper(needle, haystack) :
     if (needle is None or haystack is None) :
         return False
@@ -223,40 +224,84 @@ def search_result_helper(needle, haystack) :
         return False
 
 def search_in_wcdb_element(query, wcdb) :
-    find_result = search_result_helper(query, wcdb.name)
-    if (find_result is not False) :
-        return [wcdb.name, wcdb.ID, find_result]
-
     find_result = search_result_helper(query, wcdb.summary)
     if (find_result is not False) :
         return [wcdb.name, wcdb.ID, find_result]
+
+    find_result = search_result_helper(query, wcdb.name)
+    if (find_result is not False) :
+        return [wcdb.name, wcdb.ID, find_result]   
+
+    return False
+
+def search_in_people_org(query, person) :
+    if search_in_wcdb_element(query, person) is False:
+        #Did not find in wcdb element fields. Try to find in people/org-specific fields
+        find_result = search_result_helper(query, person.location)
+        if (find_result is not False) :
+            return [person.name, person.ID, find_result] 
+    return False  
+
+def search_in_crisis(query, crisis) :
+    if search_in_wcdb_element(query, crisis) is False:
+        #Did not find in wcdb element fields. Try to find in crisis-specific fields
+        find_result = search_result_helper(query, str(crisis.date))
+        if (find_result is not False) :
+            return [crisis.name, crisis.ID, find_result]     
+
+        find_result = search_result_helper(query, str(crisis.time))
+        if (find_result is not False) :
+            return [crisis.name, crisis.ID, find_result]     
 
     return False
 
 def search_results (request) :
     results = []
+    query = ""
     if request.method == 'GET' and ('query' in request.GET) :
         if len(request.GET['query']) > 0 :
             #Had a search query
             query = request.GET['query']
              
-            all_wcdb = WCDBElement.objects.all ()
-            for wcdb in all_wcdb :
+            all_people = Person.objects.all ()
+            all_orgs = Organization.objects.all ()
+            all_crises = Crisis.objects.all ()
+            #Search people
+            for person in all_people :
                 query_result = []
                 for word in query.split():
-                    result = search_in_wcdb_element(word, wcdb)
+                    result = search_in_people_org(word, person)
                     if (result is not False) :
                         query_result.append(result[2])
                 if query_result is not None and len(query_result) > 0:
-                    results.append([wcdb.ID, query_result, wcdb.name])
-                    
-        else :
-            #Query was blank
-            results.append("Please enter a query")
+                    results.append([person.ID, query_result, person.name])
+            #Search orgs
+            for org in all_orgs :
+                query_result = []
+                for word in query.split():
+                    result = search_in_people_org(word, org)
+                    if (result is not False) :
+                        query_result.append(result[2])
+                if query_result is not None and len(query_result) > 0:
+                    results.append([org.ID, query_result, org.name])
+            #Search crises
+            for crisis in all_crises :
+                query_result = []
+                for word in query.split():
+                    result = search_in_crisis(word, crisis)
+                    if (result is not False) :
+                        query_result.append(result[2])
+                if query_result is not None and len(query_result) > 0:
+                    results.append([crisis.ID, query_result, crisis.name])
+            
 
     #Sort results on number of hits
     results.sort(key = lambda s: len(s[1]))
     results.reverse()
+
+    if query == "":
+        query = "Please enter a query"
+
 
     pages = get_all_elems ()
     return render_to_response(
