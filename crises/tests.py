@@ -23,10 +23,10 @@ from django.test import TestCase
 
 class TestViews(TestCase) :
 	@classmethod
-	def setUpClass(cls) :
-		client = Client()
-		with open('WCDB_tmp.xml') as fp:
-			response = client.post('/import/', {'password': 'baddatamining', 'docfile':fp})
+	# def setUpClass(cls) :
+	# 	client = Client()
+	# 	with open('WCDB_tmp.xml') as fp:
+	# 		response = client.post('/import/', {'password': 'baddatamining', 'docfile':fp})
 
 	def setUp(self):
 		self.client = Client()
