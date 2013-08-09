@@ -11,23 +11,23 @@ urlpatterns = patterns('',
     url(r'^$', 'crises.views.index'),
     url(r'^crises/$', 'crises.views.index'),
     url(r'^crises/(?P<view_id>\w{10})/$', 'crises.views.base_view'),
-    # url(r'^criscs/', include('criscs.foo.urls')),
-
+    url(r'^queries/$', 'crises.views.list_queries'),
+    url(r'^queries/(?P<q_id>\w{1})/$', 'crises.views.query_view_wrapper'),
     url(r'^import/$', 'crises.views.import_file', name='import_file'),
+    url(r'^merge_import/$', 'crises.views.merge_import_file', name='merge_import_file'),
+    url(r'^search_results.html/$', 'crises.views.search_results', name='search_results'),
     url(r'^export/$', 'crises.views.export_file', name='export_file'),
     url(r'^unittests/$', 'crises.views.run_tests', name='run_tests'),
 
     url(r'^debug/$', 'crises.views.test_view', name='test_view'),
 
+
+    url(r'^morecrises/$', 'crises.views.mcrises'),
+    url(r'^moreorganizations/$', 'crises.views.morganizations'),
+    url(r'^morepeople/$', 'crises.views.mpeople'),
     # Uncomment the admin/doc line below to enable admin documentation:
     # url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
 
     # Uncomment the next line to enable the admin:
     url(r'^admin/', include(admin.site.urls)),
-    url(r'^' + prod_dir.encode('string-escape') + r'$', 'crises.views.index'),
-    url(r'^' + prod_dir.encode('string-escape') + r'crises/$', 'crises.views.index'),
-    url(r'^' + prod_dir.encode('string-escape') + r'crises/(?P<view_id>\w{10})/$', 'crises.views.base_view'),
-    url(r'^' + prod_dir.encode('string-escape') + r'import/$', 'crises.views.import_file', name='import_file'),
-    url(r'^' + prod_dir.encode('string-escape') + r'export/$', 'crises.views.export_file', name='export_file'),
-    url(r'^' + prod_dir.encode('string-escape') + r'unittests/$', 'crises.views.run_tests', name='run_tests'),
 )
