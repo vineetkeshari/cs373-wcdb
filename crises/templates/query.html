@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div id="contact">
+        <div class="row map">
+            <div class="container">
+                <div class="span5 box_wrapp">
+                    <div class="box_cont">
+                        <ul class="street">
+                            
+    <h2>Question {{q_id}}</h2>
+     <ul>
+     	<li> {{question}} </li>
+     </ul>
+     <br />
+     <strong><a href="/queries/"> Back to Query List</a></strong>
+
+                        </ul>
+                    </div>
+                </div>
+            </div>
+<iframe width="100%" height="500" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/?ie=UTF8&amp;ll=19.973349,-87.539062&amp;spn=160.950618,33.046875&amp;t=m&amp;z=2.5&amp;output=embed"></iframe>
+        </div>
+    </div>
+
+	
+<div class ="box_cont">
+<ul class = "street">
+    <h3>SQL Query</h3>
+     <ul>
+        <li>{{query}}</li>
+     </ul>
+
+
+    <h3>Results</h3>
+    <table border="1">
+        <tr>
+        {% for col_names in results.0 %}
+        <th>
+                {{col_names}}
+        </th>
+ 
+        {% endfor %}
+        </tr>
+        {% for result in results.1 %}
+        <tr>
+            {% for col in result %}
+            <td>
+              {{col}}
+          </td>
+          {% endfor %}
+      </tr>
+      {% endfor %}
+  </table>
+
+</ul>
+
+</div>
+
+
+{% endblock %}
