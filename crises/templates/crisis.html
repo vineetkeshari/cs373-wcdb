@@ -14,7 +14,7 @@
                                 <b>Time: </b>{{time}}<br />  
                             </li>
                             <li>
-                                <h5><strong>Locations:</strong></h5>
+                                <h3><strong>Locations:</strong></h3>
                                 <ul>
                                     {% for elem in details.LOCATIONS %}
                                     <li>
@@ -24,14 +24,14 @@
                                 </ul>
                             </li>
                             <li>
-                                <h5><strong>Organizations</strong></h5>
+                                <h3><strong>Organizations</strong></h3>
                                  <ul>
                                     {% for elem in orgs %}
                                     <li>    <a href="{{prod_dir}}/crises/{{elem.0}}">{{elem.1}}</a></li>
                                     {% endfor %}
                                  </ul>
                             <li>
-                                <h5><strong>Persons</strong></h5>
+                                <h3><strong>Persons</strong></h3>
                                  <ul>
                                     {% for elem in person %}
                                     <li>    <a href="{{prod_dir}}/crises/{{elem.0}}">{{elem.1}}</a></li>
@@ -43,108 +43,126 @@
                     </div>
                 </div>
             </div>
-                {% if lists.MAPS %}
-                {% for elem in lists.MAPS %}
-<iframe width="100%" height="500" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src={{elem.0}}></iframe>
- 
-		{% endfor %}
+                {% if lists.MAPS and lists.MAPS.0.0 and lists.MAPS.0.0 != 'None' %}
+<iframe width="100%" height="750" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src={{lists.MAPS.0.0}}></iframe>
                 {% else %}
-<iframe width="100%" height="500" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/?ie=UTF8&amp;ll=19.973349,-87.539062&amp;spn=160.950618,33.046875&amp;t=m&amp;z=2.5&amp;output=embed"></iframe>
-                   
+<iframe width="100%" height="750" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/?ie=UTF8&amp;ll=19.973349,-87.539062&amp;spn=160.950618,33.046875&amp;t=m&amp;z=2.5&amp;output=embed"></iframe>
        		{% endif %}
         </div>
     </div>
     <div id="portafolio_tem">
-	<div class="span7 left_box">
-    		<h3>Media</h3>
-    		<div class "gallery lightbox row-fluid">
-      	   	  	<ul class="gallery lightbox two_col clearfix">
+        <div class="span5 right_box">
+
+    <h3> <strong>Summary:</strong></h3> {{nks.summary.0}}<br />
+    <h3><strong>Human Impact</strong></h3>
+    <ul>
+        {% for elem in details.HUMANIMPACT %}
+        <li>
+            {{elem.1}}
+        </li>
+        {% endfor %}
+    </ul>
+    <h3><strong>Economic Impact:</strong></h3>
+    <ul>
+        {% for elem in details.ECONOMICIMPACT %}
+        <li>
+    {% if elem.0 == 'None' or elem.0 == '' or elem.0 == None %}
+       {{elem.1}}
+        {% else %}
+           <a href="{{elem.0}}"> {{elem.1}} </a>
+        {% endif %}     
+        
+        </li>
+        {% endfor %}
+    </ul>
+    <h3><strong>Ways to Help:</strong></h3>
+    <ul>
+        {% for elem in details.WAYSTOHELP %}
+        <li>
+           {% if elem.0 == 'None' or elem.0 == '' or elem.0 == None %}
+           {{elem.1}}
+        {% else %}
+           <a href="{{elem.0}}"> {{elem.1}} </a>
+        {% endif %}     
+        </li>
+        {% endfor %}
+    </ul>
+    <h3><strong>Resources Needed:</strong></h3>
+    <ul>
+        {% for elem in details.RESOURCESNEEDED %}
+        <li>
+            {{elem.1}}
+        </li>
+        {% endfor %}
+    </ul>
+
+    <h3><strong>Feeds</strong></h3>
+    <ul>
+        {% for elem in lists.FEEDS %}
+	
+           {% if elem.0 == None or elem.0 == 'None' or elem.0 == ''%}
+		{% else %}
+		<li>        
+	   	<a href="{{elem.0}}">Feed</a>
+       </li>
+	{% endif %}
+        {% endfor %}
+    </ul>
+
+    <h3><strong>External Links</strong></h3>
+    <ul>
+        {% for elem in lists.EXTERNALLINKS %}
+	{% if elem.0 == None or elem.0 == 'None' or elem.0 == ''%}
+	{% else %}
+        <li>
+            <a href={{elem.0}}>{{elem.1}}</a>
+        </li>
+	{% endif %}
+        {% endfor %}
+    </ul>
+
+        <h3><strong>Citations</strong></h3>
+    <ul>
+        {% for elem in lists.CITATIONS %}
+	{% if elem.0 == None or elem.0 == 'None' or elem.0 == ''%}
+		{% else %}
+        <li>
+            <a href={{elem.0}}>{{elem.1}}</a>
+        </li>
+	{% endif %}
+        {% endfor %}
+    </ul>
+    </div>
+	<div class="span8 left_box">
+    		<h3><strong>Media</strong></h3>
+        {% if lists.VIDEOS.0 %}
+        <div id="myCarousel" class="carousel">
+                    <div class="carousel-inner">
+                        <div class="item active"> <a class="hover center" data-fancybox-group="portfolio"> <iframe width="80%" height="315" src={{lists.VIDEOS.0.0}} frameborder="0" allowfullscreen></iframe>
+			</a></div>
+                        {% for elem in lists.VIDEOS %}
+			{% if elem == lists.VIDEOS.0 %}
+			{% else %}
+                        {% if elem.0 == 'None' or elem.0 == '' or elem.0 == None %}
+       			{{elem.1}}
+			{% else %}
+                            <div class="item"> <a class="hover center" data-fancybox-group="portfolio"> <iframe width="80%" height="315" src={{elem.0}} frameborder="0" allowfullscreen></iframe></a></div>
+                        {% endif %}
+		        {% endif %}
+                        {% endfor %}
+                    </div>
+                <a class="carousel-control left" href="#myCarousel" data-slide="prev">‹</a>  
+                <a class="carousel-control right" href="#myCarousel" data-slide="next">›</a> 
+        </div>
+        {% endif %}
+    		<div class "gallery lightbox col-fluid">
+      	   	  	<ul class="gallery lightbox three_col clearfix">
     			    {% for elem in lists.IMAGES %}
        		         	<li class="letter-press vp"> <a class="hover" data-fancybox-group="portfolio"> <img src={{ elem.0 }} alt="" /></a>
 				</li>
        			    {% endfor %}
            	 	</ul>
    	 	</div>
-    <div class="carousel">
-            <ul>
-    		    {% for elem in lists.VIDEOS %}
-                	<li class="letter-press vp"> <a class="hover" data-fancybox-group="portfolio"> <iframe width="100%" height="315" src={{elem.0}} frameborder="0" allowfullscreen></iframe></a></li>
-
-       		    {% endfor %}
-            </ul>
-    </div>
-	</div>
-	<div class="span5 right_box">
-
-    <b> Summary: </b> {{nks.summary.0}}<br />
-    <h5><strong>Human Impact</strong></h5>
-    <ul>
-    	{% for elem in details.HUMANIMPACT %}
-        <li>
-            {{elem.1}}
-        </li>
-        {% endfor %}
-    </ul>
-    <h5><strong>Economic Impact:</strong></h5>
-    <ul>
-    	{% for elem in details.ECONOMICIMPACT %}
-        <li>
-	{% if elem.0 == 'None' or elem.0 == '' or elem.0 == None %}
-	   {{elem.1}}
-        {% else %}
-           <a href="{{elem.0}}"> {{elem.1}} </a>
-        {% endif %}		
-        
-        </li>
-        {% endfor %}
-    </ul>
-    <h5><strong>Ways to Help:</strong></h5>
-    <ul>
-    	{% for elem in details.WAYSTOHELP %}
-        <li>
-	       {% if elem.0 == 'None' or elem.0 == '' %}
-	       {{elem.1}}
-        {% else %}
-           <a href="{{elem.0}}"> {{elem.1}} </a>
-        {% endif %}		
-        </li>
-        {% endfor %}
-    </ul>
-    <h5><strong>Resources Needed:</strong></h5>
-    <ul>
-    	{% for elem in details.RESOURCESNEEDED %}
-        <li>
-            {{elem.1}}
-        </li>
-        {% endfor %}
-    </ul>
-
-    <h3>Feeds</h3>
-    <ul>
-    	{% for elem in lists.FEEDS %}
-            <li>
-            <a href={{elem.0}}>Feed</a>
-        </li>
-        {% endfor %}
-    </ul>
-
-    <h3>External Links</h3>
-    <ul>
-    	{% for elem in lists.EXTERNALLINKS %}
-        <li>
-            <a href={{elem.0}}>{{elem.1}}</a>
-        </li>
-        {% endfor %}
-    </ul>
-
-        <h3>Citations</h3>
-    <ul>
-    	{% for elem in lists.CITATIONS %}
-        <li>
-            <a href={{elem.0}}>{{elem.1}}</a>
-        </li>
-        {% endfor %}
-    </ul>
 	</div>
     </div>
 

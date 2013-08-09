@@ -1,5 +1,6 @@
 from xml.etree import ElementTree as ET
-from ModelFactory import create_crisis_element, create_org_element, create_person_element
+from ModelFactory import create_crisis_element, create_org_element, create_person_element, merge_crisis_content, merge_org_content, merge_person_content
+from crises.models import WCDBElement
 
 def print_rec_xml (node, depth) :
     """
@@ -69,34 +70,56 @@ def initialize_pages () :
 
     return all_models
 
-def parse_models (root, all_models) :
+def parse_models (root, all_models, is_merge) :
     """
     Parse all models under root (<WorldCrises>) and use ModelFactory to build models
     """
     assert root.tag == 'WorldCrises'
+    
+    existingIDs = []
+    # Read all existing element IDs if merging
+    if is_merge :
+        existingElems = WCDBElement.objects.all()
+        for elem in existingElems :
+            existingIDs.append(elem.ID)
+
     for child in root :
         assert child.tag in ['Crisis', 'Person', 'Organization']
         r_co = r_cp = r_op = []
+        text = None
         if child.tag == 'Crisis' :
-            (crisis_id, new_model, list_types, list_elements, r_co, r_cp, text) = create_crisis_element (child)
+            if child.attrib['ID'] in existingIDs :
+                print child.attrib['ID'] + ' exists!'
+                (crisis_id, new_model, list_types, list_elements, r_co, r_cp) = merge_crisis_content (child)
+            else :
+                (crisis_id, new_model, list_types, list_elements, r_co, r_cp, text) = create_crisis_element (child)
             all_models['crises'][crisis_id] = new_model
         elif child.tag == 'Person' :
-            (person_id, new_model, list_types, list_elements, r_cp, r_op, text) = create_person_element (child)
+            if child.attrib['ID'] in existingIDs :
+                print child.attrib['ID'] + ' exists!'
+                (person_id, new_model, list_types, list_elements, r_cp, r_op) = merge_person_content (child)
+            else :
+                (person_id, new_model, list_types, list_elements, r_cp, r_op, text) = create_person_element (child)
             all_models['people'][person_id] = new_model
         elif child.tag == 'Organization' :
-            (org_id, new_model, list_types, list_elements, r_co, r_op, text) = create_org_element (child)
+            if child.attrib['ID'] in existingIDs :
+                print child.attrib['ID'] + ' exists!'
+                (org_id, new_model, list_types, list_elements, r_co, r_op) = merge_org_content (child)
+            else :
+                (org_id, new_model, list_types, list_elements, r_co, r_op, text) = create_org_element (child)
             all_models['orgs'][org_id] = new_model
         else :
             # should never reach here
             pass
         all_models['list_types'] += list_types
         all_models['list_elements'] += list_elements
-        all_models['texts'].append(text)
+        if not text == None :
+            all_models['texts'].append(text)
         all_models['rel_crisis_org'] += r_co
         all_models['rel_crisis_person'] += r_cp
         all_models['rel_org_person'] += r_op
 
-def parse_xml (root) :
+def parse_xml (root, is_merge) :
     """
     Parses a validated XML file
 
@@ -104,15 +127,15 @@ def parse_xml (root) :
     """
     assert root.tag == 'WorldCrises'
     all_models = initialize_pages ()
-    parse_models (root, all_models)
+    parse_models (root, all_models, is_merge)
     return all_models
 
-# Call this method
-def process_xml (xml_file) :
+# Call this method for import
+def process_xml (xml_file, is_merge) :
     """
     Processes an XML file by reading, validating and creating models
     """
     root = read_and_validate_xml (xml_file)
     # print_rec_xml (root, 0)
-    return parse_xml (root)
+    return parse_xml (root, is_merge)
 

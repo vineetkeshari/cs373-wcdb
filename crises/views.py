@@ -4,6 +4,7 @@ from crises.models import Crisis, Person, Organization, WCDBElement, ListType, L
 from crises.forms import DocumentForm
 
 from XMLUtility import process_xml
+from query import get_all_queries, query_view
 
 from django.shortcuts import render_to_response
 from django.core.urlresolvers import reverse
@@ -13,6 +14,7 @@ from django.core.servers.basehttp import FileWrapper
 from re import sub
 from subprocess import check_output, CalledProcessError, STDOUT
 from os.path import getsize
+from django.utils.safestring import mark_safe
 
 is_prod = False
 if is_prod :
@@ -85,7 +87,7 @@ def import_file (request) :
                 f.close()
 
                 # Validate xml and create models
-                all_data = process_xml (uploaded_file)
+                all_data = process_xml (uploaded_file, False)
                
                 # Save the data to DB 
                 save_data (all_data)
@@ -111,8 +113,53 @@ def import_file (request) :
         context_instance=RequestContext(request),
     )
 
-def export_file (request) :
+def merge_import_file (request) :
     pages = get_all_elems ()
+    # Handle file upload
+    if request.method == 'POST' :
+        form = DocumentForm(request.POST, request.FILES)
+        if form.is_valid () :
+            try :
+                # Check password
+                password = request.POST['password']
+                if not password == 'baddatamining' :
+                    raise Exception('Incorrect Password!')
+
+                # Store the file in the database
+                uploaded_file = 'WCDB_merge_tmp.xml'
+                f = open (uploaded_file, 'w')
+                for chunk in request.FILES['docfile'].chunks():
+                    f.write(chunk)
+                f.close()
+
+                # Validate xml and create models
+                all_data = process_xml (uploaded_file, True)
+               
+                # Save the data to DB 
+                save_data (all_data)
+
+                error = False
+                error_string = ''
+            except Exception, e :
+                error = True
+                error_string = str(e)
+            # Redirect after POST
+            return render_to_response(
+                'upload_success_fail.html',
+                {'error': error, 'error_string': error_string, 'pages': pages, 'is_prod':is_prod, 'prod_dir':prod_dir,},
+                context_instance=RequestContext(request),
+            )
+    else :
+        form = DocumentForm() # An empty, unbound form
+
+    # Render the form
+    return render_to_response(
+        'merge_import.html',
+        {'form': form, 'pages': pages, 'is_prod':is_prod, 'prod_dir':prod_dir},
+        context_instance=RequestContext(request),
+    )
+
+def export_file (request) :
     content = sub ('&', '&amp;', generate_xml ())
 
     filename = 'WCDB_CrisCS_export.xml'                                
@@ -152,9 +199,123 @@ def wrap_html (html_title, html_content) :
 
 def index (request) :
     members = ['Ambareesha Nittala', 'Brandon Fairchild', 'Chris Coney', 'Roberto Weller', 'Rogelio Sanchez', 'Vineet Keshari']
+
     pages = get_all_elems ()
 
-    return HttpResponse ( render ('index.html', {'members' : members, 'pages' : pages, }))
+    return render_to_response(
+        'index.html',
+        {'members': members, 'pages': pages, 'is_prod':is_prod, 'prod_dir':prod_dir},
+        context_instance=RequestContext(request),
+    )
+
+# Search for string needle in string haystack
+def search_result_helper(needle, haystack) :
+    if (needle is None or haystack is None) :
+        return False
+    
+    needle = needle.lower().strip()
+    haystack = haystack.lower().strip()
+
+    if needle in haystack :
+        location = haystack.find(needle)
+        size = len(needle)
+        found = "<strong>" + haystack[location:location+size] + "</strong>"
+        return haystack[location-40:location] + found + haystack[location+size:location+size+40]
+    else :
+        return False
+
+def search_in_wcdb_element(query, wcdb) :
+    find_result = search_result_helper(query, wcdb.summary)
+    if (find_result is not False) :
+        return [wcdb.name, wcdb.ID, find_result]
+
+    find_result = search_result_helper(query, wcdb.name)
+    if (find_result is not False) :
+        return [wcdb.name, wcdb.ID, find_result]   
+
+    return False
+
+def search_in_people_org(query, person) :
+    base = search_in_wcdb_element(query, person)
+    if base is not False:
+        return base
+    else :
+        #Did not find in wcdb element fields. Try to find in people/org-specific fields
+        find_result = search_result_helper(query, person.location)
+        if (find_result is not False) :
+            return [person.name, person.ID, find_result] 
+    return False
+
+def search_in_crisis(query, crisis) :
+    base = search_in_wcdb_element(query, crisis)
+    if base is not False:
+        return base
+    else :
+        #Did not find in wcdb element fields. Try to find in crisis-specific fields
+        find_result = search_result_helper(query, str(crisis.date))
+        if (find_result is not False) :
+            return [crisis.name, crisis.ID, find_result]     
+
+        find_result = search_result_helper(query, str(crisis.time))
+        if (find_result is not False) :
+            return [crisis.name, crisis.ID, find_result]     
+
+    return False
+
+def search_results (request) :
+    results = []
+    query = ""
+    if request.method == 'GET' and ('query' in request.GET) :
+        if len(request.GET['query']) > 0 :
+            #Had a search query
+            query = request.GET['query']
+             
+            all_people = Person.objects.all ()
+            all_orgs = Organization.objects.all ()
+            all_crises = Crisis.objects.all ()
+            #Search people
+            for person in all_people :
+                query_result = []
+                for word in query.split():
+                    result = search_in_people_org(word, person)
+                    if (result is not False) :
+                        query_result.append(result[2])
+                if query_result is not None and len(query_result) > 0:
+                    results.append([person.ID, query_result, person.name])
+            #Search orgs
+            for org in all_orgs :
+                query_result = []
+                for word in query.split():
+                    result = search_in_people_org(word, org)
+                    if (result is not False) :
+                        query_result.append(result[2])
+                if query_result is not None and len(query_result) > 0:
+                    results.append([org.ID, query_result, org.name])
+            #Search crises
+            for crisis in all_crises :
+                query_result = []
+                for word in query.split():
+                    result = search_in_crisis(word, crisis)
+                    if (result is not False) :
+                        query_result.append(result[2])
+                if query_result is not None and len(query_result) > 0:
+                    results.append([crisis.ID, query_result, crisis.name])
+            
+
+    #Sort results on number of hits
+    results.sort(key = lambda s: len(s[1]))
+    results.reverse()
+
+    if query == "":
+        query = "Please enter a query"
+
+
+    pages = get_all_elems ()
+    return render_to_response(
+        'search_results.html',
+        {'query': query, 'results': results, 'pages': pages, 'is_prod':is_prod, 'prod_dir':prod_dir},
+        context_instance=RequestContext(request),
+    )    
 
 def base_view (request, view_id) :
     view_type = view_id[:3]
@@ -168,7 +329,7 @@ def base_view (request, view_id) :
         else :
             return HttpResponseNotFound('<h5>Page not found</h5>')
     except Exception, e :
-        return HttpResponseNotFound('<h5>Page not found</h5>' + '<p>' + e.args[0] + '</p>')
+        return HttpResponseNotFound('<h5>Page not found</h5>' + '<p>' + str(e) + '</p>')
 
 def wcdb_common_view (view_id, page_type) :
     b = WCDBElement.objects.get (pk=view_id)
@@ -205,7 +366,6 @@ def get_media (view_id) :
     obj = LI.objects.all() # Get all objects from the LI table
     indices = get_indices(view_id, obj, media_dict) # Get indices for each of the Citations, External Links, Images, Videos, Maps and Feeds
     
-    
     #Extract URL and content for each citation
     for mtype in media_type:
         for index in indices[mtype]:
@@ -217,19 +377,19 @@ def get_media (view_id) :
                 tmp_list = [str(obj[index].href), str(obj[index].content)]
                 store_dict[mtype].append(tmp_list)
 
-            if mtype is "IMAGES" and (indices[mtype] != []):
+            if mtype is "IMAGES" and (indices[mtype] != []) and obj[index].embed != None :
                 tmp_list = [str(obj[index].embed), str(obj[index].content)]
                 store_dict[mtype].append(tmp_list)
 
-            if mtype is "VIDEOS" and (indices[mtype] != []):
-                tmp_list = [str(obj[index].embed)]
+            if mtype is "VIDEOS" and (indices[mtype] != []) and obj[index].embed != None :
+                tmp_list = [sub('http:', '', sub('watch\?v=', 'embed/',str(obj[index].embed)))]
                 store_dict[mtype].append(tmp_list) 
 
-            if mtype is "MAPS" and (indices[mtype] != []):
+            if mtype is "MAPS" and (indices[mtype] != []) and obj[index].embed != None:
                 tmp_list = [sub('&amp;','&',str(obj[index].embed))]
                 store_dict[mtype].append(tmp_list) 
 
-            if mtype is "FEEDS" and (indices[mtype] != []):
+            if mtype is "FEEDS" and (indices[mtype] != []) and obj[index].embed != None:
                 tmp_list = [str(obj[index].embed), str(obj[index].embed)]
                 store_dict[mtype].append(tmp_list)     
     
@@ -536,3 +696,52 @@ def person_view(view_id):
     final_html = wrap_html (html_title, html_content)
 
     return HttpResponse (final_html)
+
+def mcrises (request) :
+    pages = get_all_elems ()
+
+    return render_to_response(
+        'morecrises.html',
+        {'pages': pages, 'is_prod':is_prod, 'prod_dir':prod_dir},
+        context_instance=RequestContext(request),
+    )
+
+def morganizations (request) :
+    pages = get_all_elems ()
+
+    return render_to_response(
+        'moreorganizations.html',
+        {'pages': pages, 'is_prod':is_prod, 'prod_dir':prod_dir},
+        context_instance=RequestContext(request),
+    )
+
+def mpeople (request) :
+    pages = get_all_elems ()
+
+    return render_to_response(
+        'morepeople.html',
+        {'pages': pages, 'is_prod':is_prod, 'prod_dir':prod_dir},
+        context_instance=RequestContext(request),
+    )
+
+def query_view_wrapper (request, q_id) :
+ 
+    pages = get_all_elems ()
+    (question, query, results, q_id) = query_view (q_id)
+
+    return render_to_response(
+        'query.html',
+        {'pages': pages, 'is_prod':is_prod, 'prod_dir':prod_dir, 'question' : question, 'query':query, 'results':results, 'q_id':q_id+1,},
+        context_instance=RequestContext(request),
+    )
+ 
+def list_queries (request) :
+    pages = get_all_elems ()
+    queries = get_all_queries()
+ 
+    return render_to_response(
+        'queries_page.html',
+        {'pages': pages, 'is_prod':is_prod, 'prod_dir':prod_dir, 'queries':queries},
+        context_instance=RequestContext(request),
+    )
+
