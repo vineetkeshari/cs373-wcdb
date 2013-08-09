@@ -15,7 +15,6 @@ from minixsv import pyxsval
 from django.test.simple import DjangoTestSuiteRunner
 from django.test import Client
 from django.test import TestCase
-from query import get_all_queries, query_view
 
 
 ####
