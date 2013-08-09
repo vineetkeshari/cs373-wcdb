@@ -22,65 +22,65 @@ from query import get_all_queries, query_view
 ####Begin blackbox tests
 ####
 
-class TestViews(TestCase) :
-	@classmethod
-	def setUpClass(cls) :
-		client = Client()
-		with open('WCDB_tmp.xml') as fp:
-			response = client.post('/import/', {'password': 'baddatamining', 'docfile':fp})
+# class TestViews(TestCase) :
+# 	@classmethod
+# 	def setUpClass(cls) :
+# 		client = Client()
+# 		with open('WCDB_tmp.xml') as fp:
+# 			response = client.post('/import/', {'password': 'baddatamining', 'docfile':fp})
 
-	def setUp(self):
-		self.client = Client()
+# 	def setUp(self):
+# 		self.client = Client()
 
-	def test_import (self) :
-		with open('WCDB_tmp.xml') as fp:
-			response = self.client.post('/import/')
-		self.assertEqual(response.status_code, 200)
+# 	def test_import (self) :
+# 		with open('WCDB_tmp.xml') as fp:
+# 			response = self.client.post('/import/')
+# 		self.assertEqual(response.status_code, 200)
 
-	def test_index (self) :
-		response = self.client.get('/')
-		self.assertEqual(response.status_code, 200)
-		self.assertTrue("Ambareesha Nittala" in response.content)
-		self.assertTrue("Brandon Fairchild" in response.content)
-		self.assertTrue("Chris Coney" in response.content)
-		self.assertTrue("Roberto Weller" in response.content)
-		self.assertTrue("Rogelio Sanchez" in response.content)
-		self.assertTrue("Vineet Keshari" in response.content)
+# 	def test_index (self) :
+# 		response = self.client.get('/')
+# 		self.assertEqual(response.status_code, 200)
+# 		self.assertTrue("Ambareesha Nittala" in response.content)
+# 		self.assertTrue("Brandon Fairchild" in response.content)
+# 		self.assertTrue("Chris Coney" in response.content)
+# 		self.assertTrue("Roberto Weller" in response.content)
+# 		self.assertTrue("Rogelio Sanchez" in response.content)
+# 		self.assertTrue("Vineet Keshari" in response.content)
 
-	def test_crisis (self) :
-		response = self.client.get('/crises/CRI_EGYPTR/')
-		self.assertTrue("Summary" in response.content)
-		self.assertTrue("Human Impact" in response.content)
-		self.assertTrue("As many as 846 deaths and over 6000 injuries." in response.content)
-		self.assertTrue("Economic Impact" in response.content)
-		self.assertTrue("ion in lost foreign currency and gold reserv" in response.content)
-		self.assertTrue("Ways to Help:" in response.content)
-		self.assertTrue("Help in Egypt" in response.content)
-		self.assertTrue("Resources Needed" in response.content)
-		self.assertTrue("Economist, social reformers, stable goverm" in response.content)
-		self.assertTrue("Feeds" in response.content)
-		self.assertTrue("External Link" in response.content)
-		self.assertTrue("Wikipedia article" in response.content)
-		self.assertTrue("Citations" in response.content)
-		self.assertTrue("rt.com" in response.content)
+# 	def test_crisis (self) :
+# 		response = self.client.get('/crises/CRI_EGYPTR/')
+# 		self.assertTrue("Summary" in response.content)
+# 		self.assertTrue("Human Impact" in response.content)
+# 		self.assertTrue("As many as 846 deaths and over 6000 injuries." in response.content)
+# 		self.assertTrue("Economic Impact" in response.content)
+# 		self.assertTrue("ion in lost foreign currency and gold reserv" in response.content)
+# 		self.assertTrue("Ways to Help:" in response.content)
+# 		self.assertTrue("Help in Egypt" in response.content)
+# 		self.assertTrue("Resources Needed" in response.content)
+# 		self.assertTrue("Economist, social reformers, stable goverm" in response.content)
+# 		self.assertTrue("Feeds" in response.content)
+# 		self.assertTrue("External Link" in response.content)
+# 		self.assertTrue("Wikipedia article" in response.content)
+# 		self.assertTrue("Citations" in response.content)
+# 		self.assertTrue("rt.com" in response.content)
 
 
-	def test_org (self) :
-		response = self.client.get('/crises/ORG_PMRLFD/')
-		self.assertTrue("Governement Fund" in response.content)
-		self.assertTrue("In pursuance of an appea" in response.content)
-		self.assertTrue("India" in response.content)
-		self.assertTrue("2013 Northern India Floods" in response.content)
-		self.assertTrue("Manmohan Singh" in response.content)
-		self.assertTrue("<img src=http://photogallery.indiatimes.com/news/india/rescue-relief-uttarakhand/photo/20713370/Army-men-unload-relief-material-from-an-IAF-MI-26-helicopter-at-Gauchar-district-Chamoli-in-Uttarakhand-.jpg alt=" in response.content)
+# 	def test_org (self) :
+# 		response = self.client.get('/crises/ORG_PMRLFD/')
+# 		self.assertTrue("Governement Fund" in response.content)
+# 		self.assertTrue("In pursuance of an appea" in response.content)
+# 		self.assertTrue("India" in response.content)
+# 		self.assertTrue("2013 Northern India Floods" in response.content)
+# 		self.assertTrue("Manmohan Singh" in response.content)
+# 		self.assertTrue("<img src=http://photogallery.indiatimes.com/news/india/rescue-relief-uttarakhand/photo/20713370/Army-men-unload-relief-material-from-an-IAF-MI-26-helicopter-at-Gauchar-district-Chamoli-in-Uttarakhand-.jpg alt=" in response.content)
 
-	def test_people  (self) :
-		response = self.client.get('/crises/PER_GEDAPE/')
-		self.assertTrue("Former Director CIA" in response.content)
-		self.assertTrue("None" in response.content)
-		self.assertTrue("Los Angeles, CA" in response.content)
-		self.assertTrue("US Drone Attacks in Pakistan" in response.content)
-		self.assertTrue("Central Intelligence Agency" in response.content)
+# 	def test_people  (self) :
+# 		response = self.client.get('/crises/PER_GEDAPE/')
+# 		self.assertTrue("Former Director CIA" in response.content)
+# 		self.assertTrue("None" in response.content)
+# 		self.assertTrue("Los Angeles, CA" in response.content)
+# 		self.assertTrue("US Drone Attacks in Pakistan" in response.content)
+# 		self.assertTrue("Central Intelligence Agency" in response.content)
 		# self.assertTrue("img src=http://msnbcmedia.msn.com/j/MSNBC/Components/Photo/_new/121109-david-petraeus-wife-1258p.380;380;7;70;0.jpg" in response.content)		
 
 ####
