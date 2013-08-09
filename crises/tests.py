@@ -15,6 +15,7 @@ from minixsv import pyxsval
 from django.test.simple import DjangoTestSuiteRunner
 from django.test import Client
 from django.test import TestCase
+from query import get_all_queries, query_view
 
 
 ####
@@ -23,10 +24,10 @@ from django.test import TestCase
 
 class TestViews(TestCase) :
 	@classmethod
-	# def setUpClass(cls) :
-	# 	client = Client()
-	# 	with open('WCDB_tmp.xml') as fp:
-	# 		response = client.post('/import/', {'password': 'baddatamining', 'docfile':fp})
+	def setUpClass(cls) :
+		client = Client()
+		with open('WCDB_tmp.xml') as fp:
+			response = client.post('/import/', {'password': 'baddatamining', 'docfile':fp})
 
 	def setUp(self):
 		self.client = Client()
@@ -62,6 +63,7 @@ class TestViews(TestCase) :
 		self.assertTrue("Wikipedia article" in response.content)
 		self.assertTrue("Citations" in response.content)
 		self.assertTrue("rt.com" in response.content)
+
 
 	def test_org (self) :
 		response = self.client.get('/crises/ORG_PMRLFD/')
